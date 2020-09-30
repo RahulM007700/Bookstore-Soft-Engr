@@ -1,0 +1,264 @@
+body{
+    background-color:rgba(108, 173, 138, 0.32);;   
+}
+
+.header .logo
+{
+    position: absolute;
+    /*width: 268px;
+    height: 46px;*/
+    left: 30px;
+    top: 20px; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 40px;
+    text-align: center;
+    letter-spacing: 0.08em;
+    color: black;
+}
+
+
+.header .nav-bar .textbooks
+{
+    position: absolute;
+    width: 178.14px;
+    height: 29px;
+    left: 275px;
+    top: 55px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #000000;
+}
+
+.header .nav-bar .adults
+{
+    position: absolute;
+    width: 178.14px;
+    height: 29px;
+    left: 425px;
+    top: 55px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #000000;
+}
+
+.header .nav-bar .teens
+{
+    position: absolute;
+    width: 178.14px;
+    height: 29px;
+    left: 575px;
+    top: 55px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #000000;
+}
+
+.header .nav-bar .kids
+{
+    position: absolute;
+    width: 178.14px;
+    height: 29px;
+    left: 725px;
+    top: 55px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #000000;
+
+}
+
+.header .nav-bar .sci-fi
+{
+    position: absolute;
+    width: 178.14px;
+    height: 29px;
+    left: 875px;
+    top: 55px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center; 
+    color: #000000;
+}
+
+
+.user-icon
+{
+    position:absolute;
+    top:60px;
+    left:1050px;
+}
+
+.cart
+{
+    position:absolute;
+    top:60px;
+    left:1150px;
+}
+
+.circlearrow{
+
+    position:absolute;
+    top:150px; /*relative to white container*/
+    left:100px;
+
+}
+
+.circlearrow2{
+
+    position:absolute;
+    top:150px; /*relative to white container*/
+    left:1150px;
+
+}
+
+
+      
+hr
+{
+    position: absolute;
+    width: 1000px;
+    height:2px;
+    top: 115px;
+   left:120px;
+   margin-left: auto;
+   margin-right: auto ;
+  
+    border: 3px solid;
+    background-color: #0E5A16;
+    border-width:0;
+}
+
+.input{
+    text-align: center;
+    background: white;
+    border-radius: 50px;
+    width: 250px;
+    height: 35px; 
+
+}
+
+.fg--search{
+
+    position: absolute;
+    left: 500px;
+    top: 155px;
+    
+}
+
+.text{
+
+    position: absolute;
+    top: 200px;
+}
+
+
+
+.booklist{
+    background-color: white;
+    position: absolute;
+    width: 1285px;
+    height: 330px;
+    left:-6px;
+    top: 250px; 
+}
+
+
+.top1
+{
+    position:absolute;
+    top:20px; /*relative to white container*/
+    left:200px;
+    height: 200px;
+    width:150px;
+}
+
+.top2
+{
+    position:absolute;
+    top:20px;
+    left:450px;
+    height: 200px;
+    width:150px;
+}
+
+.top3
+{
+    position:absolute;
+    top:20px;
+    left:700px;
+    height: 200px;
+    width:150px;
+}
+
+.top4
+{
+    position:absolute;
+    top:20px;
+    left: 950px;
+    height: 200px;
+    width:150px;
+}
+
+  
+
+.submittext{
+
+    position: absolute;
+    width: 120px;
+    height: 25px;
+    background-color: #810B0B; 
+    border: none;
+    color: white;
+    
+    text-align: center;
+    text-decoration: none;
+    
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+   
+}
+
+#btn1{
+  
+    top: 270px;
+    left: 220px;
+}
+
+#btn2{
+
+    top:270px;
+    left: 470px;
+}
+
+#btn3{
+    top:270px;
+    left: 720px;
+}
+
+#btn4{
+    top:270px;
+    left: 970px;
+}
