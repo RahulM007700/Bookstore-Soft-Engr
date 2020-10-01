@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Checkout</title>
+    <link rel="stylesheet" href="checkout_style.css" />
+  </head>
+  <body>
+    <div style="display: inline-block; width: 100%">
+      <img
+        src="arrow.png"
+        class="arrow"
+        width="30"
+        height="30"
+        style="positon: absolute; left: 100px"
+      />
+      <h1>Checkout <img src="shopping_cart.png" width="30" height="30" /></h1>
+    </div>
+    <div class="g-block-1">
+      <div class="rcorners1">
+        <div class="rightside1">
+          <p id="addressBook"><b style="font-size: 40px">Address Book</b></p>
+          <p id="streetAddress"><b>Street Address</b></p>
+          <input type="text" id="cardNumberBar" name="cardNumberBar" placeholder="271 Riverstone Way"/>
+          </input>
+          <p id="city"><b>City</b></p>
+          <input type="text" id="cityBar" name="cityBar" placeholder="Jasper"/>
+          <p id="state"><b>State</b></p>
+          <input type="text" id="stateBar" name="stateBar" placeholder="GA"/>
+          <p id="zipCode"><b>Zip Code</b></p>
+          <input type="text" id="zipCodeBar" name="zipCodeBar" placeholder="30143"/>
+          <button class="createtext">Manage</button>
+        </div>
+      </div>
+      <div class="rcorners2">
+        <div class="rightside2">
+          <p id="paymentInfo">
+            <b style="font-size: 40px">Payment Information</b>
+          </p>
+          <p id="cardNumber"><b>Card Number</b></p>
+          <input type="text" id="cardNumberBar" name="cardNumberBar" placeholder="1234567890"/>
+          <p id="expiration"><b>Expiration Date</b></p>
+          <input
+            type="expirationDate"
+            id="expirationDateBar"
+            name="expirationDateBar"
+            placeholder="01/20"
+          />
+          <button class="createtext">Manage</button>
+        </div>
+      </div>
+    </div>
+    <div class="g-block-2">
+    <div class="lcorners1">
+      <p id="orderSummary"><b style="font-size: 40px">Order Summary</b></p>
+      <p id="cart"><t>Your Cart(1)</t> <a href="#" style="float: right">Edit</a></p>
+      <img src="eat_a_peach.png" class="arrow" width="166" height="250" style="positon
+      absolute; left:100px;">
+        <t style="float: right">Qty:1 $16.80</t>
+      </img>
+      <hr style="width:100%;text-align:left;margin-left:0">
+        <p class="subtotal"><i>Subtotal</i> <t style="float: right">$16.80</t></p>
+        <p class="tax"><i>Tax</i> <t style="float: right">$1.20</t></p>
+        <p class="delivery"><i>Delivery</i> <t style="float: right">Free</t></p>
+        <p class="bold_text">
+          <b>Order Total</b> <t style="float: right"><b>$18.00</b></t>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

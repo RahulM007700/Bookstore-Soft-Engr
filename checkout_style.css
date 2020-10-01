@@ -2,13 +2,19 @@ body {
   background-color: rgba(197, 183, 61, 0.5);
 }
 
-.arrow {
-  text-align: left;
-}
-
-h2 {
+h1 {
   text-align: center;
   color: white;
+}
+
+.lcorners1 {
+  border-radius: 25px;
+  background: rgba(229, 229, 229, 0.72);
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 50px;
+  width: 400px;
+  height: 550px;
 }
 
 .rcorners1 {
@@ -17,8 +23,8 @@ h2 {
   margin: auto;
   margin-bottom: 20px;
   padding: 50px;
-  width: 800px;
-  height: 175px;
+  width: 400px;
+  height: 350px;
 }
 
 .rcorners2 {
@@ -26,47 +32,46 @@ h2 {
   background: rgba(229, 229, 229, 0.72);
   margin: auto;
   padding: 50px;
-  width: 800px;
-  height: 100px;
+  width: 400px;
+  height: 275px;
 }
 
-.leftside,
+.leftside1,
 .leftside2 {
   float: left;
   width: 400px;
 }
 
-#login,
-#newusers {
-  text-align: center;
-}
-
-.rightside,
+.rightside1,
 .rightside2 {
   float: right;
   width: 400px;
 }
 
-.createaccount {
-  text-align: center;
+.g-block-1 {
+  width: 50%;
+  position: absolute;
+  left: 150px;
 }
 
-.createtext {
-  background-color: #810b0b;
-  border: none;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-
-  font-size: 16px;
-  /*margin: 4px 2px;*/
-  cursor: pointer;
-  border-radius: 12px;
+.g-block-2 {
+  width: 50%;
+  position: absolute;
+  right: 150px;
 }
 
-#usernamebar,
-#passwordbar {
+.tab {
+  display: inline-block;
+  margin-left: 300px;
+}
+
+#streetAddressBar,
+#cityBar,
+#stateBar,
+#zipCodeBar,
+#cardNumberBar,
+#CVCBar,
+#expirationDateBar {
   background: white;
   /*margin: auto; */
   border-radius: 50px;

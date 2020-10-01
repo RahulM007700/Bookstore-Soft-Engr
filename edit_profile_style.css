@@ -1,0 +1,84 @@
+body {
+  background-color: rgba(197, 183, 61, 0.5);
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+.lcorners1 {
+  border-radius: 25px;
+  background: rgba(229, 229, 229, 0.72);
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 50px;
+  width: 400px;
+  height: 350px;
+}
+
+.rcorners1 {
+  border-radius: 25px;
+  background: rgba(229, 229, 229, 0.72);
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 50px;
+  width: 400px;
+  height: 350px;
+}
+
+.rcorners2 {
+  border-radius: 25px;
+  background: rgba(229, 229, 229, 0.72);
+  margin: auto;
+  padding: 50px;
+  width: 400px;
+  height: 275px;
+}
+
+.leftside1,
+.leftside2 {
+  float: left;
+  width: 400px;
+}
+
+.rightside1,
+.rightside2 {
+  float: right;
+  width: 400px;
+}
+
+.g-block-1 {
+  width: 50%;
+  position: absolute;
+  left: 150px;
+}
+
+.g-block-2 {
+  width: 50%;
+  position: absolute;
+  right: 150px;
+}
+
+.tab {
+  display: inline-block;
+  margin-left: 300px;
+}
+
+#firstNameBar,
+#lastNameBar,
+#emailAddressBar,
+#passwordBar,
+#streetAddressBar,
+#cityBar,
+#stateBar,
+#zipCodeBar,
+#cardNumberBar,
+#CVCBar,
+#expirationDateBar {
+  background: white;
+  /*margin: auto; */
+  border-radius: 50px;
+  width: 200px;
+  height: 20px;
+}
