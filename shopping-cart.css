@@ -174,7 +174,7 @@ a:hover
     font-size:20px;
 }
 
-.update-btn:hover, .remove-btn:hover, .checkout-btn:hover
+.update-btn:hover, .remove-btn:hover, .checkout-btn:hover .process-promo:hover
 {
  background-color:rgb(129,11,11,0.5);
 }
@@ -197,4 +197,27 @@ a:hover
     overflow: hidden;
     font-family: Arial, Helvetica, sans-serif;
     color:black;
+ }
+ 
+ .promo-code
+ {
+  position:absolute;
+  width:15%;
+  height:5%;
+  border-radius:15px;
+  top:490px;
+  left:60px;
+ }
+ 
+ .process-promo
+ {
+  position:absolute;
+  left:325px;
+  top:495px;
+  width:10%;
+  text-align: center;
+  padding-left: 0px;
+  background: #810B0B;
+  color:white;
+  border-radius: 15px;
  }
