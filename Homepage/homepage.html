@@ -6,7 +6,7 @@
     <link rel = "stylesheet" href="homepage.css">
     <script src="https://kit.fontawesome.com/a746b8874d.js" crossorigin="anonymous"></script>
 </head>
-<body style="background-color:rgba(108,173,138,.32); width:100%;">
+<body style="background-color:rgba(108,173,138,.32); display:flex;">
     
     <!--navigation starts here-->
         <nav>
@@ -105,7 +105,7 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close-button">&times;</span>
-        <form action="action_page.php">
+        <form action="insert.php" method="POST">
           <div class="container">
             <h1 style="text-align:center;">Register</h1>
             <p style="text-align:center;">Please fill in the mandatory fields in this form to create an account.</p>        
@@ -133,8 +133,8 @@
             <label for="zip"><b>Zip Code</b></label>
             <input type="text" placeholder="Enter Zip Code" name="zip" id="zip">
             
-            <label for="state"><b>State</b></label>
-            <select name="state" id="state">
+            <label for="state"><b>State</b>
+            <select name="state" id="state" style="width: 100%;">
                 <option value="" selected="selected"></option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -188,7 +188,31 @@
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
               </select>
-            <button type="submit" class="registerbtn">Register</button>
+            
+            
+            </label>
+            <br><br>
+            <label for="cardtype"><b>Card Type</b></label>
+            <select name="cardtype" id="cardtype" style="width: 100%;">
+              <option value="" selected="selected"></option>
+                <option value="visa">Visa</option>
+                <option value="discover">Discover</option>
+                <option value="americanexpress">American Express</option>
+                <option value="mastercard">Mastercard</option>
+            </select>
+            
+            
+            <br><br>
+            <label for="cardnum"><b>Card Number</b></label>
+            <input type="text" placeholder="Enter Card Number" name="cardnum" id="cardnum">
+            
+            <label for="cvv"><b>CVV</b></label>
+            <input type="text" placeholder="Enter CVV" name="cvv" id="cvv">
+            
+            <label for="expdate"><b>Expiration Date</b></label>
+            <input type="text" placeholder="Enter Exp Date (mm/yy)" name="expdate" id="expdate">
+            
+            <button type="submit" class="registerbtn" id="registerbtn">Register</button>
             <h1>end</h1>
           </div>
         </form>
@@ -203,6 +227,8 @@ var btn = document.getElementById("login");
 
 var span = document.getElementsByClassName("close-button")[0];
 
+var registerbtn = document.getElementById("registerbtn");
+
 btn.onclick = function() {
   modal.style.display = "block";
 }
@@ -216,6 +242,26 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+/*variables for optional elements in form*/
+var typeInput = document.getElementById("cardtype");
+var cardNumInput = document.getElementById("cardnum");
+var cvvInput = document.getElementById("cvv");
+var expInput = document.getElementById("expdate");
+registerbtn.onclick = function()
+{
+    /* one element is required, then the rest must be required*/
+    if (typeInput.value.length == 0 || cardNumInput.value.length == 0 || cvvInput.value.length == 0 || expInput.value.length == 0) {
+      /*nothing is required*/
+      
+    } else {
+      /*the other fields must have values*/
+      alert("you must fill out all corresponding fields");
+    }
+}
+
+
+
 </script>
 </body>
 </html>
