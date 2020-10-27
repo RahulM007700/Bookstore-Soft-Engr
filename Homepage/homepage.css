@@ -1,65 +1,65 @@
-
-.dropdown-content {
-    overflow: hidden;
-  display: none;
-  position: absolute;
-  background-color: none;
-  min-width:50x;
-  
-  z-index: 1;
-  float: left;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px;
+* {
+  font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
+  color:black;
+}
+
+/* navigation starts here*/
+.logo {
+  position:relative;
+  float:left;
+  font-size:64px;
+}
+
+.nav-bar {
+  font-size: 24px;
+  margin: auto;
+  width:60%;
+  height:50px;
+  position:relative;
+  float:right;
+  top:60%;
+  letter-spacing: 0.08em;
+}
+.nav-bar ul {
+  color:black;
+}
+
+nav ul li ul {
+  background-color:#f3f3f3;
+  overflow: visible;
+  display: none;
+  position:absolute;
+  font-size: 16px;
+  background-color: white;
+  width: 200px;
+  height: 140px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+nav ul li:hover ul {
   display: block;
-  text-align: left;
-  font-size:16px;
+  overflow:visible;
 }
 
-.user:hover .dropdown-content {
-    display:inline-block;
-    float:left;
-}
-.header .logo
-{
-    position: absolute;
-    width: 500px;
-    height: 46px;
-    left: 63px;
-    top: 52px; 
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 44px;
-    line-height: 65px;
-    text-align: center;
-    letter-spacing: 0.08em;
-    color: black;
+nav ul li ul a:hover{
+  display: block;
+  background-color: #D1D1D1;
+  text-decoration: none;
 }
 
-a
-{
-    color:black;
-    text-decoration: none;
+nav {
+  height:20vh;
+  overflow: visible;
+  margin:  auto;
 }
+
+/* navigation ends here*/
+
 
 a:hover
 {
-    text-decoration:underline double #0E5A16;
-}
-
-.header .nav-bar
-{    
-    position:absolute;
-    width: 1014px;
-    height: 40px;
-    left: 600px;
-    top: 58px;
-    font-size:24px;
-    color:black;
+    text-decoration:underline #0E5A16;
 }
 
 hr
@@ -74,29 +74,79 @@ hr
     border-width:0;
 }
 
+
+.search-container {
+  position: relative;
+  top: 85px;
+  width:100%;
+  height:400px;
+}
+
+.fa-filter {
+  position:relative;
+}
+
+
 .search-text
 {
     position: absolute;
-    width: 1000px;
-    height: 154px;
-    left: 400px;
-    top: 230px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: normal;
+    text-align: center;
+    width:100%;
+    top:10%;
     font-size: 26px;
     line-height: 65px;
-    text-align: center; 
     color: #000000;
 }
 
+.search-input {
+  /*border: 1px solid black;*/
+  position:absolute;
+  top: 10px;
+  left: 35%;
+  width:30%;
+  height:30px;
+  text-align: center;
+  border-radius:10px;
+}
 .search-bar
 {
-    width:450px;
-    height:75px;
+  position: relative;
+  top:50%;
+    width:100%;
+    height:150px;
     font-size:24px;
     text-align: center;
 }
+.fa-filter {
+  position:absolute;
+  left:66%;
+  top:13px;
+}
+.fa-caret-down {
+  position:relative;
+  left:4%;
+  top:13px;
+}
+
+.fa-caret-down ul {
+  overflow:visible;
+  width:560px;
+  display:none;
+  position:absolute;
+  left:65%;
+  top:25%;
+  background-color:transparent;
+  font-size:15px;
+}
+.fa-caret-down:hover ul {
+  overflow:visible;
+  display: inline;
+}
+
+/*
+ * EVERYTHING HAS BEEN OVERLOOKED UP UNTIL HERE!!
+*/
+
 
 .top-sellers
 {
@@ -104,7 +154,6 @@ hr
     font-family: Arial, Helvetica, sans-serif;
     top:600px;
     left:100px;
-    /*border:1px solid black;*/
 }
 
 .top-sellers .top-sellers-btn
@@ -126,7 +175,6 @@ hr
     font-family: Arial, Helvetica, sans-serif;
     top:1120px;
     left:100px;
-    /*border:1px solid black;*/
 }
 
 .top-sellers-imgs *:hover
@@ -233,4 +281,89 @@ hr
     background: rgba(197, 183, 61, 0.65);
     border-top: 6px solid #810B0B;
     box-sizing: border-box;
+}
+
+.modal
+{
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content
+{
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  border-radius:15px;
+}
+
+.close-button
+{
+  color: #810B0B;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus
+{
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.container
+{
+  padding: 16px;
+  text-align: center;
+  width:80%;
+  margin: auto;
+  overflow: scroll;
+}
+
+input[type=text], input[type=password]
+{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus
+{
+  background-color: #ddd;
+  outline: none;
+}
+
+.registerbtn
+{
+  font-size: 16px;
+  border-radius:15px;
+  background-color: #810B0B;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover
+{
+  opacity:1;
 }
