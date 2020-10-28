@@ -25,10 +25,14 @@
   color:black;
 }
 
+nav ul li
+{
+    display: inline;
+    padding: 3%;
+}
 nav ul li ul {
   background-color:#f3f3f3;
-  overflow: visible;
-  display: none;
+  display: block;
   position:absolute;
   font-size: 16px;
   background-color: white;
@@ -49,6 +53,7 @@ nav ul li ul a:hover{
 }
 
 nav {
+  border: 1px solid black;
   height:20vh;
   overflow: visible;
   margin:  auto;
