@@ -1,267 +1,257 @@
 <!DOCTYPE html>
-<html>
+<html style="width:100%;">
 <head>
     <title>Books-r-us</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel = "stylesheet" href="homepage.css">
     <script src="https://kit.fontawesome.com/a746b8874d.js" crossorigin="anonymous"></script>
 </head>
-<body style="background-color:rgba(108,173,138,.32); width:100%;">
+  <body style="background-color:rgba(108,173,138,.32);">
+      <!--navigation starts here-->
+    <nav>
+        <div class = "logo">
+            <a href="file:///Users/olusadecalhoun/Workspace/OnlineBookstore_Fall2020/homepage.html" style="color:black;text-decoration:none"><h1>Books-r-us</h1></a>
+        </div>
+        <div class="nav-bar">
+            <ul>
+                <li><a href="#" class="textbooks" style="color:black;">Textbooks</a></li>
+                <li><a href="#" class="adults" style="color:black;">Adults</a></li>
+                <li><a href="#" class="teens" style="color:black;">Teens</a></li>
+                <li><a href="#" class="kids" style="color:black;">Kids</a></li>
+                <li><a href="#" class="sci-fi" style="color:black;">SciFi</a></li>
+                <li><a href="#"><i class="fas fa-user"></i></a>
+                    <ul class="dropdown-list">
+                        <li><a href="#" id="login" style="color:black;">Login/Sign Up</a></li>
+                        <li><a href="#" style="color:black;">Edit Profile</a></li>
+                        <li><a href="#" style="color:black;">Order History</a></li>
+                    </ul>
+                </li>
+                <li><a href="file:///Users/olusadecalhoun/Workspace/OnlineBookstore_Fall2020/shopping-cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--navigation ends here-->
+    <style>
+      link
+      {
+        float:left;
+        display:block;
+        text-align:center;
+        padding:14px 35px;
+        text-decoration:none;
+        }
+      ul
+      {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+        color:black;
+        }
+    </style>
+    <!--SEARCH BAR-->
+    <div class="search-container">
+        <div class="search-text">
+            <h1>Support local bookstores.<br>Shop with us.</h1>
+        </div>
+        <div class = "search-bar">
+            <input type="search" class = "search-input" placeholder="Search your favorite book here!">
+                <i class="fas fa-filter"></i>
+                <a href="#"><i class="fas fa-caret-down">
+                    <ul>
+                        <!--title-->
+                        <li> <input type="checkbox" id="title" name="title" value="titleName">
+                        <label for="title">Title</label></li>
+                        <!--author-->
+                        <li><input type="checkbox" id="author" name="author" value="authorName">
+                        <label for="author">Author</label></li>
+                        <!--ISBN-->
+                        <li><input type="checkbox" id="isbn" name="isbn" value="isbn">
+                        <label for="isbn">ISBN</label></li>
+                        <!--category-->
+                        <li><input type="checkbox" id="category" name="category" value="categoryType">
+                        <label for="category">Category</label></li>
+                    </ul>
+                    </i></a>
+        </div>
+    </div>
+    <!--end of SEARCH BAR-->     
+    <!--Book content-->
+    <div class="top-sellers">
+        <h1>Top Sellers</h1>
+        <button class="top-sellers-btn">view list</button>
+        <div class="top-sellers-imgs">
+            <a href="eat-a-peach.html"><img src="https://images4.penguinrandomhouse.com/cover/9781524759216?height=284&alt=cover_coming_soon.jpg" alt="top1" class="top1"></a>
+            <a href="#"><img src="https://images1.penguinrandomhouse.com/cover/9780593238899?height=284&alt=cover_coming_soon.jpg" alt="top2" class="top2"></a>
+            <a href="#"><img src="https://images1.penguinrandomhouse.com/cover/9780756412531?height=284&alt=cover_coming_soon.jpg" alt="top3" class="top3"></a>
+            <a href="#"><img src="https://images4.penguinrandomhouse.com/cover/9780525518778?height=284&alt=cover_coming_soon.jpg" alt="top4" class="top4"></a>
+            <a href="#"><img src="https://images2.penguinrandomhouse.com/cover/9781984830210?height=284&alt=cover_coming_soon.jpg" alt="top5" class="top5"></a>
+            <hr>
+        </div>
+    </div>
     
-    <!--navigation starts here-->
-        <nav>
-            <div class = "logo">
-                <a href="file:///Users/olusadecalhoun/Workspace/OnlineBookstore_Fall2020/homepage.html" style="color:black;text-decoration:none"><h1>Books-r-us</h1></a>
-            </div>
-            <div class="nav-bar">
-                <ul>
-                    <li><a href="#" class="textbooks" style="color:black;">Textbooks</a></li>
-                    <li><a href="#" class="adults" style="color:black;">Adults</a></li>
-                    <li><a href="#" class="teens" style="color:black;">Teens</a></li>
-                    <li><a href="#" class="kids" style="color:black;">Kids</a></li>
-                    <li><a href="#" class="sci-fi" style="color:black;">SciFi</a></li>
-                    <li><a href="#"><i class="fas fa-user"></i></a>
-                        <ul class="dropdown-list">
-                            <li><a href="#" id="login" style="color:black;">Login/Sign Up</a></li>
-                            <li><a href="#" style="color:black;">Edit Profile</a></li>
-                            <li><a href="#" style="color:black;">Order History</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="file:///Users/olusadecalhoun/Workspace/OnlineBookstore_Fall2020/shopping-cart.html"><i class="fas fa-shopping-cart"></i></a></li>
-                </ul>
-            </div>
-        </nav>
-        <!--navigation ends here-->
-        
-        <style>
-            li
-        {float:left; display:block;text-align:center;padding:14px 35px;text-decoration:none;}
-        ul {list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-family: Arial, Helvetica, sans-serif;
-    color:black;}
-        </style>
-        <!--SEARCH BAR-->
-        <div class="search-container">
-            <div class="search-text">
-                <h1>Support local bookstores.<br>Shop with us.</h1>
-            </div>
-            <div class = "search-bar">
-                <input type="search" class = "search-input" placeholder="Search your favorite book here!">
-                    <i class="fas fa-filter"></i>
-                    <a href="#"><i class="fas fa-caret-down">
-                        <ul>
-                            <!--title-->
-                            <li> <input type="checkbox" id="title" name="title" value="titleName">
-                            <label for="title">Title</label></li>
-                            <!--author-->
-                            <li><input type="checkbox" id="author" name="author" value="authorName">
-                            <label for="author">Author</label></li>
-                            <!--ISBN-->
-                            <li><input type="checkbox" id="isbn" name="isbn" value="isbn">
-                            <label for="isbn">ISBN</label></li>
-                            <!--category-->
-                            <li><input type="checkbox" id="category" name="category" value="categoryType">
-                            <label for="category">Category</label></li>
-                        </ul>
-                        </i></a>
-            </div>
-        </div>
-        <!--end of SEARCH BAR-->
     
-        
-        
-        <div class="top-sellers">
-            <h1>Top Sellers</h1>
-            <button class="top-sellers-btn">view list</button>
-            <div class="top-sellers-imgs">
-                <a href="eat-a-peach.html"><img src="https://images4.penguinrandomhouse.com/cover/9781524759216?height=284&alt=cover_coming_soon.jpg" alt="top1" class="top1"></a>
-                <a href="#"><img src="https://images1.penguinrandomhouse.com/cover/9780593238899?height=284&alt=cover_coming_soon.jpg" alt="top2" class="top2"></a>
-                <a href="#"><img src="https://images1.penguinrandomhouse.com/cover/9780756412531?height=284&alt=cover_coming_soon.jpg" alt="top3" class="top3"></a>
-                <a href="#"><img src="https://images4.penguinrandomhouse.com/cover/9780525518778?height=284&alt=cover_coming_soon.jpg" alt="top4" class="top4"></a>
-                <a href="#"><img src="https://images2.penguinrandomhouse.com/cover/9781984830210?height=284&alt=cover_coming_soon.jpg" alt="top5" class="top5"></a>
-                <hr>
-            </div>
+    <div class="featured-books">
+        <h1>Featured books</h1>
+        <button class="featured-books-btn">view list</button>
+        <div class="featured-books-imgs">
+            <a href="#"><img src="https://images2.penguinrandomhouse.com/cover/9781681375540?height=284&alt=cover_coming_soon.jpg" alt="ft1" class="ft1"></a>
+            <a href="#"><img src="https://images4.penguinrandomhouse.com/cover/9781568366012?height=284&alt=cover_coming_soon.jpg" alt="ft2" class="ft2"></a>
+            <a href="#"><img src="https://images3.penguinrandomhouse.com/cover/9780593158289?height=284&alt=cover_coming_soon.jpg" alt="ft3" class="ft3"></a>
+            <a href="#"><img src="https://images3.penguinrandomhouse.com/cover/9781635421194?height=284&alt=cover_coming_soon.jpg" alt="ft4" class="ft4"></a>
+            <a href="#"><img src="https://images4.penguinrandomhouse.com/cover/9780449819203?height=284&alt=cover_coming_soon.jpg" alt="ft5" class="ft5"></a>
         </div>
-        
-        
-        <div class="featured-books">
-            <h1>Featured books</h1>
-            <button class="featured-books-btn">view list</button>
-            <div class="featured-books-imgs">
-                <a href="#"><img src="https://images2.penguinrandomhouse.com/cover/9781681375540?height=284&alt=cover_coming_soon.jpg" alt="ft1" class="ft1"></a>
-                <a href="#"><img src="https://images4.penguinrandomhouse.com/cover/9781568366012?height=284&alt=cover_coming_soon.jpg" alt="ft2" class="ft2"></a>
-                <a href="#"><img src="https://images3.penguinrandomhouse.com/cover/9780593158289?height=284&alt=cover_coming_soon.jpg" alt="ft3" class="ft3"></a>
-                <a href="#"><img src="https://images3.penguinrandomhouse.com/cover/9781635421194?height=284&alt=cover_coming_soon.jpg" alt="ft4" class="ft4"></a>
-                <a href="#"><img src="https://images4.penguinrandomhouse.com/cover/9780449819203?height=284&alt=cover_coming_soon.jpg" alt="ft5" class="ft5"></a>
-            </div>
-        </div>
-        <div class = "books-bar"></div>
-        
-        <div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close-button">&times;</span>
-        <form action="insert.php" method="POST">
-          <div class="container">
-            <h1 style="text-align:center;">Register</h1>
-            <p style="text-align:center;">Please fill in the mandatory fields in this form to create an account.</p>        
-            <label for="fname"><b>First Name</b></label>
-            <input type="text" placeholder="Enter First Name" name="fname" id="fname" required>
-        
-            <label for="lname"><b>Last Name</b></label>
-            <input type="text" placeholder="Enter Last Name" name="lname" id="lname" required>
+    </div>
+    <div class = "books-bar"></div>
+    <!--end of book content-->
+    <!-- Modal content -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+            <form action="insert.php" method="POST">
+              <div class="container">
+                <h1 style="text-align:center;">Register</h1>
+                <p style="text-align:center;">Please fill in the mandatory fields in this form to create an account.</p>        
+                <label for="fname"><b>First Name</b></label>
+                <input type="text" placeholder="Enter First Name" name="fname" id="fname" required>
             
-            <label for="email"><b>Email Address</b></label>
-            <input type="text" placeholder="Enter Email Address" name="email" id="email" required>
-        
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+                <label for="lname"><b>Last Name</b></label>
+                <input type="text" placeholder="Enter Last Name" name="lname" id="lname" required>
+                
+                <label for="email"><b>Email Address</b></label>
+                <input type="text" placeholder="Enter Email Address" name="email" id="email" required>
             
-            <label for="phone"><b>Phone Number</b></label>
-            <input type="text" placeholder="Enter Phone Number" name="phone" id="phone" required>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+                
+                <label for="phone"><b>Phone Number</b></label>
+                <input type="text" placeholder="Enter Phone Number" name="phone" id="phone" required>
+                
+                <label for="street"><b>Street Address</b></label>
+                <input type="text" placeholder="Enter Street Address" name="street" id="street">
+                
+                <label for="city"><b>City</b></label>
+                <input type="text" placeholder="Enter City" name="city" id="city">
+                
+                <label for="zip"><b>Zip Code</b></label>
+                <input type="text" placeholder="Enter Zip Code" name="zip" id="zip">
+                
+                <label for="state"><b>State</b>
+                <select name="state" id="state" style="width: 100%;">
+                    <option value="" selected="selected"></option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                  </select>
+                
+                
+                </label>
+                <br><br>
+                <label for="cardtype"><b>Card Type</b></label>
+                <select name="cardtype" id="cardtype" style="width: 100%;">
+                  <option value="" selected="selected"></option>
+                    <option value="visa">Visa</option>
+                    <option value="discover">Discover</option>
+                    <option value="americanexpress">American Express</option>
+                    <option value="mastercard">Mastercard</option>
+                </select>
+                <br><br>
+                <label for="cardnum"><b>Card Number</b></label>
+                <input type="text" placeholder="Enter Card Number" name="cardnum" id="cardnum">
+                
+                <label for="cvv"><b>CVV</b></label>
+                <input type="text" placeholder="Enter CVV" name="cvv" id="cvv">
+                
+                <label for="expdate"><b>Expiration Date</b></label>
+                <input type="text" placeholder="Enter Exp Date (mm/yy)" name="expdate" id="expdate">
+                
+                <button type="submit" class="registerbtn" id="registerbtn">Register</button>
+                <h1>end</h1>
+              </div>
+            </form>
+      </div>
+    </div>
+    <script>
+      var modal = document.getElementById("myModal");
+      var btn = document.getElementById("login");
+      var span = document.getElementsByClassName("close-button")[0];
+      var registerbtn = document.getElementById("registerbtn");
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      /*variables for optional elements in form*/
+      var typeInput = document.getElementById("cardtype");
+      var cardNumInput = document.getElementById("cardnum");
+      var cvvInput = document.getElementById("cvv");
+      var expInput = document.getElementById("expdate");
+      registerbtn.onclick = function()
+      {
+          /* one element is required, then the rest must be required*/
+          if (typeInput.value.length == 0 || cardNumInput.value.length == 0 || cvvInput.value.length == 0 || expInput.value.length == 0) {
+            /*nothing is required*/
             
-            <label for="street"><b>Street Address</b></label>
-            <input type="text" placeholder="Enter Street Address" name="street" id="street">
-            
-            <label for="city"><b>City</b></label>
-            <input type="text" placeholder="Enter City" name="city" id="city">
-            
-            <label for="zip"><b>Zip Code</b></label>
-            <input type="text" placeholder="Enter Zip Code" name="zip" id="zip">
-            
-            <label for="state"><b>State</b>
-            <select name="state" id="state" style="width: 100%;">
-                <option value="" selected="selected"></option>
-                <option value="AL">Alabama</option>
-                <option value="AK">Alaska</option>
-                <option value="AZ">Arizona</option>
-                <option value="AR">Arkansas</option>
-                <option value="CA">California</option>
-                <option value="CO">Colorado</option>
-                <option value="CT">Connecticut</option>
-                <option value="DE">Delaware</option>
-                <option value="DC">District Of Columbia</option>
-                <option value="FL">Florida</option>
-                <option value="GA">Georgia</option>
-                <option value="HI">Hawaii</option>
-                <option value="ID">Idaho</option>
-                <option value="IL">Illinois</option>
-                <option value="IN">Indiana</option>
-                <option value="IA">Iowa</option>
-                <option value="KS">Kansas</option>
-                <option value="KY">Kentucky</option>
-                <option value="LA">Louisiana</option>
-                <option value="ME">Maine</option>
-                <option value="MD">Maryland</option>
-                <option value="MA">Massachusetts</option>
-                <option value="MI">Michigan</option>
-                <option value="MN">Minnesota</option>
-                <option value="MS">Mississippi</option>
-                <option value="MO">Missouri</option>
-                <option value="MT">Montana</option>
-                <option value="NE">Nebraska</option>
-                <option value="NV">Nevada</option>
-                <option value="NH">New Hampshire</option>
-                <option value="NJ">New Jersey</option>
-                <option value="NM">New Mexico</option>
-                <option value="NY">New York</option>
-                <option value="NC">North Carolina</option>
-                <option value="ND">North Dakota</option>
-                <option value="OH">Ohio</option>
-                <option value="OK">Oklahoma</option>
-                <option value="OR">Oregon</option>
-                <option value="PA">Pennsylvania</option>
-                <option value="RI">Rhode Island</option>
-                <option value="SC">South Carolina</option>
-                <option value="SD">South Dakota</option>
-                <option value="TN">Tennessee</option>
-                <option value="TX">Texas</option>
-                <option value="UT">Utah</option>
-                <option value="VT">Vermont</option>
-                <option value="VA">Virginia</option>
-                <option value="WA">Washington</option>
-                <option value="WV">West Virginia</option>
-                <option value="WI">Wisconsin</option>
-                <option value="WY">Wyoming</option>
-              </select>
-            
-            
-            </label>
-            <br><br>
-            <label for="cardtype"><b>Card Type</b></label>
-            <select name="cardtype" id="cardtype" style="width: 100%;">
-              <option value="" selected="selected"></option>
-                <option value="visa">Visa</option>
-                <option value="discover">Discover</option>
-                <option value="americanexpress">American Express</option>
-                <option value="mastercard">Mastercard</option>
-            </select>
-            
-            
-            <br><br>
-            <label for="cardnum"><b>Card Number</b></label>
-            <input type="text" placeholder="Enter Card Number" name="cardnum" id="cardnum">
-            
-            <label for="cvv"><b>CVV</b></label>
-            <input type="text" placeholder="Enter CVV" name="cvv" id="cvv">
-            
-            <label for="expdate"><b>Expiration Date</b></label>
-            <input type="text" placeholder="Enter Exp Date (mm/yy)" name="expdate" id="expdate">
-            
-            <button type="submit" class="registerbtn" id="registerbtn">Register</button>
-            <h1>end</h1>
-          </div>
-        </form>
-  </div>
-
-</div>
-
-<script>
-var modal = document.getElementById("myModal");
-
-var btn = document.getElementById("login");
-
-var span = document.getElementsByClassName("close-button")[0];
-
-var registerbtn = document.getElementById("registerbtn");
-
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-/*variables for optional elements in form*/
-var typeInput = document.getElementById("cardtype");
-var cardNumInput = document.getElementById("cardnum");
-var cvvInput = document.getElementById("cvv");
-var expInput = document.getElementById("expdate");
-registerbtn.onclick = function()
-{
-    /* one element is required, then the rest must be required*/
-    if (typeInput.value.length == 0 || cardNumInput.value.length == 0 || cvvInput.value.length == 0 || expInput.value.length == 0) {
-      /*nothing is required*/
-      
-    } else {
-      /*the other fields must have values*/
-      alert("you must fill out all corresponding fields");
-    }
-}
-
-
-
-</script>
-</body>
+          } else {
+            /*the other fields must have values*/
+            alert("you must fill out all corresponding fields");
+          }
+      }
+    </script>
+  </body>
 </html>
