@@ -227,20 +227,24 @@
       var registerbtn = document.getElementById("registerbtn");
       btn.onclick = function() {
         modal.style.display = "block";
-      }
+      };
+      
       span.onclick = function() {
         modal.style.display = "none";
-      }
+      };
+      
       window.onclick = function(event) {
         if (event.target == modal) {
           modal.style.display = "none";
         }
-      }
+      };
+      
       /*variables for optional elements in form*/
       var typeInput = document.getElementById("cardtype");
       var cardNumInput = document.getElementById("cardnum");
       var cvvInput = document.getElementById("cvv");
       var expInput = document.getElementById("expdate");
+      
       registerbtn.onclick = function()
       {
           /* one element is required, then the rest must be required*/
@@ -251,7 +255,7 @@
             /*the other fields must have values*/
             alert("you must fill out all corresponding fields");
           }
-      }
+      };
     </script>
   </body>
 </html>
