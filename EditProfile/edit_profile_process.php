@@ -1,12 +1,14 @@
 <?php
  $firstName = $_POST['firstNameBar'];
  $lastName = $_POST['lastNameBar'];
+ $phonenumber = $_POST['phoneNumberBar'];
  $emailaddress = $_POST['emailAddressBar'];
  $password = $_POST['passwordBar'];
  $streetaddress = $_POST['streetAddressBar'];
  $city = $_POST['cityBar'];
  $state = $_POST['stateBar'];
  $zipcode = $_POST['zipCodeBar'];
+ $cardtype = $_POST['cardTypeBar'];
  $cardnumber = $_POST['cardNumberBar'];
  $cvc = $_POST['CVCBar'];
  $expirationdate = $_POST['expirationDateBar'];

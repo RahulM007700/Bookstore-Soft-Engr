@@ -67,12 +67,14 @@ h1 {
 
 #firstNameBar,
 #lastNameBar,
+#phoneNumberBar,
 #emailAddressBar,
 #passwordBar,
 #streetAddressBar,
 #cityBar,
 #stateBar,
 #zipCodeBar,
+#cardTypeBar,
 #cardNumberBar,
 #CVCBar,
 #expirationDateBar {
