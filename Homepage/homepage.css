@@ -15,7 +15,9 @@
 .logo {
   position:relative;
   float:left;
-  font-size:2rem;
+  width:35%;
+  flex-wrap: wrap;
+  font-size:1.5rem;
     border: 1px solid yellow;
 height: 155px; 
 }
@@ -29,6 +31,7 @@ height: 155px;
   float:right;
   top:50%;
   letter-spacing: 0.05rem;
+  flex-wrap: wrap;
 }
 
 nav ul li
@@ -159,6 +162,9 @@ hr
 {
   border: 10px solid yellow;
     position:relative;
+    width:85%;
+    margin-left:7.5%;
+    margin-right:7.5%;
     /*top:600px;
     left:100px;*/
 }
@@ -177,12 +183,11 @@ hr
 {
   position:relative;
   display: flex;
-  padding-left:5%;
-  padding-right:5%;
+  flex-wrap: wrap;
 }
 .top-sellers ul li
 {
-  padding-right: 6%;
+  padding:1%;
 }
 
 
@@ -190,6 +195,9 @@ hr
 {
     position:relative;
     border: 10px solid white;
+    width:85%;
+    margin-left:7.5%;
+    margin-right:7.5%;
 }
 
 .featured-books ul
@@ -197,13 +205,12 @@ hr
   border: 1px solid black;
   position: relative;
   display: flex;
-  padding-left: 5%;
-  padding-right: 5%;
+  flex-wrap: wrap;
 }
 
 .featured-books ul li
 {
-  padding-right:3%;
+  padding: 0.75%;
 }
 
 .featured-books-btn
@@ -225,6 +232,7 @@ hr
     background: rgba(197, 183, 61, 0.65);
     border-top: 6px solid #810B0B;
     box-sizing: border-box;
+    width:100%;
 }
 
 .modal
