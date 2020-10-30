@@ -34,7 +34,7 @@ else {
      if($row['username'] == $username && $row['password'] == $password){ //correct
          //the email exists and user can login
          echo true;
-     }else if($row['username'] == $username || $row['password'] != $password){ //wrong crdentials
+     }else if($row['username'] != $username || $row['password'] != $password){ //wrong crdentials
          echo false;
      } 
 

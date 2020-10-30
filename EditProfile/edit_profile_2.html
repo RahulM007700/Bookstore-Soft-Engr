@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Settings Page</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <div class="container">
+        <div class="leftbox">
+            <nav>
+                <a onclick="tabs(0)"
+                class="tab active">
+                    <i src="../account_image.png"></i>
+                </a>
+                <a onclick="tabs(1)"
+                class="tab">
+                    <i class="fa fa-credit-card"></i>
+                </a>
+                <a onclick="tabs(2)"
+                class="tab">
+                    <i class="fa fa-address-book"></i>
+                </a>
+            </nav>
+        </div>
+        <div class="rightbox">
+            <div class="profile tabShow">
+                <h1>Personal Info</h1>
+                <h2>Full Name</h2>
+                <input type="text"
+                class="input" value="Jane Doe">
+                <h2>Email Address</h2>
+                <input type="text"
+                class="input" value="example@email.com">
+                <h2>Password</h2>
+                <input type="password"
+                class="input" value="helloworld">
+                <button class"btn">Update</button>
+            </div>
+            <div class="payment tabShow">
+                <h1>Payment Info</h1>
+                <h2>Card Type</h2>
+                <input type="text"
+                class="input" value="Mastercard">
+                <h2>Card Number</h2>
+                <input type="text"
+                class="input" value="0000 **** **** 0000">
+                <h2>CVC</h2>
+                <input type="text"
+                class="input" value="123">
+                <h2>Expiration Date</h2>
+                <input type="text"
+                class="input" value="12/25">
+                <button class"btn">Update</button>
+            </div>
+            <div class="address tabShow">
+                <h1>Address Book</h1>
+                <h2>Street Address</h2>
+                <input type="text"
+                class="input" value="1234 Some Street">
+                <h2>City</h2>
+                <input type="text"
+                class="input" value="Atlanta">
+                <h2>State</h2>
+                <input type="text"
+                class="input" value="GA">
+                <h2>Zip Code</h2>
+                <input type="text"
+                class="input" value="30606">
+                <button class"btn">Update</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="jquery/jquery.js"></script>
+    <script>
+        const tabBtn = 
+        document.querySelectorAll(".tab");
+        const tab = 
+        document.querySelectorAll(".tabShow");
+
+        function tabs(panelIndex) {
+            tab.forEach(function(node) {
+                node.style.display = "none";
+            });
+            tab[panelIndex].style.display = "block";
+        }
+        tabs(0);
+    </script>
+    <script>
+        $(".tab").click(function() {
+            $(this).addClass("active").siblings().removeClass("active");
+        })
+    </script>
+</body>
+</html>
