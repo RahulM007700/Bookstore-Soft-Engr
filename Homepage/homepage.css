@@ -44,7 +44,8 @@ nav ul li ul {
   background-color:#f3f3f3;
   display: none;
   position:absolute;
-  font-size: 0.66rem;
+  padding: 10px;
+  font-size: 0.6rem;
   background-color: white;
   width: 15%;
   text-align: left;
@@ -57,7 +58,6 @@ nav ul li:hover ul {
 }
 
 nav ul li ul a:hover{
-  display: block;
   background-color: #D1D1D1;
   text-decoration: none;
 }
@@ -235,7 +235,7 @@ hr
     width:100%;
 }
 
-.modal
+.regModal
 {
   display: none; 
   position: fixed; 
@@ -249,8 +249,23 @@ hr
   background-color: rgb(0,0,0); 
   background-color: rgba(0,0,0,0.4); 
 }
+.loginModal
+{
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+}
 
-.modal-content
+
+.regModal-content
 {
   background-color: #fefefe;
   margin: auto;
@@ -260,7 +275,17 @@ hr
   border-radius:15px;
 }
 
-.close-button
+.loginModal-content
+{
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  border-radius:15px;
+}
+
+.close-button-reg
 {
   color: #810B0B;
   float: right;
@@ -268,8 +293,24 @@ hr
   font-weight: bold;
 }
 
-.close-button:hover,
-.close-button:focus
+.close-button-login
+{
+  color: #810B0B;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button-login:hover,
+.close-button-login:focus
+{
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.close-button-reg:hover,
+.close-button-reg:focus,
 {
   color: #000000;
   text-decoration: none;
@@ -279,6 +320,15 @@ hr
 .container
 {
   padding: 16px;
+  text-align: center;
+  width:80%;
+  margin: auto;
+  overflow: scroll;
+}
+
+.login-container
+{
+   padding: 16px;
   text-align: center;
   width:80%;
   margin: auto;
@@ -316,6 +366,25 @@ input[type=text]:focus, input[type=password]:focus
 }
 
 .registerbtn:hover
+{
+  opacity:1;
+}
+
+.loginbtn
+{
+  font-size: 16px;
+  border-radius:15px;
+  background-color: #810B0B;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.loginbtn:hover
 {
   opacity:1;
 }
