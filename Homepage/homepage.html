@@ -107,13 +107,13 @@
                 <input type="text" placeholder="Enter Last Name" name="lname" id="lname" required>
                 
                 <label for="email"><b>Email Address</b></label>
-                <input type="text" placeholder="Enter Email Address" name="email" id="email" required>
+                <input type="email" placeholder="Enter Email Address" name="email" id="email" required>
             
                 <label for="psw"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
                 
                 <label for="phone"><b>Phone Number</b></label>
-                <input type="text" placeholder="Enter Phone Number" name="phone" id="phone" required>
+                <input type="tel" placeholder="Enter Phone Number" name="phone" id="phone" required>
                 
                 <label for="street"><b>Street Address</b></label>
                 <input type="text" placeholder="Enter Street Address" name="street" id="street">
@@ -199,7 +199,7 @@
                 <input type="text" placeholder="Enter CVV" name="cvv" id="cvv">
                 
                 <label for="expdate"><b>Expiration Date</b></label>
-                <input type="text" placeholder="Enter Exp Date (mm/yy)" name="expdate" id="expdate">
+                <input type="month" placeholder="Enter Exp Date (mm/yy)" name="expdate" id="expdate">
                 
                 <button type="submit" class="registerbtn" id="registerbtn">Register</button>
                 <br><br><br><br>
@@ -225,14 +225,57 @@
                 
                 <button type="submit" class="loginbtn" id="loginbtn">Login</button>
                 <h3>If you are not a registered user, sign up <a href="#" id="toRegistration">here</a>.</h3>
+                <h6>Forgot your password? Click <a href="#" id="toResetPassword">here</a>.</h6>
           </div>
         </form>
       </div>
     </div>
     <!--end of login modal content-->
     
+    <!--reset password modal content-->
+    <div id="resetPWModal" class="resetPWModal">
+      <div class="resetPWModal-content">
+        <span class="close-button-resetPWModal">&times;</span>
+        <form method="post">
+          <div class="resetPWModal-container">
+                <h1 style="text-align:center;">Reset Password</h1>
+                <p style="text-align:center;">Please enter your email address associated with your account.</p>        
+                <label for="email-login"><b>Email Address</b></label>
+                <input type="email" placeholder="Enter Email Address" name="email-reset" id="email-reset" required>
+                
+                <button type="submit" class="resetbtn" id="resetbtn">Reset Password</button>
+          </div>
+        </form>
+      </div>
+    </div>
     
+    
+    <!--end of reset password modal content-->
     <script>
+      
+      /*
+       * reset password JS
+       */
+      
+      var resetModal = document.getElementById("resetPWModal");
+      var btn3 = document.getElementById("toResetPassword");
+      var resetBtn = document.getElementById("email-reset");
+      var spanReset = document.getElementsByClassName("close-button-resetPWModal")[0];
+      
+       btn3.onclick = function() {
+        loginModal.style.display = "none";
+        resetModal.style.display = "block";
+      };
+      
+      spanReset.onclick = function() {
+        resetModal.style.display = "none";
+      };
+      
+      window.onclick = function(event) {
+        if (event.target == resetModal) {
+          resetModal.style.display = "none";
+        }
+      };
       
       /*
        * login JS
