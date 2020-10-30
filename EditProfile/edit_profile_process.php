@@ -1,44 +1,29 @@
 <?php
- $firstName = $_POST['firstNameBar'];
- $lastName = $_POST['lastNameBar'];
- $phonenumber = $_POST['phoneNumberBar'];
- $emailaddress = $_POST['emailAddressBar'];
- $password = $_POST['passwordBar'];
- $streetaddress = $_POST['streetAddressBar'];
- $city = $_POST['cityBar'];
- $state = $_POST['stateBar'];
- $zipcode = $_POST['zipCodeBar'];
- $cardtype = $_POST['cardTypeBar'];
- $cardnumber = $_POST['cardNumberBar'];
- $cvc = $_POST['CVCBar'];
- $expirationdate = $_POST['expirationDateBar'];
+$username = "username";
+$password = "password";
 
-$result = $_POST[''];
-  
 $host = "localhost";
 $dbusername = "root";
 $dbpassword = "";
 $dbname = "online_bookstore";
 
-//Make Connection
-$conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
-
-if (mysqli_connect_error()){
-    die('Connect Error('. mysqli_connect_error() .')'
-        . mysqli_connect_error());
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
-else {
-     $result = mysqli_query("select * from users where username = $username' and password = '$password'");
-                or die("Failed to query database ".mysql_error());
-     $row = mysql_fetch_array($result);    
-     if($row['username'] == $username && $row['password'] == $password){ //correct
-         //the email exists and user can login
-         echo true;
-     }else if($row['username'] != $username || $row['password'] != $password){ //wrong crdentials
-         echo false;
-     } 
 
-     $conn->close();
-        
+$sql = "SELECT id, firstname, lastname FROM MyGuests";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while ($row = $result->fetch_assoc()) {
+        echo "id: " . $row["id"] . " - Name: " . $row["firstname"] . " " . $row["lastname"] . "<br>";
+    }
+} else {
+    echo "0 results";
 }
+$conn->close();
 ?>
