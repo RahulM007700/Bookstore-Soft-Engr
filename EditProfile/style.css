@@ -26,7 +26,7 @@ body {
 }
 nav a {
   list-style: none;
-  padding: 35px;
+  padding: 20px;
   color: #fff;
   font-size: 1.1em;
   display: block;
@@ -71,12 +71,13 @@ p {
   border: 0;
   border-bottom: 1px solid #3fb6a8;
   width: 80%;
+  font-size: 0.7em;
   padding: 7px 0;
   color: #070707;
   outline: none;
 }
 span {
-  font-size: 7em;
+  font-size: 0.7em;
   color: #777;
 }
 .btn {
@@ -92,7 +93,5 @@ span {
   margin-top: 15px;
 }
 .tabShow {
-  transition: all 0.5s ease-in;
-  width: 80%;
-  position: absolute;
+  display: none;
 }
