@@ -22,7 +22,7 @@
                     <li><a href="#" style="color:black;">Kids</a></li>
                     <li><i class="fas fa-user">
                           <ul class="dropdown-list">
-                              <li><a href="#" id="login" style="color:black;">Login/Sign Up</a></li>
+                              <li><a href="#" id="login" style="color:black;">Login<br></a></li>
                               <li><a href="#" style="color:black;">Edit Profile</a></li>
                               <li><a href="#" style="color:black;">Order History</a></li>
                           </ul>
@@ -92,10 +92,10 @@
     </div>
 
     <!--end of book content-->
-    <!-- Modal content -->
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close-button">&times;</span>
+    <!-- registration modal content -->
+    <div id="registrationModal" class="regModal">
+      <div class="regModal-content">
+        <span class="close-button-reg">&times;</span>
             <form action="insert.php" method="POST">
               <div class="container">
                 <h1 style="text-align:center;">Register</h1>
@@ -107,7 +107,7 @@
                 <input type="text" placeholder="Enter Last Name" name="lname" id="lname" required>
                 
                 <label for="email"><b>Email Address</b></label>
-                <input type="text" placeholder="Enter Email Address" name="email" id="email" required>
+                <input type="text" placeholder<="Enter Email Address" name="email" id="email" required>
             
                 <label for="psw"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
@@ -202,47 +202,106 @@
                 <input type="text" placeholder="Enter Exp Date (mm/yy)" name="expdate" id="expdate">
                 
                 <button type="submit" class="registerbtn" id="registerbtn">Register</button>
-                <h1>end</h1>
+                <br><br><br><br>
               </div>
             </form>
       </div>
     </div>
+    <!--end of registration modal content-->
+    
+    <!--login modal content-->
+    <div id="loginModal" class="loginModal">
+      <div class="loginModal-content">
+        <span class="close-button-login">&times;</span>
+        <form method="post">
+          <div class="login-container">
+                <h1 style="text-align:center;">Login</h1>
+                <p style="text-align:center;">Please login with your email address or account ID.</p>        
+                <label for="email-login"><b>Email Address</b></label>
+                <input type="text" placeholder="Enter Email Address or Account ID" name="email-login" id="email-login" required>
+            
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+                
+                <button type="submit" class="loginbtn" id="loginbtn">Login</button>
+                <h3>If you are not a registered user, sign up <a href="#" id="toRegistration">here</a>.</h3>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--end of login modal content-->
+    
+    
     <script>
-      var modal = document.getElementById("myModal");
+      
+      /*
+       * login JS
+       */
+      
+      var loginModal = document.getElementById("loginModal");
       var btn = document.getElementById("login");
-      var span = document.getElementsByClassName("close-button")[0];
-      var registerbtn = document.getElementById("registerbtn");
+      var spanLogin = document.getElementsByClassName("close-button-login")[0];
+      var loginbtn = document.getElementById("loginbtn");
+      
       btn.onclick = function() {
-        modal.style.display = "block";
+        loginModal.style.display = "block";
       };
       
-      span.onclick = function() {
-        modal.style.display = "none";
+      spanLogin.onclick = function() {
+        loginModal.style.display = "none";
       };
       
       window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
+        if (event.target == loginModal) {
+          loginModal.style.display = "none";
+        }
+      };
+            
+      
+      /*
+       * registration JS
+       */
+      var regModal = document.getElementById("registrationModal");
+      var btn2 = document.getElementById("toRegistration");
+      var spanReg = document.getElementsByClassName("close-button-reg")[0];
+      var registerbtn = document.getElementById("registerbtn");
+      
+      btn2.onclick = function() {
+        loginModal.style.display = "none";
+        regModal.style.display = "block";
+      };
+      
+      spanReg.onclick = function() {
+        regModal.style.display = "none";
+      };
+      
+      window.onclick = function(event) {
+        if (event.target == regModal) {
+          regModal.style.display = "none";
         }
       };
       
       /*variables for optional elements in form*/
-      var typeInput = document.getElementById("cardtype");
-      var cardNumInput = document.getElementById("cardnum");
-      var cvvInput = document.getElementById("cvv");
-      var expInput = document.getElementById("expdate");
+      //var typeInput = document.getElementById("cardtype");
+      //var cardNumInput = document.getElementById("cardnum");
+      //var cvvInput = document.getElementById("cvv");
+      //var expInput = document.getElementById("expdate");
       
-      registerbtn.onclick = function()
-      {
-          /* one element is required, then the rest must be required*/
-          if (typeInput.value.length == 0 || cardNumInput.value.length == 0 || cvvInput.value.length == 0 || expInput.value.length == 0) {
-            /*nothing is required*/
-            
-          } else {
-            /*the other fields must have values*/
-            alert("you must fill out all corresponding fields");
-          }
-      };
+
+      
+      
+      //
+      //registerbtn.onclick = function()
+      //{
+      //    /* one element is required, then the rest must be required*/
+      //    if (typeInput.value.length == 0 || cardNumInput.value.length == 0 || cvvInput.value.length == 0 || expInput.value.length == 0) {
+      //      /*nothing is required*/
+      //      
+      //    } else {
+      //      /*the other fields must have values*/
+      //      alert("you must fill out all corresponding fields");
+      //    }
+      //};
     </script>
   </body>
 </html>
