@@ -18,11 +18,12 @@
   width:35%;
   flex-wrap: wrap;
   font-size:1.5rem;
-    border: 1px solid yellow;
-height: 155px; 
+  border: 1px solid yellow;
+  height: 155px; 
 }
 
-.nav-bar {
+.nav-bar
+{
   border: 1px solid yellow;
   margin: auto;
   width:60%;
@@ -40,7 +41,8 @@ nav ul li
     padding:3%;
 }
 
-nav ul li ul {
+nav ul li ul
+{
   background-color:#f3f3f3;
   display: none;
   position:absolute;
@@ -52,25 +54,24 @@ nav ul li ul {
   border-radius: 0px 0px 10px 10px;
 }
 
-nav ul li:hover ul {
+nav ul li:hover ul
+{
   display: block;
   overflow:visible;
 }
 
-nav ul li ul a:hover{
+nav ul li ul a:hover
+{
   background-color: #D1D1D1;
   text-decoration: none;
 }
 
-nav {
-/*  border: 10px solid grey;*/
+nav
+{
   height:20vh;
   overflow: visible;
   margin:  auto;
 }
-
-/* navigation ends here*/
-
 
 a:hover
 {
@@ -87,8 +88,8 @@ hr
     border-width:0;
 }
 
-
-.search-container {
+.search-container
+{
   position: relative;
   text-align: center;
   margin-left:15%;
@@ -97,23 +98,21 @@ hr
   display: block;
 }
 
-.fa-filter {
+.fa-filter
+{
   position:relative;
 }
-
 
 .search-text
 {
     border: 4px solid yellow;
     position: relative;
     text-align: center;
-  
     line-height: 2rem;
     color: #000000;
 }
 
 .search-input {
-  /*border: 1px solid black;*/
   position:relative;
   top: 10px;
   width:30%;
@@ -131,16 +130,19 @@ hr
     border: 1px solid #AA0F0F;
 }
 
-.fa-filter {
+.fa-filter
+{
   position:relative;
   top:13px;
 }
-.fa-caret-down {
+.fa-caret-down
+{
   position:relative;
   top:13px;
 }
 
-.fa-caret-down ul {
+.fa-caret-down ul
+{
   text-align: left;
   display:none;
   width: 100px;
@@ -153,11 +155,6 @@ hr
   display: inline-grid;
 }
 
-/*
- * EVERYTHING HAS BEEN OVERLOOKED UP UNTIL HERE!!
-*/
-
-
 .top-sellers
 {
   border: 10px solid yellow;
@@ -165,8 +162,6 @@ hr
     width:85%;
     margin-left:7.5%;
     margin-right:7.5%;
-    /*top:600px;
-    left:100px;*/
 }
 
 .top-sellers-btn
@@ -189,7 +184,6 @@ hr
 {
   padding:1%;
 }
-
 
 .featured-books
 {
@@ -235,7 +229,7 @@ hr
     width:100%;
 }
 
-.regModal
+.regModal, .loginModal, .resetPWModal
 {
   display: none; 
   position: fixed; 
@@ -249,23 +243,8 @@ hr
   background-color: rgb(0,0,0); 
   background-color: rgba(0,0,0,0.4); 
 }
-.loginModal
-{
-  display: none; 
-  position: fixed; 
-  z-index: 1; 
-  padding-top: 100px; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.4);
-}
 
-
-.regModal-content
+.regModal-content, .resetPWModal-content, .loginModal-content
 {
   background-color: #fefefe;
   margin: auto;
@@ -275,25 +254,7 @@ hr
   border-radius:15px;
 }
 
-.loginModal-content
-{
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%;
-  border-radius:15px;
-}
-
-.close-button-reg
-{
-  color: #810B0B;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close-button-login
+.close-button-reg, .close-button-resetPWModal, .close-button-login
 {
   color: #810B0B;
   float: right;
@@ -302,13 +263,9 @@ hr
 }
 
 .close-button-login:hover,
-.close-button-login:focus
-{
-  color: #000000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
+.close-button-login:focus,
+.close-button-resetPWModal:hover,
+.close-button-resetPWModal:focus,
 .close-button-reg:hover,
 .close-button-reg:focus,
 {
@@ -317,7 +274,7 @@ hr
   cursor: pointer;
 }
 
-.container
+.container, .login-container, .resetPWModal-container
 {
   padding: 16px;
   text-align: center;
@@ -326,16 +283,7 @@ hr
   overflow: scroll;
 }
 
-.login-container
-{
-   padding: 16px;
-  text-align: center;
-  width:80%;
-  margin: auto;
-  overflow: scroll;
-}
-
-input[type=text], input[type=password]
+input[type=text], input[type=password],  input[type=tel],  input[type=email],input[type=month]
 {
   width: 100%;
   padding: 15px;
@@ -345,13 +293,13 @@ input[type=text], input[type=password]
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus
+input[type=text]:focus, input[type=password]:focus,  input[type=tel]:focus,  input[type=email]:focus, input[type=month]:focus
 {
   background-color: #ddd;
   outline: none;
 }
 
-.registerbtn
+.registerbtn, .loginbtn, .resetbtn
 {
   font-size: 16px;
   border-radius:15px;
@@ -365,26 +313,7 @@ input[type=text]:focus, input[type=password]:focus
   opacity: 0.9;
 }
 
-.registerbtn:hover
-{
-  opacity:1;
-}
-
-.loginbtn
-{
-  font-size: 16px;
-  border-radius:15px;
-  background-color: #810B0B;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-
-.loginbtn:hover
+.registerbtn:hover, .loginbtn:hover, .resetbtn:hover
 {
   opacity:1;
 }
