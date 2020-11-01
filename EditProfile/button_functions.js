@@ -6,12 +6,14 @@ function changeToInput1() {
   profile_info.forEach(
     (element) => (document.getElementById(element).readOnly = false)
   );
+  document.getElementById("password").setAttribute("type", "text");
 }
 
 function changeToText1() {
   profile_info.forEach((element) =>
     document.getElementById(element).setAttribute("readOnly", "true")
   );
+  document.getElementById("password").setAttribute("type", "password");
 }
 
 function changeToInput2() {
