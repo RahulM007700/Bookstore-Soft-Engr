@@ -10,13 +10,16 @@
       <div class="leftbox">
         <nav>
           <a onclick="tabs(0)" class="tab active">
-            <i src="../account_image.png" width="30" length="30"></i>
+            <image src="../account_image.png" width="50" height="50"></image>
           </a>
           <a onclick="tabs(1)" class="tab">
-            <i class="fa fa-credit-card"></i>
+            <image src="../credit_card_icon.png" width="50" height="50"></image>
           </a>
           <a onclick="tabs(2)" class="tab">
-            <i class="fa fa-address-book"></i>
+            <image src="../address_book_icon.png" width="50" height="50"></image>
+          </a>
+          <a oncick="tabs(3)" class="tab" href="../Homepage/homepage.html">
+            <image src="../home_icon.svg" width="50" height="50"></image>
           </a>
         </nav>
       </div>
@@ -24,42 +27,82 @@
         <div class="profile tabShow">
           <h1>Personal Info</h1>
           <h2>Full Name</h2>
-          <input type="text" class="input" value="Jane Doe" readonly="readonly" />
+          <input
+            id="fullName"
+            type="text"
+            class="input"
+            value="Jane Doe"
+            readonly="readonly"
+          />
           <h2>Email Address</h2>
-          <input type="text" class="input" value="example@email.com" readonly="readonly" />
+          <input
+            id="emailAddress"
+            type="text"
+            class="input"
+            value="example@email.com"
+            readonly="readonly"
+          />
           <h2>Password</h2>
-          <input type="password" class="input" value="helloworld" readonly="readonly" />
+          <input
+            id="password"
+            type="password"
+            class="input"
+            value="helloworld"
+            readonly="readonly"
+          />
           <p></p>
-          <button onclick="changeToInput()" class="btn">Edit</button>
-          <button class="btn">Update</button>
+          <button onclick="changeToInput1()" class="btn">Edit</button>
+          <button onclick="changeToText1()" class="btn">Update</button>
         </div>
         <div class="payment tabShow">
           <h1>Payment Info</h1>
           <h2>Card Type</h2>
-          <input type="text" class="input" value="Mastercard" readonly="readonly" />
+          <input
+            id="cardType"
+            type="text"
+            class="input"
+            value="Mastercard"
+            readonly="readonly"
+          />
           <h2>Card Number</h2>
-          <input type="text" class="input" value="0000 **** **** 0000" readonly="readonly" />
+          <input
+            id="cardNumber"
+            type="text"
+            class="input"
+            value="0000 **** **** 0000"
+            readonly="readonly"
+          />
           <h2>CVC</h2>
-          <input type="text" class="input" value="123" readonly="readonly" />
+          <input id="cvc" type="text" class="input" value="123" readonly="readonly" />
           <h2>Expiration Date</h2>
-          <input type="text" class="input" value="12/25" readonly="readonly" />
+          <input id="expirationDate" type="text" class="input" value="12/25" readonly="readonly" />
           <p></p>
-          <button onclick="changeToInput()" class="btn">Edit</button>
-          <button class="btn">Update</button>
+          <button onclick="changeToInput2()" class="btn">Edit</button>
+          <button onlcik="changeToText2()" class="btn">Update</button>
         </div>
         <div class="address tabShow">
           <h1>Address Book</h1>
           <h2>Street Address</h2>
-          <input type="text" class="input" value="1234 Some Street" readonly="readonly" />
+          <input
+            type="text"
+            class="input"
+            value="1234 Some Street"
+            readonly="readonly"
+          />
           <h2>City</h2>
-          <input type="text" class="input" value="Atlanta" readonly="readonly" />
+          <input
+            type="text"
+            class="input"
+            value="Atlanta"
+            readonly="readonly"
+          />
           <h2>State</h2>
           <input type="text" class="input" value="GA" readonly="readonly" />
           <h2>Zip Code</h2>
           <input type="text" class="input" value="30606" readonly="readonly" />
           <p></p>
-          <button onclick="changeToInput()" class="btn">Edit</button>
-          <button class="btn">Update</button>
+          <button onclick="changeToInput3()" class="btn">Edit</button>
+          <button onclick="changeToText3()" class="btn">Update</button>
         </div>
       </div>
     </div>
@@ -81,6 +124,11 @@
       $(".tab").click(function () {
         $(this).addClass("active").siblings().removeClass("active");
       });
+    </script>
+    <script>
+      function changeToInput() {
+        document.getElementById("").removeAttribute("readonly");
+      }
     </script>
   </body>
 </html>
