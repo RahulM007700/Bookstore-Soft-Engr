@@ -3,26 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <title>User Settings Page</title>
-    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
+    <div id="navBar"></div>
+    <link rel="stylesheet" href="style.css" />
+    <div id="editProfileContainer" class="container">
       <div class="leftbox">
-        <nav>
-          <a onclick="tabs(0)" class="tab active">
+        <nav id="editProfileNav">
+          <a id="editProfileNav" onclick="tabs(0)" class="tab active">
             <image src="../account_image.png" width="50" height="50"></image>
           </a>
-          <a onclick="tabs(1)" class="tab">
+          <a id="editProfileNav" onclick="tabs(1)" class="tab">
             <image src="../credit_card_icon.png" width="50" height="50"></image>
           </a>
-          <a onclick="tabs(2)" class="tab">
+          <a id="editProfileNav" onclick="tabs(2)" class="tab">
             <image
               src="../address_book_icon.png"
               width="50"
               height="50"
             ></image>
           </a>
-          <a oncick="tabs(3)" class="tab" href="../Homepage/homepage.html">
+          <a id="editProfileNav" oncick="tabs(3)" class="tab" href="../Homepage/homepage.html">
             <image src="../home_icon.svg" width="50" height="50"></image>
           </a>
         </nav>
@@ -55,8 +56,8 @@
             readonly="true"
           />
           <p></p>
-          <button onclick="changeToInput1()" class="btn">Edit</button>
-          <button onclick="changeToText1()" class="btn">Update</button>
+          <button onclick="changeToInputPersonal()" class="btn">Edit</button>
+          <button onclick="changeToTextPersonal()" class="btn">Update</button>
         </div>
         <div class="payment tabShow">
           <h1>Payment Info</h1>
@@ -93,8 +94,8 @@
             readonly="true"
           />
           <p></p>
-          <button onclick="changeToInput2()" class="btn">Edit</button>
-          <button onclick="changeToText2()" class="btn">Update</button>
+          <button onclick="changeToInputPayment()" class="btn">Edit</button>
+          <button onclick="changeToTextPayment()" class="btn">Update</button>
         </div>
         <div class="address tabShow">
           <h1>Address Book</h1>
@@ -131,8 +132,8 @@
             readonly="true"
           />
           <p></p>
-          <button onclick="changeToInput3()" class="btn">Edit</button>
-          <button onclick="changeToText3()" class="btn">Update</button>
+          <button onclick="changeToInputAddress()" class="btn">Edit</button>
+          <button onclick="changeToTextAddress()" class="btn">Update</button>
         </div>
       </div>
     </div>
@@ -153,6 +154,11 @@
     <script>
       $(".tab").click(function () {
         $(this).addClass("active").siblings().removeClass("active");
+      });
+    </script>
+    <script>
+      $(function () {
+        $("#navBar").load("nav_bar.html");
       });
     </script>
     <script src="button_functions.js"></script>

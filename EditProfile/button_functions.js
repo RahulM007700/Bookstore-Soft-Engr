@@ -1,40 +1,38 @@
-var profile_info = ["fullName", "emailAddress", "password"];
+var profile_info = ["fullName", "password"];
 var payment_info = ["cardType", "cardNumber", "cvc", "expirationDate"];
 var address_info = ["streetAddress", "city", "state", "zipCode"];
 
-function changeToInput1() {
+function changeToInputPersonal() {
   profile_info.forEach(
     (element) => (document.getElementById(element).readOnly = false)
   );
-  document.getElementById("password").setAttribute("type", "text");
 }
 
-function changeToText1() {
+function changeToTextPersonal() {
   profile_info.forEach((element) =>
     document.getElementById(element).setAttribute("readOnly", "true")
   );
-  document.getElementById("password").setAttribute("type", "password");
 }
 
-function changeToInput2() {
+function changeToInputPayment() {
   payment_info.forEach(
     (element) => (document.getElementById(element).readOnly = false)
   );
 }
 
-function changeToText2() {
+function changeToTextPayment() {
   payment_info.forEach((element) =>
     document.getElementById(element).setAttribute("readOnly", "true")
   );
 }
 
-function changeToInput3() {
+function changeToInputAddress() {
   address_info.forEach(
     (element) => (document.getElementById(element).readOnly = false)
   );
 }
 
-function changeToText3() {
+function changeToTextAddress() {
   address_info.forEach((element) =>
     document.getElementById(element).setAttribute("readOnly", "true")
   );
