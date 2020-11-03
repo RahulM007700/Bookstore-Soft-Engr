@@ -1,51 +1,47 @@
 * {
   font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
-  color:black;
+  color: black;
   list-style-type: none;
 }
 
-.header
-{
+.header {
   border: 1px solid green;
   position: relative;
   width: 100%;
 }
 
 .logo {
-  position:relative;
-  float:left;
-  width:35%;
+  position: relative;
+  float: left;
+  width: 35%;
   flex-wrap: wrap;
-  font-size:1.5rem;
+  font-size: 1.5rem;
   border: 1px solid yellow;
-  height: 155px; 
+  height: 155px;
 }
 
-.nav-bar
-{
+.nav-bar {
   border: 1px solid yellow;
   margin: auto;
-  width:60%;
-  height:50%;
-  position:relative;
-  float:right;
-  top:50%;
+  width: 60%;
+  height: 50%;
+  position: relative;
+  float: right;
+  top: 50%;
   letter-spacing: 0.05rem;
   flex-wrap: wrap;
 }
 
-nav ul li
-{
-    display: inline;
-    padding:3%;
+nav ul li {
+  display: inline;
+  padding: 3%;
 }
 
-nav ul li ul
-{
-  background-color:#f3f3f3;
+nav ul li ul {
+  background-color: #f3f3f3;
   display: none;
-  position:absolute;
+  position: absolute;
   padding: 10px;
   font-size: 0.6rem;
   background-color: white;
@@ -54,209 +50,190 @@ nav ul li ul
   border-radius: 0px 0px 10px 10px;
 }
 
-nav ul li:hover ul
-{
+nav ul li:hover ul {
   display: block;
-  overflow:visible;
+  overflow: visible;
 }
 
-nav ul li ul a:hover
-{
-  background-color: #D1D1D1;
+nav ul li ul a:hover {
+  background-color: #d1d1d1;
   text-decoration: none;
 }
 
-nav
-{
-  height:20vh;
+nav {
+  height: 20vh;
   overflow: visible;
-  margin:  auto;
+  margin: auto;
 }
 
-a:hover
-{
-    text-decoration:underline #0E5A16;
+a:hover {
+  text-decoration: underline #0e5a16;
 }
 
-hr
-{
-    position: relative;
-    width: 50%;
-    height:0.25%;
-    top: 5%;
-    background-color: #0E5A16;
-    border-width:0;
+hr {
+  position: relative;
+  width: 50%;
+  height: 0.25%;
+  top: 5%;
+  background-color: #0e5a16;
+  border-width: 0;
 }
 
-.search-container
-{
+.search-container {
   position: relative;
   text-align: center;
-  margin-left:15%;
-  margin-right:15%;
+  margin-left: 15%;
+  margin-right: 15%;
   border: 10px solid black;
   display: block;
 }
 
-.fa-filter
-{
-  position:relative;
+.fa-filter {
+  position: relative;
 }
 
-.search-text
-{
-    border: 4px solid yellow;
-    position: relative;
-    text-align: center;
-    line-height: 2rem;
-    color: #000000;
+.search-text {
+  border: 4px solid yellow;
+  position: relative;
+  text-align: center;
+  line-height: 2rem;
+  color: #000000;
 }
 
 .search-input {
-  position:relative;
-  top: 10px;
-  width:30%;
-  height:30px;
-  text-align: center;
-  border-radius:10px;
-}
-
-.search-bar
-{
   position: relative;
-    width:100%;
-    height: 50%;
-    text-align: center;
-    border: 1px solid #AA0F0F;
+  top: 10px;
+  width: 30%;
+  height: 30px;
+  text-align: center;
+  border-radius: 10px;
 }
 
-.fa-filter
-{
-  position:relative;
-  top:13px;
-}
-.fa-caret-down
-{
-  position:relative;
-  top:13px;
+.search-bar {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  text-align: center;
+  border: 1px solid #aa0f0f;
 }
 
-.fa-caret-down ul
-{
+.fa-filter {
+  position: relative;
+  top: 13px;
+}
+.fa-caret-down {
+  position: relative;
+  top: 13px;
+}
+
+.fa-caret-down ul {
   text-align: left;
-  display:none;
+  display: none;
   width: 100px;
-  position:absolute;
-  font-size:0.5rem;
+  position: absolute;
+  font-size: 0.5rem;
   padding-left: 0px;
 }
 .fa-caret-down:hover ul {
-  overflow:visible;
+  overflow: visible;
   display: inline-grid;
 }
 
-.top-sellers
-{
+.top-sellers {
   border: 10px solid yellow;
-    position:relative;
-    width:85%;
-    margin-left:7.5%;
-    margin-right:7.5%;
+  position: relative;
+  width: 85%;
+  margin-left: 7.5%;
+  margin-right: 7.5%;
 }
 
-.top-sellers-btn
-{
-    position:relative;
-    left:85%;
-    width:8%;
-    font-size:0.8rem;
-    background-color:#EAEBB9;
-    border-radius: 15px;
+.top-sellers-btn {
+  position: relative;
+  left: 85%;
+  width: 8%;
+  font-size: 0.8rem;
+  background-color: #eaebb9;
+  border-radius: 15px;
 }
 
-.top-sellers ul 
-{
-  position:relative;
+.top-sellers ul {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
 }
-.top-sellers ul li
-{
-  padding:1%;
+.top-sellers ul li {
+  padding: 1%;
 }
 
-.featured-books
-{
-    position:relative;
-    border: 10px solid white;
-    width:85%;
-    margin-left:7.5%;
-    margin-right:7.5%;
+.featured-books {
+  position: relative;
+  border: 10px solid white;
+  width: 85%;
+  margin-left: 7.5%;
+  margin-right: 7.5%;
 }
 
-.featured-books ul
-{
+.featured-books ul {
   border: 1px solid black;
   position: relative;
   display: flex;
   flex-wrap: wrap;
 }
 
-.featured-books ul li
-{
+.featured-books ul li {
   padding: 0.75%;
 }
 
-.featured-books-btn
-{
-  left:85%;
-    width:8%;
-    position:relative;
-    font-size:0.8rem;
-    background-color:#EAEBB9;
-    border-radius: 15px;
+.featured-books-btn {
+  left: 85%;
+  width: 8%;
+  position: relative;
+  font-size: 0.8rem;
+  background-color: #eaebb9;
+  border-radius: 15px;
 }
 
-
-.books-bar
-{
-    position: relative;
-    overflow: auto;
-    z-index: -1;
-    background: rgba(197, 183, 61, 0.65);
-    border-top: 6px solid #810B0B;
-    box-sizing: border-box;
-    width:100%;
+.books-bar {
+  position: relative;
+  overflow: auto;
+  z-index: -1;
+  background: rgba(197, 183, 61, 0.65);
+  border-top: 6px solid #810b0b;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-.regModal, .loginModal, .resetPWModal
-{
-  display: none; 
-  position: fixed; 
-  z-index: 1; 
-  padding-top: 100px; 
+.regModal,
+.loginModal,
+.resetPWModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.4); 
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-.regModal-content, .resetPWModal-content, .loginModal-content
-{
+.regModal-content,
+.resetPWModal-content,
+.loginModal-content {
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
   width: 50%;
-  border-radius:15px;
+  border-radius: 15px;
 }
 
-.close-button-reg, .close-button-resetPWModal, .close-button-login
-{
-  color: #810B0B;
+.close-button-reg,
+.close-button-resetPWModal,
+.close-button-login {
+  color: #810b0b;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -267,24 +244,27 @@ hr
 .close-button-resetPWModal:hover,
 .close-button-resetPWModal:focus,
 .close-button-reg:hover,
-.close-button-reg:focus,
-{
+.close-button-reg:focus {
   color: #000000;
   text-decoration: none;
   cursor: pointer;
 }
 
-.container, .login-container, .resetPWModal-container
-{
+.container,
+.login-container,
+.resetPWModal-container {
   padding: 16px;
   text-align: center;
-  width:80%;
+  width: 80%;
   margin: auto;
   overflow: scroll;
 }
 
-input[type=text], input[type=password],  input[type=tel],  input[type=email],input[type=month]
-{
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+input[type="email"],
+input[type="month"] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -293,17 +273,21 @@ input[type=text], input[type=password],  input[type=tel],  input[type=email],inp
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus,  input[type=tel]:focus,  input[type=email]:focus, input[type=month]:focus
-{
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+input[type="month"]:focus {
   background-color: #ddd;
   outline: none;
 }
 
-.registerbtn, .loginbtn, .resetbtn
-{
+.registerbtn,
+.loginbtn,
+.resetbtn {
   font-size: 16px;
-  border-radius:15px;
-  background-color: #810B0B;
+  border-radius: 15px;
+  background-color: #810b0b;
   color: white;
   padding: 16px 20px;
   margin: 8px 0;
@@ -313,7 +297,8 @@ input[type=text]:focus, input[type=password]:focus,  input[type=tel]:focus,  inp
   opacity: 0.9;
 }
 
-.registerbtn:hover, .loginbtn:hover, .resetbtn:hover
-{
-  opacity:1;
+.registerbtn:hover,
+.loginbtn:hover,
+.resetbtn:hover {
+  opacity: 1;
 }
