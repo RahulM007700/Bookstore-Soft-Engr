@@ -5,9 +5,9 @@ body {
 .container#editProfileContainer {
   background: #fff;
   width: 50%;
-  height: 500px;
+  height: 475px;
   margin: 0 auto;
-  padding-bottom: 6%;
+  padding-bottom: 7%;
   position: relative;
   margin-top: 5%;
   box-shadow: 2px 5px 20px;
@@ -16,7 +16,7 @@ body {
 .leftbox {
   float: left;
   width: 15%;
-  padding: 5% 2% 5%;
+  padding: 5% 2% 7%;
   height: 100%;
   position: center;
   background: #2ed573;
@@ -26,13 +26,13 @@ body {
 }
 nav a#editProfileNav {
   list-style: none;
-  padding-top: 5%;
+  padding-top: 30%;
   padding-left: 12%;
-  padding-bottom: 60%;
+  padding-bottom: 30%;
   color: #fff;
   font-size: 1.1em;
   display: block;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 nav a:hover#editProfileNav {
   color: #10ac84;
