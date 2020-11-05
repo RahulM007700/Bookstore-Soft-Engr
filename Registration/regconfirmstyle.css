@@ -1,3 +1,4 @@
+
 body{
     background-color:rgba(197, 183, 61, 0.5);   
 }
@@ -50,4 +51,18 @@ h2 {text-align: center; color: white }
   
     top: 100px;
     left: 150px;
+}
+
+#verification{
+    background: white;
+    /*margin: auto; */
+    border-radius: 50px;
+    width: 200px;
+    height: 20px; 
+}
+
+.code{
+
+    margin: auto;
+    text-align:center;
 }
