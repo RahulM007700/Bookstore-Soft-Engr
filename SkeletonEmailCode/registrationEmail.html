@@ -1,19 +1,20 @@
 <!DOCTYPE html>
+
 <html>
 <head>
     <title>Confirmation Email</title>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script type="text/javascript">
         
-       var verificationCode = Math.floor((Math.random() * 1000000) + 1);
-       function makeUserID()
-       {
-        var userID = '';
-        var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        var length = chars.length;
-        for ( var i = 0; i < 8; i++ ) {
-            userID += chars.charAt(Math.floor(Math.random() * length));
-            }
+        var verificationCode = Math.floor((Math.random() * 1000000) + 1);
+        
+        function makeUserID() {
+            var userID = '';
+            var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var length = 7;
+            for ( var i = 0; i < length; i++ ) {
+               userID += chars.charAt(Math.floor(Math.random() * length));
+            }                  
             return userID;
         }
                 
@@ -22,18 +23,18 @@
                 Host: "smtp.gmail.com",
                 Username: "onlinebookstoreTeamBC8@gmail.com",
                 Password: "ugaSEFALL2020",
-                To: 'olc39417@uga.edu',
+                To: "olc39417@uga.edu",
                 From: "onlinebookstoreTeamBC8@gmail.com",
                 Subject: "Welcome to the Online Bookstore!",
-                Body: "Welcome!\nHere is your verification code: " + verificationCode + "\nAnd here is your unique user identification number: " + makeUserID() +"\n. You can use this to sign in as well!",
+                Body: "Welcome!\nHere is your verification code: " + verificationCode + "\nAnd here is your unique user identification number: " /*+ makeUserID()*/ +"\n. You can use this to sign in as well!",
         });
         }
     </script>
 </head>
 <body>
-    <form method="post"> 
-        <input type="button" value="Send Email" 
-            onclick="sendEmail();" />
-    </form>
+<form method="post"> 
+    <input type="button" value="Send Mail" onclick="sendEmail();"/> 
+</form>
+
 </body>
 </html>
