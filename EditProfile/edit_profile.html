@@ -6,7 +6,7 @@
   </head>
   <body>
     <div id="navBar"></div>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="edit_profile_style.css" />
     <div id="editProfileContainer" class="container">
       <div class="leftbox">
         <nav id="editProfileNav">
@@ -23,118 +23,148 @@
               height="50"
             ></image>
           </a>
-          <a id="editProfileNav" oncick="tabs(3)" class="tab" href="../Homepage/homepage.html">
+          <a
+            id="editProfileNav"
+            oncick="tabs(3)"
+            class="tab"
+            href="../Homepage/homepage.html"
+          >
             <image src="../home_icon.svg" width="50" height="50"></image>
           </a>
         </nav>
       </div>
       <div class="rightbox">
-        <div class="profile tabShow">
-          <h1>Personal Info</h1>
-          <h2>Full Name</h2>
-          <input
-            id="fullName"
-            type="text"
-            class="input"
-            value="Jane Doe"
-            readonly="true"
-          />
-          <h2>Email Address</h2>
-          <input
-            id="emailAddress"
-            type="text"
-            class="input"
-            value="example@email.com"
-            readonly="true"
-          />
-          <h2>Password</h2>
-          <input
-            id="password"
-            type="password"
-            class="input"
-            value="helloworld"
-            readonly="true"
-          />
-          <p></p>
-          <button onclick="changeToInputPersonal()" class="btn">Edit</button>
-          <button onclick="changeToTextPersonal()" class="btn">Update</button>
-        </div>
-        <div class="payment tabShow">
-          <h1>Payment Info</h1>
-          <h2>Card Type</h2>
-          <input
-            id="cardType"
-            type="text"
-            class="input"
-            value="Mastercard"
-            readonly="true"
-          />
-          <h2>Card Number</h2>
-          <input
-            id="cardNumber"
-            type="text"
-            class="input"
-            value="0000 **** **** 0000"
-            readonly="true"
-          />
-          <h2>CVC</h2>
-          <input
-            id="cvc"
-            type="text"
-            class="input"
-            value="123"
-            readonly="true"
-          />
-          <h2>Expiration Date</h2>
-          <input
-            id="expirationDate"
-            type="text"
-            class="input"
-            value="12/25"
-            readonly="true"
-          />
-          <p></p>
-          <button onclick="changeToInputPayment()" class="btn">Edit</button>
-          <button onclick="changeToTextPayment()" class="btn">Update</button>
-        </div>
-        <div class="address tabShow">
-          <h1>Address Book</h1>
-          <h2>Street Address</h2>
-          <input
-            id="streetAddress"
-            type="text"
-            class="input"
-            value="1234 Some Street"
-            readonly="true"
-          />
-          <h2>City</h2>
-          <input
-            id="city"
-            type="text"
-            class="input"
-            value="Atlanta"
-            readonly="true"
-          />
-          <h2>State</h2>
-          <input
-            id="state"
-            type="text"
-            class="input"
-            value="GA"
-            readonly="true"
-          />
-          <h2>Zip Code</h2>
-          <input
-            id="zipCode"
-            type="text"
-            class="input"
-            value="30606"
-            readonly="true"
-          />
-          <p></p>
-          <button onclick="changeToInputAddress()" class="btn">Edit</button>
-          <button onclick="changeToTextAddress()" class="btn">Update</button>
-        </div>
+        <form id="editProfileForm" action="EditUserProfile.php" method="POST">
+          <div class="profile tabShow">
+            <h1>Personal Info</h1>
+            <h2>First Name</h2>
+            <input
+              id="firstName"
+              type="text"
+              class="input"
+              value="Jane"
+              readonly="true"
+            />
+            <h2>Last Name</h2>
+            <input
+              id="lastName"
+              type="text"
+              class="input"
+              value="Doe"
+              readonly="true"
+            />
+            <h2>Email Address</h2>
+            <input
+              id="emailAddress"
+              type="text"
+              class="input"
+              value="example@email.com"
+              readonly="true"
+            />
+            <h2>Password</h2>
+            <input
+              id="password"
+              type="password"
+              class="input"
+              value="helloworld"
+              readonly="true"
+            />
+            <p></p>
+            <button onclick="changeToInputPersonal()" class="btn">Edit</button>
+            <button onclick="changeToTextPersonal()" class="btn" type="submit">
+              Update
+            </button>
+          </div>
+          <div class="payment tabShow">
+            <h1>Payment Info</h1>
+            <h2>Card Type</h2>
+            <select name="cardType" id="cardType" style="width: 100%">
+              <option value="" selected="selected"></option>
+              <option value="visa">Visa</option>
+              <option value="discover">Discover</option>
+              <option value="americanexpress">American Express</option>
+              <option value="mastercard">Mastercard</option>
+            </select>
+            <!--
+            <input
+              id="cardType"
+              type="text"
+              class="input"
+              value="Mastercard"
+              readonly="true"
+            />
+            -->
+            <h2>Card Number</h2>
+            <input
+              id="cardNumber"
+              type="text"
+              class="input"
+              value="0000 **** **** 0000"
+              readonly="true"
+            />
+            <h2>CVC</h2>
+            <input
+              id="cvc"
+              type="text"
+              class="input"
+              value="123"
+              readonly="true"
+            />
+            <h2>Expiration Date</h2>
+            <input
+              id="expirationDate"
+              type="text"
+              class="input"
+              value="12/25"
+              readonly="true"
+            />
+            <p></p>
+            <button onclick="changeToInputPayment()" class="btn">Edit</button>
+            <button onclick="changeToTextPayment()" class="btn" type="submit">
+              Update
+            </button>
+          </div>
+          <div class="address tabShow">
+            <h1>Address Book</h1>
+            <h2>Street Address</h2>
+            <input
+              id="streetAddress"
+              type="text"
+              class="input"
+              value="1234 Some Street"
+              readonly="true"
+            />
+            <h2>City</h2>
+            <input
+              id="city"
+              type="text"
+              class="input"
+              value="Atlanta"
+              readonly="true"
+            />
+            <h2>State</h2>
+            <input
+              id="state"
+              type="text"
+              class="input"
+              value="GA"
+              readonly="true"
+            />
+            <h2>Zip Code</h2>
+            <input
+              id="zipCode"
+              type="text"
+              class="input"
+              value="30606"
+              readonly="true"
+            />
+            <p></p>
+            <button onclick="changeToInputAddress()" class="btn">Edit</button>
+            <button onclick="changeToTextAddress()" class="btn" type="submit">
+              Update
+            </button>
+          </div>
+        </form>
       </div>
     </div>
 

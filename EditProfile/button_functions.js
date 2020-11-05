@@ -1,6 +1,19 @@
-var profile_info = ["fullName", "password"];
+var profile_info = ["firstName", "lastName", "password"];
 var payment_info = ["cardType", "cardNumber", "cvc", "expirationDate"];
 var address_info = ["streetAddress", "city", "state", "zipCode"];
+var all_info = [
+  "firstName",
+  "lastName",
+  "password",
+  "cardType",
+  "cardNumber",
+  "cvc",
+  "expirationDate",
+  "streetAddress",
+  "city",
+  "state",
+  "zipCode",
+];
 
 function changeToInputPersonal() {
   profile_info.forEach(
@@ -9,9 +22,14 @@ function changeToInputPersonal() {
 }
 
 function changeToTextPersonal() {
-  profile_info.forEach((element) =>
-    document.getElementById(element).setAttribute("readOnly", "true")
-  );
+  profile_info.forEach((element) => {
+    if (document.forms["editProfileForm"][element].value != "") {
+      document.getElementById(element).setAttribute("readOnly", "true");
+    } else {
+      alert("Please fill required field(s).");
+      return false;
+    }
+  });
 }
 
 function changeToInputPayment() {
@@ -21,9 +39,14 @@ function changeToInputPayment() {
 }
 
 function changeToTextPayment() {
-  payment_info.forEach((element) =>
-    document.getElementById(element).setAttribute("readOnly", "true")
-  );
+  payment_info.forEach((element) => {
+    if (document.forms["editProfileForm"][element].value != "") {
+      document.getElementById(element).setAttribute("readOnly", "true");
+    } else {
+      alert("Please fill required field(s).");
+      return false;
+    }
+  });
 }
 
 function changeToInputAddress() {
@@ -33,7 +56,12 @@ function changeToInputAddress() {
 }
 
 function changeToTextAddress() {
-  address_info.forEach((element) =>
-    document.getElementById(element).setAttribute("readOnly", "true")
-  );
+  address_info.forEach((element) => {
+    if (document.forms["editProfileForm"][element].value != "") {
+      document.getElementById(element).setAttribute("readOnly", "true");
+    } else {
+      alert("Please fill required field(s).");
+      return false;
+    }
+  });
 }
