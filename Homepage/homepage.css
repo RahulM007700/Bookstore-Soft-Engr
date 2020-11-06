@@ -348,3 +348,8 @@ nav a.active#editProfileNavA {
   width: 80%;
   margin: auto;
 }
+
+.input{
+  text-align: center;
+  font-size: large;
+}
