@@ -4,11 +4,7 @@ body{
 }
 
 
-h2 {
-    text-align: center;
-     color: white;
-     font-size: 30px;
-     }
+h2 {text-align: center; color: white }
 
 .rcorners1{      
     border-radius: 25px;
@@ -51,10 +47,10 @@ h2 {
    
 }
 
-#submittext{
+#b2homepage{
   
-    top: 200px;
-    left: 190px;
+    top: 100px;
+    left: 150px;
 }
 
 #verification{
