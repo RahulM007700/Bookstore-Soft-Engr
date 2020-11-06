@@ -322,7 +322,6 @@
               placeholder="Enter Current Password"
               id="enteredPassword"
               value=""
-              ;
               required
             />
             <button
@@ -339,7 +338,6 @@
     </div>
     <!-- End of Change Password Modal -->
     <!--<div id="navBar"></div>-->
-
     <!--<link rel="stylesheet" href="edit_profile_style.css" />-->
     <div id="editProfileContainer" class="container">
       <div class="leftbox">
@@ -412,8 +410,8 @@
               readonly="true"
             />
             <p></p>
-            <button id="changePasswordButton">Change Password</button>
-            <button onclick="changeToInputPersonal()" class="btn">Edit</button>
+            <button id="changePasswordButton" type="button">Change Password</button>
+            <button onclick="changeToInputPersonal()" class="btn" type="button">Edit</button>
             <button onclick="changeToTextPersonal()" class="btn" type="submit">
               Update
             </button>
@@ -451,6 +449,7 @@
               type="text"
               class="input"
               value="123"
+              maxlength="3"
               readonly="true"
             />
             <h2>Expiration Date</h2>
@@ -459,10 +458,11 @@
               type="text"
               class="input"
               value="12/25"
+              maxlength="5"
               readonly="true"
             />
             <p></p>
-            <button onclick="changeToInputPayment()" class="btn">Edit</button>
+            <button onclick="changeToInputPayment()" class="btn" type="button">Edit</button>
             <button onclick="changeToTextPayment()" class="btn" type="submit">
               Update
             </button>
@@ -504,7 +504,7 @@
               readonly="true"
             />
             <p></p>
-            <button onclick="changeToInputAddress()" class="btn">Edit</button>
+            <button onclick="changeToInputAddress()" class="btn" type="button">Edit</button>
             <button onclick="changeToTextAddress()" class="btn" type="submit">
               Update
             </button>
@@ -658,6 +658,16 @@
       //      alert("you must fill out all corresponding fields");
       //    }
       //};
+    </script>
+    <script type="text/javascript">
+      document.getElementById("changePasswordBtn").onclick = function () {
+        if (
+          document.getElementById("password").value ==
+          document.getElementById("enteredPassword").value
+        ) {
+          location.href = "../Login/ForgotPasswordVerify.html";
+        }
+      };
     </script>
   </body>
 </html>
