@@ -309,34 +309,6 @@
 
     <!--end of reset password modal content-->
 
-    <!-- Change Password Modal -->
-    <div id="changePasswordModal" class="changePasswordModal">
-      <div class="changePasswordModal-content">
-        <span class="close-button-password">&times;</span>
-        <form method="post">
-          <div class="changePassword-container">
-            <h1 style="text-align: center">Change Password</h1>
-            <label for="current-password"><b>Current Password</b></label>
-            <input
-              type="text"
-              placeholder="Enter Current Password"
-              id="enteredPassword"
-              value=""
-              required
-            />
-            <button
-              type="submit"
-              class="loginbtn"
-              id="changePasswordBtn"
-              onclick="matchPasswords()"
-            >
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-    <!-- End of Change Password Modal -->
     <!--<div id="navBar"></div>-->
     <!--<link rel="stylesheet" href="edit_profile_style.css" />-->
     <div id="editProfileContainer" class="container">
@@ -367,6 +339,34 @@
       </div>
       <div class="editProfileContainer">
         <form id="editProfileForm" action="EditUserProfile.php" method="POST">
+          <!-- Change Password Modal -->
+          <div id="changePasswordModal" class="changePasswordModal">
+            <div class="changePasswordModal-content">
+              <span class="close-button-password">&times;</span>
+              <form method="post">
+                <div class="changePassword-container">
+                  <h1 style="text-align: center">Change Password</h1>
+                  <label for="current-password"><b>Current Password</b></label>
+                  <input
+                    type="text"
+                    placeholder="Enter Current Password"
+                    id="enteredPassword"
+                    value=""
+                    required
+                  />
+                  <button
+                    type="button"
+                    class="loginbtn"
+                    id="changePasswordBtn"
+                    onclick="matchPasswords()"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- End of Change Password Modal -->
           <div class="profile tabShow">
             <h1 id="personalHeader" class="editProfileHeader">Personal Info</h1>
             <h2>First Name</h2>
@@ -410,8 +410,12 @@
               readonly="true"
             />
             <p></p>
-            <button id="changePasswordButton" type="button">Change Password</button>
-            <button onclick="changeToInputPersonal()" class="btn" type="button">Edit</button>
+            <button id="changePasswordButton" type="button">
+              Change Password
+            </button>
+            <button onclick="changeToInputPersonal()" class="btn" type="button">
+              Edit
+            </button>
             <button onclick="changeToTextPersonal()" class="btn" type="submit">
               Update
             </button>
@@ -462,7 +466,9 @@
               readonly="true"
             />
             <p></p>
-            <button onclick="changeToInputPayment()" class="btn" type="button">Edit</button>
+            <button onclick="changeToInputPayment()" class="btn" type="button">
+              Edit
+            </button>
             <button onclick="changeToTextPayment()" class="btn" type="submit">
               Update
             </button>
@@ -504,7 +510,9 @@
               readonly="true"
             />
             <p></p>
-            <button onclick="changeToInputAddress()" class="btn" type="button">Edit</button>
+            <button onclick="changeToInputAddress()" class="btn" type="button">
+              Edit
+            </button>
             <button onclick="changeToTextAddress()" class="btn" type="submit">
               Update
             </button>
@@ -661,11 +669,16 @@
     </script>
     <script type="text/javascript">
       document.getElementById("changePasswordBtn").onclick = function () {
-        if (
-          document.getElementById("password").value ==
-          document.getElementById("enteredPassword").value
-        ) {
+          var currentPassword = document.getElementById("password").value;
+          var enteredPassword = document.getElementById("enteredPassword").value;
+        if (currentPassword == enteredPassword) {
           location.href = "../Login/ForgotPasswordVerify.html";
+        }
+        else if(enteredPassword == "") {
+            alert("Please fill out field.")
+        }
+        else {
+            alert("Password does not match.")
         }
       };
     </script>
