@@ -370,7 +370,7 @@
       <div class="editProfileContainer">
         <form id="editProfileForm" action="EditUserProfile.php" method="POST">
           <div class="profile tabShow">
-            <h1 id="editProfileHeader1">Personal Info</h1>
+            <h1 id="personalHeader" class="editProfileHeader">Personal Info</h1>
             <h2>First Name</h2>
             <input
               id="firstName"
@@ -419,7 +419,7 @@
             </button>
           </div>
           <div class="payment tabShow">
-            <h1 id="editProfileHeader1">Payment Info</h1>
+            <h1 id="paymentHeader" class="editProfileHeader">Payment Info</h1>
             <h2>Card Type</h2>
             <select name="cardType" id="cardType" style="width: 100%">
               <option value="" selected="selected"></option>
@@ -468,7 +468,9 @@
             </button>
           </div>
           <div class="address tabShow">
-            <h1 id="editProfileHeader1">Billing Address</h1>
+            <h1 id="billingHeader" class="editProfileHeader">
+              Billing Address
+            </h1>
             <h2>Street Address</h2>
             <input
               id="streetAddress"

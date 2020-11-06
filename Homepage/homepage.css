@@ -312,7 +312,7 @@ input[type="month"]:focus {
   opacity: 1;
 }
 
-h1#editProfileHeader1 {
+.editProfileHeader {
   padding-bottom: 5%;
 }
 
