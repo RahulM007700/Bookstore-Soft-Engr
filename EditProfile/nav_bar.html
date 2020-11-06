@@ -11,6 +11,7 @@
       src="https://kit.fontawesome.com/a746b8874d.js"
       crossorigin="anonymous"
     ></script>
+    <script src="button_functions.js"></script>
   </head>
   <body style="background-color: rgba(108, 173, 138, 0.32); width: 100%">
     <!--navigation starts here-->
@@ -316,29 +317,18 @@
             <input
               type="text"
               placeholder="Enter Current Password"
-              name="email-reset"
-              id="email-reset"
+              id="enteredPassword"
+              value="";
               required
             />
-            <label for="new-password"><b>New Password</b></label>
-            <input
-              type="text"
-              placeholder="Enter New Password"
-              name="email-reset"
-              id="email-reset"
-              required
-            />
-            <label for="re-enter-new-password"
-              ><b>Re-enter New Password</b></label
+            <button
+              type="submit"
+              class="loginbtn"
+              id="changePasswordBtn"
+              onclick="matchPasswords()"
             >
-            <input
-              type="text"
-              placeholder="Re-enter New Password"
-              name="email-reset"
-              id="email-reset"
-              required
-            />
-            <button type="submit" class="loginbtn" id="changePasswordBtn">Submit</button>
+              Submit
+            </button>
           </div>
         </form>
       </div>

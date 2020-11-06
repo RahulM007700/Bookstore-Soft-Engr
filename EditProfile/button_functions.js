@@ -1,9 +1,11 @@
-var profile_info = ["firstName", "lastName", "password"];
+var profile_info = ["firstName", "lastName", "phoneNumber"];
 var payment_info = ["cardType", "cardNumber", "cvc", "expirationDate"];
 var address_info = ["streetAddress", "city", "state", "zipCode"];
 var all_info = [
   "firstName",
   "lastName",
+  "phoneNumber",
+  "emailAddress",
   "password",
   "cardType",
   "cardNumber",
@@ -64,4 +66,14 @@ function changeToTextAddress() {
       return false;
     }
   });
+}
+
+function matchPasswords() {
+  var currentPassword = document.getElementById("password").value;
+  var enteredPassword = document.getElementById("enteredPassword").value;
+  if (currentPassword == enteredPassword) {
+    window.location.href("../Login/ForgotPasswordVerify.html");
+  } else {
+    alert("Passwords must match.");
+  }
 }
