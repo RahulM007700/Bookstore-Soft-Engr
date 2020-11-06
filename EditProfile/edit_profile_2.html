@@ -12,7 +12,6 @@
       src="https://kit.fontawesome.com/a746b8874d.js"
       crossorigin="anonymous"
     ></script>
-    <script src="button_functions.js"></script>
   </head>
   <body style="background-color: rgba(108, 173, 138, 0.32); width: 100%">
     <!--navigation starts here-->
@@ -338,35 +337,35 @@
         </nav>
       </div>
       <div class="editProfileContainer">
-        <form id="editProfileForm" action="EditUserProfile.php" method="POST">
-          <!-- Change Password Modal -->
-          <div id="changePasswordModal" class="changePasswordModal">
-            <div class="changePasswordModal-content">
-              <span class="close-button-password">&times;</span>
-              <form method="post">
-                <div class="changePassword-container">
-                  <h1 style="text-align: center">Change Password</h1>
-                  <label for="current-password"><b>Current Password</b></label>
-                  <input
-                    type="text"
-                    placeholder="Enter Current Password"
-                    id="enteredPassword"
-                    value=""
-                    required
-                  />
-                  <button
-                    type="button"
-                    class="loginbtn"
-                    id="changePasswordBtn"
-                    onclick="matchPasswords()"
-                  >
-                    Submit
-                  </button>
-                </div>
-              </form>
-            </div>
+        <!-- Change Password Modal -->
+        <div id="changePasswordModal" class="changePasswordModal">
+          <div class="changePasswordModal-content">
+            <span class="close-button-password">&times;</span>
+            <form method="post">
+              <div class="changePassword-container">
+                <h1 style="text-align: center">Change Password</h1>
+                <label for="current-password"><b>Current Password</b></label>
+                <input
+                  type="text"
+                  placeholder="Enter Current Password"
+                  id="enteredPassword"
+                  value=""
+                  required
+                />
+                <button
+                  type="button"
+                  class="loginbtn"
+                  id="changePasswordBtn"
+                  onclick="matchPasswords()"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
           </div>
-          <!-- End of Change Password Modal -->
+        </div>
+        <!-- End of Change Password Modal -->
+        <form id="editProfileForm" action="EditUserProfile.php" method="POST">
           <div class="profile tabShow">
             <h1 id="personalHeader" class="editProfileHeader">Personal Info</h1>
             <h2>First Name</h2>
@@ -410,7 +409,7 @@
               readonly="true"
             />
             <p></p>
-            <button id="changePasswordButton" type="button">
+            <button id="changePasswordButton" class="btn" type="button">
               Change Password
             </button>
             <button onclick="changeToInputPersonal()" class="btn" type="button">
@@ -540,11 +539,6 @@
       });
     </script>
     <script>
-      $(function () {
-        $("#navBar").load("nav_bar.html");
-      });
-    </script>
-    <script>
       /*
        * reset password JS
        */
@@ -669,18 +663,17 @@
     </script>
     <script type="text/javascript">
       document.getElementById("changePasswordBtn").onclick = function () {
-          var currentPassword = document.getElementById("password").value;
-          var enteredPassword = document.getElementById("enteredPassword").value;
+        var currentPassword = document.getElementById("password").value;
+        var enteredPassword = document.getElementById("enteredPassword").value;
         if (currentPassword == enteredPassword) {
           location.href = "../Login/ForgotPasswordVerify.html";
-        }
-        else if(enteredPassword == "") {
-            alert("Please fill out field.")
-        }
-        else {
-            alert("Password does not match.")
+        } else if (enteredPassword == "") {
+          alert("Please fill out field.");
+        } else {
+          alert("Password does not match.");
         }
       };
     </script>
+    <script src="button_functions.js"></script>
   </body>
 </html>
