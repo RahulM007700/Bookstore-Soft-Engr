@@ -5,6 +5,11 @@
   list-style-type: none;
 }
 
+body {
+  background-color: rgba(108, 173, 138, 0.32);
+  width: 100%;
+}
+
 .header {
   border: 1px solid green;
   position: relative;
@@ -205,7 +210,8 @@ hr {
 
 .regModal,
 .loginModal,
-.resetPWModal {
+.resetPWModal,
+.changePasswordModal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -221,7 +227,8 @@ hr {
 
 .regModal-content,
 .resetPWModal-content,
-.loginModal-content {
+.loginModal-content,
+.changePasswordModal-content {
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
@@ -232,7 +239,8 @@ hr {
 
 .close-button-reg,
 .close-button-resetPWModal,
-.close-button-login {
+.close-button-login,
+.close-button-password {
   color: #810b0b;
   float: right;
   font-size: 28px;
@@ -252,7 +260,8 @@ hr {
 
 .container,
 .login-container,
-.resetPWModal-container {
+.resetPWModal-container,
+.changePassword-container {
   padding: 16px;
   text-align: center;
   width: 80%;
@@ -301,4 +310,41 @@ input[type="month"]:focus {
 .loginbtn:hover,
 .resetbtn:hover {
   opacity: 1;
+}
+
+h1#editProfileHeader1 {
+  padding-bottom: 5%;
+}
+
+.leftbox {
+  padding-top: 5%;
+}
+
+nav a#editProfileNavA {
+  list-style: none;
+  padding-left: 5%;
+  padding-right: 5%;
+  color: #fff;
+  font-size: 1.1em;
+  transition: all 0.1s ease-in-out;
+}
+
+nav a:hover#editProfileNavA {
+  color: #10ac84;
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+nav a:first-child#editProfileNavA {
+  margin-top: 7px;
+}
+
+nav a.active#editProfileNavA {
+  color: #10ac84;
+}
+
+.editProfileContainer {
+  text-align: center;
+  width: 80%;
+  margin: auto;
 }

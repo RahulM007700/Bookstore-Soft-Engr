@@ -6,17 +6,17 @@
   </head>
   <body>
     <div id="navBar"></div>
-    <link rel="stylesheet" href="edit_profile_style.css" />
+    <!--<link rel="stylesheet" href="edit_profile_style.css" />-->
     <div id="editProfileContainer" class="container">
       <div class="leftbox">
         <nav id="editProfileNav">
-          <a id="editProfileNav" onclick="tabs(0)" class="tab active">
+          <a id="editProfileNavA" onclick="tabs(0)" class="tab active">
             <image src="../account_image.png" width="50" height="50"></image>
           </a>
-          <a id="editProfileNav" onclick="tabs(1)" class="tab">
+          <a id="editProfileNavA" onclick="tabs(1)" class="tab">
             <image src="../credit_card_icon.png" width="50" height="50"></image>
           </a>
-          <a id="editProfileNav" onclick="tabs(2)" class="tab">
+          <a id="editProfileNavA" onclick="tabs(2)" class="tab">
             <image
               src="../address_book_icon.png"
               width="50"
@@ -24,7 +24,7 @@
             ></image>
           </a>
           <a
-            id="editProfileNav"
+            id="editProfileNavA"
             oncick="tabs(3)"
             class="tab"
             href="../Homepage/homepage.html"
@@ -33,10 +33,10 @@
           </a>
         </nav>
       </div>
-      <div class="rightbox">
+      <div class="editProfileContainer">
         <form id="editProfileForm" action="EditUserProfile.php" method="POST">
           <div class="profile tabShow">
-            <h1>Personal Info</h1>
+            <h1 id="editProfileHeader1">Personal Info</h1>
             <h2>First Name</h2>
             <input
               id="firstName"
@@ -51,6 +51,14 @@
               type="text"
               class="input"
               value="Doe"
+              readonly="true"
+            />
+            <h2>Phone Number</h2>
+            <input
+              id="phoneNumber"
+              type="text"
+              class="input"
+              value="000-000-0000"
               readonly="true"
             />
             <h2>Email Address</h2>
@@ -70,13 +78,14 @@
               readonly="true"
             />
             <p></p>
+            <button id="changePasswordButton">Change Password</button>
             <button onclick="changeToInputPersonal()" class="btn">Edit</button>
             <button onclick="changeToTextPersonal()" class="btn" type="submit">
               Update
             </button>
           </div>
           <div class="payment tabShow">
-            <h1>Payment Info</h1>
+            <h1 id="editProfileHeader1">Payment Info</h1>
             <h2>Card Type</h2>
             <select name="cardType" id="cardType" style="width: 100%">
               <option value="" selected="selected"></option>
@@ -125,7 +134,7 @@
             </button>
           </div>
           <div class="address tabShow">
-            <h1>Address Book</h1>
+            <h1 id="editProfileHeader1">Billing Address</h1>
             <h2>Street Address</h2>
             <input
               id="streetAddress"
