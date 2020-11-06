@@ -346,10 +346,12 @@ nav a.active#editProfileNavA {
 .editProfileContainer {
   text-align: center;
   width: 80%;
+  height: 80%;
   margin: auto;
 }
 
-.input{
+.input {
+  display: block;
   text-align: center;
   font-size: large;
 }
