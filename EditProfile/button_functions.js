@@ -29,14 +29,15 @@ function changeToInputPersonal() {
 function changeToTextPersonal() {
   profile_info.forEach((element) => {
     if (document.forms["editProfileForm"][element].value != "") {
-      updateProfileButton.setAttribute("type", "submit");
+      //updateProfileButton.setAttribute("type", "submit");
       document.getElementById(element).setAttribute("readOnly", "true");
     } else {
-      updateProfileButton.setAttribute("type", "button");
+      //updateProfileButton.setAttribute("type", "button");
       alert("Please fill required field(s).");
       return false;
     }
   });
+  updateProfileButton.submit();
 }
 
 function changeToInputPayment() {
@@ -48,14 +49,15 @@ function changeToInputPayment() {
 function changeToTextPayment() {
   payment_info.forEach((element) => {
     if (document.forms["editProfileForm"][element].value != "") {
-      updatePaymentButton.setAttribute("type", "submit");
+      //updatePaymentButton.setAttribute("type", "submit");
       document.getElementById(element).setAttribute("readOnly", "true");
     } else {
-      updatePaymentButton.setAttribute("type", "button");
+      //updatePaymentButton.setAttribute("type", "button");
       alert("Please fill required field(s).");
       return false;
     }
   });
+  updatePaymentButton.submit();
 }
 
 function changeToInputAddress() {
@@ -67,14 +69,15 @@ function changeToInputAddress() {
 function changeToTextAddress() {
   address_info.forEach((element) => {
     if (document.forms["editProfileForm"][element].value != "") {
-      updateAddressButton.setAttribute("type", "submit");
+      //updateAddressButton.setAttribute("type", "submit");
       document.getElementById(element).setAttribute("readOnly", "true");
     } else {
-      updateAddressButton.setAttribute("type", "button");
+      //updateAddressButton.setAttribute("type", "button");
       alert("Please fill required field(s).");
       return false;
     }
   });
+  updateAddressButton.submit();
 }
 
 function matchPasswords() {
