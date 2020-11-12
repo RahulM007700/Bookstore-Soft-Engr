@@ -20,7 +20,7 @@
             $passhash = password_hash($newPW, PASSWORD_DEFAULT);
             $sql = "UPDATE customer_account SET Password = '$passhash' WHERE (EmailAddress = '$Email');";
             if ($conn->query($sql)){
-                header("Location: http://localhost/Bookstore-Soft-Engr-master/Homepage/homepage.php?results=successfully_changed_password");
+                header("Location: http://localhost/Bookstore-Soft-Engr/Homepage/homepage.php?results=successfully_changed_password");
             } else {
                 echo "Error: ". $sql ."<br>". $conn->error;
             }

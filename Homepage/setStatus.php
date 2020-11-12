@@ -22,13 +22,13 @@ if (isset($_SESSION['EmailAddress'])){
             session_start();
             session_unset();
             session_destroy();
-            header("Location: http://localhost/Bookstore-Soft-Engr-master/Homepage/homepage.php?Status=Account_Set_to_ACTIVE");
+            header("Location: http://localhost/Bookstore-Soft-Engr/Homepage/homepage.php?Status=Account_Set_to_ACTIVE");
         }
         else {
             session_start();
             session_unset();
             session_destroy();
-            header("Location: http://localhost/Bookstore-Soft-Engr-master/Homepage/homepage.php?Status=Account_Still_INACTIVE");
+            header("Location: http://localhost/Bookstore-Soft-Engr/Homepage/homepage.php?Status=Account_Still_INACTIVE");
         }        
     }
 }
