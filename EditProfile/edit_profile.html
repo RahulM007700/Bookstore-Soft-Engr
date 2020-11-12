@@ -408,6 +408,22 @@
               value="helloworld"
               readonly="true"
             />
+            <button id="changePasswordButton" class="btn" type="button">
+              Change Password
+            </button>
+            <button onclick="changeToInputPersonal()" class="btn" type="button">
+              Edit
+            </button>
+            <button
+              id="updateProfileButton"
+              onclick="changeToTextPersonal()"
+              class="btn"
+              type="submit"
+            >
+              Update
+            </button>
+          </div>
+          <div class="payment tabShow">
             <h1 id="paymentHeader" class="editProfileHeader">Payment Info</h1>
             <h2>Card Type</h2>
             <select name="cardType" id="cardType" style="width: 100%">
@@ -452,6 +468,19 @@
               maxlength="5"
               readonly="true"
             />
+            <button onclick="changeToInputPayment()" class="btn" type="button">
+              Edit
+            </button>
+            <button
+              id="updatePaymentButton"
+              onclick="changeToTextPayment()"
+              class="btn"
+              type="submit"
+            >
+              Update
+            </button>
+          </div>
+          <div class="address tabShow">
             <h1 id="billingHeader" class="editProfileHeader">
               Billing Address
             </h1>
@@ -487,7 +516,6 @@
               value="30606"
               readonly="true"
             />
-            <!--
             <button onclick="changeToInputAddress()" class="btn" type="button">
               Edit
             </button>
@@ -499,38 +527,6 @@
             >
               Update
             </button>
-            <button onclick="changeToInputPayment()" class="btn" type="button">
-              Edit
-            </button>
-            <button
-              id="updatePaymentButton"
-              onclick="changeToTextPayment()"
-              class="btn"
-              type="submit"
-            >
-              Update
-            </button>
-            -->
-            <button id="changePasswordButton" class="btn" type="button">
-              Change Password
-            </button>
-            <button onclick="changeToInputPersonal()" class="btn" type="button">
-              Edit
-            </button>
-            <button
-              id="updateProfileButton"
-              onclick="changeToTextPersonal()"
-              class="btn"
-              type="submit"
-            >
-              Update
-            </button>
-          </div>
-          <div class="payment tabShow">
-            
-          </div>
-          <div class="address tabShow">
-            
           </div>
         </form>
       </div>

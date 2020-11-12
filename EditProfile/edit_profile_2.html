@@ -408,7 +408,6 @@
               value="helloworld"
               readonly="true"
             />
-            <p></p>
             <button id="changePasswordButton" class="btn" type="button">
               Change Password
             </button>
@@ -468,7 +467,51 @@
             maxlength="5"
             readonly="true"
           />
-          <p></p>
+          <h1 id="billingHeader" class="editProfileHeader">Billing Address</h1>
+          <h2>Street Address</h2>
+          <input
+            id="streetAddress"
+            type="text"
+            class="input"
+            value="1234 Some Street"
+            readonly="true"
+          />
+          <h2>City</h2>
+          <input
+            id="city"
+            type="text"
+            class="input"
+            value="Atlanta"
+            readonly="true"
+          />
+          <h2>State</h2>
+          <input
+            id="state"
+            type="text"
+            class="input"
+            value="GA"
+            readonly="true"
+          />
+          <h2>Zip Code</h2>
+          <input
+            id="zipCode"
+            type="text"
+            class="input"
+            value="30606"
+            readonly="true"
+          />
+          <!--
+          <button onclick="changeToInputAddress()" class="btn" type="button">
+            Edit
+          </button>
+          <button
+            id="updateAddressButton"
+            onclick="changeToTextAddress()"
+            class="btn"
+            type="submit"
+          >
+            Update
+          </button>
           <button onclick="changeToInputPayment()" class="btn" type="button">
             Edit
           </button>
@@ -480,56 +523,9 @@
           >
             Update
           </button>
+          -->
           <div class="payment tabShow"></div>
-          <div class="address tabShow">
-            <h1 id="billingHeader" class="editProfileHeader">
-              Billing Address
-            </h1>
-            <h2>Street Address</h2>
-            <input
-              id="streetAddress"
-              type="text"
-              class="input"
-              value="1234 Some Street"
-              readonly="true"
-            />
-            <h2>City</h2>
-            <input
-              id="city"
-              type="text"
-              class="input"
-              value="Atlanta"
-              readonly="true"
-            />
-            <h2>State</h2>
-            <input
-              id="state"
-              type="text"
-              class="input"
-              value="GA"
-              readonly="true"
-            />
-            <h2>Zip Code</h2>
-            <input
-              id="zipCode"
-              type="text"
-              class="input"
-              value="30606"
-              readonly="true"
-            />
-            <p></p>
-            <button onclick="changeToInputAddress()" class="btn" type="button">
-              Edit
-            </button>
-            <button
-              id="updateAddressButton"
-              onclick="changeToTextAddress()"
-              class="btn"
-              type="submit"
-            >
-              Update
-            </button>
-          </div>
+          <div class="address tabShow"></div>
         </form>
       </div>
     </div>
