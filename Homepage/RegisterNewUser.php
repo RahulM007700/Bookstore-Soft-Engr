@@ -38,7 +38,7 @@ if (!empty($EmailAddress)){
                 if($Email[0] == $EmailAddress){
                     //echo json_encode($test);
                     $test = mysqli_fetch_array($openAccount = mysqli_query($conn, $sql1));
-                    header("Location: http://localhost/Bookstore-Soft-Engr-master/Homepage/homepage.php?results=Email-Is-Taken");
+                    header("Location: http://localhost/Bookstore-Soft-Engr/Homepage/homepage.php?results=Email-Is-Taken");
                 }
             }
             else {
@@ -80,7 +80,7 @@ if (!empty($EmailAddress)){
                             Subject: "Welcome to the Online Bookstore!",
                             Body: "Welcome!\nHere is your verification code: " + verificationCode + ". And here is your unique user identification number: " + makeUserID() +". You can use this to sign in as well!",
                         });</script>';
-                        header("Location: http://localhost/Bookstore-Soft-Engr-master/Registration/Regconfirm.php?results={$results}");
+                        header("Location: http://localhost/Bookstore-Soft-Engr/Registration/Regconfirm.php?results={$results}");
                     }
                 }
                 else {

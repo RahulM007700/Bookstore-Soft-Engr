@@ -22,7 +22,7 @@ if (!empty($Email)){
         if($row != null) {
             $_SESSION['EmailAddress'] = $row['EmailAddress'];
             //echo $_SESSION['EmailAddress'];
-            header("Location: http://localhost/Bookstore-Soft-Engr-master/Registration/PWconfirm.php?results=Confirm");
+            header("Location: http://localhost/Bookstore-Soft-Engr/Registration/PWconfirm.php?results=Confirm");
         }
         else {
             echo $row['EmailAddress'];

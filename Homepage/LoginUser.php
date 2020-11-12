@@ -44,20 +44,20 @@ if (!empty($EmailAddress)){
                     $_SESSION['ExpDate'] = $openAccount['ExpirationDate'];
                     $_SESSION['CVV'] = $openAccount['CVV'];
                     if ($openAccount['AccountType'] == "Admin"){
-                        header("Location: http://localhost/Bookstore-Soft-Engr-master/Admin_Homepage/admin-homepage.php?results=Login-Successful");
+                        header("Location: http://localhost/Bookstore-Soft-Engr/Admin_Homepage/admin-homepage.php?results=Login-Successful");
                     }
                     else {
-                        header("Location: http://localhost/Bookstore-Soft-Engr-master/Homepage/homepage.php?results=Login-Successful");
+                        header("Location: http://localhost/Bookstore-Soft-Engr/Homepage/homepage.php?results=Login-Successful");
                     }
                 }
                 else {
-                    header("Location: http://localhost/Bookstore-Soft-Engr-master/Homepage/homepage.php?results=Login-Unsuccessful");
+                    header("Location: http://localhost/Bookstore-Soft-Engr/Homepage/homepage.php?results=Login-Unsuccessful");
                 }
             } else {
                 //echo password_verify($Password, $hash['Password']);
                 //echo '<br>';
                 //echo $temp['Password'];
-                header("Location: http://localhost/Bookstore-Soft-Engr-master/Homepage/homepage.php?results=Incorrect-Password/Email-Combination");
+                header("Location: http://localhost/Bookstore-Soft-Engr/Homepage/homepage.php?results=Incorrect-Password/Email-Combination");
             }
             $conn->close();
         }
