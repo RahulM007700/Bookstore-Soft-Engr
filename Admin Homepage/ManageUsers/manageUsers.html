@@ -47,12 +47,11 @@
                         <td class="user-type">User</td>
                         <td class="status"><span class="status text-success">&bull;</span> Active</td>
                         <td id="suspension">
-                            <form>
-                                <select>
-                                    <option>Suspend</option>
-                                    <option>Unsuspend</option>
-                                </select>
-                            </form>
+                            <select onchange="changeSelected();">
+                                <option></option>
+                                <option>Suspend</option>
+                                <option>Unsuspend</option>
+                            </select>
                         </td>
                     </tr>
                     <tr>
@@ -62,12 +61,11 @@
                         <td class="user-type">User</td>
                         <td class="status"><span class="status text-success">&bull;</span> Active</td>
                         <td id="suspension">
-                            <form>
-                                <select>
-                                    <option>Suspend</option>
-                                    <option>Unsuspend</option>
-                                </select>
-                            </form>
+                            <select onchange="changeSelected();">
+                                <option></option>
+                                <option>Suspend</option>
+                                <option>Unsuspend</option>
+                            </select>
                         </td>
                     </tr>
                  <!--   <tr>
@@ -262,16 +260,18 @@
                     action.html("<button>Promote</button>");
                 } else if (role.value == "Admin") {
                     action.html("<button>Demote</button>");
-                }
-                
+                }    
+            });
+            
+            function changeSelected() {
                 var select = document.getElementById("suspension").value;
                 if (select.value == "Suspended") {
                     status.html("<p><span class='status text-warning'>&bull;</span> Inactive</p>");
                 } else if (select.value == "Unsuspended") {
                     status.html("<p><span class='status text-success'>&bull;</span> Active</p>");
                 } 
-                
-            });
+            }
+            
             function demote() {
                 role.html("Employee");
             }
