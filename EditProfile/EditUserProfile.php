@@ -9,12 +9,11 @@
     $CVV = filter_input(INPUT_POST,'cvc');
     $EmailAddress = filter_input(INPUT_POST,'emailAddress');
     $ExpirationDate = filter_input(INPUT_POST,'expirationDate');
-    $FullName = filter_input(INPUT_POST,'fullName');
-    $Password = filter_input(INPUT_POST,'password');
     $State = filter_input(INPUT_POST,'state');
     $StreetAddress = filter_input(INPUT_POST,'street');
     $ZipCode = filter_input(INPUT_POST,'zipCode');
 
+    echo $PhoneNumber;
     //db credentials & connect to database 
     $host = "localhost";
     $dbusername = "root";
@@ -27,7 +26,7 @@
             . mysqli_connect_error());
     } else {
         $sql = "UPDATE customer_account
-                SET FirstName = '$FirstName', LastName = '$LastName', PhoneNumber ='$PhoneNumber', StreetAddress = '$StreetAddress', City = '$City', State = '$State', ZipCode = '$ZipCode', CardType = '$CardType', CardNumber = '$CardNumber', ExpirationDate = '$ExpirationDate', CVV= '$CVV'
+                SET FirstName = '$FirstName', LastName = '$LastName', PhoneNumber = '$PhoneNumber', StreetAddress = '$StreetAddress', City = '$City', State = '$State', ZipCode = '$ZipCode', CardType = '$CardType', CardNumber = '$CardNumber', ExpirationDate = '$ExpirationDate', CVV= '$CVV'
                 WHERE EmailAddress = '$EmailAddress'";
         if ($conn->query($sql)){
             echo "User Information Updated Successfully";
