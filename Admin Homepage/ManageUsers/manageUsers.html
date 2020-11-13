@@ -27,7 +27,7 @@
                         <td class="user-type">Employee</td>
                         <td class="status"><span class="status text-success">&bull;</span> Active</td>
                         <td class="promotion">
-                            <button>Promote</button>
+                            <button onclick="promote();">Promote</button>
                         </td>
                     </tr>
                     <tr>
@@ -37,7 +37,7 @@
                         <td class="user-type">Admin</td>
                         <td class="status"><span class="status text-success">&bull;</span> Active</td>
                         <td class="promotion">
-                            <button>Demote</button>
+                            <button onclick="demote();">Demote</button>
                         </td>
                     </tr>
                     <tr>
@@ -46,11 +46,13 @@
                         <td>sss93939</td>
                         <td class="user-type">User</td>
                         <td class="status"><span class="status text-success">&bull;</span> Active</td>
-                        <td class="suspension">
-                            <select>
-                                <option>Suspend</option>
-                                <option>Unsuspend</option>
-                            </select>
+                        <td id="suspension">
+                            <form>
+                                <select>
+                                    <option>Suspend</option>
+                                    <option>Unsuspend</option>
+                                </select>
+                            </form>
                         </td>
                     </tr>
                     <tr>
@@ -59,11 +61,13 @@
                         <td>sss93939</td>
                         <td class="user-type">User</td>
                         <td class="status"><span class="status text-success">&bull;</span> Active</td>
-                        <td class="suspension">
-                            <select>
-                                <option>Suspend</option>
-                                <option>Unsuspend</option>
-                            </select>
+                        <td id="suspension">
+                            <form>
+                                <select>
+                                    <option>Suspend</option>
+                                    <option>Unsuspend</option>
+                                </select>
+                            </form>
                         </td>
                     </tr>
                  <!--   <tr>
@@ -242,13 +246,43 @@
             $("#mydatatable").DataTable();
             
             var table = document.getElementById("mydatatable");
-            var status = document.getElementsByClassName("status");
             
-            if (status.value == "Active") {
-                //code
-            } else if (status.value == "Inactive") {
-                //code
+            table.find('tr').each(function () {
+                var $tds = $(this).find('td');
+                    //var number = $tds.eq(0).text();
+                    //var name = $tds.eq(1).text();
+                    //var accountID = $tds.eq(2).text();
+                    var role = $tds.eq(3).text();
+                    var status = $tds.eq(4).text();
+                    var action = $tds.eq(5).text();
+                // do something with it
+                if (role.value == "User") {
+                    action.html("<select><option>Suspend</option><option>Unsuspend</option></select>");
+                } else if (role.value == "Employee"){
+                    action.html("<button>Promote</button>");
+                } else if (role.value == "Admin") {
+                    action.html("<button>Demote</button>");
+                }
+                
+                var select = document.getElementById("suspension").value;
+                if (select.value == "Suspended") {
+                    status.html("<p><span class='status text-warning'>&bull;</span> Inactive</p>");
+                } else if (select.value == "Unsuspended") {
+                    status.html("<p><span class='status text-success'>&bull;</span> Active</p>");
+                } 
+                
+            });
+            function demote() {
+                role.html("Employee");
             }
+                
+            function promote() {
+                role.html("Admin");
+            }
+            
+                
+
+           
         </script>
     </body>
 </html>
