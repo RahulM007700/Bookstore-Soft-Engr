@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -26,18 +27,24 @@
             <th>Promotion ID</th>
             <th>Promotion Amount</th>
             <th>Status</th>
+            <th>ISBN</th>
+            <th>Expiration Date</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
+          <?php 
+            //$i = 0;
+            for($i = 0; $i < sizeof($_SESSION['Promotions']); $i++):
+          ?>
           <tr>
-            <td>1</td>
-            <td>Eat a Peach</td>
-            <td>abc123</td>
-            <td class="user-type">$20</td>
-            <td class="status">
-              <span class="status text-success">&bull;</span> Active
-            </td>
+            <td><?= $i; ?></td>
+            <td><?php echo $_SESSION['Promotions'][$i]['Name'];?></td>
+            <td><?php echo $_SESSION['Promotions'][$i]['Promotion_ID'];?></td>
+            <td><?php echo $_SESSION['Promotions'][$i]['Discount'];?></td>
+            <td><?php echo $_SESSION['Promotions'][$i]['Status'];?></td>
+            <td><?php echo $_SESSION['Promotions'][$i]['ISBN'];?></td>
+            <td><?php echo $_SESSION['Promotions'][$i]['Exp_Date'];?></td>
             <td id="suspension">
               <select onchange="changeSelected();">
                 <option>Active</option>
@@ -46,65 +53,8 @@
               </select>
             </td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>A Killing Frost</td>
-            <td>bcd123</td>
-            <td class="user-type">10%</td>
-            <td class="status">
-              <span class="status text-success">&bull;</span> Inactive
-            </td>
-            <td id="suspension">
-              <select onchange="changeSelected();">
-                <option>Active</option>
-                <option>Inactive</option>
-                <option>Delete</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>I Am Good Every Thing</td>
-            <td>cde123</td>
-            <td class="user-type">15%</td>
-            <td class="status">
-              <span class="status text-success">&bull;</span> Active
-            </td>
-            <td id="suspension">
-              <select onchange="changeSelected();">
-                <option>Active</option>
-                <option>Inactive</option>
-                <option>Delete</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Japanese For Busy People</td>
-            <td>def123</td>
-            <td class="user-type">$10</td>
-            <td class="status">
-              <span class="status text-success">&bull;</span> Inactive
-            </td>
-            <td id="suspension">
-              <select onchange="changeSelected();">
-                <option>Active</option>
-                <option>Inactive</option>
-                <option>Delete</option>
-              </select>
-            </td>
-          </tr>
+          <?php endfor;?> 
         </tbody>
-        <tfoot>
-          <tr>
-            <th>No.</th>
-            <th>Name</th>
-            <th>Promotion ID</th>
-            <th>Promotion Amount</th>
-            <th>Status</th>
-            <th>Action</th>
-          </tr>
-        </tfoot>
       </table>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

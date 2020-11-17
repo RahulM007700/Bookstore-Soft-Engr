@@ -62,7 +62,7 @@
         <div class="col-md-4">
           <div class="card mb-4 box-shadow">
             <br>
-            <a href="../ManagePromotions/manage_promotions.php" style="color:black;"><i class="fas fa-dollar-sign card-img-top fa-10x"></i></a>
+            <a href="../Admin_Phps/PromotionsRetrieval.php" style="color:black;"><i class="fas fa-dollar-sign card-img-top fa-10x"></i></a>
             <div class="card-body">
               <a href="#" style="text-decoration:none;color:black;"><h3 class="card-text">Manage Promotions</h3></a>
               <br>

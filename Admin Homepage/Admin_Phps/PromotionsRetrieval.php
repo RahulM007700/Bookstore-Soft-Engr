@@ -2,7 +2,7 @@
 
 session_start();
 
-$Admin_ID = ;
+$Admin_ID = "12345";
 
 if (!empty($Admin_ID)) {
 
@@ -14,7 +14,7 @@ if (!empty($Admin_ID)) {
     //Make Connection
     $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
     
-    $loginSql = "Select * from admin a where a.Admin_ID = $Admin_ID;"
+    $loginSql = "Select * from admin a where a.Admin_ID = $Admin_ID;";
     if (mysqli_connect_error()){
         die('Connect Error('. mysqli_connect_error() .')'
             . mysqli_connect_error());
@@ -30,10 +30,10 @@ if (!empty($Admin_ID)) {
                 $new[] = $newElement;                 
             }
             $_SESSION['Promotions'] = $new;
-            header("Location: ");
+            header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/ManagePromotions/manage_promotions.php");
         }
         else{
-            header("Location: ")
+            header("Location: ");
         }
     }
     $conn->close();
