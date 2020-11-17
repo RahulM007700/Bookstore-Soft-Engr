@@ -24,9 +24,12 @@ if (!empty($Admin_ID)) {
         $Admin_Account = mysqli_fetch_array($Account);
         if ($Admin_Account['Admin_ID'] != null){
             $Promotions_Sql = "Select * from promotions;";
-            $Promotions = mysqli_query($conn, $Promotions_Sql);
-            $All_Promotions = mysqli_fetch_array($Promotions);
-            $_SESSION['Promotions'] = $All_Promotions;
+            $Promotions = $conn->query($Promotions_Sql);
+            $new = array();
+            while ($newElement = $Promotions->fetch_assoc()){
+                $new[] = $newElement;                 
+            }
+            $_SESSION['Promotions'] = $new;
             header("Location: ");
         }
         else{

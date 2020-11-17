@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -69,63 +70,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <tr>
-                            <form method="post">
-                                <td>1</td>
-                                <td>Olusade Calhoun</td>
-                                <td>olc39417</td>
-                                <td id="user-type">Employee</td>
-                                <td class="status" id="demo"><span class="status text-success">&bull;</span> Active</td>
-                                <td class="promotion">
-                                    <button type="submit" id="btn">Promote</button>
-                                </td>
-                            </form>
-                        </tr>
+                    <?php 
+                        //$i = 0;
+                        for($i = 0; $i < sizeof($_SESSION['Employees']); $i++):
+                    ?>
                     <tr>
-                        <form method="post">
-                            <td>2</td>
-                            <td>Stephanie Delgadillo</td>
-                            <td>sss93939</td>
-                            <td class="user-type">Admin</td>
-                            <td class="status"><span class="status text-success">&bull;</span> Active</td>
-                            <td class="promotion">
-                                <button onclick="demote();" type="submit" id="btn">Demote</button>
-                            </td>
-                        </form>
+                        <td><?= $i; ?></td>
+                        <td><?php echo $_SESSION['Employees'][$i]['First_Name'];?></td>
+                        <td><?php echo $_SESSION['Employees'][$i]['Employee_ID'];?></td>
+                        <td><?php echo $_SESSION['Employees'][$i]['Role'];?></td>
+                        <td><?php echo $_SESSION['Employees'][$i]['Status'];?></td>
+                        <td class="promotion">
+                            <button onclick="demote();" type="submit" id="btn">Demote</button>
+                        </td>
                     </tr>
-                    <tr>
-                        <form method="post" onchange="this.form.submit()">
-                            <td>3</td>
-                            <td>Stephanie Delgadillo</td>
-                            <td>sss93939</td>
-                            <td class="user-type">User</td>
-                            <td class="status"><span class="status text-success">&bull;</span> Active</td>
-                            <td id="suspension">
-                                <select onchange="changeSelected();">
-                                    <option></option>
-                                    <option>Suspend</option>
-                                    <option>Unsuspend</option>
-                                </select>
-                            </td>
-                        </form>
-                    </tr>
-                    <tr>
-                        <form method="post" onchange="this.form.submit()">
-                            <td>4</td>
-                            <td>Stephanie Delgadillo</td>
-                            <td>sss93939</td>
-                            <td class="user-type">User</td>
-                            <td class="status" id="demo"><span class="status text-success">&bull;</span> Active</td>
-                            <td id="suspension">
-                                <select onchange="changeSelected();">
-                                    <option></option>
-                                    <option>Suspend</option>
-                                    <option>Unsuspend</option>
-                                </select>
-                            </td>
-                        </form>
-                    </tr>
-            
+                    <?php endfor;?>             
                 </tbody>
                 <tfoot>
                     <tr>

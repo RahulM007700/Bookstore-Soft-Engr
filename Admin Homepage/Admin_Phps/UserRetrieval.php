@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$Admin_ID = ;
+$Admin_ID = "12345";
 
 if (!empty($Admin_ID)) {
 
@@ -12,7 +12,7 @@ if (!empty($Admin_ID)) {
     //Make Connection
     $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
     
-    $loginSql = "Select * from admin a where a.Admin_ID = $Admin_ID;"
+    $loginSql = "Select * from employees";
     if (mysqli_connect_error()){
         die('Connect Error('. mysqli_connect_error() .')'
             . mysqli_connect_error());
@@ -20,14 +20,17 @@ if (!empty($Admin_ID)) {
     else {
         $Account = mysqli_query($conn, $loginSql);
         $Admin_Account = mysqli_fetch_array($Account);
-        if ($Admin_Account['Admin_ID'] != null){
+        if ($Admin_Account['Employee_ID'] != null){
             $Admin_Sql = "Select * from admin;";
             $Employee_Sql = "Select * from employees;";
-            $Admin = mysqli_query($conn, $Admin_Sql);
-            $Employee = mysqli_query($conn, $Employee_Sql);
-            $All_Admin = mysqli_fetch_array($Admin);
-            $All_Employees = mysqli_fetch_array($Employee);
-            header("Location: ");
+            $Admin = $conn->query($Admin_Sql);
+            $Employee = $conn->query($Employee_Sql);
+            $new = array();
+            while ($newElement = $Employee->fetch_assoc()){
+                $new[] = $newElement;                 
+            }
+            $_SESSION['Employees'] = $new;           
+            header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/ManageUsers/manageUsers.php");
         }
         else{
             header("Location: ");
