@@ -1,9 +1,12 @@
 <?php 
 
 session_start();
-$Admin_ID = filter_input(INPUT_POST,'FName');
+$Admin_ID = "12345";
 $Account_ID = filter_input(INPUT_POST,'Employee_ID');
-$Status_Change = filter_input(INPUT_POST,'Status');
+$Status_Change = filter_input(INPUT_POST,'change');
+echo $Admin_ID;
+echo $Account_ID;
+echo $Status_Change;
 
 if (!empty($Admin_ID)) {
 

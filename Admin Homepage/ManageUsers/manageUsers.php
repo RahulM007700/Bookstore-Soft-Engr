@@ -70,21 +70,46 @@
                     </tr>
                 </thead>
                 <tbody>
+                
                     <?php 
                         //$i = 0;
                         for($i = 0; $i < sizeof($_SESSION['Employees']); $i++):
                     ?>
+                    
                     <tr>
+                        <form method="post" action="../Admin_Phps/UserUpdate.php">
                         <td><?= $i; ?></td>
                         <td><?php echo $_SESSION['Employees'][$i]['First_Name'];?></td>
-                        <td><?php echo $_SESSION['Employees'][$i]['Employee_ID'];?></td>
+                        <td><input type="hidden" name="Employee_ID" value="<?php echo $_SESSION['Employees'][$i]['Employee_ID'];?>"/>
+                            <?php echo $_SESSION['Employees'][$i]['Employee_ID'];?>
+                        </td>
                         <td><?php echo $_SESSION['Employees'][$i]['Role'];?></td>
                         <td><?php echo $_SESSION['Employees'][$i]['Status'];?></td>
-                        <td class="promotion">
-                            <button onclick="demote();" type="submit" id="btn">Demote</button>
+                        <td class="promotion" name="change">
+                        <?php 
+                        if ($_SESSION['Employees'][$i]['Role'] == "Admin" || $_SESSION['Employees'][$i]['Role'] == "Employee"){
+                            echo '<select onchange="this.form.submit()">                           
+                                <option></option>
+                                <option>Promote</option>
+                                <option>Demote</option>
+                            </select>'; 
+                        }
+                        else {
+                            echo '<select onchange="this.form.submit()”> 
+                                <option></option>
+                                <option>Suspend</option>
+                                <option>Reinstate</option>
+                            </select>';
+
+                        }
+                        ?>
+                        
                         </td>
+                        </form>
                     </tr>
-                    <?php endfor;?>             
+                    
+                    <?php endfor;?>
+                                 
                 </tbody>
                 <tfoot>
                     <tr>
