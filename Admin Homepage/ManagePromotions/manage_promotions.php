@@ -232,7 +232,7 @@ session_start();
   <div id="addModal" class="addBookModal">
     <div class="addBookModal-content">
       <span class="close-button-add">&times;</span>
-      <form action="insertBook.php" method="POST">
+      <form id="fr1" action="insertBook.php" method="POST">
         <div class="container">
           <h1 style="text-align: center">Add a Promotion</h1>
           <p style="text-align: center">
@@ -316,7 +316,16 @@ session_start();
       }
     });
   </script>
-    
+  <script>
+    $(document).ready(function() {
+      $('#submitbtn').click(function() {
+        $('#fr1').attr('action',
+          'mailto:kevinwin31@gmail.com?subject=New Promotion' +
+          $('#promotion-name').val() + '&body=' + $('#promotion-id').val() + $('#discount').val());
+        $('#fr1').submit();
+      });
+    });
+  </script>
 </body>
 
 </html>
