@@ -11,8 +11,86 @@
       rel="stylesheet"
       href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css"
     />
+    <script
+      src="https://kit.fontawesome.com/a746b8874d.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#btn").click(function () {
+          $("#user-type").html("Admin");
+        });
+      });
+    </script>
   </head>
+  <style>
+    body {
+      padding-top: 50px;
+    }
+    .nav-link-main:hover {
+      background-color: #faf0e6;
+      border-radius: 5px;
+      padding: 8px;
+    }
+    .container-fluid {
+      padding-right: 0;
+      padding-left: 0;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  </style>
   <body>
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand navbar-light">
+        <a class="navbar-brand" href="adminHomepage.html"
+          ><img
+            src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo4.jpg"
+            height="50"
+        /></a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item px-4">
+              <a href="#" class="nav-link py-4">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div
+      class="container-fluid"
+      style="background-color: #e9ecef; padding-bottom: 20px; padding-top: 20px"
+    >
+      <div class="container-fluid">
+        <h1 class="jumbotron-heading text-center">Manage Users</h1>
+      </div>
+      <ul class="nav justify-content-center">
+        <li class="nav-item px-5">
+          <a
+            class="nav-link-main"
+            href="#"
+            style="color: black; text-decoration: none"
+            ><i class="fas fa-book"></i>&nbsp;&nbsp;Manage Books</a
+          >
+        </li>
+        <li class="nav-item px-5">
+          <a
+            class="nav-link-main"
+            href="#"
+            style="color: black; text-decoration: none"
+            ><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;Manage Promotions</a
+          >
+        </li>
+        <li class="nav-item px-5">
+          <a
+            class="nav-link-main"
+            href="#"
+            style="color: black; text-decoration: none"
+            ><i class="fas fa-users"></i>&nbsp;&nbsp;Manage Users</a
+          >
+        </li>
+      </ul>
+    </div>
     <div class="container mb-3 mt-3">
       <table
         class="table table-striped table-bordered"
@@ -25,6 +103,7 @@
             <th>Name</th>
             <th>Promotion ID</th>
             <th>Promotion Amount</th>
+            <th>Expiration Date</th>
             <th>Status</th>
             <th>Action</th>
           </tr>
@@ -34,14 +113,16 @@
             <td>1</td>
             <td>Eat a Peach</td>
             <td>abc123</td>
-            <td class="user-type">$20</td>
+            <td class="promotionAmount">$20</td>
+            <td class="expirationDate">00/00</td>
             <td class="status">
-              <span class="status text-success">&bull;</span> Active
+              <span class="status text-success">&bull;</span> Sent
             </td>
             <td id="suspension">
               <select onchange="changeSelected();">
-                <option>Active</option>
-                <option>Inactive</option>
+                <option>Not Sent</option>
+                <option>Sent</option>
+                <option>Edit</option>
                 <option>Delete</option>
               </select>
             </td>
@@ -50,14 +131,16 @@
             <td>2</td>
             <td>A Killing Frost</td>
             <td>bcd123</td>
-            <td class="user-type">10%</td>
+            <td class="promotionAmount">$10</td>
+            <td class="expirationDate">00/00</td>
             <td class="status">
-              <span class="status text-success">&bull;</span> Inactive
+              <span class="status text-success">&bull;</span> Sent
             </td>
             <td id="suspension">
               <select onchange="changeSelected();">
-                <option>Active</option>
-                <option>Inactive</option>
+                <option>Not Sent</option>
+                <option>Sent</option>
+                <option>Edit</option>
                 <option>Delete</option>
               </select>
             </td>
@@ -66,14 +149,16 @@
             <td>3</td>
             <td>I Am Good Every Thing</td>
             <td>cde123</td>
-            <td class="user-type">15%</td>
+            <td class="promotionAmount">$15</td>
+            <td class="expirationDate">00/00</td>
             <td class="status">
-              <span class="status text-success">&bull;</span> Active
+              <span class="status text-success">&bull;</span> Sent
             </td>
             <td id="suspension">
               <select onchange="changeSelected();">
-                <option>Active</option>
-                <option>Inactive</option>
+                <option>Not Sent</option>
+                <option>Sent</option>
+                <option>Edit</option>
                 <option>Delete</option>
               </select>
             </td>
@@ -82,14 +167,16 @@
             <td>4</td>
             <td>Japanese For Busy People</td>
             <td>def123</td>
-            <td class="user-type">$10</td>
+            <td class="promotionAmount">$10</td>
+            <td class="expirationDate">00/00</td>
             <td class="status">
-              <span class="status text-success">&bull;</span> Inactive
+              <span class="status text-success">&bull;</span> Sent
             </td>
             <td id="suspension">
               <select onchange="changeSelected();">
-                <option>Active</option>
-                <option>Inactive</option>
+                <option>Not Sent</option>
+                <option>Sent</option>
+                <option>Edit</option>
                 <option>Delete</option>
               </select>
             </td>
@@ -101,6 +188,7 @@
             <th>Name</th>
             <th>Promotion ID</th>
             <th>Promotion Amount</th>
+            <th>Expiration Date</th>
             <th>Status</th>
             <th>Action</th>
           </tr>
@@ -138,17 +226,31 @@
         }
       });
 
-      function changeSelected() {
-        var select = document.getElementById("suspension").value;
-        if (select.value == "Suspended") {
-          status.html(
-            "<p><span class='status text-warning'>&bull;</span> Inactive</p>"
-          );
-        } else if (select.value == "Unsuspended") {
-          status.html(
-            "<p><span class='status text-success'>&bull;</span> Active</p>"
-          );
+      function promote() {
+        if (document.getElementById("user-type").innerHTML === "Employee") {
+          document.getElementById("user-type").innerHTML = "Admin";
         }
+        //var xhttp = new XMLHttpRequest();
+        //xhttp.onreadystatechange = function() {
+        //if (this.readyState == 4 && this.status == 200) {
+        //document.getElementById("here").innerHTML = this.responseText;
+        //}
+        //};
+        //xhttp.open("GET", "data.txt", true);
+        //xhttp.Sent();
+      }
+
+      function changeSelected() {
+        //var select = document.getElementById("suspension").value;
+        //if (select.value == "Suspended") {
+        //    status.html("<p><span class='status text-warning'>&bull;</span> Not Sent</p>");
+        //} else if (select.value == "Unsuspended") {
+        //    status.html("<p><span class='status text-success'>&bull;</span> Active</p>");
+        //}
+      }
+
+      function demote() {
+        //role.html("Employee");
       }
     </script>
   </body>
