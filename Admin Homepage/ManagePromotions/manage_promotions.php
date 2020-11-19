@@ -102,7 +102,11 @@ session_start();
 
                             <td>
                             <?php
+<<<<<<< HEAD
                             $actions = "EDIT";
+=======
+                            $actions="EDIT";
+>>>>>>> 7ef78740b9ad20ea504e7195fdd1119c6beee830
                             if ($actions == "EDIT") {
                               echo '<input type="text" name="ISBN" value=';
                               echo $_SESSION['Promotions'][$i]['ISBN'];
@@ -218,13 +222,21 @@ session_start();
   <div id="addModal" class="addBookModal">
     <div class="addBookModal-content">
       <span class="close-button-add">&times;</span>
+<<<<<<< HEAD
       <form action="../Admin_Phps/PromoUpdate.php" method="POST">
+=======
+      <form id="fr1" action="insertBook.php" method="POST">
+>>>>>>> 7ef78740b9ad20ea504e7195fdd1119c6beee830
         <div class="container">
           <h1 style="text-align: center">Add a Promotion</h1>
           <p style="text-align: center">
-            Please fill in the mandatory fields in this form to create an new
-            book.
+            Please fill in the mandatory fields in this form to create a new
+            promotion.
           </p>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7ef78740b9ad20ea504e7195fdd1119c6beee830
           <label for="isbn"><b>ISBN No.</b></label>
           <input type="text" placeholder="Enter ISBN Number" name="ISBN" id="isbn" required />
 
@@ -299,7 +311,16 @@ session_start();
       }
     });
   </script>
-    
+  <script>
+    $(document).ready(function() {
+      $('#submitbtn').click(function() {
+        $('#fr1').attr('action',
+          'mailto:kevinwin31@gmail.com?subject=New Promotion' +
+          $('#promotion-name').val() + '&body=' + $('#promotion-id').val() + $('#discount').val());
+        $('#fr1').submit();
+      });
+    });
+  </script>
 </body>
 
 </html>
