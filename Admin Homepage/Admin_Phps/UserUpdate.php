@@ -26,7 +26,18 @@ if (!empty($Admin_ID)) {
     else {
         if (!empty($Admin_ID)){
             if (!empty($Status_Change)){
-                $sql = "UPDATE employees SET Status = '$Status_Change' WHERE Employee_ID = '$Account_ID';";
+                if ($Status_Change == "Reinstate") {
+                    $sql = "UPDATE employees SET Status = 'Active' WHERE Employee_ID = '$Account_ID';";
+                }
+                else if ($Status_Change == "Suspend") {
+                    $sql = "UPDATE employees SET Status = 'Suspended' WHERE Employee_ID = '$Account_ID';";
+                }
+                else if ($Status_Change == "Promote") {
+                    $sql = "UPDATE employees SET Role = 'Admin' WHERE Employee_ID = '$Account_ID';";
+                }
+                else if ($Status_Change == "Demote") {
+                    $sql = "UPDATE employees SET Role = 'Employee' WHERE Employee_ID = '$Account_ID';";
+                }
                 if ($conn->query($sql)){
                     header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/Admin_Phps/UserRetrieval.php");
                 } else {

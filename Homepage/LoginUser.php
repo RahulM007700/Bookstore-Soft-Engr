@@ -44,7 +44,7 @@ if (!empty($EmailAddress)){
                     $_SESSION['ExpDate'] = $openAccount['ExpirationDate'];
                     $_SESSION['CVV'] = $openAccount['CVV'];
                     if ($openAccount['AccountType'] == "Admin"){
-                        header("Location: http://localhost/Bookstore-Soft-Engr/Admin_Homepage/admin-homepage.php?results=Login-Successful");
+                        header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/Final%20Homepage/adminHomepage.php?results=Login-Successful");
                     }
                     else {
                         header("Location: http://localhost/Bookstore-Soft-Engr/Homepage/homepage.php?results=Login-Successful");

@@ -8,8 +8,6 @@ session_start();
 <head>
     <meta charset="utf-8">
     <title>Manage Users</title>
-    <link rel="stylesheet" href="manageBooks.css">
-    </link>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </link>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -41,8 +39,7 @@ session_start();
     </form>
     <div class="container-fluid">
         <nav class="navbar navbar-expand navbar-light">
-            <a class="navbar-brand" href="adminHomepage.html"><img
-                    src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo4.jpg" height="50"></a>
+            <a class="navbar-brand" href="adminHomepage.html"><img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo4.jpg" height="50"></a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item px-4"><a href="#" class="nav-link py-4">Logout</a></li>
@@ -55,12 +52,9 @@ session_start();
             <h1 class="jumbotron-heading text-center">Manage Users</h1>
         </div>
         <ul class="nav justify-content-center">
-            <li class="nav-item px-5"><a class="nav-link-main" href="#" style="color:black;text-decoration:none;"><i
-                        class="fas fa-book"></i>&nbsp;&nbsp;Manage Books</a></li>
-            <li class="nav-item px-5"><a class="nav-link-main" href="#" style="color:black;text-decoration:none;"><i
-                        class="fas fa-dollar-sign"></i>&nbsp;&nbsp;Manage Promotions</a></li>
-            <li class="nav-item px-5"><a class="nav-link-main" href="#" style="color:black;text-decoration:none;"><i
-                        class="fas fa-users"></i>&nbsp;&nbsp;Manage Users</a></li>
+            <li class="nav-item px-5"><a class="nav-link-main" href="#" style="color:black;text-decoration:none;"><i class="fas fa-book"></i>&nbsp;&nbsp;Manage Books</a></li>
+            <li class="nav-item px-5"><a class="nav-link-main" href="#" style="color:black;text-decoration:none;"><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;Manage Promotions</a></li>
+            <li class="nav-item px-5"><a class="nav-link-main" href="#" style="color:black;text-decoration:none;"><i class="fas fa-users"></i>&nbsp;&nbsp;Manage Users</a></li>
         </ul>
     </div>
     <div class="container mb-3 mt-3 table-responsive">
@@ -71,9 +65,8 @@ session_start();
                         <h2><b>Book Management</b></h2>
                     </div>
                     <div class="col-sm-6">
-                        <button class="btn btn-secondary" id="addBtn"><i class="material-icons">&#xE147;</i>
-                            <span>Add New
-                                Book</span></button>
+                        <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New
+                                Book</span></a>
                         <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE24D;</i> <span>Export to
                                 Excel</span></a>
                     </div>
@@ -101,16 +94,16 @@ session_start();
                 </thead>
                 <tbody>
 
-                    <!--<?php
+                    <?php
                     //$i = 0;
                     for ($i = 0; $i < sizeof($_SESSION['Books']); $i++) :
-                    ?>-->
-                    <tr>
-                        <!--  <form method="post" action="../Admin_Phps/BooksUpdate.php">
-                            <td><?= $i; ?></td>
+                    ?>
+                        <tr>
+                            <form method="post" action="../Admin_Phps/BooksUpdate.php">
+                                <td><?= $i; ?></td>
 
-                            <td>
-                                <?php
+                                <td>
+                                    <?php
                                     if (actions == EDIT) {
                                         echo '<input type="text" name="Book_Name" value=';
                                         echo $_SESSION['Books'][$i]['Book_Name'];
@@ -119,10 +112,10 @@ session_start();
                                         echo $_SESSION['Books'][$i]['Book_Name'];
                                     }
 
-                            ?></td>
+                                    ?></td>
 
-                            <td>
-                                <?php
+                                <td>
+                                    <?php
                                     if (actions == EDIT) {
                                         echo '<input type="text" name="ISBN" value=';
                                         echo $_SESSION['Books'][$i]['ISBN'];
@@ -133,8 +126,8 @@ session_start();
 
                                     ?></td>
 
-                            <td>
-                                <?php
+                                <td>
+                                    <?php
                                     if (actions == EDIT) {
                                         echo '<input type="text" name="Category" value=';
                                         echo $_SESSION['Books'][$i]['Category'];
@@ -145,8 +138,8 @@ session_start();
 
                                     ?></td>
 
-                            <td>
-                                <?php
+                                <td>
+                                    <?php
                                     if (actions == EDIT) {
                                         echo '<input type="text" name="Author" value=';
                                         echo $_SESSION['Books'][$i]['Author'];
@@ -157,8 +150,8 @@ session_start();
 
                                     ?></td>
 
-                            <td>
-                                <?php
+                                <td>
+                                    <?php
                                     if (actions == EDIT) {
                                         echo '<input type="text" name="Title" value=';
                                         echo $_SESSION['Books'][$i]['Title'];
@@ -169,8 +162,8 @@ session_start();
 
                                     ?></td>
 
-                            <td>
-                                <?php
+                                <td>
+                                    <?php
                                     if (actions == EDIT) {
                                         echo '<input type="text" name="Edition" value=';
                                         echo $_SESSION['Books'][$i]['Edition'];
@@ -181,8 +174,8 @@ session_start();
 
                                     ?></td>
 
-                            <td>
-                                <?php
+                                <td>
+                                    <?php
                                     if (actions == EDIT) {
                                         echo '<input type="text" name="Publisher" value=';
                                         echo $_SESSION['Books'][$i]['Publisher'];
@@ -193,8 +186,8 @@ session_start();
 
                                     ?></td>
 
-                            <td>
-                                <?php
+                                <td>
+                                    <?php
                                     if (actions == EDIT) {
                                         echo '<input type="text" name="Date_Published" value=';
                                         echo $_SESSION['Books'][$i]['Date_Published'];
@@ -205,8 +198,8 @@ session_start();
 
                                     ?></td>
 
-                            <td>
-                                <?php
+                                <td>
+                                    <?php
                                     if (actions == EDIT) {
                                         echo '<input type="text" name="Quantity" value=';
                                         echo $_SESSION['Books'][$i]['Quantity'];
@@ -218,8 +211,8 @@ session_start();
                                     ?></td>
 
 
-                            <td>
-                                <?php
+                                <td>
+                                    <?php
                                     if (actions == EDIT) {
                                         echo '<input type="text" name="Selling_Price" value=';
                                         echo $_SESSION['Books'][$i]['Selling_Price'];
@@ -230,8 +223,8 @@ session_start();
 
                                     ?></td>
 
-                            <td>
-                                <?php
+                                <td>
+                                    <?php
                                     if (actions == EDIT) {
                                         echo '<input type="text" name="Asking_Price" value=';
                                         echo $_SESSION['Books'][$i]['Asking_Price'];
@@ -243,8 +236,8 @@ session_start();
                                     ?></td>
 
 
-                            <td>
-                                <?php
+                                <td>
+                                    <?php
                                     if (actions == EDIT) {
                                         echo '<input type="text" name="Min_Threshold" value=';
                                         echo $_SESSION['Books'][$i]['Min_Threshold'];
@@ -255,30 +248,30 @@ session_start();
 
                                     ?></td>
 
-                            <td class="actions" name="actions">
-                                <?php
+                                <td class="actions" name="actions">
+                                    <?php
                                     echo '<select onchange="this.form.submit()">                           
                                          <option></option>
                                          <option>EDIT</option>
                                           <option>DELETE</option>
                                       </select>'; ?>
 
-                                <script>
-                                    $(function () {
-                                        $("button").click(function () {
-                                            var fired_button = $(this).val();
-                                            alert(fired_button);
+                                    <script>
+                                        $(function() {
+                                            $("button").click(function() {
+                                                var fired_button = $(this).val();
+                                                alert(fired_button);
+                                            });
                                         });
-                                    });
-                                </script> 
-                                <a href="#" class="button" title="Edit" id="edit" data-toggle="tooltip"><i class="material-icons" onclick()="editAction">&#xE8B8;</i></a>
-                                    <a href="#" class="button" title="Delete" id="delete" data-toggle="tooltip"><i class="material-icons" onclick()="deleteAction">&#xE5C9;</i></a>
-                            </td>
+                                    </script>
+                                    <!--<a href="#" class="button" title="Edit" id="edit" data-toggle="tooltip"><i class="material-icons" onclick()="editAction">&#xE8B8;</i></a>
+                                    <a href="#" class="button" title="Delete" id="delete" data-toggle="tooltip"><i class="material-icons" onclick()="deleteAction">&#xE5C9;</i></a>-->
+                                </td>
 
-                        </form> 
-                    </tr>
+                            </form>
+                        </tr>
 
-                    <?php endfor; ?> -->
+                    <?php endfor; ?>
                 </tbody>
 
 
@@ -306,92 +299,15 @@ session_start();
         </div>
     </div>
 
-    <div id="addModal" class="addBookModal">
-        <div class="addBookModal-content">
-            <span class="close-button-add">&times;</span>
-            <form action="insertBook.php" method="POST">
-                <div class="container">
-                    <h1 style="text-align: center">Add a Book</h1>
-                    <p style="text-align: center">
-                        Please fill in the mandatory fields in this form to create an
-                        new book.
-                    </p>
-                    <label for="bookname"><b>Book Name</b></label>
-                    <input type="text" placeholder="Enter Book Name" name="bookname" id="bookname" required />
-
-                    <label for="isbn"><b>ISBN No.</b></label>
-                    <input type="text" placeholder="Enter ISBN Number" name="isbn" id="isbn" required />
-
-                    <label for="category"><b>Category</b></label>
-                    <input type="text" placeholder="Enter the book's category" name="category" id="category" required />
-
-                    <label for="authorname"><b>Author's Name</b></label>
-                    <input type="text" placeholder="Enter the authors name" name="authorname" id="authorname" required />
-
-                    <label for="title"><b>Title</b></label>
-                    <input type="text" placeholder="Enter Phone Number" name="title" id="title" required />
-
-                    <label for="edition"><b>Edition</b></label>
-                    <input type="text" placeholder="Enter the edition" name="edition" id="edition" required/>
-
-                    <label for="publisher"><b>Publisher</b></label>
-                    <input type="text" placeholder="Enter publisher" name="publisher" id="publisher" required/>
-
-                    <label for="pubyear"><b>Publication Year</b></label>
-                    <input type="text" placeholder="Enter Publication Year" name="pubyear" id="pubyear" required/>
-
-                    <label for="quantity"><b>Quantity</b></label>
-                    <input type="text" placeholder="Enter Quantity" name="quantity" id="quantity" required/>
-
-                    <label for="sellprice"><b>Selling Price</b></label>
-                    <input type="text" placeholder="Enter selling price" name="sellprice" id="sellprice" required/>
-
-                    <label for="askprice"><b>Asking Price</b></label>
-                    <input type="text" placeholder="Enter asking price" name="askprice" id="askprice" required/>
-
-                    <label for="minthresh"><b>Minimum Threshold</b></label>
-                    <input type="text" placeholder="Enter minimum threshold" name="minthresh" id="minthresh" required/>
-
-
-                    <button type="submit" class="submitbtn" id="submitbtn">
-                        Submit
-                    </button>
-                    <br /><br /><br /><br/>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    
-
     <script>
+        function editBook() {
 
 
-        var addModal = document.getElementById("addModal");
-        var addbtn = document.getElementById("addBtn");
-        var span = document.getElementsByClassName("close-button-add")[0];
-        var submitbtn = document.getElementById("submitbtn");
-
-        addbtn.onclick = function () {
-
-            addModal.style.display = "block";
-        };
-
-        span.onclick = function () {
-            addModal.style.display = "none";
-        };
-
-        window.onclick = function (event) {
-            if (event.target == addModal) {
-                addModal.style.display = "none";
-            }
-        };
 
 
+            document.getElementById("demo").innerHTML = "Hello World";
+        }
     </script>
-
-
-
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -400,7 +316,30 @@ session_start();
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
 
+    <script></script>
+    <script>
+        $("#mydatatable").DataTable();
 
+        var table = document.getElementById("mydatatable");
+
+        table.find('tr').each(function() {
+            var $tds = $(this).find('td');
+            //var number = $tds.eq(0).text();
+            //var name = $tds.eq(1).text();
+            //var accountID = $tds.eq(2).text();
+            var role = $tds.eq(3).text();
+            var status = $tds.eq(4).text();
+            var action = $tds.eq(5).text();
+            // do something with it
+            if (role.value == "User") {
+                action.html("<select><option>Suspend</option><option>Unsuspend</option></select>");
+            } else if (role.value == "Employee") {
+                action.html("<button>Promote</button>");
+            } else if (role.value == "Admin") {
+                action.html("<button>Demote</button>");
+            }
+        });
+    </script>
 </body>
 
 </html>

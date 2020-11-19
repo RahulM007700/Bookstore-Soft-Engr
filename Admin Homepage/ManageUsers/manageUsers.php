@@ -42,7 +42,7 @@
                 <a class="navbar-brand" href="adminHomepage.html"><img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo4.jpg" height="50"></a>
                 <div class="collapse navbar-collapse">
                   <ul class="navbar-nav ml-auto">
-                    <li class="nav-item px-4"><a href="#" class="nav-link py-4">Logout</a></li> 
+                    <li class="nav-item px-4"><a href="../../Homepage/LogUserOut.php" class="nav-link py-4">Logout</a></li> 
                   </ul>     
                 </div>
             </nav>
@@ -52,9 +52,9 @@
               <h1 class="jumbotron-heading text-center">Manage Users</h1>
             </div>
             <ul class="nav justify-content-center">
-                <li class="nav-item px-5"><a class="nav-link-main" href="#" style="color:black;text-decoration:none;"><i class="fas fa-book"></i>&nbsp;&nbsp;Manage Books</a></li>
-                <li class="nav-item px-5"><a class="nav-link-main" href="#" style="color:black;text-decoration:none;"><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;Manage Promotions</a></li>
-                <li class="nav-item px-5"><a class="nav-link-main" href="#" style="color:black;text-decoration:none;"><i class="fas fa-users"></i>&nbsp;&nbsp;Manage Users</a></li>
+                <li class="nav-item px-5"><a class="nav-link-main" href="../Admin_Phps/BookRetrieval.php" style="color:black;text-decoration:none;"><i class="fas fa-book"></i>&nbsp;&nbsp;Manage Books</a></li>
+                <li class="nav-item px-5"><a class="nav-link-main" href="../Admin_Phps/PromotionsRetrieval.php" style="color:black;text-decoration:none;"><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;Manage Promotions</a></li>
+                <li class="nav-item px-5"><a class="nav-link-main" href="../Admin_Phps/UserRetrieval.php" style="color:black;text-decoration:none;"><i class="fas fa-users"></i>&nbsp;&nbsp;Manage Users</a></li>
             </ul>
         </div>
         <div class="container mb-3 mt-3">
@@ -79,7 +79,11 @@
                     <tr>
                         <form method="post" action="../Admin_Phps/UserUpdate.php">
                         <td><?= $i; ?></td>
-                        <td><?php echo $_SESSION['Employees'][$i]['First_Name'];?></td>
+                        <td><?php echo $_SESSION['Employees'][$i]['First_Name'];
+                                  echo " ";
+                                  echo $_SESSION['Employees'][$i]['Last_Name'];
+                            ?>
+                        </td>
                         <td><input type="hidden" name="Employee_ID" value="<?php echo $_SESSION['Employees'][$i]['Employee_ID'];?>"/>
                             <?php echo $_SESSION['Employees'][$i]['Employee_ID'];?>
                         </td>
@@ -88,19 +92,18 @@
                         <td class="promotion" name="change">
                         <?php 
                         if ($_SESSION['Employees'][$i]['Role'] == "Admin" || $_SESSION['Employees'][$i]['Role'] == "Employee"){
-                            echo '<select onchange="this.form.submit()">                           
-                                <option></option>
-                                <option>Promote</option>
-                                <option>Demote</option>
+                            echo '<select name="change" onchange="this.form.submit()">                           
+                                <option></option>                                
+                                <option value="Promote">Promote</option>
+                                <option value="Demote">Demote</option>
                             </select>'; 
                         }
                         else {
-                            echo '<select onchange="this.form.submit()”> 
+                            echo '<select name="change" onchange="this.form.submit()"> 
                                 <option></option>
-                                <option>Suspend</option>
-                                <option>Reinstate</option>
+                                <option value="Suspend">Suspend</option>
+                                <option value="Reinstate">Reinstate</option>
                             </select>';
-
                         }
                         ?>
                         
