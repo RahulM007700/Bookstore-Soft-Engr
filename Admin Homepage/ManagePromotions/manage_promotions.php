@@ -208,9 +208,6 @@ session_start();
       </table>
     </div>
   </div>
-  <div class="col-sm-6">
-    <button type="submit">Submit Changes</button>
-  </div>
   <div id="addModal" class="addBookModal">
     <div class="addBookModal-content">
       <span class="close-button-add">&times;</span>
