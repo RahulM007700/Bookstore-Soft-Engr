@@ -20,7 +20,7 @@ session_start();
       crossorigin="anonymous"
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="manage_promotions_style.css"></script>
+    <script src="../manageBooks.css"></script>
     <script>
       $(document).ready(function () {
         $("#btn").click(function () {
@@ -141,7 +141,8 @@ session_start();
 
                             <td>
                                 <?php
-                                    if (actions == EDIT) {
+                                $actions="EDIT";
+                                    if ($actions == "EDIT") {
                                         echo '<input type="text" name="Book_Name" value=';
                                         echo $_SESSION['Books'][$i]['Book_Name'];
                                         echo '></input>';
@@ -153,7 +154,7 @@ session_start();
 
                             <td>
                                 <?php
-                                    if (actions == EDIT) {
+                                    if ($actions == "EDIT") {
                                         echo '<input type="text" name="Promotion_ID" value=';
                                         echo $_SESSION['Books'][$i]['Promotion_ID'];
                                         echo '></input>';
@@ -165,7 +166,7 @@ session_start();
 
                             <td>
                                 <?php
-                                    if (actions == EDIT) {
+                                    if ($actions == "EDIT") {
                                         echo '<input type="text" name="Promotion_Amount" value=';
                                         echo $_SESSION['Books'][$i]['Promotion_Amount'];
                                         echo '></input>';
@@ -177,7 +178,7 @@ session_start();
 
                             <td>
                                 <?php
-                                    if (actions == EDIT) {
+                                    if $(actions == "EDIT") {
                                         echo '<input type="text" name="Expiration_Date" value=';
                                         echo $_SESSION['Books'][$i]['Expiration_Date'];
                                         echo '></input>';
@@ -189,7 +190,7 @@ session_start();
 
                             <td>
                                 <?php
-                                    if (actions == EDIT) {
+                                    if ($actions == "EDIT") {
                                         echo '<input type="text" name="Status" value=';
                                         echo $_SESSION['Books'][$i]['Status'];
                                         echo '></input>';
@@ -201,10 +202,10 @@ session_start();
 
                             <td class="actions" name="actions">
                                 <?php
-                                    echo '<select onchange="this.form.submit()">                           
+                                    echo '<select name="actions" onchange="this.form.submit()">                           
                                          <option></option>
                                          <option>EDIT</option>
-                                          <option>DELETE</option>
+                                        <option>DELETE</option>
                                       </select>'; ?>
 
                                 <script>
