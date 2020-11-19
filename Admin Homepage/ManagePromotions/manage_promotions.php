@@ -82,7 +82,6 @@ session_start();
         <thead>
           <tr>
             <th>No.</th>
-            <th>Book Name</th>
             <th>ISBN No.</th>
             <th>Promotion Name</th>
             <th>Promotion ID</th>
@@ -100,19 +99,6 @@ session_start();
           <tr>
             <!--  <form method="post" action="../Admin_Phps/BooksUpdate.php">
                             <td><?= $i; ?></td>
-
-                            <td>
-                                <?php
-                                $actions = "EDIT";
-                                if ($actions == "EDIT") {
-                                  echo '<input type="text" name="Book_Name" value=';
-                                  echo $_SESSION['Promotions'][$i]['Book_Name'];
-                                  echo '></input>';
-                                } else {
-                                  echo $_SESSION['Promotions'][$i]['Book_Name'];
-                                }
-
-                                ?></td>
 
                             <td>
                             <?php
@@ -215,7 +201,6 @@ session_start();
         <tfoot>
           <tr>
             <th>No.</th>
-            <th>Book Name</th>
             <th>ISBN No.</th>
             <th>Promotion Name</th>
             <th>Promotion ID</th>
@@ -236,12 +221,10 @@ session_start();
         <div class="container">
           <h1 style="text-align: center">Add a Promotion</h1>
           <p style="text-align: center">
-            Please fill in the mandatory fields in this form to create an new
-            book.
+            Please fill in the mandatory fields in this form to create a new
+            promotion.
           </p>
-          <label for="bookname"><b>Book Name</b></label>
-          <input type="text" placeholder="Enter Book Name" name="bookname" id="bookname" required />
-
+      
           <label for="isbn"><b>ISBN No.</b></label>
           <input type="text" placeholder="Enter ISBN Number" name="isbn" id="isbn" required />
 
