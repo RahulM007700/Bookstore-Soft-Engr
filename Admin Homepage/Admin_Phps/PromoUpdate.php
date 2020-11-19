@@ -1,13 +1,13 @@
 <?php 
 
 session_start();
-$Admin_ID = ;
-$Account_ID = ;
-$Promo = ;
-$ISBN = ;
-$Discount = ; 
-$Effective = ;
-$Sell = ;
+$Admin_ID = "12345";
+$Promo_Name = filter_input(INPUT_POST,'Name')
+$Promo = filter_input(INPUT_POST,'Promotion_ID');
+$ISBN = filter_input(INPUT_POST,'ISBN');
+$Discount = filter_input(INPUT_POST,'Promotion_Amount'); 
+$Exp_Date = filter_input(INPUT_POST,'Expiration_Date');
+$Method = filter_input(INPUT_POST,'actions')
 
 if (!empty($Admin_ID)) {
 
@@ -23,31 +23,32 @@ if (!empty($Admin_ID)) {
     if (mysqli_connect_error()){
         die('Connect Error('. mysqli_connect_error() .')'
             . mysqli_connect_error());
-    }
-    else {
-        if (!empty($Account_ID)){
-            if (!empty($Promo)){
-                $SQL = "SELECT * FROM promotions WHERE Promotion_ID = '$Promo'";
-                $check = mysqli_query($SQL);
-                $check = mysqli_fetch_array($check);
-                if (sizeof($check) != 0) { 
-                    $sql = "UPDATE promotions SET Promotion_ID = '$Status_Change' WHERE Employee_ID = '$Account_ID';";
-                    if ($conn->query($sql)){
-                        echo "Promotion information updated Successfully";
-                    } else {
-                        echo "Error: ". $sql ."<br>". $conn->error;
-                    }
-                } else {
-                    $sql = "INSERT INTO promotions (Promotion_ID, ISBN, Discount, Effective_Date, SellBy_Date) VALUES ('$Promo', '$ISBN', '$Discount', '$Effective', '$Sell');";    
-                    if ($conn->query($sql)) {
-                        echo "Promotion information inserted."
-                    } else {
-                        echo "Error: ". $sql ."<br>". $conn->error;
-                    }
-                }
-                $conn->close();
+    } else {
+        if($Method == "Add") {
+            $SQL1 = "INSERT INTO promotions (Name, Promotion_ID, ISBN, Discount, Exp_Date)
+                VALUES ('$Promo_Name', '$Promo', '$ISBN', '$Discount', '$Exp_Date');";
+            $conn->query($SQL1);
+            //echo "Book added succesfully";
+            header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/Admin_Phps/PromotionsRetrieval.php");
+        } else if($Method == "EDIT") {
+            echo $ISBN;
+            $SQL2 = "UPDATE available_books 
+                    SET Name = '$Promo_Name', Promotion_ID = '$Promo', ISBN = '$ISBN', Discount = '$Discount', Exp_Date = '$Exp_Date'
+                    WHERE Promotion_ID = '$Promo'";
+            if (mysqli_query($conn, $SQL2)){
+                //echo "Book updated successfully";
+                header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/Admin_Phps/PromotionsRetrieval.php");
             }
+        } else if($Method == "DELETE") {
+            $SQL = "DELETE FROM promotions WHERE Promotion_ID = '$Promo';";
+            if ($conn->query($SQL)){
+                header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/Admin_Phps/PromotionsRetrieval.php");
+            }
+            
+        } else {
+            echo "Wrong method";
         }
+        $conn->Close();
     }
 
 }
