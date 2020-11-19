@@ -13,13 +13,6 @@ session_start();
   <link rel="stylesheet" href="../manageBooks.css" />
   <script src="https://kit.fontawesome.com/a746b8874d.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $("#btn").click(function() {
-        $("#user-type").html("Admin");
-      });
-    });
-  </script>
 </head>
 <style>
   body {
@@ -90,8 +83,10 @@ session_start();
           <tr>
             <th>No.</th>
             <th>Book Name</th>
+            <th>ISBN No.</th>
+            <th>Promotion Name</th>
             <th>Promotion ID</th>
-            <th>Promotion Amount</th>
+            <th>Discount</th>
             <th>Expiration Date</th>
             <th>Status</th>
             <th>Actions</th>
@@ -100,7 +95,7 @@ session_start();
         <tbody>
           <!--<?php
               //$i = 0;
-              for ($i = 0; $i < sizeof($_SESSION['Books']); $i++) :
+              for ($i = 0; $i < sizeof($_SESSION['Promotions']); $i++) :
               ?>-->
           <tr>
             <!--  <form method="post" action="../Admin_Phps/BooksUpdate.php">
@@ -111,22 +106,46 @@ session_start();
                                 $actions = "EDIT";
                                 if ($actions == "EDIT") {
                                   echo '<input type="text" name="Book_Name" value=';
-                                  echo $_SESSION['Books'][$i]['Book_Name'];
+                                  echo $_SESSION['Promotions'][$i]['Book_Name'];
                                   echo '></input>';
                                 } else {
-                                  echo $_SESSION['Books'][$i]['Book_Name'];
+                                  echo $_SESSION['Promotions'][$i]['Book_Name'];
                                 }
 
                                 ?></td>
+
+                            <td>
+                            <?php
+                            if ($actions == "EDIT") {
+                              echo '<input type="text" name="ISBN" value=';
+                              echo $_SESSION['Promotions'][$i]['ISBN'];
+                              echo '></input>';
+                            } else {
+                              echo $_SESSION['Promotions'][$i]['ISBN'];
+                            }
+
+                            ?></td>
+
+                            <td>
+                            <?php
+                            if ($actions == "EDIT") {
+                              echo '<input type="text" name="Promotion_Name" value=';
+                              echo $_SESSION['Promotions'][$i]['Promotion_Name'];
+                              echo '></input>';
+                            } else {
+                              echo $_SESSION['Promotions'][$i]['Promotion_Name'];
+                            }
+
+                            ?></td>
 
                             <td>
                                 <?php
                                 if ($actions == "EDIT") {
                                   echo '<input type="text" name="Promotion_ID" value=';
-                                  echo $_SESSION['Books'][$i]['Promotion_ID'];
+                                  echo $_SESSION['Promotions'][$i]['Promotion_ID'];
                                   echo '></input>';
                                 } else {
-                                  echo $_SESSION['Books'][$i]['Promotion_ID'];
+                                  echo $_SESSION['Promotions'][$i]['Promotion_ID'];
                                 }
 
                                 ?></td>
@@ -134,11 +153,11 @@ session_start();
                             <td>
                                 <?php
                                 if ($actions == "EDIT") {
-                                  echo '<input type="text" name="Promotion_Amount" value=';
-                                  echo $_SESSION['Books'][$i]['Promotion_Amount'];
+                                  echo '<input type="text" name="discount" value=';
+                                  echo $_SESSION['Promotions'][$i]['discount'];
                                   echo '></input>';
                                 } else {
-                                  echo $_SESSION['Books'][$i]['Promotion_Amount'];
+                                  echo $_SESSION['Promotions'][$i]['discount'];
                                 }
 
                                 ?></td>
@@ -147,10 +166,10 @@ session_start();
                                 <?php
                                 if ($actions == "EDIT") {
                                   echo '<input type="text" name="Expiration_Date" value=';
-                                  echo $_SESSION['Books'][$i]['Expiration_Date'];
+                                  echo $_SESSION['Promotions'][$i]['Expiration_Date'];
                                   echo '></input>';
                                 } else {
-                                  echo $_SESSION['Books'][$i]['Expiration_Date'];
+                                  echo $_SESSION['Promotions'][$i]['Expiration_Date'];
                                 }
 
                                 ?></td>
@@ -159,10 +178,10 @@ session_start();
                                 <?php
                                 if ($actions == "EDIT") {
                                   echo '<input type="text" name="Status" value=';
-                                  echo $_SESSION['Books'][$i]['Status'];
+                                  echo $_SESSION['Promotions'][$i]['Status'];
                                   echo '></input>';
                                 } else {
-                                  echo $_SESSION['Books'][$i]['Status'];
+                                  echo $_SESSION['Promotions'][$i]['Status'];
                                 }
 
                                 ?></td>
@@ -172,7 +191,7 @@ session_start();
                                 echo '<select name="actions" onchange="this.form.submit()">                           
                                          <option></option>
                                          <option>EDIT</option>
-                                        <option>DELETE</option>
+                                         <option>DELETE</option>
                                       </select>'; ?>
 
                                 <script>
@@ -193,13 +212,14 @@ session_start();
                     <?php endfor; ?> -->
           </tr>
         </tbody>
-
         <tfoot>
           <tr>
             <th>No.</th>
             <th>Book Name</th>
+            <th>ISBN No.</th>
+            <th>Promotion Name</th>
             <th>Promotion ID</th>
-            <th>Promotion Amount</th>
+            <th>Discount</th>
             <th>Expiration Date</th>
             <th>Status</th>
             <th>Actions</th>
@@ -208,9 +228,7 @@ session_start();
       </table>
     </div>
   </div>
-  <div class="col-sm-6">
-    <button type="submit">Submit Changes</button>
-  </div>
+
   <div id="addModal" class="addBookModal">
     <div class="addBookModal-content">
       <span class="close-button-add">&times;</span>
@@ -224,14 +242,20 @@ session_start();
           <label for="bookname"><b>Book Name</b></label>
           <input type="text" placeholder="Enter Book Name" name="bookname" id="bookname" required />
 
-          <label for="promotion-id"><b>Promotion ID</b></label>
-          <input type="text" placeholder="Enter the promotion ID" name="promotion-id" id="promotion-id" required />
+          <label for="isbn"><b>ISBN No.</b></label>
+          <input type="text" placeholder="Enter ISBN Number" name="isbn" id="isbn" required />
 
-          <label for="promotion-amount"><b>Promotion Amount</b></label>
-          <input type="text" placeholder="Enter the promotion amount ($x)" name="promotion-amount" id="promotion-amount" required />
+          <label for="promotion-name"><b>Promotion Name</b></label>
+          <input type="text" placeholder="Enter promotion ID" name="promotion-name" id="promotion-name" required />
+
+          <label for="promotion-id"><b>Promotion ID</b></label>
+          <input type="text" placeholder="Enter promotion ID" name="promotion-id" id="promotion-id" required />
+
+          <label for="discount"><b>Discount</b></label>
+          <input type="text" placeholder="Enter discount ($x)" name="discount" id="discount" required />
 
           <label for="expiration-date"><b>Expiration Date</b></label>
-          <input type="text" placeholder="Enter the expiration date" name="expiration-date" id="expiration-date" required />
+          <input type="text" placeholder="Enter expiration date" name="expiration-date" id="expiration-date" required />
 
           <button type="submit" class="submitbtn" id="submitbtn">
             Submit
@@ -265,7 +289,6 @@ session_start();
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
   <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
   <script>
@@ -293,6 +316,7 @@ session_start();
       }
     });
   </script>
+    
 </body>
 
 </html>
