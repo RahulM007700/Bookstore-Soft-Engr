@@ -55,11 +55,11 @@ session_start();
             <h1 class="jumbotron-heading text-center">Manage Users</h1>
         </div>
         <ul class="nav justify-content-center">
-            <li class="nav-item px-5"><a class="nav-link-main" href="#" style="color:black;text-decoration:none;"><i
+            <li class="nav-item px-5"><a class="nav-link-main" href="./Admin_Phps/BookRetrieval.php" style="color:black;text-decoration:none;"><i
                         class="fas fa-book"></i>&nbsp;&nbsp;Manage Books</a></li>
-            <li class="nav-item px-5"><a class="nav-link-main" href="#" style="color:black;text-decoration:none;"><i
+            <li class="nav-item px-5"><a class="nav-link-main" href="./Admin_Phps/PromotionsRetrieval.php" style="color:black;text-decoration:none;"><i
                         class="fas fa-dollar-sign"></i>&nbsp;&nbsp;Manage Promotions</a></li>
-            <li class="nav-item px-5"><a class="nav-link-main" href="#" style="color:black;text-decoration:none;"><i
+            <li class="nav-item px-5"><a class="nav-link-main" href="./Admin_Phps/UserRetrieval.php" style="color:black;text-decoration:none;"><i
                         class="fas fa-users"></i>&nbsp;&nbsp;Manage Users</a></li>
         </ul>
     </div>
@@ -72,8 +72,7 @@ session_start();
                     </div>
                     <div class="col-sm-6">
                         <button class="btn btn-secondary" id="addBtn"><i class="material-icons">&#xE147;</i>
-                            <span>Add New
-                                Book</span></button>
+                            <span>Add New Book</span></button>
                         <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE24D;</i> <span>Export to
                                 Excel</span></a>
                     </div>
@@ -88,7 +87,6 @@ session_start();
                         <th>ISBN No.</th>
                         <th>Category</th>
                         <th>Author's Name</th>
-                        <th>Title</th>
                         <th>Edition</th>
                         <th>Publisher</th>
                         <th>Publication Year</th>
@@ -102,16 +100,16 @@ session_start();
                 <tbody>
 
 
-                    <form action="BooksUpdate.php" method="POST">
+                    <form action="./Admin_Phps/BooksUpdate.php" method="POST">
                         <?php
                     for ($i = 0; $i < sizeof($_SESSION['Books']); $i++) :
                     ?>
                         <tr>
+                            <td><?= $i; ?></td>
                             <td><?= $_SESSION['Books'][$i]['Book_Name']; ?></td>
                             <td><?= $_SESSION['Books'][$i]['ISBN']; ?></td>
                             <td><?= $_SESSION['Books'][$i]['Category']; ?></td>
                             <td><?= $_SESSION['Books'][$i]['Author']; ?></td>
-                            <td><?= $_SESSION['Books'][$i]['Title']; ?></td>
                             <td><?= $_SESSION['Books'][$i]['Edition']; ?></td>
                             <td><?= $_SESSION['Books'][$i]['Publisher']; ?></td>
                             <td><?= $_SESSION['Books'][$i]['Date_Published']; ?></td>
@@ -131,23 +129,24 @@ session_start();
 
                         </tr>
 
-                        <?php endforeach; ?>
+                        <?php endfor; ?>
                     </form>
 
-                    <!--<?php
-                    //$i = 0;
+                    <?php
+                    
                     for ($i = 0; $i < sizeof($_SESSION['Books']); $i++) :
                     ?>
                     <tr>
-                        <!--  <form method="post" action="../Admin_Phps/BooksUpdate.php">
+                        <form method="post" action="../Admin_Phps/BooksUpdate.php">
                             <td><?= $i; ?></td>
 
                             <td>
                                 <?php
-                                    if (actions == EDIT) {
-                                        echo '<input type="text" name="Book_Name" value='';
+                                    $actions = "EDIT";
+                                    if ($actions == "EDIT") {
+                                        echo '<input type="text" name="Book_Name" value=';
                                         echo $_SESSION['Books'][$i]['Book_Name'];
-                                        echo ''></input>';
+                                        echo '></input>';
                                     } else {
                                         echo $_SESSION['Books'][$i]['Book_Name'];
                                     }
@@ -156,7 +155,7 @@ session_start();
 
                             <td>
                                 <?php
-                                    if (actions == EDIT) {
+                                    if ($actions == "EDIT") {
                                         echo '<input type="text" name="ISBN" value=';
                                         echo $_SESSION['Books'][$i]['ISBN'];
                                         echo '></input>';
@@ -168,7 +167,7 @@ session_start();
 
                             <td>
                                 <?php
-                                    if (actions == EDIT) {
+                                    if ($actions == "EDIT") {
                                         echo '<input type="text" name="Category" value=';
                                         echo $_SESSION['Books'][$i]['Category'];
                                         echo '></input>';
@@ -180,7 +179,7 @@ session_start();
 
                             <td>
                                 <?php
-                                    if (actions == EDIT) {
+                                    if ($actions == "EDIT") {
                                         echo '<input type="text" name="Author" value=';
                                         echo $_SESSION['Books'][$i]['Author'];
                                         echo '></input>';
@@ -192,19 +191,7 @@ session_start();
 
                             <td>
                                 <?php
-                                    if (actions == EDIT) {
-                                        echo '<input type="text" name="Title" value=';
-                                        echo $_SESSION['Books'][$i]['Title'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['Title'];
-                                    }
-
-                                    ?></td>
-
-                            <td>
-                                <?php
-                                    if (actions == EDIT) {
+                                    if ($actions == "EDIT") {
                                         echo '<input type="text" name="Edition" value=';
                                         echo $_SESSION['Books'][$i]['Edition'];
                                         echo '></input>';
@@ -216,7 +203,7 @@ session_start();
 
                             <td>
                                 <?php
-                                    if (actions == EDIT) {
+                                    if ($actions == "EDIT") {
                                         echo '<input type="text" name="Publisher" value=';
                                         echo $_SESSION['Books'][$i]['Publisher'];
                                         echo '></input>';
@@ -228,7 +215,7 @@ session_start();
 
                             <td>
                                 <?php
-                                    if (actions == EDIT) {
+                                    if ($actions == "EDIT") {
                                         echo '<input type="text" name="Date_Published" value=';
                                         echo $_SESSION['Books'][$i]['Date_Published'];
                                         echo '></input>';
@@ -240,7 +227,7 @@ session_start();
 
                             <td>
                                 <?php
-                                    if (actions == EDIT) {
+                                    if ($actions == "EDIT") {
                                         echo '<input type="text" name="Quantity" value=';
                                         echo $_SESSION['Books'][$i]['Quantity'];
                                         echo '></input>';
@@ -253,7 +240,7 @@ session_start();
 
                             <td>
                                 <?php
-                                    if (actions == EDIT) {
+                                    if ($actions == "EDIT") {
                                         echo '<input type="text" name="Selling_Price" value=';
                                         echo $_SESSION['Books'][$i]['Selling_Price'];
                                         echo '></input>';
@@ -265,7 +252,7 @@ session_start();
 
                             <td>
                                 <?php
-                                    if (actions == EDIT) {
+                                    if ($actions == "EDIT") {
                                         echo '<input type="text" name="Asking_Price" value=';
                                         echo $_SESSION['Books'][$i]['Asking_Price'];
                                         echo '></input>';
@@ -278,7 +265,7 @@ session_start();
 
                             <td>
                                 <?php
-                                    if (actions == EDIT) {
+                                    if ($actions == "EDIT") {
                                         echo '<input type="text" name="Min_Threshold" value=';
                                         echo $_SESSION['Books'][$i]['Min_Threshold'];
                                         echo '></input>';
@@ -311,7 +298,7 @@ session_start();
                         </form> 
                     </tr>
 
-                    <?php endfor; ?> -->
+                    <?php endfor; ?>
                 </tbody>
 
 
@@ -322,7 +309,6 @@ session_start();
                         <th>ISBN No.</th>
                         <th>Category</th>
                         <th>Author's Name</th>
-                        <th>Title</th>
                         <th>Edition</th>
                         <th>Publisher</th>
                         <th>Publication Year</th>
