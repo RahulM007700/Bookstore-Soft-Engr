@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -97,11 +101,11 @@
         <div class="table-title">
           <div class="row">
             <div class="col-sm-4">
-              <h2><b>Book Management</b></h2>
+              <h2><b>Promotions</b></h2>
             </div>
             <div class="col-sm-6">
               <button class="btn btn-secondary" id="addBtn">
-                <i class="material-icons">&#xE147;</i> <span>Add New Book</span>
+                <i class="material-icons">&#xE147;</i> <span>Add Promotion</span>
               </button>
               <a href="#" class="btn btn-secondary"
                 ><i class="material-icons">&#xE24D;</i>
@@ -150,11 +154,11 @@
                             <td>
                                 <?php
                                     if (actions == EDIT) {
-                                        echo '<input type="text" name="ISBN" value=';
-                                        echo $_SESSION['Books'][$i]['ISBN'];
+                                        echo '<input type="text" name="Promotion_ID" value=';
+                                        echo $_SESSION['Books'][$i]['Promotion_ID'];
                                         echo '></input>';
                                     } else {
-                                        echo $_SESSION['Books'][$i]['ISBN'];
+                                        echo $_SESSION['Books'][$i]['Promotion_ID'];
                                     }
 
                                     ?></td>
@@ -162,11 +166,11 @@
                             <td>
                                 <?php
                                     if (actions == EDIT) {
-                                        echo '<input type="text" name="Category" value=';
-                                        echo $_SESSION['Books'][$i]['Category'];
+                                        echo '<input type="text" name="Promotion_Amount" value=';
+                                        echo $_SESSION['Books'][$i]['Promotion_Amount'];
                                         echo '></input>';
                                     } else {
-                                        echo $_SESSION['Books'][$i]['Category'];
+                                        echo $_SESSION['Books'][$i]['Promotion_Amount'];
                                     }
 
                                     ?></td>
@@ -174,11 +178,11 @@
                             <td>
                                 <?php
                                     if (actions == EDIT) {
-                                        echo '<input type="text" name="Author" value=';
-                                        echo $_SESSION['Books'][$i]['Author'];
+                                        echo '<input type="text" name="Expiration_Date" value=';
+                                        echo $_SESSION['Books'][$i]['Expiration_Date'];
                                         echo '></input>';
                                     } else {
-                                        echo $_SESSION['Books'][$i]['Author'];
+                                        echo $_SESSION['Books'][$i]['Expiration_Date'];
                                     }
 
                                     ?></td>
@@ -186,97 +190,11 @@
                             <td>
                                 <?php
                                     if (actions == EDIT) {
-                                        echo '<input type="text" name="Title" value=';
-                                        echo $_SESSION['Books'][$i]['Title'];
+                                        echo '<input type="text" name="Status" value=';
+                                        echo $_SESSION['Books'][$i]['Status'];
                                         echo '></input>';
                                     } else {
-                                        echo $_SESSION['Books'][$i]['Title'];
-                                    }
-
-                                    ?></td>
-
-                            <td>
-                                <?php
-                                    if (actions == EDIT) {
-                                        echo '<input type="text" name="Edition" value=';
-                                        echo $_SESSION['Books'][$i]['Edition'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['Edition'];
-                                    }
-
-                                    ?></td>
-
-                            <td>
-                                <?php
-                                    if (actions == EDIT) {
-                                        echo '<input type="text" name="Publisher" value=';
-                                        echo $_SESSION['Books'][$i]['Publisher'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['Publisher'];
-                                    }
-
-                                    ?></td>
-
-                            <td>
-                                <?php
-                                    if (actions == EDIT) {
-                                        echo '<input type="text" name="Date_Published" value=';
-                                        echo $_SESSION['Books'][$i]['Date_Published'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['Date_Published'];
-                                    }
-
-                                    ?></td>
-
-                            <td>
-                                <?php
-                                    if (actions == EDIT) {
-                                        echo '<input type="text" name="Quantity" value=';
-                                        echo $_SESSION['Books'][$i]['Quantity'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['Quantity'];
-                                    }
-
-                                    ?></td>
-
-
-                            <td>
-                                <?php
-                                    if (actions == EDIT) {
-                                        echo '<input type="text" name="Selling_Price" value=';
-                                        echo $_SESSION['Books'][$i]['Selling_Price'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['Selling_Price'];
-                                    }
-
-                                    ?></td>
-
-                            <td>
-                                <?php
-                                    if (actions == EDIT) {
-                                        echo '<input type="text" name="Asking_Price" value=';
-                                        echo $_SESSION['Books'][$i]['Asking_Price'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['Asking_Price'];
-                                    }
-
-                                    ?></td>
-
-
-                            <td>
-                                <?php
-                                    if (actions == EDIT) {
-                                        echo '<input type="text" name="Min_Threshold" value=';
-                                        echo $_SESSION['Books'][$i]['Min_Threshold'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['Min_Threshold'];
+                                        echo $_SESSION['Books'][$i]['Status'];
                                     }
 
                                     ?></td>
@@ -330,7 +248,7 @@
         <span class="close-button-add">&times;</span>
         <form action="insertBook.php" method="POST">
           <div class="container">
-            <h1 style="text-align: center">Add a Book</h1>
+            <h1 style="text-align: center">Add a Promotion</h1>
             <p style="text-align: center">
               Please fill in the mandatory fields in this form to create an new
               book.
@@ -344,102 +262,39 @@
               required
             />
 
-            <label for="isbn"><b>ISBN No.</b></label>
+            <label for="promotion-id"><b>Promotion ID</b></label>
             <input
               type="text"
-              placeholder="Enter ISBN Number"
-              name="isbn"
-              id="isbn"
+              placeholder="Enter the promotion ID"
+              name="promotion-id"
+              id="promotion-id"
               required
             />
 
-            <label for="category"><b>Category</b></label>
+            <label for="promotion-amount"><b>Promotion Amount</b></label>
             <input
               type="text"
-              placeholder="Enter the book's category"
-              name="category"
-              id="category"
+              placeholder="Enter the promotion amount ($x)"
+              name="promotion-amount"
+              id="promotion-amount"
               required
             />
 
-            <label for="authorname"><b>Author's Name</b></label>
+            <label for="expiration-date"><b>Expiration Date</b></label>
             <input
               type="text"
-              placeholder="Enter the authors name"
-              name="authorname"
-              id="authorname"
+              placeholder="Enter the expiration date"
+              name="expiration-date"
+              id="expiration-date"
               required
             />
 
-            <label for="title"><b>Title</b></label>
+            <label for="title"><b>Status</b></label>
             <input
               type="text"
               placeholder="Enter Phone Number"
               name="title"
               id="title"
-              required
-            />
-
-            <label for="edition"><b>Edition</b></label>
-            <input
-              type="text"
-              placeholder="Enter the edition"
-              name="edition"
-              id="edition"
-              required
-            />
-
-            <label for="publisher"><b>Publisher</b></label>
-            <input
-              type="text"
-              placeholder="Enter publisher"
-              name="publisher"
-              id="publisher"
-              required
-            />
-
-            <label for="pubyear"><b>Publication Year</b></label>
-            <input
-              type="text"
-              placeholder="Enter Publication Year"
-              name="pubyear"
-              id="pubyear"
-              required
-            />
-
-            <label for="quantity"><b>Quantity</b></label>
-            <input
-              type="text"
-              placeholder="Enter Quantity"
-              name="quantity"
-              id="quantity"
-              required
-            />
-
-            <label for="sellprice"><b>Selling Price</b></label>
-            <input
-              type="text"
-              placeholder="Enter selling price"
-              name="sellprice"
-              id="sellprice"
-              required
-            />
-
-            <label for="askprice"><b>Asking Price</b></label>
-            <input
-              type="text"
-              placeholder="Enter asking price"
-              name="askprice"
-              id="askprice"
-              required
-            />
-
-            <label for="minthresh"><b>Minimum Threshold</b></label>
-            <input
-              type="text"
-              placeholder="Enter minimum threshold"
-              name="minthresh"
-              id="minthresh"
               required
             />
 
