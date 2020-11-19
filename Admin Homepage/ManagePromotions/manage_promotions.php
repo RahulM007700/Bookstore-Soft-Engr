@@ -52,13 +52,13 @@ session_start();
     </div>
     <ul class="nav justify-content-center">
       <li class="nav-item px-5">
-        <a class="nav-link-main" href="#" style="color: black; text-decoration: none"><i class="fas fa-book"></i>&nbsp;&nbsp;Manage Books</a>
+        <a class="nav-link-main" href="../Admin_Phps/BookRetrieval.php" style="color: black; text-decoration: none"><i class="fas fa-book"></i>&nbsp;&nbsp;Manage Books</a>
       </li>
       <li class="nav-item px-5">
-        <a class="nav-link-main" href="#" style="color: black; text-decoration: none"><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;Manage Promotions</a>
+        <a class="nav-link-main" href="../Admin_Phps/PromotionsRetrieval.php" style="color: black; text-decoration: none"><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;Manage Promotions</a>
       </li>
       <li class="nav-item px-5">
-        <a class="nav-link-main" href="#" style="color: black; text-decoration: none"><i class="fas fa-users"></i>&nbsp;&nbsp;Manage Users</a>
+        <a class="nav-link-main" href="../Admin_Phps/UserRetrieval.php" style="color: black; text-decoration: none"><i class="fas fa-users"></i>&nbsp;&nbsp;Manage Users</a>
       </li>
     </ul>
   </div>
@@ -82,7 +82,6 @@ session_start();
         <thead>
           <tr>
             <th>No.</th>
-            <th>Book Name</th>
             <th>ISBN No.</th>
             <th>Promotion Name</th>
             <th>Promotion ID</th>
@@ -93,29 +92,17 @@ session_start();
           </tr>
         </thead>
         <tbody>
-          <!--<?php
+          <?php
               //$i = 0;
               for ($i = 0; $i < sizeof($_SESSION['Promotions']); $i++) :
-              ?>-->
+              ?>
           <tr>
-            <!--  <form method="post" action="../Admin_Phps/BooksUpdate.php">
+             <form method="post" action="../Admin_Phps/PromoUpdate.php">
                             <td><?= $i; ?></td>
 
                             <td>
-                                <?php
-                                $actions = "EDIT";
-                                if ($actions == "EDIT") {
-                                  echo '<input type="text" name="Book_Name" value=';
-                                  echo $_SESSION['Promotions'][$i]['Book_Name'];
-                                  echo '></input>';
-                                } else {
-                                  echo $_SESSION['Promotions'][$i]['Book_Name'];
-                                }
-
-                                ?></td>
-
-                            <td>
                             <?php
+                            $actions = "EDIT";
                             if ($actions == "EDIT") {
                               echo '<input type="text" name="ISBN" value=';
                               echo $_SESSION['Promotions'][$i]['ISBN'];
@@ -130,10 +117,10 @@ session_start();
                             <?php
                             if ($actions == "EDIT") {
                               echo '<input type="text" name="Promotion_Name" value=';
-                              echo $_SESSION['Promotions'][$i]['Promotion_Name'];
+                              echo $_SESSION['Promotions'][$i]['Name'];
                               echo '></input>';
                             } else {
-                              echo $_SESSION['Promotions'][$i]['Promotion_Name'];
+                              echo $_SESSION['Promotions'][$i]['Name'];
                             }
 
                             ?></td>
@@ -154,10 +141,10 @@ session_start();
                                 <?php
                                 if ($actions == "EDIT") {
                                   echo '<input type="text" name="discount" value=';
-                                  echo $_SESSION['Promotions'][$i]['discount'];
+                                  echo $_SESSION['Promotions'][$i]['Discount'];
                                   echo '></input>';
                                 } else {
-                                  echo $_SESSION['Promotions'][$i]['discount'];
+                                  echo $_SESSION['Promotions'][$i]['Discount'];
                                 }
 
                                 ?></td>
@@ -166,10 +153,10 @@ session_start();
                                 <?php
                                 if ($actions == "EDIT") {
                                   echo '<input type="text" name="Expiration_Date" value=';
-                                  echo $_SESSION['Promotions'][$i]['Expiration_Date'];
+                                  echo $_SESSION['Promotions'][$i]['Exp_Date'];
                                   echo '></input>';
                                 } else {
-                                  echo $_SESSION['Promotions'][$i]['Expiration_Date'];
+                                  echo $_SESSION['Promotions'][$i]['Exp_Date'];
                                 }
 
                                 ?></td>
@@ -209,13 +196,12 @@ session_start();
                         </form> 
                     </tr>
 
-                    <?php endfor; ?> -->
+                    <?php endfor; ?> 
           </tr>
         </tbody>
         <tfoot>
           <tr>
             <th>No.</th>
-            <th>Book Name</th>
             <th>ISBN No.</th>
             <th>Promotion Name</th>
             <th>Promotion ID</th>
@@ -232,32 +218,29 @@ session_start();
   <div id="addModal" class="addBookModal">
     <div class="addBookModal-content">
       <span class="close-button-add">&times;</span>
-      <form action="insertBook.php" method="POST">
+      <form action="../Admin_Phps/PromoUpdate.php" method="POST">
         <div class="container">
           <h1 style="text-align: center">Add a Promotion</h1>
           <p style="text-align: center">
             Please fill in the mandatory fields in this form to create an new
             book.
           </p>
-          <label for="bookname"><b>Book Name</b></label>
-          <input type="text" placeholder="Enter Book Name" name="bookname" id="bookname" required />
-
           <label for="isbn"><b>ISBN No.</b></label>
-          <input type="text" placeholder="Enter ISBN Number" name="isbn" id="isbn" required />
+          <input type="text" placeholder="Enter ISBN Number" name="ISBN" id="isbn" required />
 
           <label for="promotion-name"><b>Promotion Name</b></label>
-          <input type="text" placeholder="Enter promotion ID" name="promotion-name" id="promotion-name" required />
+          <input type="text" placeholder="Enter promotion ID" name="Promotion_Name" id="promotion-name" required />
 
           <label for="promotion-id"><b>Promotion ID</b></label>
-          <input type="text" placeholder="Enter promotion ID" name="promotion-id" id="promotion-id" required />
+          <input type="text" placeholder="Enter promotion ID" name="Promotion_ID" id="promotion-id" required />
 
           <label for="discount"><b>Discount</b></label>
-          <input type="text" placeholder="Enter discount ($x)" name="discount" id="discount" required />
+          <input type="text" placeholder="Enter discount ($x)" name="Discount" id="discount" required />
 
           <label for="expiration-date"><b>Expiration Date</b></label>
-          <input type="text" placeholder="Enter expiration date" name="expiration-date" id="expiration-date" required />
-
-          <button type="submit" class="submitbtn" id="submitbtn">
+          <input type="text" placeholder="Enter expiration date" name="Expiration_Date" id="expiration-date" required />
+          
+          <button value="Add" name="actions" type="submit" class="submitbtn" id="submitbtn">
             Submit
           </button>
           <br /><br /><br /><br />
