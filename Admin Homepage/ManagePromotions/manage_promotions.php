@@ -102,6 +102,7 @@ session_start();
 
                             <td>
                             <?php
+                            $actions="EDIT";
                             if ($actions == "EDIT") {
                               echo '<input type="text" name="ISBN" value=';
                               echo $_SESSION['Promotions'][$i]['ISBN'];
@@ -224,7 +225,7 @@ session_start();
             Please fill in the mandatory fields in this form to create a new
             promotion.
           </p>
-      
+
           <label for="isbn"><b>ISBN No.</b></label>
           <input type="text" placeholder="Enter ISBN Number" name="isbn" id="isbn" required />
 
