@@ -4,14 +4,17 @@ session_start();
 
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <title>Manage Promotions</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" />
   <link rel="stylesheet" href="../manageBooks.css" />
-  <?php $recEmail = $_SESSION['Emails']?>
-  <script type="text/javascript">session='<?php echo $recEmail;?>'</script>
+  <?php $recEmail = $_SESSION['Emails'] ?>
+  <script type="text/javascript">
+    session = '<?php echo $recEmail; ?>'
+  </script>
   <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script type="text/javascript" src="../../SkeletonEmailCode/sendEmail.js"></script>
   <script src="https://kit.fontawesome.com/a746b8874d.js" crossorigin="anonymous"></script>
@@ -118,7 +121,9 @@ session_start();
                   ?></td>
 
                 <td>
-                <script type="text/javascript">promotionName='<?php echo $_SESSION['Promotions'][$i]['Name'];?>'</script>
+                  <script type="text/javascript">
+                    promotionName = '<?php echo $_SESSION['Promotions'][$i]['Name']; ?>'
+                  </script>
 
                   <?php
                   if ($actions == "EDIT") {
@@ -129,10 +134,13 @@ session_start();
                     echo $_SESSION['Promotions'][$i]['Name'];
                   }
 
-                  ?></td>
+                  ?>
+                </td>
 
                 <td>
-                <script type="text/javascript">promotionCode='<?php echo $_SESSION['Promotions'][$i]['Promotion_ID'];?>'</script>
+                  <script type="text/javascript">
+                    promotionCode = '<?php echo $_SESSION['Promotions'][$i]['Promotion_ID']; ?>'
+                  </script>
                   <?php
                   if ($actions == "EDIT") {
                     echo '<input type="text" name="Promotion_ID" value=';
@@ -142,10 +150,13 @@ session_start();
                     echo $_SESSION['Promotions'][$i]['Promotion_ID'];
                   }
 
-                  ?></td>
+                  ?>
+                </td>
 
                 <td>
-                <script type="text/javascript">discount='<?php echo $_SESSION['Promotions'][$i]['Discount'];?>'</script>
+                  <script type="text/javascript">
+                    discount = '<?php echo $_SESSION['Promotions'][$i]['Discount']; ?>'
+                  </script>
                   <?php
                   if ($actions == "EDIT") {
                     echo '<input type="text" name="discount" value=';
@@ -155,7 +166,8 @@ session_start();
                     echo $_SESSION['Promotions'][$i]['Discount'];
                   }
 
-                  ?></td>
+                  ?>
+                </td>
 
                 <td>
                   <?php
@@ -182,23 +194,17 @@ session_start();
                   ?></td>
 
                 <td class="actions" name="actions">
+                  <select name="actions" onchange="this.form.submit()">
+                    <option></option>
+                    <option>
+                      <a href="#" class="button" title="Edit" id="edit" data-toggle="tooltip"><i class="material-icons" onclick()="editAction">Edit</i></a>
+                    </option>
+                    <option>
+                      <a href="#" class="button" title="Delete" id="delete" data-toggle="tooltip"><i class="material-icons" onclick()="deleteAction">Delete</i></a>
+                    </option>
+                  </select>
                   <?php
-                  echo '<select name="actions" onchange="this.form.submit()">                           
-                                         <option></option>
-                                         <option>EDIT</option>
-                                         <option>DELETE</option>
-                                      </select>'; ?>
-
-                  <script>
-                    $(function() {
-                      $("button").click(function() {
-                        var fired_button = $(this).val();
-                        alert(fired_button);
-                      });
-                    });
-                  </script>
-                  <a href="#" class="button" title="Edit" id="edit" data-toggle="tooltip"><i class="material-icons" onclick()="editAction">&#xE8B8;</i></a>
-                  <a href="#" class="button" title="Delete" id="delete" data-toggle="tooltip"><i class="material-icons" onclick()="deleteAction">&#xE5C9;</i></a>
+                  echo ''; ?>
                 </td>
 
                 <td>
