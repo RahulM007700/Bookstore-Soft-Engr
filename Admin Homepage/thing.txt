@@ -1,0 +1,194 @@
+<?php
+                    
+                    for ($ i = 0; $i < sizeof($_SESSION['Books']); $i++) :
+                    ?>
+                    <tr>
+                        <form method="post" action="../Admin_Phps/BooksUpdate.php">
+                            <td><?= $i; ?></td>
+
+                            <td>
+                                <?php
+                                    $actions = "EDIT";
+                                    if ($actions == "EDIT") {
+                                        echo '<input type="text" name="Book_Name" value=';
+                                        echo $_SESSION['Books'][$i]['Book_Name'];
+                                        echo '></input>';
+                                    } else {
+                                        echo $_SESSION['Books'][$i]['Book_Name'];
+                                    }
+
+                            ?></td>
+
+                            <td>
+                                <?php
+                                    if ($actions == "EDIT") {
+                                        echo '<input type="text" name="ISBN" value=';
+                                        echo $_SESSION['Books'][$i]['ISBN'];
+                                        echo '></input>';
+                                    } else {
+                                        echo $_SESSION['Books'][$i]['ISBN'];
+                                    }
+
+                                    ?></td>
+
+                            <td>
+                                <?php
+                                    if ($actions == "EDIT") {
+                                        echo '<input type="text" name="Category" value=';
+                                        echo $_SESSION['Books'][$i]['Category'];
+                                        echo '></input>';
+                                    } else {
+                                        echo $_SESSION['Books'][$i]['Category'];
+                                    }
+
+                                    ?></td>
+
+                            <td>
+                                <?php
+                                    if ($actions == "EDIT") {
+                                        echo '<input type="text" name="Author" value=';
+                                        echo $_SESSION['Books'][$i]['Author'];
+                                        echo '></input>';
+                                    } else {
+                                        echo $_SESSION['Books'][$i]['Author'];
+                                    }
+
+                                    ?></td>
+
+                            <td>
+                                <?php
+                                    if ($actions == "EDIT") {
+                                        echo '<input type="text" name="Edition" value=';
+                                        echo $_SESSION['Books'][$i]['Edition'];
+                                        echo '></input>';
+                                    } else {
+                                        echo $_SESSION['Books'][$i]['Edition'];
+                                    }
+
+                                    ?></td>
+
+                            <td>
+                                <?php
+                                    if ($actions == "EDIT") {
+                                        echo '<input type="text" name="Publisher" value=';
+                                        echo $_SESSION['Books'][$i]['Publisher'];
+                                        echo '></input>';
+                                    } else {
+                                        echo $_SESSION['Books'][$i]['Publisher'];
+                                    }
+
+                                    ?></td>
+
+                            <td>
+                                <?php
+                                    if ($actions == "EDIT") {
+                                        echo '<input type="text" name="Date_Published" value=';
+                                        echo $_SESSION['Books'][$i]['Date_Published'];
+                                        echo '></input>';
+                                    } else {
+                                        echo $_SESSION['Books'][$i]['Date_Published'];
+                                    }
+
+                                    ?></td>
+
+                            <td>
+                                <?php
+                                    if ($actions == "EDIT") {
+                                        echo '<input type="text" name="Quantity" value=';
+                                        echo $_SESSION['Books'][$i]['Quantity'];
+                                        echo '></input>';
+                                    } else {
+                                        echo $_SESSION['Books'][$i]['Quantity'];
+                                    }
+
+                                    ?></td>
+
+
+                            <td>
+                                <?php
+                                    if ($actions == "EDIT") {
+                                        echo '<input type="text" name="Selling_Price" value=';
+                                        echo $_SESSION['Books'][$i]['Selling_Price'];
+                                        echo '></input>';
+                                    } else {
+                                        echo $_SESSION['Books'][$i]['Selling_Price'];
+                                    }
+
+                                    ?></td>
+
+                            <td>
+                                <?php
+                                    if ($actions == "EDIT") {
+                                        echo '<input type="text" name="Asking_Price" value=';
+                                        echo $_SESSION['Books'][$i]['Asking_Price'];
+                                        echo '></input>';
+                                    } else {
+                                        echo $_SESSION['Books'][$i]['Asking_Price'];
+                                    }
+
+                                    ?></td>
+
+
+                            <td>
+                                <?php
+                                    if ($actions == "EDIT") {
+                                        echo '<input type="text" name="Min_Threshold" value=';
+                                        echo $_SESSION['Books'][$i]['Min_Threshold'];
+                                        echo '></input>';
+                                    } else {
+                                        echo $_SESSION['Books'][$i]['Min_Threshold'];
+                                    }
+
+                                    ?></td>
+
+                            <td class="actions" name="actions">
+                                <?php
+                                    echo '<select onchange="this.form.submit()">                           
+                                         <option></option>
+                                         <option>EDIT</option>
+                                          <option>DELETE</option>
+                                      </select>'; ?>
+
+                                <script>
+                                    $(function () {
+                                        $("button").click(function () {
+                                            var fired_button = $(this).val();
+                                            alert(fired_button);
+                                        });
+                                    });
+                                </script> 
+                                <a href="#" class="button" title="Edit" id="edit" data-toggle="tooltip"><i class="material-icons" onclick()="editAction">&#xE8B8;</i></a>
+                                    <a href="#" class="button" title="Delete" id="delete" data-toggle="tooltip"><i class="material-icons" onclick()="deleteAction">&#xE5C9;</i></a>
+                            </td>
+
+                        </form> 
+                    </tr>
+
+                    <?php endfor; ?>
+
+
+                    <input id="myInput" type="text" value="Swag" />
+
+<script>
+    var test = "test";
+    document.getElementById("myInput").value = test;
+</script>
+From Stephanie Delgadillo to Everyone:  02:30 AM
+<script language="javascript" type="text/javascript">
+<!--
+function initInput()
+	{
+	var variable = somevalue;
+	document.forms[0].fid_17.value = variable;
+	}
+//-->
+</script>
+</head>
+
+<body onLoad="initInput()">
+	<form>
+	<input name="fid_17" id="fid_17" value="">
+	</form>
+</body>
+
+'<?php echo $_SESSION['Books'][$i]['Book_Name'];?>','<?php echo $_SESSION['Books'][$i]['ISBN'];?>','<?php echo $_SESSION['Books'][$i]['Category'];?>','<?php echo $_SESSION['Books'][$i]['Author'];?>','<?php echo $_SESSION['Books'][$i]['Edition'];?>','<?php echo $_SESSION['Books'][$i]['Publisher'];?>','<?php echo $_SESSION['Books'][$i]['Date_Published'];?>','<?php echo $_SESSION['Books'][$i]['Quantity'];?>','<?php echo $_SESSION['Books'][$i]['Selling_Price'];?>','<?php echo $_SESSION['Books'][$i]['Asking_Price'];?>','<?php echo $_SESSION['Books'][$i]['Min_Threshold'];?>'

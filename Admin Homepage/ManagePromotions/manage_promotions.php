@@ -4,15 +4,16 @@ session_start();
 
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8" />
   <title>Manage Promotions</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" />
   <link rel="stylesheet" href="../manageBooks.css" />
+  <?php $recEmail = $_SESSION['Emails']?>
+  <script type="text/javascript">session='<?php echo $recEmail;?>'</script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script type="text/javascript" src="../../SkeletonEmailCode/sendEmail.js"></script>
-  <script type="text/javascript">sessionValue='<?php echo $_SESSION['Emails'];?>'</script>
   <script src="https://kit.fontawesome.com/a746b8874d.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>

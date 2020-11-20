@@ -15,15 +15,13 @@ function sendEmail() {
 }
 
 function sendPromotionEmail() {
-    console.log("Hey");
-    console.log(promotionName);
     Email.send({
         Host: "smtp.gmail.com",
         Username: "onlinebookstoreTeamBC8@gmail.com",
         Password: "ugaSEFALL2020",
-        To: "rahulmuthyala77@gmail.com" ,
+        To: session,
         From: "onlinebookstoreTeamBC8@gmail.com",
         Subject: "New Promotion!",
-        Body: "A promotion for " + promotionName + "is now available." + "This discount is $" + discount + "off." + "\nHere is your promotion code: " + promotionCode + ".",
+        Body: "A promotion for " + promotionName + " is now available." + "This discount is $" + discount + " off." + "\nHere is your promotion code: " + promotionCode + ".",
     });
 }

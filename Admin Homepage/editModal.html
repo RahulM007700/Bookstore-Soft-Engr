@@ -1,0 +1,94 @@
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Edit a Book</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="../BooksUpdate.php">
+          <div class="modal-body mx-3">
+            <div class="md-form mb-2">
+              <label for="bookname"><b>Book Name</b></label>
+              <input type="text" name="bookname" id="bookname" value="<?php echo $_SESSION['Books'][$i]['Book_Name']; ?>" required />
+            </div>
+            
+            <div class="md-form mb-2">
+             <label for="isbn"><b>ISBN No.</b></label>
+              <input type="text" name="isbn" id="isbn" value="<?php echo $_SESSION['Books'][$i]['ISBN']; ?>" required />
+            </div>
+            
+            <div class="md-form mb-2">
+              <label for="category"><b>Category</b></label>
+                    <input type="text" name="category" id="category"
+                        value="<?php echo $_SESSION['Books'][$i]['Category']; ?>" required />
+            </div>
+            
+            <div class="md-form mb-2">
+             <label for="authorname"><b>Author's Name</b></label>
+                    <input type="text" name="authorname" id="authorname"
+                        value="<?php echo $_SESSION['Books'][$i]['Author']; ?>" required />
+            </div>
+            
+            <div class="md-form mb-2">
+             <label for="title"><b>Title</b></label>
+                    <input type="text" name="title" id="title"
+                        value="<?php echo $_SESSION['Books'][$i]['Book_Name']; ?>" required />
+            </div>
+            
+            <div class="md-form mb-2">
+             <label for="edition"><b>Edition</b></label>
+                    <input type="text" name="edition" id="edition"
+                        value="<?php echo $_SESSION['Books'][$i]['Edition']; ?>" required />
+            </div>
+            
+            <div class="md-form mb-2">
+              <label for="publisher"><b>Publisher</b></label>
+                    <input type="text" name="publisher" id="publisher"
+                        value="<?php echo $_SESSION['Books'][$i]['Publisher']; ?>" required />
+
+            </div>
+            
+            <div class="md-form mb-2">
+              <label for="pubyear"><b>Publication Year</b></label>
+                    <input type="text" name="pubyear" id="pubyear"
+                        value="<?php echo $_SESSION['Books'][$i]['Publication']; ?>" required />
+
+            </div>
+            
+            <div class="md-form mb-2">
+              <label for="quantity"><b>Quantity</b></label>
+                    <input type="text" name="quantity" id="quantity"
+                        value="<?php echo $_SESSION['Books'][$i]['Quantity']; ?>" required />
+
+            </div>
+            
+            <div class="md-form mb-2">
+              <label for="sellprice"><b>Selling Price</b></label>
+                    <input type="text" name="sellprice" id="sellprice"
+                        value="<?php echo $_SESSION['Books'][$i]['Selling_Price']; ?>" required />
+            </div>
+            
+            <div class="md-form mb-2">
+               <label for="askprice"><b>Asking Price</b></label>
+                    <input type="text" name="askprice" id="askprice"
+                        value="<?php echo $_SESSION['Books'][$i]['Asking_Price']; ?>" required />
+            </div>
+            
+            <div class="md-form mb-2">
+               <label for="minthresh"><b>Minimum Threshold</b></label>
+                    <input type="text" name="minthresh" id="minthresh"
+                        value="<?php echo $_SESSION['Books'][$i]['Min_Threshold']; ?>" required />
+
+            </div>
+
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-default" type="submit" id="submitbtn2">Submit</button>
+            <br>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

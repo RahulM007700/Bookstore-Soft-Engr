@@ -2,7 +2,7 @@
 session_start();
 $Book_Name = filter_input(INPUT_POST,'Book_Name');
 $ISBN = filter_input(INPUT_POST,'ISBN');
-$Category =filter_input(INPUT_POST,'Category');
+$Category = filter_input(INPUT_POST,'Category');
 $Author = filter_input(INPUT_POST,'Author');
 $Edition = filter_input(INPUT_POST,'Edition');
 $Publisher = filter_input(INPUT_POST,'Publisher');
@@ -13,12 +13,15 @@ $Asking_Price = filter_input(INPUT_POST,'Asking_Price');
 $Min_Threshold = filter_input(INPUT_POST,'Min_Threshold'); 
 $Admin_ID = "12345";
 $Method = filter_input(INPUT_POST,'actions');
+
+
 if (!empty($Admin_ID)) {
 
     $host = "localhost";
     $dbusername = "root";
     $dbpassword = "";
     $dbname = "online_bookstore";
+
 
     //Make Connection
     $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
@@ -46,9 +49,14 @@ if (!empty($Admin_ID)) {
                 header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/Admin_Phps/BookRetrieval.php");
             }
         } else if($Method == "DELETE") {
+            echo "Hello";
+            $i = filter_input(INPUT_POST,'i');
+            //echo "i is".$i;
+            $Darealisbn = $_SESSION['Books'][$i]['ISBN'];
+            //echo($Darealisbn);
             $SQL3 = "INSERT INTO archive (Book_Name, ISBN, Category, Author, Edition, Publisher, Date_Published, Quantity, Selling_Price, Asking_Price, Min_Threshold)
-                SELECT * FROM available_books WHERE ISBN = '$ISBN'";
-            $SQL4 = "DELETE FROM available_books WHERE ISBN = '$ISBN';";
+                SELECT * FROM available_books WHERE ISBN = '$Darealisbn'";
+            $SQL4 = "DELETE FROM available_books WHERE ISBN = '$Darealisbn';";
             if ($conn->query($SQL3)){
                 //echo "Hello from the outside!";
                 if ($conn->query($SQL4)){

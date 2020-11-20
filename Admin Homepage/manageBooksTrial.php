@@ -6,6 +6,39 @@ session_start();
 <html>
 
 <head>
+    <script> 
+    function dothis(i) { 
+      console.log(i)
+      var variable = i;
+      document.getElementById("delete").elements[1].value=variable;
+    } 
+    function dothat(i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11) {
+      console.log("Hello");
+      var i1 = i1;
+      var i2 = i2;
+      var i3 = i3;
+      var i4 = i4;
+      var i5 = i5;
+      var i6 = i6;
+      var i7 = i7;
+      var i8 = i8;
+      var i9 = i9;
+      var i10 = i10;
+      var i11 = i11;
+      document.getElementById("edit").elements[0].value = i1;
+      document.getElementById("edit").elements[1].value = i2;
+      document.getElementById("edit").elements[2].value = i3;
+      document.getElementById("edit").elements[3].value = i4;
+      document.getElementById("edit").elements[4].value = i5;
+      document.getElementById("edit").elements[5].value = i6;
+      document.getElementById("edit").elements[6].value = i7;
+      document.getElementById("edit").elements[7].value = i8;
+      document.getElementById("edit").elements[8].value = i9;
+      document.getElementById("edit").elements[9].value = i10;
+      document.getElementById("edit").elements[10].value = i11;
+
+    }
+    </script>
     <meta charset="utf-8">
     <title>Manage Users</title>
     <link rel="stylesheet" href="manageBooks.css">
@@ -106,25 +139,26 @@ session_start();
                     for ($i = 0; $i < sizeof($_SESSION['Books']); $i++) :
                     ?>
                         <tr>
-                            <td><?= $i; ?></td>
-                            <td><?= $_SESSION['Books'][$i]['Book_Name']; ?></td>
-                            <td><?= $_SESSION['Books'][$i]['ISBN']; ?></td>
-                            <td><?= $_SESSION['Books'][$i]['Category']; ?></td>
-                            <td><?= $_SESSION['Books'][$i]['Author']; ?></td>
-                            <td><?= $_SESSION['Books'][$i]['Edition']; ?></td>
-                            <td><?= $_SESSION['Books'][$i]['Publisher']; ?></td>
-                            <td><?= $_SESSION['Books'][$i]['Date_Published']; ?></td>
-                            <td><?= $_SESSION['Books'][$i]['Quantity']; ?></td>
-                            <td><?= $_SESSION['Books'][$i]['Selling_Price']; ?></td>
-                            <td><?= $_SESSION['Books'][$i]['Asking_Price']; ?></td>
-                            <td><?= $_SESSION['Books'][$i]['Min_Threshold']; ?></td>
+                            <td><input type="hidden" name="i1" value='<?php echo $i;?>'><?= $i; ?></td>
+                            <td><input type="hidden" name="i2" value='<?php echo $_SESSION['Books'][$i]['Book_Name'];?>'><?= $_SESSION['Books'][$i]['Book_Name']; ?></td>
+                            <td><input type="hidden" name="i3" value='<?php echo $_SESSION['Books'][$i]['ISBN'];?>'><?= $_SESSION['Books'][$i]['ISBN']; ?></td>
+                            <td><input type="hidden" name="i4" value='<?php echo $_SESSION['Books'][$i]['Category'];?>'><?= $_SESSION['Books'][$i]['Category']; ?></td>
+                            <td><input type="hidden" name="i5" value='<?php echo $_SESSION['Books'][$i]['Author'];?>'><?= $_SESSION['Books'][$i]['Author']; ?></td>
+                            <td><input type="hidden" name="i6" value='<?php echo $_SESSION['Books'][$i]['Edition'];?>'><?= $_SESSION['Books'][$i]['Edition']; ?></td>
+                            <td><input type="hidden" name="i7" value='<?php echo $_SESSION['Books'][$i]['Publisher'];?>'><?= $_SESSION['Books'][$i]['Publisher']; ?></td>
+                            <td><input type="hidden" name="i8" value='<?php echo $_SESSION['Books'][$i]['Date_Published'];?>'><?= $_SESSION['Books'][$i]['Date_Published']; ?></td>
+                            <td><input type="hidden" name="i9" value='<?php echo $_SESSION['Books'][$i]['Quantity'];?>'><?= $_SESSION['Books'][$i]['Quantity']; ?></td>
+                            <td><input type="hidden" name="i10" value='<?php echo $_SESSION['Books'][$i]['Selling_Price'];?>'><?= $_SESSION['Books'][$i]['Selling_Price']; ?></td>
+                            <td><input type="hidden" name="i11" value='<?php echo $_SESSION['Books'][$i]['Asking_Price'];?>'><?= $_SESSION['Books'][$i]['Asking_Price']; ?></td>
+                            <td><input type="hidden" name="i12" value='<?php echo $_SESSION['Books'][$i]['Min_Threshold'];?>'><?= $_SESSION['Books'][$i]['Min_Threshold']; ?></td>
                             <td class="actions">
                                 <!--<a href="#" class="button" title="Add" data-toggle="tooltip"><i
                                     class="material-icons">&#xe148;</i></a>-->
-                                <input type="button" name="editbtn" title="Edit" data-toggle="modal" data-target="#editModal"><i
-                                    class="material-icons">&#xE8B8;</i></a>
+                                <input id="number" type="hidden" name="i2" value='<?php echo $i;?>'></input>
+
+                                <input type="button" name="editbtn" title="Edit" data-toggle="modal" data-target="#editModal" onclick="dothat('<?php echo $_SESSION['Books'][$i]['Book_Name'];?>','<?php echo $_SESSION['Books'][$i]['ISBN'];?>','<?php echo $_SESSION['Books'][$i]['Category'];?>','<?php echo $_SESSION['Books'][$i]['Author'];?>','<?php echo $_SESSION['Books'][$i]['Edition'];?>','<?php echo $_SESSION['Books'][$i]['Publisher'];?>','<?php echo $_SESSION['Books'][$i]['Date_Published'];?>','<?php echo $_SESSION['Books'][$i]['Quantity'];?>','<?php echo $_SESSION['Books'][$i]['Selling_Price'];?>','<?php echo $_SESSION['Books'][$i]['Asking_Price'];?>','<?php echo $_SESSION['Books'][$i]['Min_Threshold'];?>')"><i class="material-icons">&#xE8B8;</i></input>
                                 <input type="button" name="deletebtn" title="Delete" data-toggle="modal"
-                                    onclick="deleteBook" data-target="#deleteModal"><i class="material-icons">&#xE5C9;</i></a>
+                                    data-target="#deleteModal" onclick="dothis(<?php echo $i?>)"><i class="material-icons">&#xE5C9;</i></input>
                             </td>
 
 
@@ -132,174 +166,6 @@ session_start();
 
                         <?php endfor; ?>
                     </form>
-
-                    <?php
-                    
-                    for ($i = 0; $i < sizeof($_SESSION['Books']); $i++) :
-                    ?>
-                    <tr>
-                        <form method="post" action="../Admin_Phps/BooksUpdate.php">
-                            <td><?= $i; ?></td>
-
-                            <td>
-                                <?php
-                                    $actions = "EDIT";
-                                    if ($actions == "EDIT") {
-                                        echo '<input type="text" name="Book_Name" value=';
-                                        echo $_SESSION['Books'][$i]['Book_Name'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['Book_Name'];
-                                    }
-
-                            ?></td>
-
-                            <td>
-                                <?php
-                                    if ($actions == "EDIT") {
-                                        echo '<input type="text" name="ISBN" value=';
-                                        echo $_SESSION['Books'][$i]['ISBN'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['ISBN'];
-                                    }
-
-                                    ?></td>
-
-                            <td>
-                                <?php
-                                    if ($actions == "EDIT") {
-                                        echo '<input type="text" name="Category" value=';
-                                        echo $_SESSION['Books'][$i]['Category'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['Category'];
-                                    }
-
-                                    ?></td>
-
-                            <td>
-                                <?php
-                                    if ($actions == "EDIT") {
-                                        echo '<input type="text" name="Author" value=';
-                                        echo $_SESSION['Books'][$i]['Author'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['Author'];
-                                    }
-
-                                    ?></td>
-
-                            <td>
-                                <?php
-                                    if ($actions == "EDIT") {
-                                        echo '<input type="text" name="Edition" value=';
-                                        echo $_SESSION['Books'][$i]['Edition'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['Edition'];
-                                    }
-
-                                    ?></td>
-
-                            <td>
-                                <?php
-                                    if ($actions == "EDIT") {
-                                        echo '<input type="text" name="Publisher" value=';
-                                        echo $_SESSION['Books'][$i]['Publisher'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['Publisher'];
-                                    }
-
-                                    ?></td>
-
-                            <td>
-                                <?php
-                                    if ($actions == "EDIT") {
-                                        echo '<input type="text" name="Date_Published" value=';
-                                        echo $_SESSION['Books'][$i]['Date_Published'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['Date_Published'];
-                                    }
-
-                                    ?></td>
-
-                            <td>
-                                <?php
-                                    if ($actions == "EDIT") {
-                                        echo '<input type="text" name="Quantity" value=';
-                                        echo $_SESSION['Books'][$i]['Quantity'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['Quantity'];
-                                    }
-
-                                    ?></td>
-
-
-                            <td>
-                                <?php
-                                    if ($actions == "EDIT") {
-                                        echo '<input type="text" name="Selling_Price" value=';
-                                        echo $_SESSION['Books'][$i]['Selling_Price'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['Selling_Price'];
-                                    }
-
-                                    ?></td>
-
-                            <td>
-                                <?php
-                                    if ($actions == "EDIT") {
-                                        echo '<input type="text" name="Asking_Price" value=';
-                                        echo $_SESSION['Books'][$i]['Asking_Price'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['Asking_Price'];
-                                    }
-
-                                    ?></td>
-
-
-                            <td>
-                                <?php
-                                    if ($actions == "EDIT") {
-                                        echo '<input type="text" name="Min_Threshold" value=';
-                                        echo $_SESSION['Books'][$i]['Min_Threshold'];
-                                        echo '></input>';
-                                    } else {
-                                        echo $_SESSION['Books'][$i]['Min_Threshold'];
-                                    }
-
-                                    ?></td>
-
-                            <td class="actions" name="actions">
-                                <?php
-                                    echo '<select onchange="this.form.submit()">                           
-                                         <option></option>
-                                         <option>EDIT</option>
-                                          <option>DELETE</option>
-                                      </select>'; ?>
-
-                                <script>
-                                    $(function () {
-                                        $("button").click(function () {
-                                            var fired_button = $(this).val();
-                                            alert(fired_button);
-                                        });
-                                    });
-                                </script> 
-                                <a href="#" class="button" title="Edit" id="edit" data-toggle="tooltip"><i class="material-icons" onclick()="editAction">&#xE8B8;</i></a>
-                                    <a href="#" class="button" title="Delete" id="delete" data-toggle="tooltip"><i class="material-icons" onclick()="deleteAction">&#xE5C9;</i></a>
-                            </td>
-
-                        </form> 
-                    </tr>
-
-                    <?php endfor; ?>
                 </tbody>
 
 
@@ -411,91 +277,125 @@ session_start();
 
     <!-- start of edit book -->
 
-    <div id="editModal" class="editBookModal">
-        <div class="editBookModal-content">
-            <span class="close-button-edit">&times;</span>
-            <form action="editBook.php" method="POST">
-                <div class="container">
-                    <h1 style="text-align: center">Edit a Book</h1>
-
-                    <label for="bookname"><b>Book Name</b></label>
-                    <input type="text" name="bookname" id="bookname"
-                        value="<?php echo $_SESSION['Books'][$i]['Book_Name']; ?>" required />
-
-                    <label for="isbn"><b>ISBN No.</b></label>
-                    <input type="text" name="isbn" id="isbn" value="<?php echo $_SESSION['Books'][$i]['ISBN']; ?>"
-                        required />
-
-                    <label for="category"><b>Category</b></label>
-                    <input type="text" name="category" id="category"
-                        value="<?php echo $_SESSION['Books'][$i]['Category']; ?>" required />
-
-                    <label for="authorname"><b>Author's Name</b></label>
-                    <input type="text" name="authorname" id="authorname"
-                        value="<?php echo $_SESSION['Books'][$i]['Author']; ?>" required />
-
-                    <label for="title"><b>Title</b></label>
-                    <input type="text" name="title" id="title"
-                        value="<?php echo $_SESSION['Books'][$i]['Book_Name']; ?>" required />
-
-                    <label for="edition"><b>Edition</b></label>
-                    <input type="text" name="edition" id="edition"
-                        value="<?php echo $_SESSION['Books'][$i]['Edition']; ?>" required />
-
-                    <label for="publisher"><b>Publisher</b></label>
-                    <input type="text" name="publisher" id="publisher"
-                        value="<?php echo $_SESSION['Books'][$i]['Publisher']; ?>" required />
-
-                    <label for="pubyear"><b>Publication Year</b></label>
-                    <input type="text" name="pubyear" id="pubyear"
-                        value="<?php echo $_SESSION['Books'][$i]['Publication']; ?>" required />
-
-                    <label for="quantity"><b>Quantity</b></label>
-                    <input type="text" name="quantity" id="quantity"
-                        value="<?php echo $_SESSION['Books'][$i]['Quantity']; ?>" required />
-
-                    <label for="sellprice"><b>Selling Price</b></label>
-                    <input type="text" name="sellprice" id="sellprice"
-                        value="<?php echo $_SESSION['Books'][$i]['Selling_Price']; ?>" required />
-
-                    <label for="askprice"><b>Asking Price</b></label>
-                    <input type="text" name="askprice" id="askprice"
-                        value="<?php echo $_SESSION['Books'][$i]['Asking_Price']; ?>" required />
-
-                    <label for="minthresh"><b>Minimum Threshold</b></label>
-                    <input type="text" name="minthresh" id="minthresh"
-                        value="<?php echo $_SESSION['Books'][$i]['Min_Threshold']; ?>" required />
-
-
-                    <button type="submit" class="submitbtn" id="submitbtn2">
-                        Submit
-                    </button>
-                    <br /><br /><br /><br />
-                </div>
-            </form>
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Edit a Book</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <>
+        <form id="edit" action="./Admin_Phps/BooksUpdate.php" method="POST">
+          <div class="modal-body mx-3">
+            <div class="md-form mb-2">
+              <label for="bookname"><b>Book Name</b></label>
+              <input type="text" name="Book_Name" id="bookname" value="" required />
+            </div>
+            
+            <div class="md-form mb-2">
+             <label for="isbn"><b>ISBN No.</b></label>
+              <input type="text" name="ISBN" id="isbn" value="i3" required />
+            </div>
+            
+            <div class="md-form mb-2">
+              <label for="category"><b>Category</b></label>
+                    <input type="text" name="Category" id="category"
+                        value="i4" required />
+            </div>
+            
+            <div class="md-form mb-2">
+             <label for="authorname"><b>Author's Name</b></label>
+                    <input type="text" name="Author" id="authorname"
+                        value="i5" required />
+            </div>
+            
+            <div class="md-form mb-2">
+             <label for="edition"><b>Edition</b></label>
+                    <input type="text" name="Edition" id="edition"
+                        value="i6" required />
+            </div>
+            
+            <div class="md-form mb-2">
+              <label for="publisher"><b>Publisher</b></label>
+                    <input type="text" name="Publisher" id="publisher"
+                        value="i7" required />
+
+            </div>
+            
+            <div class="md-form mb-2">
+              <label for="pubyear"><b>Publication Year</b></label>
+                    <input type="text" name="Date_Published" id="pubyear"
+                        value="i8" required />
+
+            </div>
+            
+            <div class="md-form mb-2">
+              <label for="quantity"><b>Quantity</b></label>
+                    <input type="text" name="Quantity" id="quantity"
+                        value="i9" required />
+
+            </div>
+            
+            <div class="md-form mb-2">
+              <label for="sellprice"><b>Selling Price</b></label>
+                    <input type="text" name="Selling_Price" id="sellprice"
+                        value="i10" required />
+            </div>
+            
+            <div class="md-form mb-2">
+               <label for="askprice"><b>Asking Price</b></label>
+                    <input type="text" name="Asking_Price" id="askprice"
+                        value="i11" required />
+            </div>
+            
+            <div class="md-form mb-2">
+               <label for="minthresh"><b>Minimum Threshold</b></label>
+                    <input type="text" name="Min_Threshold" id="minthresh"
+                        value="i12" required />
+
+            </div>
+
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <input class="btn btn-default" type="submit" id="submitbtn2" name="actions" value="EDIT"></input>
+            <br>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
+
 
     <!-- end of edit book modal-->
 
     <!--start of delete book modal-->
 
-    <div id="deleteModal" class="deleteBookModal">
-        <div class="deleteBookModal-content">
-            <span class="close-button-delete">&times;</span>
-            <form action="deleteBook.php" method="POST">
-                <div class="container">
-                    <h1 style="text-align: center">Delete Book</h1>
-
-                    <p>Are you sure you want to delete these records? This action cannot be undone.</p>
-
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                    <button type="submit" class="submitbtn" id="submitbtn3" onclick="deleteBook">Submit</button>
-                    <br /><br /><br /><br />
-                </div>
-            </form>
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Delete Book</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <form id="delete" action="Admin_Phps/BooksUpdate.php" method="POST">
+          <div class="modal-body mx-3">
+            <p>Are you sure you want to delete these records? This action cannot be undone.</p>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-default"  id="submitbtn3">Cancel</button>
+            <input type="hidden" id="i" name="i" value=""></input>
+            <input class="btn btn-default" type="submit" id="submitbtn3" name="actions" value="DELETE"></input>
+            <br>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
+
 
 
 

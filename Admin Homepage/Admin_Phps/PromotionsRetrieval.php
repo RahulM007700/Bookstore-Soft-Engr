@@ -36,7 +36,7 @@ if (!empty($Admin_ID)) {
                 $List2[] = $newElement['EmailAddress'];                 
             }
             $List3 = implode(', ', $List2);
-            $_Session['Emails'] = $List3;
+            $_SESSION['Emails'] = $List3;
             //print_r($_Session['Emails']);
             $_SESSION['Promotions'] = $new;
             header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/ManagePromotions/manage_promotions.php");
