@@ -93,110 +93,110 @@ session_start();
         </thead>
         <tbody>
           <?php
-              //$i = 0;
-              for ($i = 0; $i < sizeof($_SESSION['Promotions']); $i++) :
-              ?>
-          <tr>
-             <form method="post" action="../Admin_Phps/PromoUpdate.php">
-                            <td><?= $i; ?></td>
+          //$i = 0;
+          for ($i = 0; $i < sizeof($_SESSION['Promotions']); $i++) :
+          ?>
+            <tr>
+              <form method="post" action="../Admin_Phps/PromoUpdate.php">
+                <td><?= $i; ?></td>
 
-                            <td>
-                            <?php
-                            $actions="EDIT";
-                            if ($actions == "EDIT") {
-                              echo '<input type="text" name="ISBN" value=';
-                              echo $_SESSION['Promotions'][$i]['ISBN'];
-                              echo '></input>';
-                            } else {
-                              echo $_SESSION['Promotions'][$i]['ISBN'];
-                            }
+                <td>
+                  <?php
+                  $actions = "EDIT";
+                  if ($actions == "EDIT") {
+                    echo '<input type="text" name="ISBN" value=';
+                    echo $_SESSION['Promotions'][$i]['ISBN'];
+                    echo '></input>';
+                  } else {
+                    echo $_SESSION['Promotions'][$i]['ISBN'];
+                  }
 
-                            ?></td>
+                  ?></td>
 
-                            <td>
-                            <?php
-                            if ($actions == "EDIT") {
-                              echo '<input type="text" name="Promotion_Name" value=';
-                              echo $_SESSION['Promotions'][$i]['Name'];
-                              echo '></input>';
-                            } else {
-                              echo $_SESSION['Promotions'][$i]['Name'];
-                            }
+                <td>
+                  <?php
+                  if ($actions == "EDIT") {
+                    echo '<input type="text" name="Promotion_Name" value=';
+                    echo $_SESSION['Promotions'][$i]['Name'];
+                    echo '></input>';
+                  } else {
+                    echo $_SESSION['Promotions'][$i]['Name'];
+                  }
 
-                            ?></td>
+                  ?></td>
 
-                            <td>
-                                <?php
-                                if ($actions == "EDIT") {
-                                  echo '<input type="text" name="Promotion_ID" value=';
-                                  echo $_SESSION['Promotions'][$i]['Promotion_ID'];
-                                  echo '></input>';
-                                } else {
-                                  echo $_SESSION['Promotions'][$i]['Promotion_ID'];
-                                }
+                <td>
+                  <?php
+                  if ($actions == "EDIT") {
+                    echo '<input type="text" name="Promotion_ID" value=';
+                    echo $_SESSION['Promotions'][$i]['Promotion_ID'];
+                    echo '></input>';
+                  } else {
+                    echo $_SESSION['Promotions'][$i]['Promotion_ID'];
+                  }
 
-                                ?></td>
+                  ?></td>
 
-                            <td>
-                                <?php
-                                if ($actions == "EDIT") {
-                                  echo '<input type="text" name="discount" value=';
-                                  echo $_SESSION['Promotions'][$i]['Discount'];
-                                  echo '></input>';
-                                } else {
-                                  echo $_SESSION['Promotions'][$i]['Discount'];
-                                }
+                <td>
+                  <?php
+                  if ($actions == "EDIT") {
+                    echo '<input type="text" name="discount" value=';
+                    echo $_SESSION['Promotions'][$i]['Discount'];
+                    echo '></input>';
+                  } else {
+                    echo $_SESSION['Promotions'][$i]['Discount'];
+                  }
 
-                                ?></td>
+                  ?></td>
 
-                            <td>
-                                <?php
-                                if ($actions == "EDIT") {
-                                  echo '<input type="text" name="Expiration_Date" value=';
-                                  echo $_SESSION['Promotions'][$i]['Exp_Date'];
-                                  echo '></input>';
-                                } else {
-                                  echo $_SESSION['Promotions'][$i]['Exp_Date'];
-                                }
+                <td>
+                  <?php
+                  if ($actions == "EDIT") {
+                    echo '<input type="text" name="Expiration_Date" value=';
+                    echo $_SESSION['Promotions'][$i]['Exp_Date'];
+                    echo '></input>';
+                  } else {
+                    echo $_SESSION['Promotions'][$i]['Exp_Date'];
+                  }
 
-                                ?></td>
+                  ?></td>
 
-                            <td>
-                                <?php
-                                if ($actions == "EDIT") {
-                                  echo '<input type="text" name="Status" value=';
-                                  echo $_SESSION['Promotions'][$i]['Status'];
-                                  echo '></input>';
-                                } else {
-                                  echo $_SESSION['Promotions'][$i]['Status'];
-                                }
+                <td>
+                  <?php
+                  if ($actions == "EDIT") {
+                    echo '<input type="text" name="Status" value=';
+                    echo $_SESSION['Promotions'][$i]['Status'];
+                    echo '></input>';
+                  } else {
+                    echo $_SESSION['Promotions'][$i]['Status'];
+                  }
 
-                                ?></td>
+                  ?></td>
 
-                            <td class="actions" name="actions">
-                                <?php
-                                echo '<select name="actions" onchange="this.form.submit()">                           
+                <td class="actions" name="actions">
+                  <?php
+                  echo '<select name="actions" onchange="this.form.submit()">                           
                                          <option></option>
                                          <option>EDIT</option>
                                          <option>DELETE</option>
                                       </select>'; ?>
 
-                                <script>
-                                    $(function () {
-                                        $("button").click(function () {
-                                            var fired_button = $(this).val();
-                                            alert(fired_button);
-                                        });
-                                    });
-                                </script> 
-                                <a href="#" class="button" title="Edit" id="edit" data-toggle="tooltip"><i class="material-icons" onclick()="editAction">&#xE8B8;</i></a>
-                                    <a href="#" class="button" title="Delete" id="delete" data-toggle="tooltip"><i class="material-icons" onclick()="deleteAction">&#xE5C9;</i></a>
-                            </td>
+                  <script>
+                    $(function() {
+                      $("button").click(function() {
+                        var fired_button = $(this).val();
+                        alert(fired_button);
+                      });
+                    });
+                  </script>
+                  <a href="#" class="button" title="Edit" id="edit" data-toggle="tooltip"><i class="material-icons" onclick()="editAction">&#xE8B8;</i></a>
+                  <a href="#" class="button" title="Delete" id="delete" data-toggle="tooltip"><i class="material-icons" onclick()="deleteAction">&#xE5C9;</i></a>
+                </td>
 
-                        </form> 
-                    </tr>
+              </form>
+            </tr>
 
-                    <?php endfor; ?> 
+          <?php endfor; ?>
           </tr>
         </tbody>
         <tfoot>
@@ -242,7 +242,7 @@ session_start();
 
           <label for="expiration-date"><b>Expiration Date</b></label>
           <input type="text" placeholder="Enter expiration date" name="Expiration_Date" id="expiration-date" required />
-          
+
           <button value="Add" name="actions" type="submit" class="submitbtn" id="submitbtn">
             Submit
           </button>
