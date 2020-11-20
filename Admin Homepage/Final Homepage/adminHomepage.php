@@ -32,7 +32,7 @@
         <a class="navbar-brand" href="adminHomepage.html"><img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo4.jpg" height="50"></a>
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item px-4"><a href="#" class="nav-link py-4" >Logout</a></li> 
+            <li class="nav-item px-4"><a href="../../Homepage/LogUserOut.php" class="nav-link py-4" >Logout</a></li> 
           </ul>     
         </div>
     </nav>

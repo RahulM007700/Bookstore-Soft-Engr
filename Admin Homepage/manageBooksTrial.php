@@ -45,7 +45,7 @@ session_start();
                     src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo4.jpg" height="50"></a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item px-4"><a href="#" class="nav-link py-4">Logout</a></li>
+                    <li class="nav-item px-4"><a href="../Homepage/LogUserOut.php" class="nav-link py-4">Logout</a></li>
                 </ul>
             </div>
         </nav>
@@ -120,10 +120,10 @@ session_start();
                             <td class="actions">
                                 <!--<a href="#" class="button" title="Add" data-toggle="tooltip"><i
                                     class="material-icons">&#xe148;</i></a>-->
-                                <input type="submit" name="editbtn" title="Edit" data-toggle="tooltip"><i
+                                <input type="button" name="editbtn" title="Edit" data-toggle="modal" data-target="#editModal"><i
                                     class="material-icons">&#xE8B8;</i></a>
-                                <input type="submit" name="deletebtn" title="Delete" data-toggle="tooltip"
-                                    onclick="deleteBook"><i class="material-icons">&#xE5C9;</i></a>
+                                <input type="button" name="deletebtn" title="Delete" data-toggle="modal"
+                                    onclick="deleteBook" data-target="#deleteModal"><i class="material-icons">&#xE5C9;</i></a>
                             </td>
 
 

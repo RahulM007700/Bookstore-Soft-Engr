@@ -42,7 +42,7 @@ session_start();
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item px-4">
-            <a href="#" class="nav-link py-4">Logout</a>
+            <a href="../../Homepage/LogUserOut.php" class="nav-link py-4">Logout</a>
           </li>
         </ul>
       </div>
