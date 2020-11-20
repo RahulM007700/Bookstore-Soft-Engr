@@ -68,10 +68,7 @@ session_start();
 </head>
 
 <body>
-    <form>
-        <button class="backbtn" formaction="../loginPage.html">
-            <img src="../../arrow.png" class="arrow" width="30" height="30" style="float:left;" /></button>
-    </form>
+    
     <div class="container-fluid">
         <nav class="navbar navbar-expand navbar-light">
             <a class="navbar-brand" href="adminHomepage.html"><img
