@@ -79,8 +79,6 @@ session_start();
             <button class="btn btn-secondary" id="addBtn">
               <i class="material-icons">&#xE147;</i> <span>Add Promotion</span>
             </button>
-            <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE24D;</i>
-              <span>Export to Excel</span></a>
           </div>
         </div>
       </div>
