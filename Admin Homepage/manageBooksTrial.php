@@ -71,7 +71,8 @@ session_start();
                         <h2><b>Book Management</b></h2>
                     </div>
                     <div class="col-sm-6">
-                        <button class="btn btn-secondary" id="addBtn"><i class="material-icons">&#xE147;</i>
+                        <button class="btn btn-secondary" id="addBtn" data-target="#addModal" data-toggle="modal"
+ ><i class="material-icons">&#xE147;</i>
                             <span>Add New Book</span></button>
                         <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE24D;</i> <span>Export to
                                 Excel</span></a>
@@ -326,62 +327,85 @@ session_start();
     </div>
 
     <!--add a book modal-->
-    <div id="addModal" class="addBookModal">
-        <div class="addBookModal-content">
-            <span class="close-button-add">&times;</span>
-            <form action="insertBook.php" method="POST">
-                <div class="container">
-                    <h1 style="text-align: center">Add a Book</h1>
-                    <p style="text-align: center">
-                        Please fill in the mandatory fields in this form to create an
-                        new book.
-                    </p>
-                    <label for="bookname"><b>Book Name</b></label>
-                    <input type="text" placeholder="Enter Book Name" name="bookname" id="bookname" required />
-
-                    <label for="isbn"><b>ISBN No.</b></label>
-                    <input type="text" placeholder="Enter ISBN Number" name="isbn" id="isbn" required />
-
-                    <label for="category"><b>Category</b></label>
-                    <input type="text" placeholder="Enter the book's category" name="category" id="category" required />
-
-                    <label for="authorname"><b>Author's Name</b></label>
-                    <input type="text" placeholder="Enter the authors name" name="authorname" id="authorname"
-                        required />
-
-                    <label for="title"><b>Title</b></label>
-                    <input type="text" placeholder="Enter Phone Number" name="title" id="title" required />
-
-                    <label for="edition"><b>Edition</b></label>
-                    <input type="text" placeholder="Enter the edition" name="edition" id="edition" required />
-
-                    <label for="publisher"><b>Publisher</b></label>
-                    <input type="text" placeholder="Enter publisher" name="publisher" id="publisher" required />
-
-                    <label for="pubyear"><b>Publication Year</b></label>
-                    <input type="text" placeholder="Enter Publication Year" name="pubyear" id="pubyear" required />
-
-                    <label for="quantity"><b>Quantity</b></label>
-                    <input type="text" placeholder="Enter Quantity" name="quantity" id="quantity" required />
-
-                    <label for="sellprice"><b>Selling Price</b></label>
-                    <input type="text" placeholder="Enter selling price" name="sellprice" id="sellprice" required />
-
-                    <label for="askprice"><b>Asking Price</b></label>
-                    <input type="text" placeholder="Enter asking price" name="askprice" id="askprice" required />
-
-                    <label for="minthresh"><b>Minimum Threshold</b></label>
-                    <input type="text" placeholder="Enter minimum threshold" name="minthresh" id="minthresh" required />
-
-
-                    <button type="submit" class="submitbtn" id="submitbtn">
-                        Submit
-                    </button>
-                    <br /><br /><br /><br />
-                </div>
-            </form>
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Add a Book</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <form action="Admin_Phps/BooksUpdate.php" method="POST">
+          <div class="modal-body mx-3">
+            <div class="md-form mb-5">
+              <label for="bookname"><b>Book Name</b></label>
+            <input type="text" placeholder="Enter Book Name" name="Book_Name" id="bookname" required />
+            </div>
+            
+            <div class="md-form mb-5">
+             <label for="isbn"><b>ISBN No.</b></label>
+                    <input type="text" placeholder="Enter ISBN Number" name="ISBN" id="isbn" required />
+            </div>
+            
+            <div class="md-form mb-5">
+              <label for="category"><b>Category</b></label>
+                    <input type="text" placeholder="Enter the book's category" name="Category" id="category" required />
+            </div>
+            
+            <div class="md-form mb-5">
+             <label for="authorname"><b>Author's Name</b></label>
+                    <input type="text" placeholder="Enter the authors name" name="Author" id="authorname" required />
+            </div>
+            
+            
+            <div class="md-form mb-5">
+             <label for="edition"><b>Edition</b></label>
+                    <input type="text" placeholder="Enter the edition" name="Edition" id="edition" required/>
+            </div>
+            
+            <div class="md-form mb-5">
+              <label for="publisher"><b>Publisher</b></label>
+                    <input type="text" placeholder="Enter publisher" name="Publisher" id="publisher" required/>
+            </div>
+            
+            <div class="md-form mb-5">
+              <label for="pubyear"><b>Publication Year</b></label>
+                    <input type="text" placeholder="Enter Publication Year" name="Date_Published" id="pubyear" required/>
+
+            </div>
+            
+            <div class="md-form mb-5">
+              <label for="quantity"><b>Quantity</b></label>
+                    <input type="text" placeholder="Enter Quantity" name="Quantity" id="quantity" required/>
+            </div>
+            
+            <div class="md-form mb-5">
+              <label for="sellprice"><b>Selling Price</b></label>
+                    <input type="text" placeholder="Enter selling price" name="Selling_Price" id="sellprice" required/>
+            </div>
+            
+            <div class="md-form mb-5">
+               <label for="askprice"><b>Asking Price</b></label>
+                    <input type="text" placeholder="Enter asking price" name="Asking_Price" id="askprice" required/>
+            </div>
+            
+            <div class="md-form mb-5">
+               <label for="minthresh"><b>Minimum Threshold</b></label>
+                    <input type="text" placeholder="Enter minimum threshold" name="Min_Threshold" id="minthresh" required/>
+
+            </div>
+
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <input class="btn btn-default" type="submit" id="submitbtn" name="actions" value="Add"></input>
+            <br>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
+
 
     <!-- end of add a book modal-->
 
