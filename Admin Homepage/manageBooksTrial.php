@@ -40,7 +40,7 @@ session_start();
     }
     </script>
     <meta charset="utf-8">
-    <title>Manage Users</title>
+    <title>Manage Books</title>
     <link rel="stylesheet" href="manageBooks.css">
     </link>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -85,7 +85,7 @@ session_start();
     </div>
     <div class="container-fluid" style="background-color:#e9ecef;padding-bottom:20px; padding-top:20px;">
         <div class="container-fluid">
-            <h1 class="jumbotron-heading text-center">Manage Users</h1>
+            <h1 class="jumbotron-heading text-center">Manage Books</h1>
         </div>
         <ul class="nav justify-content-center">
             <li class="nav-item px-5"><a class="nav-link-main" href="./Admin_Phps/BookRetrieval.php" style="color:black;text-decoration:none;"><i
@@ -107,8 +107,7 @@ session_start();
                         <button class="btn btn-secondary" id="addBtn" data-target="#addModal" data-toggle="modal"
  ><i class="material-icons">&#xE147;</i>
                             <span>Add New Book</span></button>
-                        <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE24D;</i> <span>Export to
-                                Excel</span></a>
+    
                     </div>
                 </div>
             </div>
@@ -156,10 +155,14 @@ session_start();
                                     class="material-icons">&#xe148;</i></a>-->
                                 <input id="number" type="hidden" name="i2" value='<?php echo $i;?>'></input>
 
-                                <input type="button" name="editbtn" title="Edit" data-toggle="modal" data-target="#editModal" onclick="dothat('<?php echo $_SESSION['Books'][$i]['Book_Name'];?>','<?php echo $_SESSION['Books'][$i]['ISBN'];?>','<?php echo $_SESSION['Books'][$i]['Category'];?>','<?php echo $_SESSION['Books'][$i]['Author'];?>','<?php echo $_SESSION['Books'][$i]['Edition'];?>','<?php echo $_SESSION['Books'][$i]['Publisher'];?>','<?php echo $_SESSION['Books'][$i]['Date_Published'];?>','<?php echo $_SESSION['Books'][$i]['Quantity'];?>','<?php echo $_SESSION['Books'][$i]['Selling_Price'];?>','<?php echo $_SESSION['Books'][$i]['Asking_Price'];?>','<?php echo $_SESSION['Books'][$i]['Min_Threshold'];?>')"><i class="material-icons">&#xE8B8;</i></input>
-                                <input type="button" name="deletebtn" title="Delete" data-toggle="modal"
-                                    data-target="#deleteModal" onclick="dothis(<?php echo $i?>)"><i class="material-icons">&#xE5C9;</i></input>
-                            </td>
+                                <!-- <input type="button" name="editbtn" title="Edit" data-toggle="modal" data-target="#editModal" onclick="dothat('<?php echo $_SESSION['Books'][$i]['Book_Name'];?>','<?php echo $_SESSION['Books'][$i]['ISBN'];?>','<?php echo $_SESSION['Books'][$i]['Category'];?>','<?php echo $_SESSION['Books'][$i]['Author'];?>','<?php echo $_SESSION['Books'][$i]['Edition'];?>','<?php echo $_SESSION['Books'][$i]['Publisher'];?>','<?php echo $_SESSION['Books'][$i]['Date_Published'];?>','<?php echo $_SESSION['Books'][$i]['Quantity'];?>','<?php echo $_SESSION['Books'][$i]['Selling_Price'];?>','<?php echo $_SESSION['Books'][$i]['Asking_Price'];?>','<?php echo $_SESSION['Books'][$i]['Min_Threshold'];?>')"><i class="material-icons">&#xE8B8;</i></input>
+                                <input type="button" name="deletebtn" title="Delete" data-toggle="modal" data-target="#deleteModal" onclick="dothis(<?php echo $i?>)"><i class="material-icons">&#xE5C9;</i></input>
+                            -->
+                         <button type="button" name="editbtn" title="Edit" data-toggle="modal" data-target="#editModal" onclick="dothat('<?php echo $_SESSION['Books'][$i]['Book_Name'];?>','<?php echo $_SESSION['Books'][$i]['ISBN'];?>','<?php echo $_SESSION['Books'][$i]['Category'];?>','<?php echo $_SESSION['Books'][$i]['Author'];?>','<?php echo $_SESSION['Books'][$i]['Edition'];?>','<?php echo $_SESSION['Books'][$i]['Publisher'];?>','<?php echo $_SESSION['Books'][$i]['Date_Published'];?>','<?php echo $_SESSION['Books'][$i]['Quantity'];?>','<?php echo $_SESSION['Books'][$i]['Selling_Price'];?>','<?php echo $_SESSION['Books'][$i]['Asking_Price'];?>','<?php echo $_SESSION['Books'][$i]['Min_Threshold'];?>')"><img src="edit.png" class="arrow" width="30" height="30" style="float:left;" /></input>
+                                <button type="button" name="deletebtn" title="Delete" data-toggle="modal" class="button-delete"
+                                    data-target="#deleteModal" ><img src="trash.png" class="arrow" width="30" height="30" style="float:left;" /></input>
+                    
+</td>
 
 
                         </tr>
