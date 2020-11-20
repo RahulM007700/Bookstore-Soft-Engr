@@ -1,10 +1,3 @@
-
-//<!DOCTYPE html>
-//
-//<html>
-//<head>
-//    <title>Confirmation Email</title>
-
 function registerForm() {
     document.getElementById("regform").submit();
 }

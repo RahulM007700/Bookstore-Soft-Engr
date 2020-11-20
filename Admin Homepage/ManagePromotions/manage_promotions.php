@@ -13,6 +13,16 @@ session_start();
   <link rel="stylesheet" href="../manageBooks.css" />
   <script src="https://kit.fontawesome.com/a746b8874d.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <?php
+  echo '<script type="text/javascript">sessionValue=';
+  for ($i = 0; $i < sizeof($_SESSION['Emails']); $i++) {
+    echo $_SESSION['EMAIL'][$i];
+    if ($i != sizeof($_SESSION) - 1) {
+      echo ', ';
+    }
+  }
+  echo '</script>';
+  ?>
 </head>
 <style>
   body {
@@ -89,6 +99,7 @@ session_start();
             <th>Expiration Date</th>
             <th>Status</th>
             <th>Actions</th>
+            <th>Send</th>
           </tr>
         </thead>
         <tbody>
@@ -193,6 +204,10 @@ session_start();
                   <a href="#" class="button" title="Delete" id="delete" data-toggle="tooltip"><i class="material-icons" onclick()="deleteAction">&#xE5C9;</i></a>
                 </td>
 
+                <td>
+                  <input type="button" id="sendpromobtn" class="sendpromobtn" onclick="sendPromotionEmail();">Send Promotion</input>
+                </td>
+
               </form>
             </tr>
 
@@ -209,6 +224,7 @@ session_start();
             <th>Expiration Date</th>
             <th>Status</th>
             <th>Actions</th>
+            <th>Send</th>
           </tr>
         </tfoot>
       </table>
@@ -312,6 +328,7 @@ session_start();
       });
     });
   </script>
+  <script type="text/javascript" src="../../SkeletonEmailCode/sendEmail.js"></script>
 </body>
 
 </html>
