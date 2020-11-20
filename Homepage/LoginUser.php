@@ -29,8 +29,9 @@ if (!empty($EmailAddress)){
                 $sql = "Select * from customer_account cA where (cA.EmailAddress = '$EmailAddress');";
                 $open = mysqli_query($conn, $sql);
                 $openAccount = mysqli_fetch_array($open);
+                echo $openAccount['Status'];
                 //echo $openAccount[0];
-                if ($openAccount['EmailAddress'] != null){                
+                if ($openAccount['EmailAddress'] != null && $openAccount['Status'] != "SUSPENDED"){                
                     $_SESSION['Email'] = $openAccount['EmailAddress'];
                     $_SESSION['FName'] = $openAccount['FirstName'];
                     $_SESSION['LName'] = $openAccount['LastName'];

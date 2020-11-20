@@ -2,7 +2,7 @@
 
 session_start();
 $Admin_ID = "12345";
-$Account_ID = filter_input(INPUT_POST,'Employee_ID');
+$Account_ID = filter_input(INPUT_POST,'FirstName');
 $Status_Change = filter_input(INPUT_POST,'change');
 echo $Admin_ID;
 echo $Account_ID;
@@ -27,16 +27,17 @@ if (!empty($Admin_ID)) {
         if (!empty($Admin_ID)){
             if (!empty($Status_Change)){
                 if ($Status_Change == "Reinstate") {
-                    $sql = "UPDATE employees SET Status = 'Active' WHERE Employee_ID = '$Account_ID';";
+                    $sql = "UPDATE customer_account SET Status = 'ACTIVE' WHERE FirstName = '$Account_ID';";
                 }
                 else if ($Status_Change == "Suspend") {
-                    $sql = "UPDATE employees SET Status = 'Suspended' WHERE Employee_ID = '$Account_ID';";
+                    $sql = "UPDATE customer_account SET Status = 'SUSPENDED' WHERE FirstName = '$Account_ID';";
                 }
                 else if ($Status_Change == "Promote") {
-                    $sql = "UPDATE employees SET Role = 'Admin' WHERE Employee_ID = '$Account_ID';";
+                    $sql = "UPDATE customer_account SET AccountType = 'Admin' WHERE FirstName = '$Account_ID';";
                 }
                 else if ($Status_Change == "Demote") {
-                    $sql = "UPDATE employees SET Role = 'Employee' WHERE Employee_ID = '$Account_ID';";
+                    echo "hello"; 
+                    $sql = "UPDATE customer_account SET AccountType = 'Employee' WHERE FirstName = '$Account_ID';";
                 }
                 if ($conn->query($sql)){
                     header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/Admin_Phps/UserRetrieval.php");

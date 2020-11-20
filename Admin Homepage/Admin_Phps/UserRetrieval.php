@@ -23,11 +23,14 @@ if (!empty($Admin_ID)) {
         if ($Admin_Account['Employee_ID'] != null){
             $Admin_Sql = "Select * from admin;";
             $Employee_Sql = "Select * from employees;";
+            $List = "Select FirstName, LastName, AccountType, Status FROM customer_account";
+            $List = $conn->query($List);
             $Admin = $conn->query($Admin_Sql);
             $Employee = $conn->query($Employee_Sql);
             $new = array();
-            while ($newElement = $Employee->fetch_assoc()){
-                $new[] = $newElement;                 
+            while ($newElement = $List->fetch_assoc()){
+                $new[] = $newElement;   
+                echo $newElement['AccountType'];              
             }
             $_SESSION['Employees'] = $new;           
             header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/ManageUsers/manageUsers.php");

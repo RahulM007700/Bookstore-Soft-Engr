@@ -63,7 +63,6 @@
                     <tr>
                         <th>No.</th>
                         <th>Name</th>
-                        <th>Account ID</th>
                         <th>Role</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -79,19 +78,17 @@
                     <tr>
                         <form method="post" action="../Admin_Phps/UserUpdate.php">
                         <td><?= $i; ?></td>
-                        <td><?php echo $_SESSION['Employees'][$i]['First_Name'];
+                        <td><?php echo $_SESSION['Employees'][$i]['FirstName'];
                                   echo " ";
-                                  echo $_SESSION['Employees'][$i]['Last_Name'];
+                                  echo $_SESSION['Employees'][$i]['LastName'];
                             ?>
                         </td>
-                        <td><input type="hidden" name="Employee_ID" value="<?php echo $_SESSION['Employees'][$i]['Employee_ID'];?>"/>
-                            <?php echo $_SESSION['Employees'][$i]['Employee_ID'];?>
-                        </td>
-                        <td><?php echo $_SESSION['Employees'][$i]['Role'];?></td>
+                        <td><?php echo $_SESSION['Employees'][$i]['AccountType'];?></td>
                         <td><?php echo $_SESSION['Employees'][$i]['Status'];?></td>
                         <td class="promotion" name="change">
+                        <input type="hidden" name="FirstName" value='<?php echo $_SESSION['Employees'][$i]['FirstName'];?>'/></input>
                         <?php 
-                        if ($_SESSION['Employees'][$i]['Role'] == "Admin" || $_SESSION['Employees'][$i]['Role'] == "Employee"){
+                        if ($_SESSION['Employees'][$i]['AccountType'] == "Admin" || $_SESSION['Employees'][$i]['AccountType'] == "Employee"){
                             echo '<select name="change" onchange="this.form.submit()">                           
                                 <option></option>                                
                                 <option value="Promote">Promote</option>
@@ -118,7 +115,6 @@
                     <tr>
                         <th>No.</th>
                         <th>Name</th>
-                        <th>Account ID</th>
                         <th>Role</th>
                         <th>Status</th>
                         <th>Action</th>
