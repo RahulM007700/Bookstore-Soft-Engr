@@ -15,7 +15,7 @@ session_start();
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <?php
   echo '<script type="text/javascript">sessionValue=';
-  for ($i = 0; $i < sizeof($_SESSION['Emails']); $i++) {
+  for ($i = 0; $i < sizeof($_SESSION['EMAIL']); $i++) {
     echo $_SESSION['EMAIL'][$i];
     if ($i != sizeof($_SESSION) - 1) {
       echo ', ';
