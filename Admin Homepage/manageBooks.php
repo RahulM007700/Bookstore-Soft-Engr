@@ -195,10 +195,10 @@ session_start();
                                     <select name="actions" onchange="this.form.submit()">
                                         <option></option>
                                         <option>
-                                            <a href="#" class="button" title="Edit" id="edit" data-toggle="tooltip"><i class="material-icons" onclick()="editAction">&#xE8B8;</i></a>
+                                            <a href="#" class="button" title="Edit" id="edit" data-toggle="tooltip"><i class="material-icons" onclick()="editAction">Edit</i></a>
                                         </option>
                                         <option>
-                                            <a href="#" class="button" title="Delete" id="delete" data-toggle="tooltip"><i class="material-icons" onclick()="deleteAction">&#xE5C9;</i></a>
+                                            <a href="#" class="button" title="Delete" id="delete" data-toggle="tooltip"><i class="material-icons" onclick()="deleteAction">Delete</i></a>
                                         </option>
                                     </select>
                                     <?php
@@ -293,31 +293,7 @@ session_start();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-    <script>
-        $("#mydatatable").DataTable();
-
-        var table = document.getElementById("mydatatable");
-
-        table.find("tr").each(function() {
-            var $tds = $(this).find("td");
-            //var number = $tds.eq(0).text();
-            //var name = $tds.eq(1).text();
-            //var accountID = $tds.eq(2).text();
-            var role = $tds.eq(3).text();
-            var status = $tds.eq(4).text();
-            var action = $tds.eq(5).text();
-            // do something with it
-            if (role.value == "User") {
-                action.html(
-                    "<select><option>Suspend</option><option>Unsuspend</option></select>"
-                );
-            } else if (role.value == "Employee") {
-                action.html("<button>Promote</button>");
-            } else if (role.value == "Admin") {
-                action.html("<button>Demote</button>");
-            }
-        });
-    </script>
+    <!--Trying to get promotion email to work-->
     <script>
         $(document).ready(function() {
             $("#submitbtn").click(function() {
