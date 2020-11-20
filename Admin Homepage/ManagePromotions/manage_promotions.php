@@ -11,18 +11,10 @@ session_start();
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" />
   <link rel="stylesheet" href="../manageBooks.css" />
+  <script type="text/javascript" src="../../SkeletonEmailCode/sendEmail.js"></script>
+  <script type="text/javascript">sessionValue='<?php echo $_SESSION['Emails'];?>'</script>
   <script src="https://kit.fontawesome.com/a746b8874d.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <?php
-  echo '<script type="text/javascript">sessionValue=';
-  for ($i = 0; $i < sizeof($_SESSION['EMAIL']); $i++) {
-    echo $_SESSION['EMAIL'][$i];
-    if ($i != sizeof($_SESSION) - 1) {
-      echo ', ';
-    }
-  }
-  echo '</script>';
-  ?>
 </head>
 <style>
   body {
@@ -125,6 +117,8 @@ session_start();
                   ?></td>
 
                 <td>
+                <script type="text/javascript">promotionName='<?php echo $_SESSION['Promotions'][$i]['Name'];?>'</script>
+
                   <?php
                   if ($actions == "EDIT") {
                     echo '<input type="text" name="Promotion_Name" value=';
@@ -137,6 +131,7 @@ session_start();
                   ?></td>
 
                 <td>
+                <script type="text/javascript">promotionCode='<?php echo $_SESSION['Promotions'][$i]['Promotion_ID'];?>'</script>
                   <?php
                   if ($actions == "EDIT") {
                     echo '<input type="text" name="Promotion_ID" value=';
@@ -149,6 +144,7 @@ session_start();
                   ?></td>
 
                 <td>
+                <script type="text/javascript">discount='<?php echo $_SESSION['Promotions'][$i]['Discount'];?>'</script>
                   <?php
                   if ($actions == "EDIT") {
                     echo '<input type="text" name="discount" value=';
@@ -328,7 +324,6 @@ session_start();
       });
     });
   </script>
-  <script type="text/javascript" src="../../SkeletonEmailCode/sendEmail.js"></script>
 </body>
 
 </html>

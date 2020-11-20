@@ -29,6 +29,15 @@ if (!empty($Admin_ID)) {
             while ($newElement = $Promotions->fetch_assoc()){
                 $new[] = $newElement;                 
             }
+            $Email_List = "SELECT EmailAddress FROM customer_account";
+            $List = $conn->query($Email_List);
+            $List2 = array();
+            while ($newElement = $List->fetch_assoc()){
+                $List2[] = $newElement['EmailAddress'];                 
+            }
+            $List3 = implode(', ', $List2);
+            $_Session['Emails'] = $List3;
+            //print_r($_Session['Emails']);
             $_SESSION['Promotions'] = $new;
             header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/ManagePromotions/manage_promotions.php");
         }
