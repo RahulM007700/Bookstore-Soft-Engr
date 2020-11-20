@@ -13,7 +13,8 @@ $CardType = filter_input(INPUT_POST, 'cardtype');
 $CardNumber = filter_input(INPUT_POST, 'cardnum');
 $ExpirationDate = filter_input(INPUT_POST, 'expdate');
 $CVV = filter_input(INPUT_POST, 'cvv');
-
+//echo "Hello";
+//echo $EmailAddress;
 //echo "Password is $password";
 
 if (!empty($EmailAddress)){

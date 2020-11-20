@@ -612,38 +612,38 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
           <div class="modal-body mx-3">
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="defaultForm-email">First Name</label>
-              <input type="text" id="defaultForm-email" class="form-control validate" required/>
+              <input name='fname' type="text" id="defaultForm-email" class="form-control validate" required/>
             </div>
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="lastName">Last Name</label>
-              <input type="text" id="lastName" class="form-control validate" required/>
+              <input name='lname' type="text" id="lastName" class="form-control validate" required/>
             </div>
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="email">Email Address</label>
-              <input type="email" id="email" class="form-control validate" required/>
+              <input name='email' type="email" id="email" class="form-control validate" required/>
             </div>
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="psw">Password</label>
-              <input type="password" id="psw" class="form-control validate" required/>
+              <input name='psw' type="password" id="psw" class="form-control validate" required/>
             </div>
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="phone">Phone Number</label>
-              <input type="tel" class="form-control validate" type="tel" placeholder="Enter Phone Number as 123-456-7890" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/>
+              <input name='phone' type="tel" class="form-control validate" type="tel" placeholder="Enter Phone Number as 123-456-7890" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/>
             </div>
             
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="street">Street Address</label>
-              <input type="text" id="street" class="form-control validate" required/>
+              <input name='street' type="text" id="street" class="form-control validate" required/>
             </div>
             
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="city">City</label>
-              <input type="text" id="city" class="form-control validate" required/>
+              <input name='city' type="text" id="city" class="form-control validate" required/>
             </div>
             
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="zip">Zip Code</label>
-              <input type="text" id="zip" class="form-control validate" pattern="[0-9]{5}" required/>
+              <input name='zip'type="text" id="zip" class="form-control validate" pattern="[0-9]{5}" required/>
             </div>
             
             <div class="md-form mb-5">
@@ -717,17 +717,17 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
             
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="cardnum">Card Number</label>
-              <input type="text" id="cardnum" class="form-control validate" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" inputmode="numeric" required/>
+              <input name='cardnum' type="text" id="cardnum" class="form-control validate" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" inputmode="numeric" required/>
             </div>
             
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="cvv">CVV</label>
-              <input type="text" id="cvv" class="form-control validate" pattern="[0-9]{3}" required/>
+              <input name='cvv' type="text" id="cvv" class="form-control validate" pattern="[0-9]{3}" required/>
             </div>
             
             <div class="md-form mb-4">
               <label data-error="wrong" data-success="right" for="expdate">Exp Date</label>
-              <input type="month" id="expdate" class="form-control validate" required/>
+              <input name='expdate' type="month" id="expdate" class="form-control validate" required/>
             </div>
           </div>
           <div class="modal-footer d-flex justify-content-center">
