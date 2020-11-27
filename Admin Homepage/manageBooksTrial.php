@@ -262,6 +262,11 @@ session_start();
                     <input type="text" placeholder="Enter minimum threshold" name="Min_Threshold" id="minthresh" required/>
 
             </div>
+              
+             <div class="md-form mb-5">
+              <label for="coverphoto"><b>Cover Photo</b></label>
+              <input type="file" name="image" required />
+            </div>
 
           </div>
           <div class="modal-footer d-flex justify-content-center">
