@@ -47,6 +47,7 @@ session_start();
     </link>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
     </link>
+    <script src="https://kit.fontawesome.com/a746b8874d.js" crossorigin="anonymous"></script>
     <style>
         body {
             padding-top: 50px;
