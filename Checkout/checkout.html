@@ -10,7 +10,7 @@
       rel="stylesheet"
       href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css"
     />
-    <link rel="stylesheet" href="../Admin Homepage/manageBooks.css" />
+    <link rel="stylesheet" href="../Admin Homepage/ManageBooks/manageBooks.css" />
     <link rel="stylesheet" href="checkout_style.css" />
     <?php $recEmail = $_SESSION['Emails']?>
     <script type="text/javascript">
@@ -81,13 +81,13 @@
           <p id="billingAddress">
             <b style="font-size: 40px">Billing Address</b>
           </p>
-          <button class="button">Change Billing Address</button>
+          <button class="button" id="billingButton">Change Billing Address</button>
         </div>
         <div class="leftcorners">
           <p id="paymentInformation">
             <b style="font-size: 40px">Payment Information</b>
           </p>
-          <button class="button">Change Payment Information</button>
+          <button class="button" id="paymentButton">Change Payment Information</button>
         </div>
       </div>
       <div class="col">
@@ -123,9 +123,101 @@
       </div>
     </div>
 
+    <div id="billingModal" class="addBookModal">
+      <div class="addBookModal-content">
+        <span class="close-button-add">&times;</span>
+
+        <form action="../Admin_Phps/PromoUpdate.php" method="POST">
+          <div class="container">
+            <h1 style="text-align: center">Edit Billing Address</h1>
+            <p style="text-align: center">
+              Please fill in the mandatory fields in this form to create a new
+              promotion.
+            </p>
+
+            <label for="isbn"><b>ISBN No.</b></label>
+            <input
+              type="text"
+              placeholder="Enter ISBN Number"
+              name="ISBN"
+              id="isbn"
+              required
+            />
+
+            <button
+              value="Add"
+              name="actions"
+              type="submit"
+              class="submitbtn"
+              id="submitbtn"
+            >
+              Submit
+            </button>
+            <br /><br /><br /><br />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="paymentModal" class="addBookModal">
+      <div class="addBookModal-content">
+        <span class="close-button-add">&times;</span>
+
+        <form action="../Admin_Phps/PromoUpdate.php" method="POST">
+          <div class="container">
+            <h1 style="text-align: center">Edit Payment Information</h1>
+            <p style="text-align: center">
+              Please fill in the mandatory fields in this form to create a new
+              promotion.
+            </p>
+
+            <label for="isbn"><b>ISBN No.</b></label>
+            <input
+              type="text"
+              placeholder="Enter ISBN Number"
+              name="ISBN"
+              id="isbn"
+              required
+            />
+
+            <button
+              value="Add"
+              name="actions"
+              type="submit"
+              class="submitbtn"
+              id="submitbtn"
+            >
+              Submit
+            </button>
+            <br /><br /><br /><br />
+          </div>
+        </form>
+      </div>
+    </div>
+
     <script>
-      var addModal = document.getElementById("addModal");
-      var addbtn = document.getElementById("addBtn");
+      var addModal = document.getElementById("billingModal");
+      var addbtn = document.getElementById("billingButton");
+      var span = document.getElementsByClassName("close-button-add")[0];
+      var submitbtn = document.getElementById("submitbtn");
+
+      addbtn.onclick = function () {
+        addModal.style.display = "block";
+      };
+
+      span.onclick = function () {
+        addModal.style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        if (event.target == addModal) {
+          addModal.style.display = "none";
+        }
+      };
+    </script>
+    <script>
+      var addModal = document.getElementById("paymentModal");
+      var addbtn = document.getElementById("paymentButton");
       var span = document.getElementsByClassName("close-button-add")[0];
       var submitbtn = document.getElementById("submitbtn");
 

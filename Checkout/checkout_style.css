@@ -2,31 +2,39 @@
   overflow: scroll;
   display: flex;
 }
+
 .col {
   flex: 1;
 }
+
 @media (max-width: 400px) {
   .flex-grid {
     display: block;
   }
 }
+
 .flex-grid-thirds {
   display: flex;
   justify-content: space-between;
 }
+
 .flex-grid-thirds .col {
   width: 32%;
 }
+
 .leftcorners {
   height: 50%;
 }
+
 .rightcorners {
   height: 100%;
   overflow: scroll;
 }
+
 body {
   padding-bottom: 2%;
 }
+
 .button {
   height: 10%;
   width: 35%;
@@ -34,6 +42,7 @@ body {
   top: 30%;
   left: 30%;
 }
+
 .promoCode {
   padding: 1%;
 }
