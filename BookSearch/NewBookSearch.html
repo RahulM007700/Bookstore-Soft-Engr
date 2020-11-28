@@ -1,5 +1,6 @@
 <?php
 session_start();
+$Admin_ID = "0000";
 ?>
 
 <!DOCTYPE html>
@@ -418,12 +419,92 @@ session_start();
     <script>
         function makeVisible() {
             var x = document.getElementById("book-list");
-            x.style.visibility="visible";
+            x.style.visibility = "visible";
+
+
         }
 
     </script>
 
-    <div class="book-list" id="book-list">
+
+<form>
+    <table>
+    <?php
+if(isset($_POST["submit"]){
+
+    if (!empty($Admin_ID)) {
+
+    $host = "localhost";
+    $dbusername = "root";
+    $dbpassword = "";
+    $dbname = "online_bookstore";
+
+    //Make Connection
+    $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+
+
+    $loginSql = "Select * from admin a where a.Admin_ID = $Admin_ID;";
+    if (mysqli_connect_error()){
+    die('Connect Error('. mysqli_connect_error() .')'
+    . mysqli_connect_error());
+    }
+    else {
+        $str = $_POST["search"];
+
+    $Account = mysqli_query($conn, $loginSql);
+    $Admin_Account = mysqli_fetch_array($Account);
+    if ($Admin_Account['Admin_ID'] != null){
+    
+        $Available_Books = "Select * from 'search' WHERE Book_Name = $str'";
+        <!--$Available_Books = "Select * from available_books";-->
+    $Books = $conn->query($Available_Books);
+    
+    while ($newElement = $Books->fetch_assoc()){
+    $new[] = $newElement;
+    }
+    $_SESSION['Books'] = $new;
+    ?>
+    
+    <thead>
+        <tr>
+            <th>Book Cover</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+
+    <?php
+
+    for ($i = 0; $i < sizeof($_SESSION['Books']); $i++) :
+    ?>
+    <tr>
+        <td><?php echo $_SESSION['Books'][$i]['Book_Cover'];?></td>
+        <!--cover picture-->
+        <td><?php echo $_SESSION['Books'][$i]['Book_Name'];?></td>
+        <!--booktitle-->
+        <td><?php echo $_SESSION['Books'][$i]['Author']; ?></td>
+        <!--author-->
+        <td><?php echo $_SESSION['Books'][$i]['Asking_Price']; ?></td>
+        <!--price-->
+
+    </tr>
+    <?php endfor; ?>
+
+    header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/manageBooksTrial.php");
+    }
+    else{
+    header("Location: ");
+    }
+    }
+    $conn->close();
+
+    }
+    ?>
+</table>
+</form>
+
+  <!-- <div class="book-list" id="book-list">
         <h2 class="text-center">Search Results </h2>
         <div id="list-output" class="">
             <table>
@@ -437,26 +518,26 @@ session_start();
                         </tr>
                     </thead>
 
-                    
+
                     <?php
                     for ($i = 0; $i < sizeof($_SESSION['Books']); $i++) :
                     ?>
                     <tr>
                         <td><?php echo $_SESSION['Books'][$i]['Book_Cover'];?></td>
-                        <!--cover picture-->
+           
                         <td><?php echo $_SESSION['Books'][$i]['Book_Name'];?></td>
-                        <!--booktitle-->
+        
                         <td><?php echo $_SESSION['Books'][$i]['Author']; ?></td>
-                        <!--author-->
+         
                         <td><?php echo $_SESSION['Books'][$i]['Asking_Price']; ?></td>
-                        <!--price-->
+
 
                     </tr>
                     <?php endfor; ?>
                 </div>
             </table>
         </div>
-    </div>
+    </div> -->
 
     <!--books-->
     <div class="container-fluid features" style="background-color:#faf0e6;border-radius:5px;padding-bottom:50px;">
