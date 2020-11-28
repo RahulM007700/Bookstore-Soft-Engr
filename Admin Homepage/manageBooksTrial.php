@@ -134,7 +134,7 @@ session_start();
                     <form action="./Admin_Phps/BooksUpdate.php" method="POST">
                         <?php
                     for ($i = 0; $i < sizeof($_SESSION['Books']); $i++) :
-                    ?>
+                    ?><?php echo $_SESSION['Books'][$i]['Book_Name'];?>
                         <tr>
                             <td><input type="hidden" name="i1" value='<?php echo $i;?>'><?= $i; ?></td>
                             <td><input type="hidden" name="i2" value='<?php echo $_SESSION['Books'][$i]['Book_Name'];?>'><?= $_SESSION['Books'][$i]['Book_Name']; ?></td>
@@ -157,7 +157,7 @@ session_start();
                                 <input type="button" name="deletebtn" title="Delete" data-toggle="modal" data-target="#deleteModal" onclick="dothis(<?php echo $i?>)"><i class="material-icons">&#xE5C9;</i></input>
                             -->
                          <button type="button" name="editbtn" title="Edit" data-toggle="modal" data-target="#editModal" onclick="dothat('<?php echo $_SESSION['Books'][$i]['Book_Name'];?>','<?php echo $_SESSION['Books'][$i]['ISBN'];?>','<?php echo $_SESSION['Books'][$i]['Category'];?>','<?php echo $_SESSION['Books'][$i]['Author'];?>','<?php echo $_SESSION['Books'][$i]['Edition'];?>','<?php echo $_SESSION['Books'][$i]['Publisher'];?>','<?php echo $_SESSION['Books'][$i]['Date_Published'];?>','<?php echo $_SESSION['Books'][$i]['Quantity'];?>','<?php echo $_SESSION['Books'][$i]['Selling_Price'];?>','<?php echo $_SESSION['Books'][$i]['Asking_Price'];?>','<?php echo $_SESSION['Books'][$i]['Min_Threshold'];?>')"><img src="../edit.png" class="arrow" width="30" height="30" style="float:left;" /></input>
-                                <button type="button" name="deletebtn" title="Delete" data-toggle="modal" class="button-delete"
+                                <button type="button" name="deletebtn" title="Delete" data-toggle="modal" class="button-delete" onclick="dothis(<?php echo $i; ?>)"
                                     data-target="#deleteModal" ><img src="../trash.png" class="arrow" width="30" height="30" style="float:left;" /></input>
                     
 </td>
