@@ -10,7 +10,8 @@ $Date_Published = filter_input(INPUT_POST,'Date_Published');
 $Quantity = filter_input(INPUT_POST,'Quantity');
 $Selling_Price = filter_input(INPUT_POST,'Selling_Price');
 $Asking_Price = filter_input(INPUT_POST,'Asking_Price');
-$Min_Threshold = filter_input(INPUT_POST,'Min_Threshold'); 
+$Min_Threshold = filter_input(INPUT_POST,'Min_Threshold');
+$Image = filter_input(INPUT_POST, 'Image'); 
 $Admin_ID = "12345";
 $Method = filter_input(INPUT_POST,'actions');
 
@@ -32,8 +33,8 @@ if (!empty($Admin_ID)) {
             . mysqli_connect_error());
     } else {
         if($Method == "Add") {
-            $SQL1 = "INSERT INTO available_books (Book_Name, ISBN, Category, Author, Edition, Publisher, Date_Published, Quantity, Selling_Price, Asking_Price, Min_Threshold)
-                VALUES ('$Book_Name', '$ISBN', '$Category', '$Author', '$Edition', '$Publisher', '$Date_Published', '$Quantity', '$Selling_Price', '$Asking_Price', '$Min_Threshold');";
+            $SQL1 = "INSERT INTO available_books (Book_Name, ISBN, Category, Author, Edition, Publisher, Date_Published, Quantity, Selling_Price, Asking_Price, Min_Threshold, Cover)
+                VALUES ('$Book_Name', '$ISBN', '$Category', '$Author', '$Edition', '$Publisher', '$Date_Published', '$Quantity', '$Selling_Price', '$Asking_Price', '$Min_Threshold', '$Image');";
             $conn->query($SQL1);
             //echo "Book added succesfully";
             header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/Admin_Phps/BookRetrieval.php");
@@ -42,7 +43,7 @@ if (!empty($Admin_ID)) {
             $SQL2 = "UPDATE available_books 
                     SET Book_Name = '$Book_Name', ISBN = '$ISBN', Category = '$Category', Author = '$Author', Edition = '$Edition', Publisher = '$Publisher', Date_Published = '$Date_Published', 
                         Quantity = '$Quantity', Selling_Price = '$Selling_Price', Asking_Price = '$Asking_Price', 
-                        Min_Threshold = '$Min_Threshold' 
+                        Min_Threshold = '$Min_Threshold', Cover = '$Image' 
                     WHERE ISBN = '$ISBN'";
             if (mysqli_query($conn, $SQL2)){
                 //echo "Book updated successfully";

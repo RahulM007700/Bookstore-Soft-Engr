@@ -194,10 +194,10 @@ session_start();
                 <td class="actions" name="actions">
                   <select name="actions" onchange="this.form.submit()">
                     <option></option>
-                    <option>
+                    <option value="EDIT">
                       <a href="#" class="button" title="Edit" id="edit" data-toggle="tooltip"><i class="material-icons" onclick()="editAction">Edit</i></a>
                     </option>
-                    <option>
+                    <option value="DELETE">
                       <a href="#" class="button" title="Delete" id="delete" data-toggle="tooltip"><i class="material-icons" onclick()="deleteAction">Delete</i></a>
                     </option>
                   </select>
