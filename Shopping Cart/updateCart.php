@@ -2,10 +2,10 @@
 
     $Item_ID = filter_input(INPUT_POST,'Item_ID');
     $Name = filter_input(INPUT_POST,'Name');
-    $Quantity = filter_input(INPUT_POST,'Quantity');
+    $Quantity = "1";
     $Price = filter_input(INPUT_POST,'Price');
     $Method = filter_input(INPUT_POST, 'actions');
-
+    
     $host = "localhost";
     $dbusername = "root";
     $dbpassword = "";
@@ -19,6 +19,7 @@
             . mysqli_connect_error());
     }
     else {
+        echo "hello";
         if ($Method == "Add"){
             $SQL = "SELECT Item_ID from shopping_cart where Item_ID='$Item_ID'";
             $check = mysqli_query($conn, $SQL);

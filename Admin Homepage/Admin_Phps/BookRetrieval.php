@@ -27,7 +27,7 @@ if (!empty($Admin_ID)) {
                 $new[] = $newElement;                 
             }
             $_SESSION['Books'] = $new;
-            header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/manageBooksTrial.php");
+            header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/ManageBooks/manageBooksTrial.php");
         }
         else{
             header("Location: ");

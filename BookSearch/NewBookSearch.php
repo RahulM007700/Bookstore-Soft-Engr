@@ -414,7 +414,7 @@ session_start();
     </div>
     <!--end of search box-->
 
-<form method="POST" action="updateCart.php">
+<form method="POST" action="../Shopping%20Cart/updateCart.php">
     <table>
     <?php
         if(isset($_POST["submit"])){
@@ -458,17 +458,17 @@ session_start();
     for ($i = 0; $i < sizeof($_SESSION['BooksTemp']); $i++) :
     ?>
     <tr>
-    <td><input name="coverphoto" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Cover'];?>"></td>
+    <td><input name="Item_ID" value="<?php echo $_SESSION['BooksTemp'][$i]['ISBN'];?>"></td>
         <!--cover picture-->
-        <td><input name="bookname" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Name'];?>"></td>
+        <td><input name="Name" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Name'];?>"></td>
         <!--booktitle-->
         <td><<input name="author" value="<?php echo $_SESSION['BooksTemp'][$i]['Author'];?>"></td>
         <!--author-->
-        <td><input name="askingprice" value="<?php echo $_SESSION['BooksTemp'][$i]['Asking_Price'];?>"></td>
+        <td><input name="Price" value="<?php echo $_SESSION['BooksTemp'][$i]['Asking_Price'];?>"></td>
         <!--price-->
         <td class="addToCart">
 
-                    <button type="submit" name="addbtn" title="Add"
+                    <button type="submit" name="actions" value="Add" title="Add"
                         ></button><img
                             src="../edit.png" class="arrow" width="30" height="30" style="float:left;" /></input>
                       
