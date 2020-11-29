@@ -403,7 +403,7 @@ $Admin_ID = "0000";
                             </div>
                             <input type="text" class="form-control" placeholder="search..." name="search">
                             <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit" onclick="makeVisible()">
+                                <button class="btn btn-default" type="submit" >
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
@@ -416,7 +416,7 @@ $Admin_ID = "0000";
     <!--end of search box-->
 
 
-    <script>
+   <!-- <script>
         function makeVisible() {
             var x = document.getElementById("book-list");
             x.style.visibility = "visible";
@@ -424,87 +424,91 @@ $Admin_ID = "0000";
 
         }
 
-    </script>
+    </script>-->
 
 
-<form>
-    <table>
-    <?php
-if(isset($_POST["submit"]){
+    <form>
+        <table>
+            <?php
+                if(isset($_POST["submit"]){
 
-    if (!empty($Admin_ID)) {
+             if (!empty($Admin_ID)) {
 
-    $host = "localhost";
-    $dbusername = "root";
-    $dbpassword = "";
-    $dbname = "online_bookstore";
+                $host = "localhost";
+                $dbusername = "root";
+                $dbpassword = "";
+                $dbname = "online_bookstore";
 
-    //Make Connection
-    $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+                //Make Connection
+                $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
 
 
-    $loginSql = "Select * from admin a where a.Admin_ID = $Admin_ID;";
-    if (mysqli_connect_error()){
-    die('Connect Error('. mysqli_connect_error() .')'
-    . mysqli_connect_error());
-    }
-    else {
-        $str = $_POST["search"];
+                $loginSql = "Select * from admin a where a.Admin_ID = $Admin_ID;";
+                if (mysqli_connect_error()){
+                    die('Connect Error('. mysqli_connect_error() .')'
+                    . mysqli_connect_error());
+                }
+                else {
+                    $str = $_POST["search"];
 
-    $Account = mysqli_query($conn, $loginSql);
-    $Admin_Account = mysqli_fetch_array($Account);
-    if ($Admin_Account['Admin_ID'] != null){
+                    $Account = mysqli_query($conn, $loginSql);
+                    $Admin_Account = mysqli_fetch_array($Account);
+                    if ($Admin_Account['Admin_ID'] != null){
     
-        $Available_Books = "Select * from 'search' WHERE Book_Name = $str'";
-        <!--$Available_Books = "Select * from available_books";-->
-    $Books = $conn->query($Available_Books);
+                        $Available_Books = "Select * from 'search' WHERE Book_Name = $str'";
+                         <!--$Available_Books = "Select * from available_books";-->
+                        $Books = $conn->query($Available_Books);
     
-    while ($newElement = $Books->fetch_assoc()){
-    $new[] = $newElement;
+                        while ($newElement = $Books->fetch_assoc()){
+                            $new[] = $newElement;
+                        }
+                        $_SESSION['Books'] = $new;
+                        ?>
+
+            <thead>
+                <tr>
+                    <th>Book Cover</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+
+            <?php
+
+             for ($i = 0; $i < sizeof($_SESSION['Books']); $i++) :
+            ?>
+            <tr>
+                <td><?php echo $_SESSION['Books'][$i]['Book_Cover'];?></td>
+                <!--cover picture-->
+                <td><?php echo $_SESSION['Books'][$i]['Book_Name'];?></td>
+                <!--booktitle-->
+                <td><?php echo $_SESSION['Books'][$i]['Author']; ?></td>
+                <!--author-->
+                <td><?php echo $_SESSION['Books'][$i]['Asking_Price']; ?></td>
+                <!--price-->
+
+            </tr>
+            <?php endfor; ?>
+
+            header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/manageBooksTrial.php");
+            }
+            else{
+                header("Location: ");
+            }
+        }
+           
+        $conn->close();
+
+           
     }
-    $_SESSION['Books'] = $new;
+            
     ?>
-    
-    <thead>
-        <tr>
-            <th>Book Cover</th>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Price</th>
-        </tr>
-    </thead>
-
-    <?php
-
-    for ($i = 0; $i < sizeof($_SESSION['Books']); $i++) :
-    ?>
-    <tr>
-        <td><?php echo $_SESSION['Books'][$i]['Book_Cover'];?></td>
-        <!--cover picture-->
-        <td><?php echo $_SESSION['Books'][$i]['Book_Name'];?></td>
-        <!--booktitle-->
-        <td><?php echo $_SESSION['Books'][$i]['Author']; ?></td>
-        <!--author-->
-        <td><?php echo $_SESSION['Books'][$i]['Asking_Price']; ?></td>
-        <!--price-->
-
-    </tr>
-    <?php endfor; ?>
-
-    header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/manageBooksTrial.php");
-    }
-    else{
-    header("Location: ");
-    }
-    }
-    $conn->close();
-
-    }
-    ?>
+        
 </table>
-</form>
+    </form>
 
-  <!-- <div class="book-list" id="book-list">
+    <!-- <div class="book-list" id="book-list">
         <h2 class="text-center">Search Results </h2>
         <div id="list-output" class="">
             <table>
