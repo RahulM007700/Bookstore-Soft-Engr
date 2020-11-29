@@ -1,6 +1,5 @@
 <?php
 session_start();
-$Admin_ID = "0000";
 ?>
 
 <!DOCTYPE html>
@@ -415,7 +414,7 @@ $Admin_ID = "0000";
     </div>
     <!--end of search box-->
 
-<form>
+<form method="POST" action="updateCart.php">
     <table>
     <?php
         if(isset($_POST["submit"])){
@@ -459,14 +458,22 @@ $Admin_ID = "0000";
     for ($i = 0; $i < sizeof($_SESSION['BooksTemp']); $i++) :
     ?>
     <tr>
-        <td><?php //echo $_SESSION['Books'][$i]['Book_Cover'];?></td>
+    <td><input name="coverphoto" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Cover'];?>"></td>
         <!--cover picture-->
-        <td><?php echo $_SESSION['BooksTemp'][$i]['Book_Name'];?></td>
+        <td><input name="bookname" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Name'];?>"></td>
         <!--booktitle-->
-        <td><?php echo $_SESSION['BooksTemp'][$i]['Author']; ?></td>
+        <td><<input name="author" value="<?php echo $_SESSION['BooksTemp'][$i]['Author'];?>"></td>
         <!--author-->
-        <td><?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?></td>
+        <td><input name="askingprice" value="<?php echo $_SESSION['BooksTemp'][$i]['Asking_Price'];?>"></td>
         <!--price-->
+        <td class="addToCart">
+
+                    <button type="submit" name="addbtn" title="Add"
+                        ></button><img
+                            src="../edit.png" class="arrow" width="30" height="30" style="float:left;" /></input>
+                      
+
+                </td>
 
     </tr>
     <?php endfor;
