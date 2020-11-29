@@ -403,7 +403,7 @@ $Admin_ID = "0000";
                             </div>
                             <input type="text" class="form-control" placeholder="search..." name="search">
                             <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit" >
+                                <button class="btn btn-default" type="submit">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
@@ -416,7 +416,7 @@ $Admin_ID = "0000";
     <!--end of search box-->
 
 
-   <!-- <script>
+    <!-- <script>
         function makeVisible() {
             var x = document.getElementById("book-list");
             x.style.visibility = "visible";
@@ -427,7 +427,7 @@ $Admin_ID = "0000";
     </script>-->
 
 
-    <form>
+    <form method="POST" action="updateCart.php">
         <table>
             <?php
                 if(isset($_POST["submit"]){
@@ -479,14 +479,24 @@ $Admin_ID = "0000";
              for ($i = 0; $i < sizeof($_SESSION['Books']); $i++) :
             ?>
             <tr>
-                <td><?php echo $_SESSION['Books'][$i]['Book_Cover'];?></td>
+                <td><input name="coverphoto" value="<?php echo $_SESSION['Books'][$i]['Book_Cover'];?>"></td>
                 <!--cover picture-->
-                <td><?php echo $_SESSION['Books'][$i]['Book_Name'];?></td>
+                <td><input name="bookname" value="<?php echo $_SESSION['Books'][$i]['Book_Name'];?>"></td>
                 <!--booktitle-->
-                <td><?php echo $_SESSION['Books'][$i]['Author']; ?></td>
+
+                <td><<input name="author" value="<?php echo $_SESSION['Books'][$i]['Author'];?>"></td>
                 <!--author-->
-                <td><?php echo $_SESSION['Books'][$i]['Asking_Price']; ?></td>
+                <td><input name="askingprice" value="<?php echo $_SESSION['Books'][$i]['Asking_Price'];?>"></td>
                 <!--price-->
+
+                <td class="addToCart">
+
+                    <button type="submit" name="addbtn" title="Add"
+                        ></button><img
+                            src="../edit.png" class="arrow" width="30" height="30" style="float:left;" /></input>
+                      
+
+                </td>
 
             </tr>
             <?php endfor; ?>
@@ -494,18 +504,18 @@ $Admin_ID = "0000";
             header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/manageBooksTrial.php");
             }
             else{
-                header("Location: ");
+            header("Location: ");
             }
-        }
-           
-        $conn->close();
+            }
 
-           
-    }
-            
-    ?>
-        
-</table>
+            $conn->close();
+
+
+            }
+
+            ?>
+
+        </table>
     </form>
 
     <!-- <div class="book-list" id="book-list">
