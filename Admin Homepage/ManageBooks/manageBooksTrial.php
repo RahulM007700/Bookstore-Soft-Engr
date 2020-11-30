@@ -203,7 +203,7 @@ session_start();
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="Admin_Phps/BooksUpdate.php" method="POST">
+        <form action="../Admin_Phps/BooksUpdate.php" method="POST">
           <div class="modal-body mx-3">
             <div class="md-form mb-5">
               <label for="bookname"><b>Book Name</b></label>
@@ -293,7 +293,7 @@ session_start();
           </button>
         </div>
         <>
-        <form id="edit" action="./Admin_Phps/BooksUpdate.php" method="POST">
+        <form id="edit" action="../Admin_Phps/BooksUpdate.php" method="POST">
           <div class="modal-body mx-3">
             <div class="md-form mb-2">
               <label for="bookname"><b>Book Name</b></label>
@@ -387,7 +387,7 @@ session_start();
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form id="delete" action="Admin_Phps/BooksUpdate.php" method="POST">
+        <form id="delete" action="../Admin_Phps/BooksUpdate.php" method="POST">
           <div class="modal-body mx-3">
             <p>Are you sure you want to delete these records? This action cannot be undone.</p>
           </div>
