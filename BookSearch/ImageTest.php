@@ -9,6 +9,7 @@
     if($_SERVER['REQUEST_METHOD']=='POST'){
         $image = $_FILES['image']['tmp_name'];
         $img = file_get_contents($image);
+        echo $img;
         $conn = mysqli_connect('localhost','root','','online_bookstore') or die('Unable To connect');
         $sql = "UPDATE available_books SET Cover=(?) WHERE ISBN='1234567890'";
         $stmt = mysqli_prepare($conn, $sql);

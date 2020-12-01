@@ -33,8 +33,13 @@
             }
             else {
                 echo "here";
-                $SQL2 = "INSERT INTO shopping_cart (Account_ID, Item_ID, Name, Quantity, Price, Email) values ('2', '$Item_ID', '$Name', '$Quantity', '$Price', '$Email')";
-                if (mysqli_query($conn, $SQL2)){
+                //echo "$Cover";
+                $SQL2 = "INSERT INTO shopping_cart (Account_ID, Item_ID, Name, Quantity, Price, Cover, Email) values ('2', '$Item_ID', '$Name', '$Quantity', '$Price', (?), '$Email')";
+                $stmt = mysqli_prepare($conn, $SQL2);
+                mysqli_stmt_bind_param($stmt, "s",$Cover);
+                mysqli_stmt_execute($stmt);
+                $check = mysqli_stmt_affected_rows($stmt);
+                if ($check==1){
                     echo "Add Successful";
                     header("Location: http://localhost/Bookstore-Soft-Engr/Homepage/homepage.php");
                 }

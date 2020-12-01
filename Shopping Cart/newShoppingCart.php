@@ -73,7 +73,7 @@
                         <tr>
                             <th scope="row">
                                 <div class="p-2">
-                                    <img src="" alt="" width="70" class="img-fluid rounded shadow">
+                                    <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['Cart_Items'][$i]['Cover'] ).'" alt="" width="70" class="img-fluid rounded shadow">'?>
                                     <div class="ml-3 d-inline-block align-middle">
                                         <h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"><?= $_SESSION['Cart_Items'][$i]['Name']; ?></a></h5>
                                     </div>

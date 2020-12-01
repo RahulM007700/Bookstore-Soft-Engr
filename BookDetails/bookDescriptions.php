@@ -262,6 +262,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                             //echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['Books'][$i]['Cover'] ).'" alt="top1" class="top1" height="500"/>';                         
                             if ($_SESSION['Books'][$i]['ISBN'] == $_SESSION['TempISBN']) {
                                 echo '<div class= "col-5 justify-content-center">';
+                                echo "Here";
                                 echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['Books'][$i]['Cover'] ).'" alt="top1" class="top1" height="500"/>';
                                 echo '</div>';
                                 echo '<div class="col-7" style="padding-left:30px;padding-top:10px;background-color:#faf0e6;">';
