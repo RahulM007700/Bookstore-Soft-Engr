@@ -54,7 +54,7 @@ session_start();
 
                                 <!--Trigger-->
 
-                                <a class="btn-floating btn-lg black dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target="#navItem"><i class="fas fa-user fa-2x" style="color:grey;"></i></a>
+                                <a class="btn-floating btn-lg black dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target="#navItem"><i class="fas fa-user fa-2x" style="color:grey;" width="30%" height="30%"></i></a>
                                 <!--Menu-->
                                 <div class="dropdown-menu dropdown-primary" id="navItem">
                                     <?php
@@ -96,7 +96,7 @@ session_start();
 
 
     <!--Search box-->
-    <div class="container-fluid" style="/*background-color:#FFFFF0#ffdead*/;padding-bottom:50px;margin-top:0px;">
+    <div class="container-fluid" style="/*background-color:#FFFFF0#ffdead*/; padding-bottom:50px;margin-top:0px;">
 
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -127,7 +127,12 @@ session_start();
     </div>
     <!--end of search box-->
 
-    <?php
+   
+
+    <form method="POST" action="../Shopping%20Cart/updateCart.php">
+        <table style="background-color: #faf0e6; border-radius:5px;padding-bottom:50px;">
+
+            <?php
     if (isset($_POST["submit"])) {
 
         $host = "localhost";
@@ -174,9 +179,6 @@ session_start();
         $conn->close();
     }
     ?>
-
-    <form method="POST" action="../Shopping%20Cart/updateCart.php">
-        <table style="background-color: #faf0e6; border-radius:5px;padding-bottom:50px;">
             <div class="container-fluid features" style="background-color:#faf0e6;border-radius:5px;padding-bottom:50px;">
 
                 <div class="row justify-content-around" style="flex-direction:column;padding-top:50px;">
