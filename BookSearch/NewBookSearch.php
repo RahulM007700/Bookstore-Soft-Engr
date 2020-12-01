@@ -220,7 +220,7 @@ session_start();
                                     <td class="addToCart"><input type="image" name="actions" value="Add to Cart" src="add.png" width="30px" height="30px" alt="Submit Form"></td>
 
                                     <input name="Item_ID" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['ISBN']; ?>">
-                                    <?php $_SESSION['cover'] = $_SESSION['BooksTemp'][$i]['Cover']; ?>
+                                    <input name="Cover" type="hidden" value="<?php echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['BooksTemp'][$i]['Cover']) . '" height="200" width="200"/>'; ?>">
                                     <!--cover picture-->
                                     <input name="Name" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?>">
                                     <!--booktitle-->
