@@ -12,7 +12,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="NewBookSearch.css">
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -106,73 +106,29 @@ session_start();
 
     <!--nav bar end-->
 
-    <!--banner image-->
-    <div class="container-fluid">
-        <div class="hero-image">
-            <div class="hero-text" style="color:transparent;">
-                <h1>hello</h1>
-                <h1>you are annoying</h1>
-                <h1>why is it only growing with image</h1>
-            </div>
-        </div>
-    </div>
-    <!--banner image end-->
+   <br><br>
 
     <!--Search box-->
-    <div class="container-fluid" style="/*background-color:#FFFFF0#ffdead*/;padding-bottom:50px;margin-top:0px;">
-        <div class="container-fluid">
-            <div class="row justify-content-center py-4">
-                <div class="col-6">
-                    <h1>Support local bookstores.<br>Shop with us.</h1>
-                </div>
-            </div>
-        </div>
+    <div class="container-fluid" style="/*background-color:#FFFFF0#ffdead*/; padding-bottom:50px;margin-top:0px;">
+        
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-9">
                     <form method="POST">
                         <div class="input-group">
                             <div class="dropdown">
-                                <a class="btn-floating btn-lg black dropdown-toggle" type="button" id="dropdownMenu3"
-                                    data-toggle="dropdown" data-target="#down" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    <i class="fas fa-filter"
-                                        style="position: relative;z-index:-1;left: 0px;padding: 10px 12px; pointer-events: none;">
-                                        <div class="dropdown-menu dropdown-primary" id="down">
-                                            <!--put php here-->
-                                            <?php
-                    //session_start();
-                    if (isset($_SESSION['Email'])){
-                      echo '<li>
-                              <a href="./LogUserOut.php" id="logout" style="color: black">Logout<br /></a>
-                            </li>
-                            <li>
-                              <a
-                                href="../EditProfile/edit_profile.php"
-                                style="color: black"
-                                >Edit Profile</a
-                              >
-                            </li>
-                            <li>
-                              <a
-                                href="../OrderHistory/order-history.html"
-                                style="color: black"
-                                >Order History</a
-                              >
-                            </li>';
-                    }
-                    else {
-                      echo '<li>                    
-                              <a href="#" id="login" style="color: black">Login/Register<br /></a>
-                            </li>';
-                    }
-                  ?>
-                                        </div>
-                                    </i></a>
+                                <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:32px; margin-right:5px; background-color:#E0DEDE;"><i class="fas fa-filter" style="color:black;"></i>
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu" id="filter">
+                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> Author</li>
+                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> Title</li>
+                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> Category</li>
+                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> ISBN</li>
+                                </ul>
                             </div>
                             <input type="text" class="form-control" placeholder="search..." name="search">
                             <div class="input-group-btn">
-                                <button name="submit" class="btn btn-default" type="submit" value="submit">
+                                <button class="btn btn-default" type="submit" >
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
@@ -184,9 +140,9 @@ session_start();
     </div>
     <!--end of search box-->
 
-<form method="POST" action="../Shopping%20Cart/updateCart.php">
-    <table>
-    <?php
+    <form method="POST" action="../Shopping%20Cart/updateCart.php">
+        <table>
+            <?php
         if(isset($_POST["submit"])){
 
             $host = "localhost";
@@ -213,47 +169,55 @@ session_start();
 
         }
     ?>
-    
-    <thead>
-        <tr>
-            <th>Book Cover</th>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Price</th>
-        </tr>
-    </thead>
 
-    <?php
+    <img src="carbon.black.png" style="text-align: center; width:70% ;height: 70%;">
+            <thead>
+                <tr>
+                    <th>Book Cover</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+
+            <?php
 
     for ($i = 0; $i < sizeof($_SESSION['BooksTemp']); $i++) :
     ?>
-    <tr>
-    <td><img src="<?php echo $_SESSION['BooksTemp'][$i]['Book_Cover'];?>" class="img-responsive"></td>
-        <!--cover picture-->
-        <td><h4 class="name-text"><?php echo $_SESSION['BooksTemp'][$i]['Book_Name'];?></h4></td>
-        <!--booktitle-->
-        <td><h4 class="author-text"><?php echo $_SESSION['BooksTemp'][$i]['Author'];?></h4></td>
-        <!--author-->
-        <td><h4 class="price-text"><?php echo $_SESSION['BooksTemp'][$i]['Asking_Price'];?></h4></td>
-        <!--price-->
-        <td class="addToCart"><input type="image" src="add.png" width="30px" height="30px" alt="Submit Form" title="Add"></td>
+            <tr>
+                <td><img src="<?php echo $_SESSION['BooksTemp'][$i]['Book_Cover'];?>" class="img-responsive"></td>
+                <!--cover picture-->
+                <td>
+                    <h4 class="name-text"><?php echo $_SESSION['BooksTemp'][$i]['Book_Name'];?></h4>
+                </td>
+                <!--booktitle-->
+                <td>
+                    <h4 class="author-text"><?php echo $_SESSION['BooksTemp'][$i]['Author'];?></h4>
+                </td>
+                <!--author-->
+                <td>
+                    <h4 class="price-text"><?php echo $_SESSION['BooksTemp'][$i]['Asking_Price'];?></h4>
+                </td>
+                <!--price-->
+                <td class="addToCart"><input type="image" src="add.png" width="30px" height="30px" alt="Submit Form"
+                        title="Add"></td>
 
-        <input name="Item_ID" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Cover'];?>">
-        <!--cover picture-->
-        <input name="Name" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Name'];?>">
-        <!--booktitle-->
-        <input name="author" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Author'];?>">
-        <!--author-->
-        <input name="Price" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Asking_Price'];?>">
-   
+                <input name="Item_ID" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Cover'];?>">
+                <!--cover picture-->
+                <input name="Name" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Name'];?>">
+                <!--booktitle-->
+                <input name="author" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Author'];?>">
+                <!--author-->
+                <input name="Price" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Asking_Price'];?>">
 
-    </tr>
-    <?php endfor;
+
+            </tr>
+            <?php endfor;
     ?>
-</table>
-</form>
+        </table>
+    </form>
 
-  <!-- <div class="book-list" id="book-list">
+    <!-- <div class="book-list" id="book-list">
         <h2 class="text-center">Search Results </h2>
         <div id="list-output" class="">
             <table>

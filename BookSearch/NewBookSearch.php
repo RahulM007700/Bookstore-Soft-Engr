@@ -93,69 +93,29 @@ session_start();
 
     <!--nav bar end-->
 
-    <!--banner image-->
-    <div class="container-fluid">
-        <div class="hero-image">
-            <div class="hero-text" style="color:transparent;">
-                <h1>hello</h1>
-                <h1>you are annoying</h1>
-                <h1>why is it only growing with image</h1>
-            </div>
-        </div>
-    </div>
-    <!--banner image end-->
+    
 
     <!--Search box-->
     <div class="container-fluid" style="/*background-color:#FFFFF0#ffdead*/;padding-bottom:50px;margin-top:0px;">
-        <div class="container-fluid">
-            <div class="row justify-content-center py-4">
-                <div class="col-6">
-                    <h1>Support local bookstores.<br>Shop with us.</h1>
-                </div>
-            </div>
-        </div>
+        
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-9">
                     <form method="POST">
                         <div class="input-group">
                             <div class="dropdown">
-                                <a class="btn-floating btn-lg black dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" data-target="#down" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-filter" style="position: relative;z-index:-1;left: 0px;padding: 10px 12px; pointer-events: none;">
-                                        <div class="dropdown-menu dropdown-primary" id="down">
-                                            <!--put php here-->
-                                            <?php
-                                            //session_start();
-                                            if (isset($_SESSION['Email'])) {
-                                                echo '<li>
-                              <a href="./LogUserOut.php" id="logout" style="color: black">Logout<br /></a>
-                            </li>
-                            <li>
-                              <a
-                                href="../EditProfile/edit_profile.php"
-                                style="color: black"
-                                >Edit Profile</a
-                              >
-                            </li>
-                            <li>
-                              <a
-                                href="../OrderHistory/order-history.html"
-                                style="color: black"
-                                >Order History</a
-                              >
-                            </li>';
-                                            } else {
-                                                echo '<li>                    
-                              <a href="#" id="login" style="color: black">Login/Register<br /></a>
-                            </li>';
-                                            }
-                                            ?>
-                                        </div>
-                                    </i></a>
+                                <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:32px; margin-right:5px; background-color:#E0DEDE;"><i class="fas fa-filter" style="color:black;"></i>
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu" id="filter">
+                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> Author</li>
+                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> Title</li>
+                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> Category</li>
+                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> ISBN</li>
+                                </ul>
                             </div>
                             <input type="text" class="form-control" placeholder="search..." name="search">
                             <div class="input-group-btn">
-                                <button name="submit" class="btn btn-default" type="submit" value="submit">
+                                <button class="btn btn-default" type="submit">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
