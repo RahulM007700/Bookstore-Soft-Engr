@@ -1,6 +1,5 @@
 <?php
 session_start();
-$Admin_ID = "0000";
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +11,8 @@ $Admin_ID = "0000";
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="NewBookSearch.css">
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -44,239 +45,7 @@ $Admin_ID = "0000";
         var verificationCode = Math.floor((Math.random() * 1000000) + 1);
     </script>
 </head>
-<style>
-    .modal-body {
-        max-height: calc(100vh - 210px);
-        overflow-y: auto;
-    }
 
-    body {
-        padding-top: 50px;
-    }
-
-    .dropdown.dropdown-lg .dropdown-menu {
-        margin-top: -1px;
-        padding: 6px 20px;
-    }
-
-    .input-group-btn .btn-group {
-        display: flex !important;
-    }
-
-    .btn-group .btn {
-        border-radius: 0;
-        margin-left: -1px;
-    }
-
-    .btn-group .btn:last-child {
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-    }
-
-    .btn-group .form-horizontal .btn[type="submit"] {
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-    }
-
-    .form-horizontal .form-group {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .form-group .form-control:last-child {
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-    }
-
-    .nav-item {
-        font-size: 1.3rem;
-    }
-
-    .mycol {
-        border: 1px solid black;
-        background-color: black;
-    }
-
-    * {
-        text-align: center;
-        /*          font-family: Arial, Helvetica, sans-serif;
-*/
-        font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    }
-
-    .card {
-        border: none;
-        background: #D6D1B1;
-    }
-
-    .search {
-        width: 100%;
-        margin-bottom: auto;
-        margin-top: 20px;
-        height: 50px;
-        background-color: #fff;
-        padding: 10px;
-        border-radius: 5px;
-    }
-
-    .search-input {
-        color: white;
-        border: 0;
-        outline: 0;
-        background: none;
-        width: 0;
-        margin-top: 5px;
-        caret-color: transparent;
-        line-height: 20px;
-        transition: width 0.4s linear;
-    }
-
-    .search .search-input {
-        padding: 0 10px;
-        width: 100%;
-        caret-color: #536bf6;
-        font-size: 19px;
-        font-weight: 300;
-        color: black;
-        transition: width 0.4s linear;
-    }
-
-    .search-icon {
-        height: 34px;
-        width: 34px;
-        float: right;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        background-color: #536bf6;
-        font-size: 10px;
-        bottom: 30px;
-        position: relative;
-        border-radius: 5px;
-    }
-
-    .dropdown-toggle {
-        height: 34px;
-        width: 34px;
-        float: left;
-        display: flex;
-        /*        background-color: #536bf6;
-*/
-        justify-content: center;
-        align-items: center;
-        color: white;
-        font-size: 10px;
-        bottom: 30px;
-        position: relative;
-        border-radius: 5px;
-    }
-
-    .search-icon:hover {
-        color: #fff !important;
-    }
-
-    a:link {
-        text-decoration: none;
-    }
-
-    .card-inner {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        min-width: 0;
-        word-wrap: break-word;
-        background-color: #fff;
-        background-clip: border-box;
-        border: 1px solid rgba(0, 0, 0, .125);
-        border-radius: .25rem;
-        border: none;
-        cursor: pointer;
-        transition: all 2s;
-    }
-
-    .card-inner:hover {
-        transform: scale(1.1);
-    }
-
-    .mg-text span {
-        font-size: 12px;
-    }
-
-    .mg-text {
-        line-height: 14px;
-    }
-
-    .btn-default {
-        background-color: #E0DEDE;
-        margin-left: 5px;
-    }
-
-    .features {
-        margin-top: 50px;
-    }
-
-    .container-fluid {
-        padding-right: 0;
-        padding-left: 0;
-        margin-right: auto;
-        margin-left: auto
-    }
-
-    .hero-image {
-        /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://s3.amazonaws.com/prod.assets.thebanner/styles/article-large/s3/article/large/TIN-332%20Books%20from_large.jpg?itok=goIsOQs0");
-
-        /* Set a specific height */
-        height: 50%;
-
-        /* Position and center the image to scale nicely on all screens */
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-    }
-
-    .outside {
-        border-left: 1px solid
-            /*#a52a2a*/
-            black;
-        border-right: 1px solid black;
-    }
-
-    .b {
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid #000;
-        line-height: 0.1em;
-        margin: 10px 0 20px;
-    }
-
-    .b span {
-        background: #ECEEEF;
-        padding: 0 10px;
-    }
-
-    .b2 {
-        width: 94%;
-        margin-left: 2.5%;
-        margin-right: 2.5%;
-        text-align: center;
-        border-bottom: 1px solid #000;
-        line-height: 0.1em;
-        margin: 10px 0 20px;
-    }
-
-    .b2 span {
-        background: #faf0e6;
-        padding: 0 10px;
-    }
-
-    .book-list {
-
-        visibility: hidden;
-    }
-</style>
 
 <body>
     <!--nav bar-->
@@ -403,7 +172,7 @@ $Admin_ID = "0000";
                             </div>
                             <input type="text" class="form-control" placeholder="search..." name="search">
                             <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit">
+                                <button name="submit" class="btn btn-default" type="submit" value="submit">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
@@ -415,110 +184,76 @@ $Admin_ID = "0000";
     </div>
     <!--end of search box-->
 
+<form method="POST" action="../Shopping%20Cart/updateCart.php">
+    <table>
+    <?php
+        if(isset($_POST["submit"])){
 
-    <!-- <script>
-        function makeVisible() {
-            var x = document.getElementById("book-list");
-            x.style.visibility = "visible";
+            $host = "localhost";
+            $dbusername = "root";
+            $dbpassword = "";
+            $dbname = "online_bookstore";
 
-
-        }
-
-    </script>-->
-
-
-    <form method="POST" action="updateCart.php">
-        <table>
-            <?php
-                if(isset($_POST["submit"]){
-
-             if (!empty($Admin_ID)) {
-
-                $host = "localhost";
-                $dbusername = "root";
-                $dbpassword = "";
-                $dbname = "online_bookstore";
-
-                //Make Connection
-                $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
-
-
-                $loginSql = "Select * from admin a where a.Admin_ID = $Admin_ID;";
-                if (mysqli_connect_error()){
-                    die('Connect Error('. mysqli_connect_error() .')'
-                    . mysqli_connect_error());
+            //Make Connection
+            $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+            if (mysqli_connect_error()){
+                die('Connect Error('. mysqli_connect_error() .')'
+                . mysqli_connect_error());
+            }
+            else {
+                $str = $_POST["search"];            
+                $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
+                $Books = $conn->query($Available_Books);
+                while ($newElement = $Books->fetch_assoc()){
+                    $new[] = $newElement;
                 }
-                else {
-                    $str = $_POST["search"];
-
-                    $Account = mysqli_query($conn, $loginSql);
-                    $Admin_Account = mysqli_fetch_array($Account);
-                    if ($Admin_Account['Admin_ID'] != null){
-    
-                        $Available_Books = "Select * from 'search' WHERE Book_Name = $str'";
-                         <!--$Available_Books = "Select * from available_books";-->
-                        $Books = $conn->query($Available_Books);
-    
-                        while ($newElement = $Books->fetch_assoc()){
-                            $new[] = $newElement;
-                        }
-                        $_SESSION['Books'] = $new;
-                        ?>
-
-            <thead>
-                <tr>
-                    <th>Book Cover</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-
-            <?php
-
-             for ($i = 0; $i < sizeof($_SESSION['Books']); $i++) :
-            ?>
-            <tr>
-                <td><input name="coverphoto" value="<?php echo $_SESSION['Books'][$i]['Book_Cover'];?>"></td>
-                <!--cover picture-->
-                <td><input name="bookname" value="<?php echo $_SESSION['Books'][$i]['Book_Name'];?>"></td>
-                <!--booktitle-->
-
-                <td><<input name="author" value="<?php echo $_SESSION['Books'][$i]['Author'];?>"></td>
-                <!--author-->
-                <td><input name="askingprice" value="<?php echo $_SESSION['Books'][$i]['Asking_Price'];?>"></td>
-                <!--price-->
-
-                <td class="addToCart">
-
-                    <button type="submit" name="addbtn" title="Add"
-                        ></button><img
-                            src="../edit.png" class="arrow" width="30" height="30" style="float:left;" /></input>
-                      
-
-                </td>
-
-            </tr>
-            <?php endfor; ?>
-
-            header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/manageBooksTrial.php");
+                $_SESSION['BooksTemp'] = $new;
             }
-            else{
-            header("Location: ");
-            }
-            }
-
             $conn->close();
 
+        }
+    ?>
+    
+    <thead>
+        <tr>
+            <th>Book Cover</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Price</th>
+        </tr>
+    </thead>
 
-            }
+    <?php
 
-            ?>
+    for ($i = 0; $i < sizeof($_SESSION['BooksTemp']); $i++) :
+    ?>
+    <tr>
+    <td><img src="<?php echo $_SESSION['BooksTemp'][$i]['Book_Cover'];?>" class="img-responsive"></td>
+        <!--cover picture-->
+        <td><h4 class="name-text"><?php echo $_SESSION['BooksTemp'][$i]['Book_Name'];?></h4></td>
+        <!--booktitle-->
+        <td><h4 class="author-text"><?php echo $_SESSION['BooksTemp'][$i]['Author'];?></h4></td>
+        <!--author-->
+        <td><h4 class="price-text"><?php echo $_SESSION['BooksTemp'][$i]['Asking_Price'];?></h4></td>
+        <!--price-->
+        <td class="addToCart"><input type="image" src="add.png" width="30px" height="30px" alt="Submit Form" title="Add"></td>
 
-        </table>
-    </form>
+        <input name="Item_ID" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Cover'];?>">
+        <!--cover picture-->
+        <input name="Name" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Name'];?>">
+        <!--booktitle-->
+        <input name="author" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Author'];?>">
+        <!--author-->
+        <input name="Price" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Asking_Price'];?>">
+   
 
-    <!-- <div class="book-list" id="book-list">
+    </tr>
+    <?php endfor;
+    ?>
+</table>
+</form>
+
+  <!-- <div class="book-list" id="book-list">
         <h2 class="text-center">Search Results </h2>
         <div id="list-output" class="">
             <table>

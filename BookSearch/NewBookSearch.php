@@ -12,25 +12,16 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="NewBookSearch.css">
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/a746b8874d.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
-        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -51,8 +42,7 @@ session_start();
     <!--nav bar-->
     <div class="container-fluid">
         <nav class="navbar navbar-expand navbar-light">
-            <a class="navbar-brand" href="#"><img
-                    src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo4.jpg" height="50"></a>
+            <a class="navbar-brand" href="#"><img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo4.jpg" height="50"></a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item px-4"><a href="#" class="nav-link py-4">Textbooks</a></li>
@@ -64,15 +54,13 @@ session_start();
 
                                 <!--Trigger-->
 
-                                <a class="btn-floating btn-lg black dropdown-toggle" type="button" id="dropdownMenu3"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                    data-target="#navItem"><i class="fas fa-user fa-2x" style="color:grey;"></i></a>
+                                <a class="btn-floating btn-lg black dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target="#navItem"><i class="fas fa-user fa-2x" style="color:grey;"></i></a>
                                 <!--Menu-->
                                 <div class="dropdown-menu dropdown-primary" id="navItem">
                                     <?php
-                    //session_start();
-                    if (isset($_SESSION['Email'])){
-                      echo '
+                                    //session_start();
+                                    if (isset($_SESSION['Email'])) {
+                                        echo '
                               <a href="./LogUserOut.php" id="logout" style="color: black">Logout<br /></a>
                             
                             
@@ -89,11 +77,10 @@ session_start();
                                 >Order History</a
                               >
                             ';
-                    }
-                    else {
-                      echo '<a class="dropdown-item" href="#" id="login" data-toggle="modal" data-target="#loginModal">Login/Sign Up</a>';
-                    }
-                  ?>
+                                    } else {
+                                        echo '<a class="dropdown-item" href="#" id="login" data-toggle="modal" data-target="#loginModal">Login/Sign Up</a>';
+                                    }
+                                    ?>
                                 </div>
                             </a></li>
                     </div>
@@ -133,17 +120,14 @@ session_start();
                     <form method="POST">
                         <div class="input-group">
                             <div class="dropdown">
-                                <a class="btn-floating btn-lg black dropdown-toggle" type="button" id="dropdownMenu3"
-                                    data-toggle="dropdown" data-target="#down" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    <i class="fas fa-filter"
-                                        style="position: relative;z-index:-1;left: 0px;padding: 10px 12px; pointer-events: none;">
+                                <a class="btn-floating btn-lg black dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" data-target="#down" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-filter" style="position: relative;z-index:-1;left: 0px;padding: 10px 12px; pointer-events: none;">
                                         <div class="dropdown-menu dropdown-primary" id="down">
                                             <!--put php here-->
                                             <?php
-                    //session_start();
-                    if (isset($_SESSION['Email'])){
-                      echo '<li>
+                                            //session_start();
+                                            if (isset($_SESSION['Email'])) {
+                                                echo '<li>
                               <a href="./LogUserOut.php" id="logout" style="color: black">Logout<br /></a>
                             </li>
                             <li>
@@ -160,13 +144,12 @@ session_start();
                                 >Order History</a
                               >
                             </li>';
-                    }
-                    else {
-                      echo '<li>                    
+                                            } else {
+                                                echo '<li>                    
                               <a href="#" id="login" style="color: black">Login/Register<br /></a>
                             </li>';
-                    }
-                  ?>
+                                            }
+                                            ?>
                                         </div>
                                     </i></a>
                             </div>
@@ -184,107 +167,79 @@ session_start();
     </div>
     <!--end of search box-->
 
-<form method="POST" action="../Shopping%20Cart/updateCart.php">
-    <table>
-    <?php
-        if(isset($_POST["submit"])){
+    <form method="POST" action="../Shopping%20Cart/updateCart.php">
+        <table>
+            <?php
+            if (isset($_POST["submit"])) {
 
-            $host = "localhost";
-            $dbusername = "root";
-            $dbpassword = "";
-            $dbname = "online_bookstore";
+                $host = "localhost";
+                $dbusername = "root";
+                $dbpassword = "";
+                $dbname = "online_bookstore";
 
-            //Make Connection
-            $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
-            if (mysqli_connect_error()){
-                die('Connect Error('. mysqli_connect_error() .')'
-                . mysqli_connect_error());
-            }
-            else {
-                $str = $_POST["search"];            
-                $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
-                $Books = $conn->query($Available_Books);
-                while ($newElement = $Books->fetch_assoc()){
-                    $new[] = $newElement;
+                //Make Connection
+                $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+                if (mysqli_connect_error()) {
+                    die('Connect Error(' . mysqli_connect_error() . ')'
+                        . mysqli_connect_error());
+                } else {
+                    $str = $_POST["search"];
+                    $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
+                    $Books = $conn->query($Available_Books);
+                    while ($newElement = $Books->fetch_assoc()) {
+                        $new[] = $newElement;
+                    }
+                    $_SESSION['BooksTemp'] = $new;
                 }
-                $_SESSION['BooksTemp'] = $new;
+                $conn->close();
             }
-            $conn->close();
+            ?>
 
-        }
-    ?>
-    
-    <thead>
-        <tr>
-            <th>Book Cover</th>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Price</th>
-        </tr>
-    </thead>
+            <thead>
+                <tr>
+                    <th>Book Cover</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
 
-    <?php
+            <?php
 
-    for ($i = 0; $i < sizeof($_SESSION['BooksTemp']); $i++) :
-    ?>
-    <tr>
-    <td><input name="Item_ID" value="<?php echo $_SESSION['BooksTemp'][$i]['ISBN'];?>"></td>
-        <!--cover picture-->
-        <td><input name="Name" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Name'];?>"></td>
-        <!--booktitle-->
-        <td><<input name="author" value="<?php echo $_SESSION['BooksTemp'][$i]['Author'];?>"></td>
-        <!--author-->
-        <td><input name="Price" value="<?php echo $_SESSION['BooksTemp'][$i]['Asking_Price'];?>"></td>
-        <!--price-->
-        <td class="addToCart">
+            for ($i = 0; $i < sizeof($_SESSION['BooksTemp']); $i++) :
+            ?>
+                <tr>
+                    <td><img src="<?php echo $_SESSION['BooksTemp'][$i]['Book_Cover']; ?>" class="img-responsive"></td>
+                    <!--cover picture-->
+                    <td>
+                        <h4 class="name-text"><?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?></h4>
+                    </td>
+                    <!--booktitle-->
+                    <td>
+                        <h4 class="author-text"><?php echo $_SESSION['BooksTemp'][$i]['Author']; ?></h4>
+                    </td>
+                    <!--author-->
+                    <td>
+                        <h4 class="price-text"><?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?></h4>
+                    </td>
+                    <!--price-->
+                    <td class="addToCart"><input type="image" src="add.png" width="30px" height="30px" alt="Submit Form" title="Add"></td>
 
-                    <button type="submit" name="actions" value="Add" title="Add"
-                        ></button><img
-                            src="../edit.png" class="arrow" width="30" height="30" style="float:left;" /></input>
-                      
+                    <input name="Item_ID" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Cover']; ?>">
+                    <!--cover picture-->
+                    <input name="Name" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?>">
+                    <!--booktitle-->
+                    <input name="author" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Author']; ?>">
+                    <!--author-->
+                    <input name="Price" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?>">
 
-                </td>
-
-    </tr>
-    <?php endfor;
-    ?>
-</table>
-</form>
-
-  <!-- <div class="book-list" id="book-list">
-        <h2 class="text-center">Search Results </h2>
-        <div id="list-output" class="">
-            <table>
-                <div class="row">
-                    <thead>
-                        <tr>
-                            <th>Book Cover</th>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
+                </tr>
+            <?php endfor;
+            ?>
+        </table>
+    </form>
 
 
-                    <?php
-                    for ($i = 0; $i < sizeof($_SESSION['Books']); $i++) :
-                    ?>
-                    <tr>
-                        <td><?php echo $_SESSION['Books'][$i]['Book_Cover'];?></td>
-           
-                        <td><?php echo $_SESSION['Books'][$i]['Book_Name'];?></td>
-        
-                        <td><?php echo $_SESSION['Books'][$i]['Author']; ?></td>
-         
-                        <td><?php echo $_SESSION['Books'][$i]['Asking_Price']; ?></td>
-
-
-                    </tr>
-                    <?php endfor; ?>
-                </div>
-            </table>
-        </div>
-    </div> -->
 
     <!--books-->
     <div class="container-fluid features" style="background-color:#faf0e6;border-radius:5px;padding-bottom:50px;">
@@ -298,24 +253,19 @@ session_start();
         <div class="row justify-content-center">
             <!--style="margin-top:50px;"-->
             <div class="col-2 justify-content-center">
-                <img src="https://images4.penguinrandomhouse.com/cover/9781524759216?height=284&alt=cover_coming_soon.jpg"
-                    alt="top1" class="top1" width="125" height="175" />
+                <img src="https://images4.penguinrandomhouse.com/cover/9781524759216?height=284&alt=cover_coming_soon.jpg" alt="top1" class="top1" width="125" height="175" />
             </div>
             <div class="col-2">
-                <img src="https://images1.penguinrandomhouse.com/cover/9780593238899?height=284&alt=cover_coming_soon.jpg"
-                    alt="top2" class="top2" width="125" height="175" />
+                <img src="https://images1.penguinrandomhouse.com/cover/9780593238899?height=284&alt=cover_coming_soon.jpg" alt="top2" class="top2" width="125" height="175" />
             </div>
             <div class="col-2">
-                <img src="https://images1.penguinrandomhouse.com/cover/9780756412531?height=284&alt=cover_coming_soon.jpg"
-                    alt="top3" class="top3" width="125" height="175" />
+                <img src="https://images1.penguinrandomhouse.com/cover/9780756412531?height=284&alt=cover_coming_soon.jpg" alt="top3" class="top3" width="125" height="175" />
             </div>
             <div class="col-2">
-                <img src="https://images4.penguinrandomhouse.com/cover/9780525518778?height=284&alt=cover_coming_soon.jpg"
-                    alt="top4" class="top4" width="125" height="175" />
+                <img src="https://images4.penguinrandomhouse.com/cover/9780525518778?height=284&alt=cover_coming_soon.jpg" alt="top4" class="top4" width="125" height="175" />
             </div>
             <div class="col-2">
-                <img src="https://images2.penguinrandomhouse.com/cover/9781984830210?height=284&alt=cover_coming_soon.jpg"
-                    alt="top5" class="top5" width="125" height="175" />
+                <img src="https://images2.penguinrandomhouse.com/cover/9781984830210?height=284&alt=cover_coming_soon.jpg" alt="top5" class="top5" width="125" height="175" />
             </div>
         </div>
         <div class="row justify-content-around" style="flex-direction:column;padding-top:50px;">
@@ -328,24 +278,19 @@ session_start();
         <div class="row justify-content-center">
             <!--style="margin-top:50px;"-->
             <div class="col-2 justify-content-center">
-                <img src="https://images2.penguinrandomhouse.com/cover/9781681375540?height=284&alt=cover_coming_soon.jpg"
-                    alt="top1" class="top1" width="125" height="175" />
+                <img src="https://images2.penguinrandomhouse.com/cover/9781681375540?height=284&alt=cover_coming_soon.jpg" alt="top1" class="top1" width="125" height="175" />
             </div>
             <div class="col-2">
-                <img src="https://images4.penguinrandomhouse.com/cover/9781568366012?height=284&alt=cover_coming_soon.jpg"
-                    alt="top2" class="top2" width="125" height="175" />
+                <img src="https://images4.penguinrandomhouse.com/cover/9781568366012?height=284&alt=cover_coming_soon.jpg" alt="top2" class="top2" width="125" height="175" />
             </div>
             <div class="col-2">
-                <img src="https://images3.penguinrandomhouse.com/cover/9780593158289?height=284&alt=cover_coming_soon.jpg"
-                    alt="top3" class="top3" width="125" height="175" />
+                <img src="https://images3.penguinrandomhouse.com/cover/9780593158289?height=284&alt=cover_coming_soon.jpg" alt="top3" class="top3" width="125" height="175" />
             </div>
             <div class="col-2">
-                <img src="https://images3.penguinrandomhouse.com/cover/9781635421194?height=284&alt=cover_coming_soon.jpg"
-                    alt="top4" class="top4" width="125" height="175" />
+                <img src="https://images3.penguinrandomhouse.com/cover/9781635421194?height=284&alt=cover_coming_soon.jpg" alt="top4" class="top4" width="125" height="175" />
             </div>
             <div class="col-2">
-                <img src="https://images4.penguinrandomhouse.com/cover/9780449819203?height=284&alt=cover_coming_soon.jpg"
-                    alt="top5" class="top5" width="125" height="175" />
+                <img src="https://images4.penguinrandomhouse.com/cover/9780449819203?height=284&alt=cover_coming_soon.jpg" alt="top5" class="top5" width="125" height="175" />
             </div>
         </div>
     </div>
