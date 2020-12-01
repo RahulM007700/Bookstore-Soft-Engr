@@ -123,24 +123,47 @@
       </div>
     </div>
 
-    <div id="billingModal" class="addBookModal">
+    <div id="billingModal" class="billingModal">
       <div class="addBookModal-content">
-        <span class="close-button-add">&times;</span>
+        <span class="close-button-billing">&times;</span>
 
         <form action="../Admin_Phps/PromoUpdate.php" method="POST">
           <div class="container">
-            <h1 style="text-align: center">Edit Billing Address</h1>
-            <p style="text-align: center">
-              Please fill in the mandatory fields in this form to create a new
-              promotion.
-            </p>
+            <h1 style="text-align: center"><b>Edit Billing Address</b></h1>
 
-            <label for="isbn"><b>ISBN No.</b></label>
+            <h1 id="billingHeader" class="editProfileHeader">
+              Billing Address
+            </h1>
+            <h2>Street Address</h2>
             <input
+              id="streetAddress"
               type="text"
-              placeholder="Enter ISBN Number"
-              name="ISBN"
-              id="isbn"
+              class="input"
+              value="1234 Some Street"
+              required
+            />
+            <h2>City</h2>
+            <input
+              id="city"
+              type="text"
+              class="input"
+              value="Atlanta"
+              required
+            />
+            <h2>State</h2>
+            <input
+              id="state"
+              type="text"
+              class="input"
+              value="GA"
+              required
+            />
+            <h2>Zip Code</h2>
+            <input
+              id="zipCode"
+              type="text"
+              class="input"
+              value="30606"
               required
             />
 
@@ -148,8 +171,8 @@
               value="Add"
               name="actions"
               type="submit"
-              class="submitbtn"
-              id="submitbtn"
+              class="submitbtn1"
+              id="submitbtn1"
             >
               Submit
             </button>
@@ -159,24 +182,46 @@
       </div>
     </div>
 
-    <div id="paymentModal" class="addBookModal">
+    <div id="paymentModal" class="paymentModal">
       <div class="addBookModal-content">
-        <span class="close-button-add">&times;</span>
+        <span class="close-button-payment">&times;</span>
 
         <form action="../Admin_Phps/PromoUpdate.php" method="POST">
           <div class="container">
-            <h1 style="text-align: center">Edit Payment Information</h1>
-            <p style="text-align: center">
-              Please fill in the mandatory fields in this form to create a new
-              promotion.
-            </p>
+            <h1 style="text-align: center"><b>Edit Payment Information</b></h1>
 
-            <label for="isbn"><b>ISBN No.</b></label>
+            <h2>Card Type</h2>
+            <select name="cardType" id="cardType" style="width: 100%">
+              <option value="" selected="selected"></option>
+              <option value="visa">Visa</option>
+              <option value="discover">Discover</option>
+              <option value="americanexpress">American Express</option>
+              <option value="mastercard">Mastercard</option>
+            </select>
+            <h2>Card Number</h2>
             <input
+              id="cardNumber"
               type="text"
-              placeholder="Enter ISBN Number"
-              name="ISBN"
-              id="isbn"
+              class="input"
+              value="0000 **** **** 0000"
+              required
+            />
+            <h2>CVC</h2>
+            <input
+              id="cvc"
+              type="text"
+              class="input"
+              value="123"
+              maxlength="3"
+              required
+            />
+            <h2>Expiration Date</h2>
+            <input
+              id="expirationDate"
+              type="text"
+              class="input"
+              value="12/25"
+              maxlength="5"
               required
             />
 
@@ -184,8 +229,8 @@
               value="Add"
               name="actions"
               type="submit"
-              class="submitbtn"
-              id="submitbtn"
+              class="submitbtn2"
+              id="submitbtn2"
             >
               Submit
             </button>
@@ -198,8 +243,8 @@
     <script>
       var addModal = document.getElementById("billingModal");
       var addbtn = document.getElementById("billingButton");
-      var span = document.getElementsByClassName("close-button-add")[0];
-      var submitbtn = document.getElementById("submitbtn");
+      var span = document.getElementsByClassName("close-button-billing")[0];
+      var submitbtn = document.getElementById("submitbtn1");
 
       addbtn.onclick = function () {
         addModal.style.display = "block";
@@ -218,8 +263,8 @@
     <script>
       var addModal = document.getElementById("paymentModal");
       var addbtn = document.getElementById("paymentButton");
-      var span = document.getElementsByClassName("close-button-add")[0];
-      var submitbtn = document.getElementById("submitbtn");
+      var span = document.getElementsByClassName("close-button-payment")[0];
+      var submitbtn = document.getElementById("submitbtn2");
 
       addbtn.onclick = function () {
         addModal.style.display = "block";
