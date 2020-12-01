@@ -93,11 +93,11 @@ session_start();
 
     <!--nav bar end-->
 
-    
+
 
     <!--Search box-->
     <div class="container-fluid" style="/*background-color:#FFFFF0#ffdead*/;padding-bottom:50px;margin-top:0px;">
-        
+
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-9">
@@ -128,7 +128,7 @@ session_start();
     <!--end of search box-->
 
     <form method="POST" action="../Shopping%20Cart/updateCart.php">
-        <table>
+        <table style="background-color:#faf0e6;border-radius:5px;padding-bottom:50px;">
             <?php
             if (isset($_POST["submit"])) {
 
@@ -152,8 +152,7 @@ session_start();
                     $_SESSION['BooksTemp'] = $new;
                 }
                 $conn->close();
-            }
-            else if(!empty($_POST["homeSearch"])){
+            } else if (!empty($_POST["homeSearch"])) {
                 //echo $_SESSION['Email'];
                 $host = "localhost";
                 $dbusername = "root";
@@ -178,6 +177,9 @@ session_start();
             }
             ?>
 
+            <div class="row justify-content-around" style="flex-direction:column;padding-top:50px;">
+                <h1 class="b2" style="margin-left:3%; margin-right:3%;"><span>Search Results</span></h1>
+            </div>
             <thead>
                 <tr>
                     <th>Book Cover</th>
@@ -188,38 +190,44 @@ session_start();
             </thead>
 
             <?php
-            
+
             for ($i = 0; $i < sizeof($_SESSION['BooksTemp']); $i++) :
                 $_SESSION['TempISBN'] = $_SESSION['BooksTemp'][$i]['ISBN'];
             ?>
-                <tr>
-                    <td><a href="../BookDetails/bookDescriptions.php"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['BooksTemp'][$i]['Cover'] ).'" height="200" width="200"/>'; ?></a></td>
-                    <!--cover picture-->
-                    <td>
-                        <h4 class="name-text"><?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?></h4>
-                    </td>
-                    <!--booktitle-->
-                    <td>
-                        <h4 class="author-text"><?php echo $_SESSION['BooksTemp'][$i]['Author']; ?></h4>
-                    </td>
-                    <!--author-->
-                    <td>
-                        <h4 class="price-text"><?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?></h4>
-                    </td>
-                    <!--price-->
-                    <td class="addToCart"><input type="image" name="actions" value="Add to Cart" src="add.png" width="30px" height="30px" alt="Submit Form"></td>
+                <br>
 
-                    <input name="Item_ID" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['ISBN']; ?>">
-                    <?php $_SESSION['cover']=$_SESSION['BooksTemp'][$i]['Cover']; ?>
-                    <!--cover picture-->
-                    <input name="Name" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?>">
-                    <!--booktitle-->
-                    <input name="author" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Author']; ?>">
-                    <!--author-->
-                    <input name="Price" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?>">
-                    <input name="actions" type="hidden" value="Add to Cart">
+                <tbody>
+                    <tr style="height: 255px; padding:30px;">
+                        <div>
+                            <td><a href="../BookDetails/bookDescriptions.php"><?php echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['BooksTemp'][$i]['Cover']) . '" height="200" width="200"/>'; ?></a></td>
+                            <!--cover picture-->
+                            <td>
+                                <h4 class="name-text"><?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?></h4>
+                            </td>
+                            <!--booktitle-->
+                            <td>
+                                <h4 class="author-text"><?php echo $_SESSION['BooksTemp'][$i]['Author']; ?></h4>
+                            </td>
+                            <!--author-->
+                            <td>
+                                <h4 class="price-text"><?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?></h4>
+                            </td>
+                            <!--price-->
+                            <td class="addToCart"><input type="image" name="actions" value="Add to Cart" src="add.png" width="30px" height="30px" alt="Submit Form"></td>
 
-                </tr>
+                            <input name="Item_ID" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['ISBN']; ?>">
+                            <?php $_SESSION['cover'] = $_SESSION['BooksTemp'][$i]['Cover']; ?>
+                            <!--cover picture-->
+                            <input name="Name" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?>">
+                            <!--booktitle-->
+                            <input name="author" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Author']; ?>">
+                            <!--author-->
+                            <input name="Price" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?>">
+                            <input name="actions" type="hidden" value="Add to Cart">
+                        </div>
+                    </tr>
+
+                </tbody>
             <?php endfor;
             ?>
         </table>
@@ -227,88 +235,9 @@ session_start();
 
 
 
-    <!--books-->
-    <div class="container-fluid features" style="background-color:#faf0e6;border-radius:5px;padding-bottom:50px;">
-        <div class="row justify-content-around" style="flex-direction:column;padding-top:50px;">
-            <!--put featured books link here-->
-            <h1 class="b2" style="margin-left:3%; margin-right:3%;"><span>Top Sellers</span></h1>
-            <a href="#">
-                <p style="color:black; text-decoration:none;">View all top selling books here</p>
-            </a>
-        </div>
-        <div class="row justify-content-center">
-            <!--style="margin-top:50px;"-->
-            <div class="col-2 justify-content-center">
-                <img src="https://images4.penguinrandomhouse.com/cover/9781524759216?height=284&alt=cover_coming_soon.jpg" alt="top1" class="top1" width="125" height="175" />
-            </div>
-            <div class="col-2">
-                <img src="https://images1.penguinrandomhouse.com/cover/9780593238899?height=284&alt=cover_coming_soon.jpg" alt="top2" class="top2" width="125" height="175" />
-            </div>
-            <div class="col-2">
-                <img src="https://images1.penguinrandomhouse.com/cover/9780756412531?height=284&alt=cover_coming_soon.jpg" alt="top3" class="top3" width="125" height="175" />
-            </div>
-            <div class="col-2">
-                <img src="https://images4.penguinrandomhouse.com/cover/9780525518778?height=284&alt=cover_coming_soon.jpg" alt="top4" class="top4" width="125" height="175" />
-            </div>
-            <div class="col-2">
-                <img src="https://images2.penguinrandomhouse.com/cover/9781984830210?height=284&alt=cover_coming_soon.jpg" alt="top5" class="top5" width="125" height="175" />
-            </div>
-        </div>
-        <div class="row justify-content-around" style="flex-direction:column;padding-top:50px;">
-            <!--put featured books link here-->
-            <h1 class="b2" style="margin-left:3%; margin-right:3%;"><span>Featured Books</span></h1>
-            <a href="#">
-                <p style="color:black; text-decoration:none;">View all featured books here</p>
-            </a>
-        </div>
-        <div class="row justify-content-center">
-            <!--style="margin-top:50px;"-->
-            <div class="col-2 justify-content-center">
-                <img src="https://images2.penguinrandomhouse.com/cover/9781681375540?height=284&alt=cover_coming_soon.jpg" alt="top1" class="top1" width="125" height="175" />
-            </div>
-            <div class="col-2">
-                <img src="https://images4.penguinrandomhouse.com/cover/9781568366012?height=284&alt=cover_coming_soon.jpg" alt="top2" class="top2" width="125" height="175" />
-            </div>
-            <div class="col-2">
-                <img src="https://images3.penguinrandomhouse.com/cover/9780593158289?height=284&alt=cover_coming_soon.jpg" alt="top3" class="top3" width="125" height="175" />
-            </div>
-            <div class="col-2">
-                <img src="https://images3.penguinrandomhouse.com/cover/9781635421194?height=284&alt=cover_coming_soon.jpg" alt="top4" class="top4" width="125" height="175" />
-            </div>
-            <div class="col-2">
-                <img src="https://images4.penguinrandomhouse.com/cover/9780449819203?height=284&alt=cover_coming_soon.jpg" alt="top5" class="top5" width="125" height="175" />
-            </div>
-        </div>
-    </div>
-    <!--books end-->
 
-    <!--why us-->
-    <div class="container-fluid" style="background-color:lightblue;">
-        <div class="jumbotron">
-            <h1 class="b mycol"><span><i>Why Us?</i></span></h1>
-            <br>
-            <div class="container">
-                <div class="row justify-content-around">
-                    <div class="col-3 outside">
-                        <i class="fas fa-users fa-3x"></i>
-                        <h2>Our Customers Come First!</h2>
-                        <p>Our customers are our #1 priority; your satisfaction is 100% guaranteed!</p>
-                    </div>
-                    <div class="col-3 outside">
-                        <i class="fas fa-money-bill-alt fa-3x"></i>
-                        <h2>Relatively Affordable Books</h2>
-                        <p>Competitive prices; guaranteed we have the most reasonably priced books!</p>
-                    </div>
-                    <div class="col-3 outside">
-                        <i class="fas fa-shipping-fast fa-3x"></i>
-                        <h2>Guaranteed Fast Shipping</h2>
-                        <p>Once we process your payment, your book will arrive within 3-5 business days!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--end of why us-->
+
+
 
 </body>
 

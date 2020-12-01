@@ -229,3 +229,10 @@ table {
 
     width:100%
 }
+
+tbody:before {
+    content:"@";
+    display:block;
+    line-height:10px;
+    text-indent:-99999px;
+}
