@@ -1,10 +1,12 @@
 <?php 
-
+    session_start();
     $Item_ID = filter_input(INPUT_POST,'Item_ID');
+    $Cover = $_SESSION['cover'];
     $Name = filter_input(INPUT_POST,'Name');
-    $Quantity = "1";
+    $Quantity = filter_input(INPUT_POST,'quantity');
     $Price = filter_input(INPUT_POST,'Price');
     $Method = filter_input(INPUT_POST, 'actions');
+    $Email = $_SESSION['Email'];
     
     $host = "localhost";
     $dbusername = "root";
@@ -20,18 +22,25 @@
     }
     else {
         echo "hello";
-        if ($Method == "Add"){
+        //echo $Email;
+        if ($Method == "Add to Cart"){
             $SQL = "SELECT Item_ID from shopping_cart where Item_ID='$Item_ID'";
             $check = mysqli_query($conn, $SQL);
             $checkArr = mysqli_fetch_array($check);
             if (!empty($checkArr['Item_ID'])){
                 echo "Item already in cart!";
+                header("Location: http://localhost/Bookstore-Soft-Engr/Homepage/homepage.php");
             }
             else {
                 echo "here";
-                $SQL2 = "INSERT INTO shopping_cart (Account_ID, Item_ID, Name, Quantity, Price) values ('1', '$Item_ID', '$Name', '$Quantity', '$Price')";
+                $SQL2 = "INSERT INTO shopping_cart (Account_ID, Item_ID, Name, Quantity, Price, Email) values ('2', '$Item_ID', '$Name', '$Quantity', '$Price', '$Email')";
                 if (mysqli_query($conn, $SQL2)){
                     echo "Add Successful";
+                    header("Location: http://localhost/Bookstore-Soft-Engr/Homepage/homepage.php");
+                }
+                else {
+                    echo("Error description: " . $conn -> error);
+                    echo $Item_ID;
                 }
             }
         }
@@ -45,6 +54,7 @@
                     $SQL3 = "DELETE FROM shopping_cart WHERE ITEM_ID='$Item_ID'";
                     if (mysqli_query($conn, $SQL3)){
                         echo "Quantity was Zero";
+                        header("Location: http://localhost/Bookstore-Soft-Engr/Homepage/homepage.php");
                     }
                 }
                 else {
@@ -56,6 +66,7 @@
             $SQL = "DELETE FROM shopping_cart WHERE ITEM_ID='$Item_ID'";
             if (mysqli_query($conn, $SQL)){
                 echo "DELETE";
+                header("Location: http://localhost/Bookstore-Soft-Engr/Homepage/homepage.php?results=Login-Successful");
             }
         }
     }

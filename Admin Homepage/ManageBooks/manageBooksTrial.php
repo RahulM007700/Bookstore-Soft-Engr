@@ -133,8 +133,8 @@ session_start();
 
                     <form action="./Admin_Phps/BooksUpdate.php" method="POST">
                         <?php
-                    for ($i = 0; $i < sizeof($_SESSION['Books']); $i++) :
-                    ?><?php echo $_SESSION['Books'][$i]['Book_Name'];?>
+                          for ($i = 0; $i < sizeof($_SESSION['Books']); $i++) :
+                        ?>
                         <tr>
                             <td><input type="hidden" name="i1" value='<?php echo $i;?>'><?= $i; ?></td>
                             <td><input type="hidden" name="i2" value='<?php echo $_SESSION['Books'][$i]['Book_Name'];?>'><?= $_SESSION['Books'][$i]['Book_Name']; ?></td>
@@ -203,7 +203,7 @@ session_start();
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="../Admin_Phps/BooksUpdate.php" method="POST">
+        <form action="../Admin_Phps/BooksUpdate.php" method="POST" enctype="multipart/form-data">
           <div class="modal-body mx-3">
             <div class="md-form mb-5">
               <label for="bookname"><b>Book Name</b></label>

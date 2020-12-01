@@ -48,7 +48,7 @@ if (!empty($EmailAddress)){
                         header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/Final%20Homepage/adminHomepage.php?results=Login-Successful");
                     }
                     else {
-                        header("Location: http://localhost/Bookstore-Soft-Engr/Homepage/homepage.php?results=Login-Successful");
+                        header("Location: http://localhost/Bookstore-Soft-Engr/Homepage/CustomerBookRetrieval.php");
                     }
                 }
                 else {

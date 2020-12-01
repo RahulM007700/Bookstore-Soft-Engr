@@ -385,20 +385,22 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                     }
                   ?>
                 </div>
-              </i></a>
-              </div>
-              <input type="text" class="form-control" placeholder="search..." name="search">
-              <div class="input-group-btn">
-                <button class="btn btn-default" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-              </div>
+              </i></a>              
+              </div>              
             </div>
           </form>
         </div>
       </div>
     </div>
   </div>
+  <form method="POST" action="../BookSearch/NewBookSearch.php">
+                <input type="text" class="form-control" placeholder="search..." name="homeSearch">
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </form>
   <!--end of search box-->
   
   <!--books-->
