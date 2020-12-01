@@ -153,6 +153,29 @@ session_start();
                 }
                 $conn->close();
             }
+            else if(!empty($_POST["homeSearch"])){
+                //echo $_SESSION['Email'];
+                $host = "localhost";
+                $dbusername = "root";
+                $dbpassword = "";
+                $dbname = "online_bookstore";
+
+                //Make Connection
+                $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+                if (mysqli_connect_error()) {
+                    die('Connect Error(' . mysqli_connect_error() . ')'
+                        . mysqli_connect_error());
+                } else {
+                    $str = $_POST["homeSearch"];
+                    $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
+                    $Books = $conn->query($Available_Books);
+                    while ($newElement = $Books->fetch_assoc()) {
+                        $new[] = $newElement;
+                    }
+                    $_SESSION['BooksTemp'] = $new;
+                }
+                $conn->close();
+            }
             ?>
 
             <thead>
@@ -165,11 +188,12 @@ session_start();
             </thead>
 
             <?php
-
+            
             for ($i = 0; $i < sizeof($_SESSION['BooksTemp']); $i++) :
+                $_SESSION['TempISBN'] = $_SESSION['BooksTemp'][$i]['ISBN'];
             ?>
                 <tr>
-                    <td><img src="<?php echo $_SESSION['BooksTemp'][$i]['Book_Cover']; ?>" class="img-responsive"></td>
+                    <td><a href="../BookDetails/bookDescriptions.php"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['BooksTemp'][$i]['Cover'] ).'" height="200" width="200"/>'; ?></a></td>
                     <!--cover picture-->
                     <td>
                         <h4 class="name-text"><?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?></h4>
@@ -183,15 +207,17 @@ session_start();
                         <h4 class="price-text"><?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?></h4>
                     </td>
                     <!--price-->
-                    <td class="addToCart"><input type="image" src="add.png" width="30px" height="30px" alt="Submit Form" title="Add"></td>
+                    <td class="addToCart"><input type="image" name="actions" value="Add to Cart" src="add.png" width="30px" height="30px" alt="Submit Form"></td>
 
-                    <input name="Item_ID" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Cover']; ?>">
+                    <input name="Item_ID" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['ISBN']; ?>">
+                    <?php $_SESSION['cover']=$_SESSION['BooksTemp'][$i]['Cover']; ?>
                     <!--cover picture-->
                     <input name="Name" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?>">
                     <!--booktitle-->
                     <input name="author" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Author']; ?>">
                     <!--author-->
                     <input name="Price" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?>">
+                    <input name="actions" type="hidden" value="Add to Cart">
 
                 </tr>
             <?php endfor;
