@@ -42,7 +42,7 @@ session_start();
     <!--nav bar-->
     <div class="container-fluid">
         <nav class="navbar navbar-expand navbar-light">
-            <a class="navbar-brand" href="#"><img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo4.jpg" height="50"></a>
+            <a class="navbar-brand" href="#"><img src="BooksRUs_Logo.png" width="110%" height="100%"></a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item px-4"><a href="#" class="nav-link py-4">Textbooks</a></li>
@@ -92,7 +92,7 @@ session_start();
     </div>
 
     <!--nav bar end-->
-
+    <br><br>
 
 
     <!--Search box-->
@@ -127,109 +127,117 @@ session_start();
     </div>
     <!--end of search box-->
 
-    <form method="POST" action="../Shopping%20Cart/updateCart.php">
-        <table style="background-color:#faf0e6;border-radius:5px;padding-bottom:50px;">
-            <?php
-            if (isset($_POST["submit"])) {
+    <?php
+    if (isset($_POST["submit"])) {
 
-                $host = "localhost";
-                $dbusername = "root";
-                $dbpassword = "";
-                $dbname = "online_bookstore";
+        $host = "localhost";
+        $dbusername = "root";
+        $dbpassword = "";
+        $dbname = "online_bookstore";
 
-                //Make Connection
-                $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
-                if (mysqli_connect_error()) {
-                    die('Connect Error(' . mysqli_connect_error() . ')'
-                        . mysqli_connect_error());
-                } else {
-                    $str = $_POST["search"];
-                    $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
-                    $Books = $conn->query($Available_Books);
-                    while ($newElement = $Books->fetch_assoc()) {
-                        $new[] = $newElement;
-                    }
-                    $_SESSION['BooksTemp'] = $new;
-                }
-                $conn->close();
-            } else if (!empty($_POST["homeSearch"])) {
-                //echo $_SESSION['Email'];
-                $host = "localhost";
-                $dbusername = "root";
-                $dbpassword = "";
-                $dbname = "online_bookstore";
-
-                //Make Connection
-                $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
-                if (mysqli_connect_error()) {
-                    die('Connect Error(' . mysqli_connect_error() . ')'
-                        . mysqli_connect_error());
-                } else {
-                    $str = $_POST["homeSearch"];
-                    $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
-                    $Books = $conn->query($Available_Books);
-                    while ($newElement = $Books->fetch_assoc()) {
-                        $new[] = $newElement;
-                    }
-                    $_SESSION['BooksTemp'] = $new;
-                }
-                $conn->close();
+        //Make Connection
+        $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+        if (mysqli_connect_error()) {
+            die('Connect Error(' . mysqli_connect_error() . ')'
+                . mysqli_connect_error());
+        } else {
+            $str = $_POST["search"];
+            $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
+            $Books = $conn->query($Available_Books);
+            while ($newElement = $Books->fetch_assoc()) {
+                $new[] = $newElement;
             }
-            ?>
+            $_SESSION['BooksTemp'] = $new;
+        }
+        $conn->close();
+    } else if (!empty($_POST["homeSearch"])) {
+        //echo $_SESSION['Email'];
+        $host = "localhost";
+        $dbusername = "root";
+        $dbpassword = "";
+        $dbname = "online_bookstore";
 
-            <div class="row justify-content-around" style="flex-direction:column;padding-top:50px;">
-                <h1 class="b2" style="margin-left:3%; margin-right:3%;"><span>Search Results</span></h1>
-            </div>
-            <thead>
-                <tr>
-                    <th>Book Cover</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
+        //Make Connection
+        $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+        if (mysqli_connect_error()) {
+            die('Connect Error(' . mysqli_connect_error() . ')'
+                . mysqli_connect_error());
+        } else {
+            $str = $_POST["homeSearch"];
+            $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
+            $Books = $conn->query($Available_Books);
+            while ($newElement = $Books->fetch_assoc()) {
+                $new[] = $newElement;
+            }
+            $_SESSION['BooksTemp'] = $new;
+        }
+        $conn->close();
+    }
+    ?>
 
-            <?php
+    <form method="POST" action="../Shopping%20Cart/updateCart.php">
+        <table style="background-color: #faf0e6; border-radius:5px;padding-bottom:50px;">
+            <div class="container-fluid features" style="background-color:#faf0e6;border-radius:5px;padding-bottom:50px;">
 
-            for ($i = 0; $i < sizeof($_SESSION['BooksTemp']); $i++) :
-                $_SESSION['TempISBN'] = $_SESSION['BooksTemp'][$i]['ISBN'];
-            ?>
-                <br>
+                <div class="row justify-content-around" style="flex-direction:column;padding-top:50px;">
+                    <h1 class="b2" style="margin-left:3%; margin-right:3%;"><span>Search Results</span></h1>
+                </div>
+                <thead>
+                    <tr>
+                        <th>Book Cover</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
 
                 <tbody>
-                    <tr style="height: 255px; padding:30px;">
-                        <div>
-                            <td><a href="../BookDetails/bookDescriptions.php"><?php echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['BooksTemp'][$i]['Cover']) . '" height="200" width="200"/>'; ?></a></td>
-                            <!--cover picture-->
-                            <td>
-                                <h4 class="name-text"><?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?></h4>
-                            </td>
-                            <!--booktitle-->
-                            <td>
-                                <h4 class="author-text"><?php echo $_SESSION['BooksTemp'][$i]['Author']; ?></h4>
-                            </td>
-                            <!--author-->
-                            <td>
-                                <h4 class="price-text"><?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?></h4>
-                            </td>
-                            <!--price-->
-                            <td class="addToCart"><input type="image" name="actions" value="Add to Cart" src="add.png" width="30px" height="30px" alt="Submit Form"></td>
+                    <div>
+                        <?php
 
-                            <input name="Item_ID" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['ISBN']; ?>">
-                            <?php $_SESSION['cover'] = $_SESSION['BooksTemp'][$i]['Cover']; ?>
-                            <!--cover picture-->
-                            <input name="Name" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?>">
-                            <!--booktitle-->
-                            <input name="author" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Author']; ?>">
-                            <!--author-->
-                            <input name="Price" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?>">
-                            <input name="actions" type="hidden" value="Add to Cart">
-                        </div>
-                    </tr>
+                        for ($i = 0; $i < sizeof($_SESSION['BooksTemp']); $i++) :
+                            $_SESSION['TempISBN'] = $_SESSION['BooksTemp'][$i]['ISBN'];
+                        ?>
+                            <br>
 
+
+                            <tr style="height: 255px; padding:30px;">
+                                <div class="book card" style="border: 3px black;">
+                                    <td><a href="../BookDetails/bookDescriptions.php"><?php echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['BooksTemp'][$i]['Cover']) . '" height="200" width="200"/>'; ?></a></td>
+                                    <!--cover picture-->
+                                    <td>
+                                        <h4 class="name-text"><?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?></h4>
+                                    </td>
+                                    <!--booktitle-->
+                                    <td>
+                                        <h4 class="author-text"><?php echo $_SESSION['BooksTemp'][$i]['Author']; ?></h4>
+                                    </td>
+                                    <!--author-->
+                                    <td>
+                                        <h4 class="price-text"><?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?></h4>
+                                    </td>
+                                    <!--price-->
+                                    <td class="addToCart"><input type="image" name="actions" value="Add to Cart" src="add.png" width="30px" height="30px" alt="Submit Form"></td>
+
+                                    <input name="Item_ID" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['ISBN']; ?>">
+                                    <?php $_SESSION['cover'] = $_SESSION['BooksTemp'][$i]['Cover']; ?>
+                                    <!--cover picture-->
+                                    <input name="Name" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?>">
+                                    <!--booktitle-->
+                                    <input name="author" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Author']; ?>">
+                                    <!--author-->
+                                    <input name="Price" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?>">
+                                    <input name="actions" type="hidden" value="Add to Cart">
+                                </div>
+                            </tr>
+
+                        <?php endfor;
+                        ?>
+                    </div>
                 </tbody>
-            <?php endfor;
-            ?>
+
+            </div>
+
         </table>
     </form>
 

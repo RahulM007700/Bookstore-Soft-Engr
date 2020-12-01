@@ -52,8 +52,7 @@ session_start();
     <!--nav bar-->
     <div class="container-fluid">
         <nav class="navbar navbar-expand navbar-light">
-            <a class="navbar-brand" href="#"><img
-                    src="BooksRUs_Logo.png" width="110%" height="100%"></a>
+            <a class="navbar-brand" href="#"><img src="BooksRUs_Logo.png" width="110%" height="100%"></a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item px-4"><a href="#" class="nav-link py-4">Textbooks</a></li>
@@ -205,7 +204,8 @@ session_start();
 
                         <tr style="height: 255px; padding:30px;">
                             <div class="book card" style="border: 3px black;">
-                                <td><a href="../BookDetails/bookDescriptions.php"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['BooksTemp'][$i]['Cover'] ).'" height="200" width="200"/>'; ?></a>
+                                <td><a
+                                        href="../BookDetails/bookDescriptions.php"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['BooksTemp'][$i]['Cover'] ).'" height="200" width="200"/>'; ?></a>
                                 </td>
                                 <!--cover picture-->
                                 <td>
@@ -244,12 +244,10 @@ session_start();
                 </tbody>
 
             </div>
-
-            </div>
         </table>
     </form>
 
-    </div>
+
 
 
 
