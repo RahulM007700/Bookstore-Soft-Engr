@@ -6,7 +6,7 @@
     <title>New Order History</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css"></link>
-    <link rel="stylesheet" href="newShoppingCart.css"></link>
+    <link rel="stylesheet" href="../Shopping Cart/newShoppingCart.css"></link>
     <script src="https://kit.fontawesome.com/a746b8874d.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
 </head>
@@ -18,7 +18,7 @@
 <!--nav bar-->
     <div class="container-fluid">
       <nav class="navbar navbar-expand navbar-light">
-          <a class="navbar-brand" href="#"><img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo4.jpg" height="50"></a>
+          <a class="navbar-brand" href="#"><img src="../BooksRUs_Logo.png" height="120" style="left:-20px;"></a>
           <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item px-4"><a href="#" class="nav-link py-4">Textbooks</a></li>

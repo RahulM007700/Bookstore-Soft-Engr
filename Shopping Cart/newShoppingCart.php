@@ -13,7 +13,7 @@
         <!--nav bar-->
         <div class="container-fluid">
           <nav class="navbar navbar-expand navbar-light">
-              <a class="navbar-brand" href="#"><img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo4.jpg" height="50"></a>
+              <a class="navbar-brand" href="#"><img src="../BooksRUs_Logo.png" height="120" style="left:-20px;"></a>
               <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item px-4"><a href="#" class="nav-link py-4">Textbooks</a></li>
@@ -112,9 +112,10 @@
                         //for (int i = 0; i <sizeof($_SESSION['Cart']); i++) {
                         //    subtotal += $_SESSION['Cart'][$i]['product'] * $_SESSION['Cart'][$i]['Quantity'];
                         //}
-                        document.getElementById("subtotal").innerHTML = "subtotal will go here";
+                        document.getElementById("subtotal").innerHTML = "Subtotal: $100 q";
                     </script>
-                </div>
+                    <button type="button" class="btn btn-light" style=“float:right;”>Checkout</button>
+                        </div>              
                 <script>
                     var items = $i;
                     document.getElementById("numOfItems").innerHTML = "(" + items + ")" + " in your shopping cart";
