@@ -125,7 +125,9 @@
           <p class="bold_text">
             <b>Order Total</b> <t style="float: right"><b>$18.00</b></t>
           </p>
-          <button type="button">Checkout</button>
+          <form method="POST" action="orderCheckOut.php">
+          <button type="submit">Checkout</button>
+          </form>
         </div>
       </div>
     </div>

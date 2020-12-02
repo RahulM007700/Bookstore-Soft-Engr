@@ -317,7 +317,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                 </div>
                 </a></li>
               </div>
-            <li class="nav-item px-4"><a href="#" class="nav-link py-4"><i class="fas fa-shopping-cart"></i></a></li>
+            <li class="nav-item px-4"><a href="../Shopping Cart/shoppingCartRetrieval.php" class="nav-link py-4"><i class="fas fa-shopping-cart"></i></a></li>
           </ul>     
         </div>
     </nav>

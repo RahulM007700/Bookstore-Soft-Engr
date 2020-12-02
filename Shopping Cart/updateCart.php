@@ -1,7 +1,7 @@
 <?php 
     session_start();
     $Item_ID = filter_input(INPUT_POST,'Item_ID');
-    $Cover = $_SESSION['cover'];
+    $Cover = $_SESSION['Cover'];
     $Name = filter_input(INPUT_POST,'Name');
     $Quantity = filter_input(INPUT_POST,'quantity');
     $Price = filter_input(INPUT_POST,'Price');

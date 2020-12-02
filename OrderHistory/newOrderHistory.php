@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 
 <html>
@@ -59,13 +60,15 @@
                             <td>Total<span class="text-muted font-weight-normal font-italic d-block">Total goes here</span></td>
                             <td>ORDER #<span class="text-muted font-weight-normal font-italic d-block">Order num goes here</span></td>
                         </thead>
+                        <?php for ($i = 0; $i < sizeof($_SESSION['Order_History']); $i++) :?>
                         <tbody>
                             <tr>
-                                <td><img src="/apple.png" alt="" height="70" width="70"></td>
-                                <td>quantity</td>
-                                <td>price</td>
+                                <td><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['Order_History'][$i]['Cover'] ).'" alt="" height="70" width="70">'?></td>
+                                <td><?php echo "Quantity: ";?><?= $_SESSION['Order_History'][$i]['Quantity']; ?></td>
+                                <td><?php echo "$ ";?><?= $_SESSION['Order_History'][$i]['Price']; ?></td>
                             </tr>
                         </tbody>
+                        <?php endfor; ?>
                     </table>
                     <button type = "button" class="btn btn-light" style="float:right;">Reorder</button>
                 </div>
