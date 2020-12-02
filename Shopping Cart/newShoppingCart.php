@@ -112,7 +112,7 @@
                         //for (int i = 0; i <sizeof($_SESSION['Cart']); i++) {
                         //    subtotal += $_SESSION['Cart'][$i]['product'] * $_SESSION['Cart'][$i]['Quantity'];
                         //}
-                        document.getElementById("subtotal").innerHTML = "Subtotal: $199.99";
+                        document.getElementById("subtotal").innerHTML = "Subtotal: $100 q";
                     </script>
                     <button type="button" class="btn btn-light" style=“float:right;”>Checkout</button>
                         </div>              
