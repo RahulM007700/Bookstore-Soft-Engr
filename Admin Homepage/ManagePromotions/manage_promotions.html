@@ -15,7 +15,7 @@ session_start();
       rel="stylesheet"
       href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css"
     />
-    <link rel="stylesheet" href="../manageBooks.css" />
+    <link rel="stylesheet" href="../ManageBooks/manageBooks.css" />
     <?php $recEmail = $_SESSION['Emails']?>
     <script type="text/javascript">
       session = "<?php echo $recEmail;?>";
@@ -130,6 +130,7 @@ session_start();
               <th>Promotion Name</th>
               <th>Promotion ID</th>
               <th>Discount</th>
+              <th>Start Date</th>
               <th>Expiration Date</th>
               <th>Status</th>
               <th>Actions</th>
@@ -190,6 +191,15 @@ session_start();
                     echo $_SESSION['Promotions'][$i]['Discount'];
                     echo '/>'; } else { echo
                   $_SESSION['Promotions'][$i]['Discount']; } ?>
+                </td>
+
+                <td>
+                  <?php
+                  if ($actions == "EDIT") {
+                    echo '<input type="text" name="Start_date" value=';
+                    echo $_SESSION['Promotions'][$i]['Start_Date'];
+                    echo '/>'; } else { echo
+                  $_SESSION['Promotions'][$i]['Start_Date']; } ?>
                 </td>
 
                 <td>
@@ -264,6 +274,7 @@ session_start();
               <th>Promotion Name</th>
               <th>Promotion ID</th>
               <th>Discount</th>
+              <th>Start Date</th>
               <th>Expiration Date</th>
               <th>Status</th>
               <th>Actions</th>
