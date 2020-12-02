@@ -236,3 +236,36 @@ tbody:before {
     line-height:10px;
     text-indent:-99999px;
 }
+
+.footer{
+
+    
+    height: 300px;
+    position: relative;
+
+}
+
+.footer .footer-content{
+    height: 250px;
+    display: flex;
+    
+
+}
+
+.footer .footer-content .footer-section{
+    flex:1;
+ 
+    padding: 25px;
+}
+
+.footer .footer-bottom{
+    text-align: center;
+    height: 50px;
+    position: absolute;
+    bottom: 0px;
+    left:0px;
+    padding-top: 20px;
+    width:100%
+
+
+}
