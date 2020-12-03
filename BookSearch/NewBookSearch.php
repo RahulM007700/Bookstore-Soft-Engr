@@ -8,6 +8,7 @@ session_start();
 
 <head>
     <title>Books-R-Us</title>
+    <!--
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -25,8 +26,17 @@ session_start();
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../SkeletonEmailCode/sendEmail.js"></script>
-
+    <script type="text/javascript" src="../SkeletonEmailCode/sendEmail.js"></script>    
+    -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="NewBookSearch.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://kit.fontawesome.com/a746b8874d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 
     <script>
@@ -135,12 +145,13 @@ session_start();
                             <div class="dropdown">
                                 <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:32px; margin-right:5px; background-color:#E0DEDE;"><i class="fas fa-filter" style="color:black;"></i>
                                     <span class="caret"></span></button>
-                                <ul class="dropdown-menu" id="filter">
-                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> Author</li>
-                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> Title</li>
-                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> Category</li>
-                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> ISBN</li>
-                                </ul>
+                                    <ul class="dropdown-menu" id="filter">
+                                        <input type="hidden" name="Filter" value="Book_Name"/>
+                                        <li style="text-align:left; padding-left:5px;"><input name="Filter" value="Author" type="checkbox"> Author</li>
+                                        <li style="text-align:left; padding-left:5px;"><input name="Filter" value="Book_Name" type="checkbox"> Title</li>
+                                        <li style="text-align:left; padding-left:5px;"><input name="Filter" value="Category" type="checkbox"> Category</li>
+                                        <li style="text-align:left; padding-left:5px;"><input name="Filter" value="ISBN" type="checkbox"> ISBN</li>
+                                    </ul>
                             </div>
                             <input type="text" class="form-control" placeholder="search..." name="search">
                             <div class="input-group-btn">
@@ -170,7 +181,7 @@ session_start();
             <table style="background-color: #faf0e6; border-radius:5px;padding-bottom:50px;">
 
                 <?php
-                if (isset($_POST["submit"])) {
+                if (isset($_POST["search"])) {
 
                     $host = "localhost";
                     $dbusername = "root";
@@ -183,8 +194,9 @@ session_start();
                         die('Connect Error(' . mysqli_connect_error() . ')'
                             . mysqli_connect_error());
                     } else {
+                        $Filter = $_POST['Filter'];
                         $str = $_POST["search"];
-                        $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
+                        $Available_Books = "SELECT * FROM available_books WHERE ".$Filter." = '$str'";
                         $Books = $conn->query($Available_Books);
                         while ($newElement = $Books->fetch_assoc()) {
                             $new[] = $newElement;
@@ -205,8 +217,9 @@ session_start();
                         die('Connect Error(' . mysqli_connect_error() . ')'
                             . mysqli_connect_error());
                     } else {
+                        $Filter = $_POST['homeFilter'];
                         $str = $_POST["homeSearch"];
-                        $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
+                        $Available_Books = "SELECT * FROM available_books WHERE ".$Filter." = '$str'";
                         $Books = $conn->query($Available_Books);
                         while ($newElement = $Books->fetch_assoc()) {
                             $new[] = $newElement;
@@ -242,6 +255,7 @@ session_start();
 
                                 <tr style="height: 255px; padding:30px;">
                                     <div class="book card" style="border: 3px black;">
+                                        <?php $_SESSION['Cover']=$_SESSION['BooksTemp'][$i]['Cover'];?>
                                         <td><a href="../BookDetails/bookDescriptions.php"><?php echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['BooksTemp'][$i]['Cover']) . '" height="200" width="200"/>'; ?></a>
                                         </td>
                                         <!--cover picture-->

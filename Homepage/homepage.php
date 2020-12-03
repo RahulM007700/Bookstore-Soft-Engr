@@ -351,10 +351,11 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                 <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:32px; margin-right:5px; background-color:#E0DEDE;"><i class="fas fa-filter" style="color:black;"></i>
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu" id="filter">
-                  <li style="text-align:left; padding-left:5px;"><input name="Filter" value="Author" type="checkbox"> Author</li>
-                  <li style="text-align:left; padding-left:5px;"><input name="Filter" value="Book_Name" type="checkbox"> Title</li>
-                  <li style="text-align:left; padding-left:5px;"><input name="Filter" value="Category" type="checkbox"> Category</li>
-                  <li style="text-align:left; padding-left:5px;"><input name="Filter" value="ISBN" type="checkbox"> ISBN</li>
+                  <input type="hidden" name="homeFilter" value="Book_Name"/>
+                  <li style="text-align:left; padding-left:5px;"><input name="homeFilter" value="Author" type="checkbox"> Author</li>
+                  <li style="text-align:left; padding-left:5px;"><input name="homeFilter" value="Book_Name" type="checkbox"> Title</li>
+                  <li style="text-align:left; padding-left:5px;"><input name="homeFilter" value="Category" type="checkbox"> Category</li>
+                  <li style="text-align:left; padding-left:5px;"><input name="homeFilter" value="ISBN" type="checkbox"> ISBN</li>
                 </ul>
               </div>
               <input type="text" class="form-control" placeholder="search..." name="homeSearch">
