@@ -7,6 +7,7 @@ session_start();
 <html>
 
 <head>
+    <!--
     <title>New Homepage</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,6 +26,18 @@ session_start();
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="../SkeletonEmailCode/sendEmail.js"></script>
+-->
+<title>New Homepage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://kit.fontawesome.com/a746b8874d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="NewBookSearch.css">
+<script type="text/javascript" src="../SkeletonEmailCode/sendEmail.js"></script>
     <script>
         var userID = '';
         var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -114,7 +127,7 @@ session_start();
                             </div>
                             <input type="text" class="form-control" placeholder="Search..." name="search">
                             <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit" id="submit">
+                                <button class="btn btn-default" type="submit">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
@@ -125,77 +138,15 @@ session_start();
         </div>
     </div>
 
-<<<<<<< HEAD
+    
     <script>
-        function filter(item) { /* for booksearch page */
-            $.ajax({
-                type: "POST",
-                url: "RetrieveTest.php",
-                data: { value: item },
-                success: function (data) {
-                    $("#results").html(data);
-                }
-            });
-=======
-   
-
-    <form method="POST" action="../Shopping%20Cart/updateCart.php">
-        <table style="background-color: #faf0e6; border-radius:5px;padding-bottom:50px;">
-
-            <?php
-    if (isset($_POST["submit"])) {
-
-        $host = "localhost";
-        $dbusername = "root";
-        $dbpassword = "";
-        $dbname = "online_bookstore";
-
-        //Make Connection
-        $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
-        if (mysqli_connect_error()) {
-            die('Connect Error(' . mysqli_connect_error() . ')'
-                . mysqli_connect_error());
-        } else {
-            $str = $_POST["search"];
-            $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'   ";
-            $Books = $conn->query($Available_Books);
-            while ($newElement = $Books->fetch_assoc()) {
-                $new[] = $newElement;
-            }
-            $_SESSION['BooksTemp'] = $new;
-        }
-        $conn->close();
-    } else if (!empty($_POST["homeSearch"])) {
-        echo $_POST['Filter'];
-        $host = "localhost";
-        $dbusername = "root";
-        $dbpassword = "";
-        $dbname = "online_bookstore";
-
-        //Make Connection
-        $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
-        if (mysqli_connect_error()) {
-            die('Connect Error(' . mysqli_connect_error() . ')'
-                . mysqli_connect_error());
-        } else {
-            $str = $_POST["homeSearch"];
-            $Available_Books = "SELECT * FROM available_books WHERE Book_Name='$str'";
-            $Books = $conn->query($Available_Books);
-            while ($newElement = $Books->fetch_assoc()) {
-                $new[] = $newElement;
-            }
-            $_SESSION['BooksTemp'] = $new;
->>>>>>> 5157def237dac0ac0226dfd274b35fbfd05e6e91
-        }
-
-        $(document).ready(function () {
-            $('input:checkbox').click(function () {
-                $('input:checkbox').not(this).prop('checked', false);
+        $(document).ready(function(){
+            $('input:checkbox').click(function() {
+            $('input:checkbox').not(this).prop('checked', false);
             });
         });
-
-
     </script>
+    
     <!--end of search box-->
 
 
