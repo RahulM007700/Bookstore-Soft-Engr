@@ -112,7 +112,7 @@ session_start();
                                     <li style="text-align:left; padding-left:5px;"><input type="checkbox"> ISBN</li>
                                 </ul>
                             </div>
-                            <input type="text" class="form-control" placeholder="search..." name="search">
+                            <input type="text" class="form-control" placeholder="Search..." name="search">
                             <div class="input-group-btn">
                                 <button class="btn btn-default" type="submit">
                                     <i class="fas fa-search"></i>
@@ -146,7 +146,7 @@ session_start();
                 . mysqli_connect_error());
         } else {
             $str = $_POST["search"];
-            $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
+            $Available_Books = "SELECT * FROM available_books WHERE Book_Name LIKE '$str'";
             $Books = $conn->query($Available_Books);
             while ($newElement = $Books->fetch_assoc()) {
                 $new[] = $newElement;
