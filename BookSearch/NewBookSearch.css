@@ -7,7 +7,7 @@ body {
     padding-top: 50px;
 }
 
-.dropdown.dropdown-lg .dropdown-menu {
+.dropdown .dropdown-lg .dropdown-menu {
     margin-top: -1px;
     padding: 6px 20px;
 }
@@ -178,10 +178,10 @@ a:link {
 
 .hero-image {
     /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://s3.amazonaws.com/prod.assets.thebanner/styles/article-large/s3/article/large/TIN-332%20Books%20from_large.jpg?itok=goIsOQs0");
+    background-image: url("https://s.abcnews.com/images/Technology/GTY_woman_reading_book_jt_140112_16x9_992.jpg");
 
     /* Set a specific height */
-    height: 50%;
+    height: 60%;
 
     /* Position and center the image to scale nicely on all screens */
     background-position: center;
@@ -261,7 +261,7 @@ tbody:before {
 .footer .footer-bottom{
     text-align: center;
     height: 50px;
-    position: absolute;
+    position: relative;
     bottom: 0px;
     left:0px;
     padding-top: 20px;
@@ -269,3 +269,30 @@ tbody:before {
 
 
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: pink;}
