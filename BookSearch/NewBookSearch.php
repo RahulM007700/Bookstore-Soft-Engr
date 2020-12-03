@@ -41,7 +41,7 @@ session_start();
     <!--nav bar-->
     <div class="container-fluid">
         <nav class="navbar navbar-expand navbar-light">
-            <a class="navbar-brand" href="#"><img src="BooksRUs_Logo.png" width="110%" height="100%"></a>
+            <a class="navbar-brand" href="#"><img src="BooksRUs_Logo.png" width="110%" height="100%"><img src="book.png" width="19" height="25" /></a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item px-4"><a href="#" class="nav-link py-4">Textbooks</a></li>
@@ -114,7 +114,7 @@ session_start();
                             </div>
                             <input type="text" class="form-control" placeholder="search..." name="search">
                             <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit">
+                                <button class="btn btn-default" type="submit" id="submit">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
@@ -124,10 +124,31 @@ session_start();
             </div>
         </div>
     </div>
+
+    <script>
+        function filter(item) { /* for booksearch page */
+            $.ajax({
+                type: "POST",
+                url: "RetrieveTest.php",
+                data: { value: item },
+                success: function (data) {
+                    $("#results").html(data);
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            $('input:checkbox').click(function () {
+                $('input:checkbox').not(this).prop('checked', false);
+            });
+        });
+
+
+    </script>
     <!--end of search box-->
 
 
-    <div>
+    <div class="results">
         <form method="POST" action="../Shopping%20Cart/updateCart.php">
             <table style="background-color: #faf0e6; border-radius:5px;padding-bottom:50px;">
 
