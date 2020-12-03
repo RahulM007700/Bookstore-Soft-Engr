@@ -16,21 +16,12 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/a746b8874d.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
-        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -61,41 +52,36 @@ session_start();
             </a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <div class="dropdown">
-                        <li class="nav-item px-4">
-                            <a href="#" class="nav-link py-4">
+                    <form method="POST">
+                        <div class="dropdown">
+                            <li class="nav-item px-4">
+                                <a href="#" class="nav-link py-4">
 
-                                Categories
-                                <!--Menu-->
+                                    Categories
+                                    <!--Menu-->
 
-                            </a>
-                        </li>
-                        <div class="dropdown-content">
+                                </a>
+                            </li>
+                            <div class="dropdown-content">
 
-                            <a href="#" id="biography">Biography</a>
-
-                            <a href="#" id="sciencefiction">Science-Fiction</a>
-
-                            <a href="#" id="sciencefiction">Non-Fiction</a>
-
-                            <a href="#" id="sciencefiction">Poetry</a>
-                            <a href="#" id="sciencefiction">Drama</a>
+                            <a href="#" id="biography"><input type="hidden">Biography</a>
+                            <a href="#" id="sciencefiction"><input type="hidden">Science-Fiction</a>
+                            <a href="#" id="sciencefiction"><input type="hidden">Non-Fiction</a>
+                            <a href="#" id="sciencefiction"><input type="hidden">Poetry</a>
+                            <a href="#" id="sciencefiction"><input type="hidden">Drama</a>
 
 
+                            </div>
                         </div>
-                    </div>
+                    </form>
                     <li class="nav-item px-4"><a href="#" class="nav-link py-4">About Us</a></li>
-                    <li class="nav-item px-4"><a href="#" class="nav-link py-4" id="contactTab" data-toggle="modal"
-                            data-target="#contactModal">Contact</a></li>
+                    <li class="nav-item px-4"><a href="#" class="nav-link py-4" id="contactTab" data-toggle="modal" data-target="#contactModal">Contact</a></li>
                     <div class="dropdown">
                         <li class="nav-item px-4"><a href="#" class="nav-link py-4">
 
                                 <!--Trigger-->
 
-                                <a class="btn-floating btn-lg black dropdown-toggle" type="button" id="dropdownMenu3"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                    data-target="#navItem"><i class="fas fa-user fa-2x"
-                                        style="color:grey; font-size:20px"></i></a>
+                                <a class="btn-floating btn-lg black dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target="#navItem"><i class="fas fa-user fa-2x" style="color:grey; font-size:20px"></i></a>
                                 <!--Menu-->
                                 <div class="dropdown-menu dropdown-primary" id="navItem">
                                     <?php
@@ -147,9 +133,7 @@ session_start();
                     <form method="POST">
                         <div class="input-group">
                             <div class="dropdown">
-                                <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown"
-                                    style="margin-top:32px; margin-right:5px; background-color:#E0DEDE;"><i
-                                        class="fas fa-filter" style="color:black;"></i>
+                                <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:32px; margin-right:5px; background-color:#E0DEDE;"><i class="fas fa-filter" style="color:black;"></i>
                                     <span class="caret"></span></button>
                                 <ul class="dropdown-menu" id="filter">
                                     <li style="text-align:left; padding-left:5px;"><input type="checkbox"> Author</li>
@@ -172,13 +156,11 @@ session_start();
     </div>
 
     <script>
-
-        $(document).ready(function () {
-            $('input:checkbox').click(function () {
+        $(document).ready(function() {
+            $('input:checkbox').click(function() {
                 $('input:checkbox').not(this).prop('checked', false);
             });
         });
-
     </script>
     <!--end of search box-->
 
@@ -188,54 +170,53 @@ session_start();
             <table style="background-color: #faf0e6; border-radius:5px;padding-bottom:50px;">
 
                 <?php
-    if (isset($_POST["submit"])) {
+                if (isset($_POST["submit"])) {
 
-        $host = "localhost";
-        $dbusername = "root";
-        $dbpassword = "";
-        $dbname = "online_bookstore";
+                    $host = "localhost";
+                    $dbusername = "root";
+                    $dbpassword = "";
+                    $dbname = "online_bookstore";
 
-        //Make Connection
-        $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
-        if (mysqli_connect_error()) {
-            die('Connect Error(' . mysqli_connect_error() . ')'
-                . mysqli_connect_error());
-        } else {
-            $str = $_POST["search"];
-            $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
-            $Books = $conn->query($Available_Books);
-            while ($newElement = $Books->fetch_assoc()) {
-                $new[] = $newElement;
-            }
-            $_SESSION['BooksTemp'] = $new;
-        }
-        $conn->close();
-    } else if (!empty($_POST["homeSearch"])) {
-        //echo $_SESSION['Email'];
-        $host = "localhost";
-        $dbusername = "root";
-        $dbpassword = "";
-        $dbname = "online_bookstore";
+                    //Make Connection
+                    $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+                    if (mysqli_connect_error()) {
+                        die('Connect Error(' . mysqli_connect_error() . ')'
+                            . mysqli_connect_error());
+                    } else {
+                        $str = $_POST["search"];
+                        $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
+                        $Books = $conn->query($Available_Books);
+                        while ($newElement = $Books->fetch_assoc()) {
+                            $new[] = $newElement;
+                        }
+                        $_SESSION['BooksTemp'] = $new;
+                    }
+                    $conn->close();
+                } else if (!empty($_POST["homeSearch"])) {
+                    //echo $_SESSION['Email'];
+                    $host = "localhost";
+                    $dbusername = "root";
+                    $dbpassword = "";
+                    $dbname = "online_bookstore";
 
-        //Make Connection
-        $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
-        if (mysqli_connect_error()) {
-            die('Connect Error(' . mysqli_connect_error() . ')'
-                . mysqli_connect_error());
-        } else {
-            $str = $_POST["homeSearch"];
-            $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
-            $Books = $conn->query($Available_Books);
-            while ($newElement = $Books->fetch_assoc()) {
-                $new[] = $newElement;
-            }
-            $_SESSION['BooksTemp'] = $new;
-        }
-        $conn->close();
-    }
-    ?>
-                <div class="container-fluid features"
-                    style="background-color:#faf0e6;border-radius:5px;padding-bottom:50px;">
+                    //Make Connection
+                    $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+                    if (mysqli_connect_error()) {
+                        die('Connect Error(' . mysqli_connect_error() . ')'
+                            . mysqli_connect_error());
+                    } else {
+                        $str = $_POST["homeSearch"];
+                        $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
+                        $Books = $conn->query($Available_Books);
+                        while ($newElement = $Books->fetch_assoc()) {
+                            $new[] = $newElement;
+                        }
+                        $_SESSION['BooksTemp'] = $new;
+                    }
+                    $conn->close();
+                }
+                ?>
+                <div class="container-fluid features" style="background-color:#faf0e6;border-radius:5px;padding-bottom:50px;">
 
                     <div class="row justify-content-around" style="flex-direction:column;padding-top:50px;">
                         <h1 class="results" style="margin-left:3%; margin-right:3%;"><span>Search Results</span></h1>
@@ -253,53 +234,47 @@ session_start();
                         <div>
                             <?php
 
-                        for ($i = 0; $i < sizeof($_SESSION['BooksTemp']); $i++) :
-                            $_SESSION['TempISBN'] = $_SESSION['BooksTemp'][$i]['ISBN'];
-                        ?>
+                            for ($i = 0; $i < sizeof($_SESSION['BooksTemp']); $i++) :
+                                $_SESSION['TempISBN'] = $_SESSION['BooksTemp'][$i]['ISBN'];
+                            ?>
 
 
 
-                            <tr style="height: 255px; padding:30px;">
-                                <div class="book card" style="border: 3px black;">
-                                    <td><a
-                                            href="../BookDetails/bookDescriptions.php"><?php echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['BooksTemp'][$i]['Cover']) . '" height="200" width="200"/>'; ?></a>
-                                    </td>
-                                    <!--cover picture-->
-                                    <td>
-                                        <h4 class="name-text"><?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?>
-                                        </h4>
-                                    </td>
-                                    <!--booktitle-->
-                                    <td>
-                                        <h4 class="author-text"><?php echo $_SESSION['BooksTemp'][$i]['Author']; ?></h4>
-                                    </td>
-                                    <!--author-->
-                                    <td>
-                                        <h4 class="price-text"><?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?>
-                                        </h4>
-                                    </td>
-                                    <!--price-->
-                                    <td class="addToCart"><input type="image" name="actions" value="Add to Cart"
-                                            src="add.png" width="30px" height="30px" alt="Submit Form"></td>
+                                <tr style="height: 255px; padding:30px;">
+                                    <div class="book card" style="border: 3px black;">
+                                        <td><a href="../BookDetails/bookDescriptions.php"><?php echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['BooksTemp'][$i]['Cover']) . '" height="200" width="200"/>'; ?></a>
+                                        </td>
+                                        <!--cover picture-->
+                                        <td>
+                                            <h4 class="name-text"><?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?>
+                                            </h4>
+                                        </td>
+                                        <!--booktitle-->
+                                        <td>
+                                            <h4 class="author-text"><?php echo $_SESSION['BooksTemp'][$i]['Author']; ?></h4>
+                                        </td>
+                                        <!--author-->
+                                        <td>
+                                            <h4 class="price-text"><?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?>
+                                            </h4>
+                                        </td>
+                                        <!--price-->
+                                        <td class="addToCart"><input type="image" name="actions" value="Add to Cart" src="add.png" width="30px" height="30px" alt="Submit Form"></td>
 
-                                    <input name="Item_ID" type="hidden"
-                                        value="<?php echo $_SESSION['BooksTemp'][$i]['ISBN']; ?>">
-                                    <!--<input name="Cover" type="hidden" value="<?php echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['BooksTemp'][$i]['Cover']) . '" height="200" width="200"/>'; ?>">-->
-                                    <!--cover picture-->
-                                    <input name="Name" type="hidden"
-                                        value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?>">
-                                    <!--booktitle-->
-                                    <input name="author" type="hidden"
-                                        value="<?php echo $_SESSION['BooksTemp'][$i]['Author']; ?>">
-                                    <!--author-->
-                                    <input name="Price" type="hidden"
-                                        value="<?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?>">
-                                    <input name="actions" type="hidden" value="Add to Cart">
-                                </div>
-                            </tr>
+                                        <input name="Item_ID" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['ISBN']; ?>">
+                                        <!--<input name="Cover" type="hidden" value="<?php echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['BooksTemp'][$i]['Cover']) . '" height="200" width="200"/>'; ?>">-->
+                                        <!--cover picture-->
+                                        <input name="Name" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?>">
+                                        <!--booktitle-->
+                                        <input name="author" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Author']; ?>">
+                                        <!--author-->
+                                        <input name="Price" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?>">
+                                        <input name="actions" type="hidden" value="Add to Cart">
+                                    </div>
+                                </tr>
 
                             <?php endfor;
-                        ?>
+                            ?>
                         </div>
                     </tbody>
 
@@ -313,14 +288,13 @@ session_start();
 
         <hr>
 
-        <img src="https://s.abcnews.com/images/Technology/GTY_woman_reading_book_jt_140112_16x9_992.jpg"
-            alt="alternatetext" width=80% height=70%>
+        <img src="https://s.abcnews.com/images/Technology/GTY_woman_reading_book_jt_140112_16x9_992.jpg" alt="alternatetext" width=80% height=70%>
 
         <hr>
 
         <div class="footer-content">
             <div class="footer-section">
-                
+
                 <h1 style="text-align:center; font-size:18px">Easy Links</h1>
 
                 <li><a href="../Homepage/homepage.php" style="font-size: 15px">Login</a></li>
@@ -333,7 +307,9 @@ session_start();
                     <img src="../book.png" width="30px" height="30px" style="margin-right: 10px" /><img src="BooksRUs_Logo.png" height=20% width=30%>
                 </div>
 
-                <div class="sponsor" style="float:right;  margin-top: auto; "><h3><img src="handshake.png" width="30px" height="30px" style="margin-right: 10px"/><b>Sponsored by Room to Read<b></b></div>
+                <div class="sponsor" style="float:right;  margin-top: auto; ">
+                    <h3><img src="handshake.png" width="30px" height="30px" style="margin-right: 10px" /><b>Sponsored by Room to Read<b></b>
+                </div>
             </div>
 
         </div>
@@ -343,11 +319,10 @@ session_start();
         </div>
     </div>
 
-   
 
 
-    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
+
+    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center">
