@@ -56,16 +56,18 @@
                 <div class="table-responsive">
                     <table class="table">
                         <thead style="text-align:left;">
-                            <td>Order Placed<span class="text-muted font-weight-normal font-italic d-block">Date goes here</span></td>
-                            <td>Total<span class="text-muted font-weight-normal font-italic d-block">Total goes here</span></td>
-                            <td>ORDER #<span class="text-muted font-weight-normal font-italic d-block">Order num goes here</span></td>
+                            <td>Order Placed<span class="text-muted font-weight-normal font-italic d-block"></span></td>
+                            <td>Quantity<span class="text-muted font-weight-normal font-italic d-block"></span></td>
+                            <td>Price<span class="text-muted font-weight-normal font-italic d-block"></span></td>
+                            <td>Date<span class="text-muted font-weight-normal font-italic d-block"></span></td>
                         </thead>
                         <?php for ($i = 0; $i < sizeof($_SESSION['Order_History']); $i++) :?>
                         <tbody>
                             <tr>
                                 <td><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['Order_History'][$i]['Cover'] ).'" alt="" height="70" width="70">'?></td>
-                                <td><?php echo "Quantity: ";?><?= $_SESSION['Order_History'][$i]['Quantity']; ?></td>
-                                <td><?php echo "$ ";?><?= $_SESSION['Order_History'][$i]['Price']; ?></td>
+                                <td><?= $_SESSION['Order_History'][$i]['Quantity']; ?></td>
+                                <td><?php echo "$";?><?= $_SESSION['Order_History'][$i]['Price']; ?></td>
+                                <td><?= $_SESSION['Order_History'][$i]['Date_Purchased']; ?></td>
                             </tr>
                         </tbody>
                         <?php endfor; ?>

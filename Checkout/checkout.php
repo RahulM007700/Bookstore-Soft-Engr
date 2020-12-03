@@ -108,7 +108,7 @@
             </t>
           <div> 
             <t style="float: right">
-                <?php echo "$ ";?>
+                <?php echo "$";?>
                 <?= $_SESSION['Cart_Items'][$i]['Price']; ?>
             </t>
           </div>          
@@ -116,14 +116,14 @@
           <?php endfor; ?>
           <input class="promoCode" placeholder="Enter promotion code" />
           <p class="subtotal">
-            <i>Subtotal</i> <t style="float: right">$16.80</t>
+            <i>Subtotal</i> <t style="float: right">$<?php echo $_SESSION['Total'];?></t>
           </p>
-          <p class="tax"><i>Tax</i> <t style="float: right">$1.20</t></p>
+          <p class="tax"><i>Tax</i> <t style="float: right">$<?php echo $_SESSION['Total']*.07;?></t></p>
           <p class="delivery">
             <i>Delivery</i> <t style="float: right">Free</t>
           </p>
           <p class="bold_text">
-            <b>Order Total</b> <t style="float: right"><b>$18.00</b></t>
+            <b>Order Total</b> <t style="float: right"><b>$<?php $_SESSION['Total']*=1.07; echo $_SESSION['Total'];?></b></t>
           </p>
           <form method="POST" action="orderCheckOut.php">
           <button type="submit">Checkout</button>

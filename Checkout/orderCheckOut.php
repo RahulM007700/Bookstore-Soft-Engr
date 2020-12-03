@@ -19,7 +19,7 @@ else {
     $day = $now['mday'];
     $mon = $now['mon'];
     $year= $now['year'];
-    $date = $mon.$day.$year;
+    $date = $mon.'-'.$day.'-'.$year;
     $SQL = "INSERT INTO order_history (ISBN, Name, Quantity, Price, User_ID, Cover, Email, Date_Purchased) SELECT Item_ID, Name, Quantity, Price, Account_ID, Cover, Email, Date_Purchased FROM shopping_cart WHERE Email='$Email'";
     $SQL2 = "UPDATE shopping_cart SET Date_Purchased='$date' WHERE Email='$Email'";
     $SQL3 = "DELETE FROM shopping_cart WHERE Email='$Email'";
@@ -31,7 +31,11 @@ else {
             if($conn->query($SQL3)) {
                 echo " is awesome";
                 header("Location: http://localhost/Bookstore-Soft-Engr/OrderHistory/orderHistoryRetrieval.php");
+            } else {
+                echo("Error description: " . $conn -> error);
             }
+        } else {
+            echo("Error description: " . $conn -> error);
         }
     } else {
         echo("Error description: " . $conn -> error);

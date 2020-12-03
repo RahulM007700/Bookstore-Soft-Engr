@@ -39,7 +39,7 @@
     <body>
         <div class="container-fluid">
             <nav class="navbar navbar-expand navbar-light">
-                <a class="navbar-brand" href="adminHomepage.html"><img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo4.jpg" height="50"></a>
+            <a class="navbar-brand" href="#"><img src="../../BooksRUs_Logo.png" height="120" style="left:-20px;"></a>
                 <div class="collapse navbar-collapse">
                   <ul class="navbar-nav ml-auto">
                     <li class="nav-item px-4"><a href="../../Homepage/LogUserOut.php" class="nav-link py-4">Logout</a></li> 
