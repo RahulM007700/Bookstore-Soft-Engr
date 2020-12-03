@@ -1,5 +1,5 @@
+<?php session_start() ?>
 <!DOCTYPE html>
-
 <html>
   <head>
     <title>Edit Profile</title>
@@ -359,7 +359,7 @@
             href="../Homepage/homepage.html"
           >
             <image src="../home_icon.svg" width="50" height="50"></image>
-          </a>
+          </a>  
         </nav>
       </div>
       <div class="editProfileContainer">
@@ -367,56 +367,7 @@
           <div class="profile tabShow">
             <h1 id="personalHeader" class="editProfileHeader">Personal Info</h1>
             <div class="info-inputs">
-              <h2 class="info-headers">First Name</h2>
-              <input
-                id="firstName"
-                type="text"
-                class="form-control validate"
-                value="Jane"
-                readonly="true"
-              />
-              <h2 class="info-headers">Last Name</h2>
-              <input
-                id="lastName"
-                type="text"
-                class="form-control validate"
-                value="Doe"
-                readonly="true"
-              />
-              <h2 class="info-headers">Phone Number</h2>
-              <input
-                id="phoneNumber"
-                type="text"
-                class="form-control validate"
-                value="000-000-0000"
-                readonly="true"
-              />
-              <h2 class="info-headers">Email Address</h2>
-              <input
-                id="emailAddress"
-                type="text"
-                class="form-control validate"
-                value="example@email.com"
-                readonly="true"
-              />
-              <h2 class="info-headers">Password</h2>
-              <input
-                id="password"
-                type="password"
-                class="form-control validate"
-                value="helloworld"
-                readonly="true"
-              />
-              <input
-                type="checkbox"
-                id="subscription"
-                class="subscription"
-                name="subscription"
-                value="Subscribe for Promotions"
-              />
-              <label class="subscription" for="subscription">
-                Subscribe for Promotions</label
-              ><br />
+              <h1>First Name : <?php echo $_SESSION['FName']?> <input type="text" name="firstName"><br><br>
             </div>
             <div class="button-group">
               <button

@@ -1,5 +1,6 @@
 <?php
     //all the variables 
+    session_start();
     $FirstName = filter_input(INPUT_POST,'firstName');
     $LastName = filter_input(INPUT_POST,'lastName');
     $PhoneNumber = filter_input(INPUT_POST,'phoneNumber');
@@ -10,10 +11,11 @@
     $EmailAddress = filter_input(INPUT_POST,'emailAddress');
     $ExpirationDate = filter_input(INPUT_POST,'expirationDate');
     $State = filter_input(INPUT_POST,'state');
-    $StreetAddress = filter_input(INPUT_POST,'street');
+    $StreetAddress = filter_input(INPUT_POST,'streetAddress');
     $ZipCode = filter_input(INPUT_POST,'zipCode');
+    $Subscription = filter_input(INPUT_POST,'subscription');
 
-    echo $PhoneNumber;
+
     //db credentials & connect to database 
     $host = "localhost";
     $dbusername = "root";
@@ -26,10 +28,11 @@
             . mysqli_connect_error());
     } else {
         $sql = "UPDATE customer_account
-                SET FirstName = '$FirstName', LastName = '$LastName', PhoneNumber = '$PhoneNumber', StreetAddress = '$StreetAddress', City = '$City', State = '$State', ZipCode = '$ZipCode', CardType = '$CardType', CardNumber = '$CardNumber', ExpirationDate = '$ExpirationDate', CVV= '$CVV'
+                SET FirstName = '$FirstName', LastName = '$LastName', PhoneNumber = '$PhoneNumber', StreetAddress = '$StreetAddress', City = '$City', State = '$State', ZipCode = '$ZipCode', CardType = '$CardType', CardNumber = '$CardNumber', ExpirationDate = '$ExpirationDate', CVV= '$CVV', Subscribed='$Subscription'
                 WHERE EmailAddress = '$EmailAddress'";
         if ($conn->query($sql)){
-            echo "User Information Updated Successfully";
+            echo $FirstName.$LastName;
+            header("Location: http://localhost/Bookstore-Soft-Engr/EditProfile/ReturnUserProfile.php");
         } else {
             echo "Error: ". $sql ."<br>". $conn->error;
         }
