@@ -69,7 +69,36 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <?php $_SESSION['Total'] = 0;?>
+                    <?php  
+                      if (isset($_POST['quantity'])) {
+                        $value = $_POST['quantity'];
+                        $host = "localhost";
+                        $dbusername = "root";
+                        $dbpassword = "";
+                        $dbname = "online_bookstore";
+
+                        //Make Connection
+                        $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+                        if (mysqli_connect_error()) {
+                          die('Connect Error(' . mysqli_connect_error() . ')'
+                              . mysqli_connect_error());
+                        } else {
+                          //echo $value;
+                          $ISBN = $_POST['isbn'];
+                          //echo $ISBN;
+                          $Available_Books = "UPDATE shopping_cart SET Quantity='$value' WHERE Item_ID='$ISBN'";
+                          if($conn->query($Available_Books)) {
+                            header("Location: http://localhost/Bookstore-Soft-Engr/Shopping%20Cart/shoppingCartRetrieval.php");
+                          } else {
+                            echo("Error description: " . $conn -> error);
+                          }
+                        }
+                        $conn->close();
+                      }
+                    ?>
                     <?php for ($i = 0; $i < sizeof($_SESSION['Cart_Items']); $i++) :?>
+                    <?php $_SESSION['Total'] += $_SESSION['Cart_Items'][$i]['Price']*$_SESSION['Cart_Items'][$i]['Quantity'];?>
                         <tr>
                             <th scope="row">
                                 <div class="p-2">
@@ -81,18 +110,22 @@
                             </th>
                             <td class="align-middle"><strong><?= $_SESSION['Cart_Items'][$i]['Price']; ?></strong></td>
                             <td class="align-middle">
-                                <select id="leaveCode" name="leaveCode">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
+                            <form method="POST">
+                                <input type="hidden" name="isbn" value="<?= $_SESSION['Changed_Book'] = $_SESSION['Cart_Items'][$i]['Item_ID'];?>">
+                                <select id="quantity" name="quantity" onchange="this.form.submit()">
+                                    <option><?= $_SESSION['Cart_Items'][$i]['Quantity']; ?></option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
                                 </select>
+                                </form>
                                 <script>
                                     //selectElement('leaveCode', '<?= $_SESSION['Cart_Items'][$i]['Quantity']; ?>');
                                     //function selectElement(id, valueToSelect) {    
@@ -112,10 +145,12 @@
                         //for (int i = 0; i <sizeof($_SESSION['Cart']); i++) {
                         //    subtotal += $_SESSION['Cart'][$i]['product'] * $_SESSION['Cart'][$i]['Quantity'];
                         //}
-                        document.getElementById("subtotal").innerHTML = "Subtotal: $100 q";
+                        document.getElementById("subtotal").innerHTML = "Subtotal: <?php echo $_SESSION['Total'];?>";
                     </script>
-                    <button type="button" class="btn btn-light" style=“float:right;”>Checkout</button>
-                        </div>              
+                    <form method="POST" action="../Checkout/checkout.php">
+                    <button value="Checkout" type="submit" class="btn btn-light" style=“float:right;”>Checkout</button>
+                    </form>
+                    </div>              
                 <script>
                     var items = $i;
                     document.getElementById("numOfItems").innerHTML = "(" + items + ")" + " in your shopping cart";
