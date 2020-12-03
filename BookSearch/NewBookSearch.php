@@ -321,12 +321,12 @@ session_start();
         <div class="footer-content">
             <div class="footer-section">
                 
-                <h1 style="text-align:center; font-size:15px">Easy Links</h1>
+                <h1 style="text-align:center; font-size:18px">Easy Links</h1>
 
-                <li><a href="../Homepage/homepage.php" style="font-size: 12px">Login</a></li>
-                <li><a href="../Homepage/homepage.php" style="font-size: 12px">Registration</a></li>
-                <li><a href="../Homepage/" style="font-size: 12px">About Us</a></li>
-                <li><a href="../Homepage/" style="font-size: 12px">Contact Us</a></li>
+                <li><a href="../Homepage/homepage.php" style="font-size: 15px">Login</a></li>
+                <li><a href="../Homepage/homepage.php" style="font-size: 15px">Registration</a></li>
+                <li><a href="../Homepage/" style="font-size: 15px">About Us</a></li>
+                <li><a href="../Homepage/" style="font-size: 15px">Contact Us</a></li>
             </div>
             <div class="footer-section">
                 <div class="logo-image" style="float: right">
@@ -343,6 +343,7 @@ session_start();
         </div>
     </div>
 
+   
 
 
     <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -367,7 +368,7 @@ session_start();
                         <div class="md-form mb-4">
                             <i class="fas fa-lock prefix grey-text"></i>
                             <label data-error="wrong" data-success="right" for="defaultForm-pass">Your Message</label>
-                            <input type="message" id="email-login" class="form-control validate" required />
+                            <textarea rows="4" cols="10" type="message" id="email-login" class="form-control validate"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
