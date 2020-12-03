@@ -112,7 +112,7 @@ session_start();
                                     <li style="text-align:left; padding-left:5px;"><input type="checkbox"> ISBN</li>
                                 </ul>
                             </div>
-                            <input type="text" class="form-control" placeholder="search..." name="search">
+                            <input type="text" class="form-control" placeholder="Search..." name="search">
                             <div class="input-group-btn">
                                 <button class="btn btn-default" type="submit" id="submit">
                                     <i class="fas fa-search"></i>
@@ -125,6 +125,7 @@ session_start();
         </div>
     </div>
 
+<<<<<<< HEAD
     <script>
         function filter(item) { /* for booksearch page */
             $.ajax({
@@ -135,6 +136,56 @@ session_start();
                     $("#results").html(data);
                 }
             });
+=======
+   
+
+    <form method="POST" action="../Shopping%20Cart/updateCart.php">
+        <table style="background-color: #faf0e6; border-radius:5px;padding-bottom:50px;">
+
+            <?php
+    if (isset($_POST["submit"])) {
+
+        $host = "localhost";
+        $dbusername = "root";
+        $dbpassword = "";
+        $dbname = "online_bookstore";
+
+        //Make Connection
+        $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+        if (mysqli_connect_error()) {
+            die('Connect Error(' . mysqli_connect_error() . ')'
+                . mysqli_connect_error());
+        } else {
+            $str = $_POST["search"];
+            $Available_Books = "SELECT * FROM available_books WHERE Book_Name LIKE '$str'";
+            $Books = $conn->query($Available_Books);
+            while ($newElement = $Books->fetch_assoc()) {
+                $new[] = $newElement;
+            }
+            $_SESSION['BooksTemp'] = $new;
+        }
+        $conn->close();
+    } else if (!empty($_POST["homeSearch"])) {
+        //echo $_SESSION['Email'];
+        $host = "localhost";
+        $dbusername = "root";
+        $dbpassword = "";
+        $dbname = "online_bookstore";
+
+        //Make Connection
+        $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+        if (mysqli_connect_error()) {
+            die('Connect Error(' . mysqli_connect_error() . ')'
+                . mysqli_connect_error());
+        } else {
+            $str = $_POST["homeSearch"];
+            $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
+            $Books = $conn->query($Available_Books);
+            while ($newElement = $Books->fetch_assoc()) {
+                $new[] = $newElement;
+            }
+            $_SESSION['BooksTemp'] = $new;
+>>>>>>> 5157def237dac0ac0226dfd274b35fbfd05e6e91
         }
 
         $(document).ready(function () {
