@@ -39,8 +39,8 @@ body {
   height: 10%;
   width: 35%;
   position: relative;
-  top: 30%;
-  left: 30%;
+  top: 15%;
+  left: 32%;
 }
 
 .promoCode {
@@ -99,6 +99,13 @@ body {
 }
 
 .book {
-  width: 25%;
-  height: 40%;
+  width: 20%;
+  height: 37%;
+}
+
+.display-info {
+  padding-top: 5%;
+  font-size: x-large;
+  text-align: center;
+  position: relative;
 }
