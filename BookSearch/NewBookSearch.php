@@ -7,12 +7,12 @@ session_start();
 <html>
 
 <head>
-    <!--
-    <title>New Homepage</title>
+    <title>Books-R-Us</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="NewBookSearch.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -26,18 +26,9 @@ session_start();
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="../SkeletonEmailCode/sendEmail.js"></script>
--->
-<title>New Homepage</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://kit.fontawesome.com/a746b8874d.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="NewBookSearch.css">
-<script type="text/javascript" src="../SkeletonEmailCode/sendEmail.js"></script>
+
+
+
     <script>
         var userID = '';
         var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -54,19 +45,43 @@ session_start();
     <!--nav bar-->
     <div class="container-fluid">
         <nav class="navbar navbar-expand navbar-light">
-            <a class="navbar-brand" href="#"><img src="BooksRUs_Logo.png" width="110%" height="100%"><img src="book.png" width="19" height="25" /></a>
+            <a class="navbar-brand" href="../Homepage/homepage.html">
+                <div class="logo-image">
+                    <img src="../book.png" width="0px" height=100% style="margin-right: 20px" /> <img src="BooksRUs_Logo.png" height=100%>
+                </div>
+            </a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item px-4"><a href="#" class="nav-link py-4">Textbooks</a></li>
-                    <li class="nav-item px-4"><a href="#" class="nav-link py-4">Adults</a></li>
-                    <li class="nav-item px-4"><a href="#" class="nav-link py-4">Teens</a></li>
-                    <li class="nav-item px-4"><a href="#" class="nav-link py-4">Kids</a></li>
+                    <form method="POST">
+                        <div class="dropdown">
+                            <li class="nav-item px-4">
+                                <a href="#" class="nav-link py-4">
+
+                                    Categories
+                                    <!--Menu-->
+
+                                </a>
+                            </li>
+                            <div class="dropdown-content">
+
+                            <a href="#" id="biography"><input type="hidden">Biography</a>
+                            <a href="#" id="sciencefiction"><input type="hidden">Science-Fiction</a>
+                            <a href="#" id="sciencefiction"><input type="hidden">Non-Fiction</a>
+                            <a href="#" id="sciencefiction"><input type="hidden">Poetry</a>
+                            <a href="#" id="sciencefiction"><input type="hidden">Drama</a>
+
+
+                            </div>
+                        </div>
+                    </form>
+                    <li class="nav-item px-4"><a href="#" class="nav-link py-4">About Us</a></li>
+                    <li class="nav-item px-4"><a href="#" class="nav-link py-4" id="contactTab" data-toggle="modal" data-target="#contactModal">Contact</a></li>
                     <div class="dropdown">
                         <li class="nav-item px-4"><a href="#" class="nav-link py-4">
 
                                 <!--Trigger-->
 
-                                <a class="btn-floating btn-lg black dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target="#navItem"><i class="fas fa-user fa-2x" style="color:grey;" width="30%" height="30%"></i></a>
+                                <a class="btn-floating btn-lg black dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target="#navItem"><i class="fas fa-user fa-2x" style="color:grey; font-size:20px"></i></a>
                                 <!--Menu-->
                                 <div class="dropdown-menu dropdown-primary" id="navItem">
                                     <?php
@@ -104,7 +119,9 @@ session_start();
     </div>
 
     <!--nav bar end-->
-    <br><br>
+
+
+    <br>
 
 
     <!--Search box-->
@@ -119,15 +136,15 @@ session_start();
                                 <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:32px; margin-right:5px; background-color:#E0DEDE;"><i class="fas fa-filter" style="color:black;"></i>
                                     <span class="caret"></span></button>
                                 <ul class="dropdown-menu" id="filter">
-                                    <li style="text-align:left; padding-left:5px;"><input name="Filter" value ="Author" type="checkbox"> Author</li>
-                                    <li style="text-align:left; padding-left:5px;"><input name="Filter" value ="Book_Name" type="checkbox"> Title</li>
-                                    <li style="text-align:left; padding-left:5px;"><input name="Filter" value ="Category" type="checkbox"> Category</li>
-                                    <li style="text-align:left; padding-left:5px;"><input name="Filter" value ="ISBN" type="checkbox"> ISBN</li>
+                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> Author</li>
+                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> Title</li>
+                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> Category</li>
+                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> ISBN</li>
                                 </ul>
                             </div>
-                            <input type="text" class="form-control" placeholder="Search..." name="search">
+                            <input type="text" class="form-control" placeholder="search..." name="search">
                             <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit" id="submit">
+                                <button class="btn btn-default" type="submit">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
@@ -138,25 +155,23 @@ session_start();
         </div>
     </div>
 
-    
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
             $('input:checkbox').click(function() {
-            $('input:checkbox').not(this).prop('checked', false);
+                $('input:checkbox').not(this).prop('checked', false);
             });
         });
     </script>
-    
     <!--end of search box-->
 
 
-    <div class="results">
+    <div>
         <form method="POST" action="../Shopping%20Cart/updateCart.php">
             <table style="background-color: #faf0e6; border-radius:5px;padding-bottom:50px;">
 
                 <?php
-                if (isset($_POST["search"])) {
-                    
+                if (isset($_POST["submit"])) {
+
                     $host = "localhost";
                     $dbusername = "root";
                     $dbpassword = "";
@@ -168,10 +183,8 @@ session_start();
                         die('Connect Error(' . mysqli_connect_error() . ')'
                             . mysqli_connect_error());
                     } else {
-                        $Filter = $_POST['Filter'];
                         $str = $_POST["search"];
-                        $Available_Books = "SELECT * FROM available_books WHERE ".$Filter." = '$str'";
-                        //echo $Available_Books;
+                        $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
                         $Books = $conn->query($Available_Books);
                         while ($newElement = $Books->fetch_assoc()) {
                             $new[] = $newElement;
@@ -192,9 +205,8 @@ session_start();
                         die('Connect Error(' . mysqli_connect_error() . ')'
                             . mysqli_connect_error());
                     } else {
-                        $Filter = $_POST['Filter'];
                         $str = $_POST["homeSearch"];
-                        $Available_Books = "SELECT * FROM available_books WHERE ".$Filter." = '$str'";
+                        $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
                         $Books = $conn->query($Available_Books);
                         while ($newElement = $Books->fetch_assoc()) {
                             $new[] = $newElement;
@@ -207,7 +219,7 @@ session_start();
                 <div class="container-fluid features" style="background-color:#faf0e6;border-radius:5px;padding-bottom:50px;">
 
                     <div class="row justify-content-around" style="flex-direction:column;padding-top:50px;">
-                        <h1 class="b2" style="margin-left:3%; margin-right:3%;"><span>Search Results</span></h1>
+                        <h1 class="results" style="margin-left:3%; margin-right:3%;"><span>Search Results</span></h1>
                     </div>
                     <thead>
                         <tr>
@@ -225,15 +237,17 @@ session_start();
                             for ($i = 0; $i < sizeof($_SESSION['BooksTemp']); $i++) :
                                 $_SESSION['TempISBN'] = $_SESSION['BooksTemp'][$i]['ISBN'];
                             ?>
-                                <br>
+
 
 
                                 <tr style="height: 255px; padding:30px;">
                                     <div class="book card" style="border: 3px black;">
-                                        <td><a href="../BookDetails/bookDescriptions.php"><?php echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['BooksTemp'][$i]['Cover']) . '" height="200" width="200"/>'; ?></a></td>
+                                        <td><a href="../BookDetails/bookDescriptions.php"><?php echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['BooksTemp'][$i]['Cover']) . '" height="200" width="200"/>'; ?></a>
+                                        </td>
                                         <!--cover picture-->
                                         <td>
-                                            <h4 class="name-text"><?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?></h4>
+                                            <h4 class="name-text"><?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?>
+                                            </h4>
                                         </td>
                                         <!--booktitle-->
                                         <td>
@@ -241,13 +255,14 @@ session_start();
                                         </td>
                                         <!--author-->
                                         <td>
-                                            <h4 class="price-text"><?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?></h4>
+                                            <h4 class="price-text"><?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?>
+                                            </h4>
                                         </td>
                                         <!--price-->
                                         <td class="addToCart"><input type="image" name="actions" value="Add to Cart" src="add.png" width="30px" height="30px" alt="Submit Form"></td>
 
                                         <input name="Item_ID" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['ISBN']; ?>">
-                                        <?php $_SESSION['Cover'] = $_SESSION['BooksTemp'][$i]['Cover']; ?>
+                                        <!--<input name="Cover" type="hidden" value="<?php echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['BooksTemp'][$i]['Cover']) . '" height="200" width="200"/>'; ?>">-->
                                         <!--cover picture-->
                                         <input name="Name" type="hidden" value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?>">
                                         <!--booktitle-->
@@ -258,7 +273,8 @@ session_start();
                                     </div>
                                 </tr>
 
-                            <?php endfor; ?>
+                            <?php endfor;
+                            ?>
                         </div>
                     </tbody>
 
@@ -269,27 +285,75 @@ session_start();
     </div>
 
     <div class="footer">
+
+        <hr>
+
+        <img src="https://s.abcnews.com/images/Technology/GTY_woman_reading_book_jt_140112_16x9_992.jpg" alt="alternatetext" width=80% height=70%>
+
+        <hr>
+
         <div class="footer-content">
             <div class="footer-section">
-                <h1 style="text-align:center">Links</h1>
 
-                <li><a href="../Homepage/">Login</a></li>
-                <li><a href="../Homepage">Registration</a></li>
-                <li><a href="../Homepage/">About Us</a></li>
-                <li><a href="../Homepage/">Contact Us</a></li>
+                <h1 style="text-align:center; font-size:18px">Easy Links</h1>
+
+                <li><a href="../Homepage/homepage.php" style="font-size: 15px">Login</a></li>
+                <li><a href="../Homepage/homepage.php" style="font-size: 15px">Registration</a></li>
+                <li><a href="../Homepage/" style="font-size: 15px">About Us</a></li>
+                <li><a href="../Homepage/" style="font-size: 15px">Contact Us</a></li>
+            </div>
+            <div class="footer-section">
+                <div class="logo-image" style="float: right">
+                    <img src="../book.png" width="30px" height="30px" style="margin-right: 10px" /><img src="BooksRUs_Logo.png" height=20% width=30%>
+                </div>
+
+                <div class="sponsor" style="float:right;  margin-top: auto; ">
+                    <h3><img src="handshake.png" width="30px" height="30px" style="margin-right: 10px" /><b>Sponsored by Room to Read<b></b>
+                </div>
             </div>
 
-
-
         </div>
-
 
         <div class="footer-bottom">
-
             &copy; BooksRUs.com | Established 2020
         </div>
-    </div>          
+    </div>
 
+
+
+
+    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Contact Us</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body mx-3">
+                        <p style="text-align:center">Send us an email if you have any questions or concerns here</p>
+                        <div class="md-form mb-5">
+                            <i class="fas fa-envelope prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="email-login">Your email</label>
+                            <input type="email" id="email-login" class="form-control validate" required />
+                        </div>
+
+                        <div class="md-form mb-4">
+                            <i class="fas fa-lock prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="defaultForm-pass">Your Message</label>
+                            <textarea rows="4" cols="10" type="message" id="email-login" class="form-control validate"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button class="btn btn-default" type="submit">Submit</button>
+                        <br>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 </body>
 

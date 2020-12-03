@@ -56,7 +56,8 @@ session_start();
         <nav class="navbar navbar-expand navbar-light">
             <a class="navbar-brand" href="../Homepage/homepage.html">
                 <div class="logo-image">
-                    <img src="../book.png" width="0px" height=100% style="margin-right: 20px" /> <img src="BooksRUs_Logo.png" height=100%>
+                    <img src="../book.png" width="0px" height=100% style="margin-right: 20px" /> <img
+                        src="BooksRUs_Logo.png" height=100%>
                 </div>
             </a>
             <div class="collapse navbar-collapse">
@@ -72,11 +73,14 @@ session_start();
                         </li>
                         <div class="dropdown-content">
 
-                            <a href="#" id="biography"><input type="hidden">Biography</a>
-                            <a href="#" id="sciencefiction"><input type="hidden">Science-Fiction</a>
-                            <a href="#" id="sciencefiction"><input type="hidden">Non-Fiction</a>
-                            <a href="#" id="sciencefiction"><input type="hidden">Poetry</a>
-                            <a href="#" id="sciencefiction"><input type="hidden">Drama</a>
+                            <a href="#" id="biography">Biography</a>
+
+                            <a href="#" id="sciencefiction">Science-Fiction</a>
+
+                            <a href="#" id="sciencefiction">Non-Fiction</a>
+
+                            <a href="#" id="sciencefiction">Poetry</a>
+                            <a href="#" id="sciencefiction">Drama</a>
 
 
                         </div>
@@ -135,8 +139,37 @@ session_start();
     <br>
 
 
-    <!--Search box-->
-    <div class="container-fluid" style="/*background-color:#FFFFF0#ffdead*/; padding-bottom:50px;margin-top:0px;">
+
+    <script>
+
+        $(document).ready(function () {
+            $('input:checkbox').click(function () {
+                $('input:checkbox').not(this).prop('checked', false);
+            });
+        });
+
+    </script>
+    <!--end of search box-->
+
+    <hr>
+    <div class="container-fluid features" style="background-color:#faf0e6;border-radius:5px;padding-bottom:50px;">
+
+        <div class="row justify-content-around" style="flex-direction:column;padding-top:50px;">
+            <h1 class="results" style="margin-left:3%; margin-right:3%;"><span>About Us</span></h1>
+        </div>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
+
+
+    </div>
+
+    <br><br>
+
+    <div class="container-fluid" style="/*background-color:#FFFFF0#ffdead*/; padding-bottom:50px;margin-top:20px;">
 
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -168,156 +201,20 @@ session_start();
         </div>
     </div>
 
-    <script>
 
-        $(document).ready(function () {
-            $('input:checkbox').click(function () {
-                $('input:checkbox').not(this).prop('checked', false);
-            });
-        });
-
-    </script>
-    <!--end of search box-->
-
-
-    <div>
-        <form method="POST" action="../Shopping%20Cart/updateCart.php">
-            <table style="background-color: #faf0e6; border-radius:5px;padding-bottom:50px;">
-
-                <?php
-    if (isset($_POST["submit"])) {
-
-        $host = "localhost";
-        $dbusername = "root";
-        $dbpassword = "";
-        $dbname = "online_bookstore";
-
-        //Make Connection
-        $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
-        if (mysqli_connect_error()) {
-            die('Connect Error(' . mysqli_connect_error() . ')'
-                . mysqli_connect_error());
-        } else {
-            $str = $_POST["search"];
-            $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
-            $Books = $conn->query($Available_Books);
-            while ($newElement = $Books->fetch_assoc()) {
-                $new[] = $newElement;
-            }
-            $_SESSION['BooksTemp'] = $new;
-        }
-        $conn->close();
-    } else if (!empty($_POST["homeSearch"])) {
-        //echo $_SESSION['Email'];
-        $host = "localhost";
-        $dbusername = "root";
-        $dbpassword = "";
-        $dbname = "online_bookstore";
-
-        //Make Connection
-        $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
-        if (mysqli_connect_error()) {
-            die('Connect Error(' . mysqli_connect_error() . ')'
-                . mysqli_connect_error());
-        } else {
-            $str = $_POST["homeSearch"];
-            $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
-            $Books = $conn->query($Available_Books);
-            while ($newElement = $Books->fetch_assoc()) {
-                $new[] = $newElement;
-            }
-            $_SESSION['BooksTemp'] = $new;
-        }
-        $conn->close();
-    }
-    ?>
-                <div class="container-fluid features"
-                    style="background-color:#faf0e6;border-radius:5px;padding-bottom:50px;">
-
-                    <div class="row justify-content-around" style="flex-direction:column;padding-top:50px;">
-                        <h1 class="results" style="margin-left:3%; margin-right:3%;"><span>Search Results</span></h1>
-                    </div>
-                    <thead>
-                        <tr>
-                            <th>Book Cover</th>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <div>
-                            <?php
-
-                        for ($i = 0; $i < sizeof($_SESSION['BooksTemp']); $i++) :
-                            $_SESSION['TempISBN'] = $_SESSION['BooksTemp'][$i]['ISBN'];
-                        ?>
-
-
-
-                            <tr style="height: 255px; padding:30px;">
-                                <div class="book card" style="border: 3px black;">
-                                    <td><a
-                                            href="../BookDetails/bookDescriptions.php"><?php echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['BooksTemp'][$i]['Cover']) . '" height="200" width="200"/>'; ?></a>
-                                    </td>
-                                    <!--cover picture-->
-                                    <td>
-                                        <h4 class="name-text"><?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?>
-                                        </h4>
-                                    </td>
-                                    <!--booktitle-->
-                                    <td>
-                                        <h4 class="author-text"><?php echo $_SESSION['BooksTemp'][$i]['Author']; ?></h4>
-                                    </td>
-                                    <!--author-->
-                                    <td>
-                                        <h4 class="price-text"><?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?>
-                                        </h4>
-                                    </td>
-                                    <!--price-->
-                                    <td class="addToCart"><input type="image" name="actions" value="Add to Cart"
-                                            src="add.png" width="30px" height="30px" alt="Submit Form"></td>
-
-                                    <input name="Item_ID" type="hidden"
-                                        value="<?php echo $_SESSION['BooksTemp'][$i]['ISBN']; ?>">
-                                    <!--<input name="Cover" type="hidden" value="<?php echo '<img src="data:image/jpeg;base64,' . base64_encode($_SESSION['BooksTemp'][$i]['Cover']) . '" height="200" width="200"/>'; ?>">-->
-                                    <!--cover picture-->
-                                    <input name="Name" type="hidden"
-                                        value="<?php echo $_SESSION['BooksTemp'][$i]['Book_Name']; ?>">
-                                    <!--booktitle-->
-                                    <input name="author" type="hidden"
-                                        value="<?php echo $_SESSION['BooksTemp'][$i]['Author']; ?>">
-                                    <!--author-->
-                                    <input name="Price" type="hidden"
-                                        value="<?php echo $_SESSION['BooksTemp'][$i]['Asking_Price']; ?>">
-                                    <input name="actions" type="hidden" value="Add to Cart">
-                                </div>
-                            </tr>
-
-                            <?php endfor;
-                        ?>
-                        </div>
-                    </tbody>
-
-                </div>
-
-            </table>
-        </form>
-    </div>
 
     <div class="footer">
 
         <hr>
 
-        <img src="https://s.abcnews.com/images/Technology/GTY_woman_reading_book_jt_140112_16x9_992.jpg"
-            alt="alternatetext" width=80% height=70%>
+        <img src="https://mindlercareerlibrarynew.imgix.net/1G-Computer_ScienceCsIT_Software_Engineering.png"
+            alt="alternatetext" width=80% height=80%>
 
         <hr>
 
         <div class="footer-content">
             <div class="footer-section">
-                
+
                 <h1 style="text-align:center; font-size:15px">Easy Links</h1>
 
                 <li><a href="../Homepage/homepage.php" style="font-size: 12px">Login</a></li>
@@ -327,10 +224,14 @@ session_start();
             </div>
             <div class="footer-section">
                 <div class="logo-image" style="float: right">
-                    <img src="../book.png" width="30px" height="30px" style="margin-right: 10px" /><img src="BooksRUs_Logo.png" height=20% width=30%>
+                    <img src="../book.png" width="30px" height="30px" style="margin-right: 10px" /><img
+                        src="BooksRUs_Logo.png" height=20% width=30%>
                 </div>
 
-                <div class="sponsor" style="float:right;  margin-top: auto; "><h3><img src="handshake.png" width="30px" height="30px" style="margin-right: 10px"/><b>Sponsored by Room to Read<b></b></div>
+                <div class="sponsor" style="float:right;  margin-top: auto; ">
+                    <h3 style="font-size: 15px"><img src="handshake.png" width="30px" height="30px" style="margin-right: 10px; margin-top:20px" />Sponsored by
+                        Room to Read</h3>
+                </div>
             </div>
 
         </div>
@@ -364,7 +265,7 @@ session_start();
                         <div class="md-form mb-4">
                             <i class="fas fa-lock prefix grey-text"></i>
                             <label data-error="wrong" data-success="right" for="defaultForm-pass">Your Message</label>
-                            <textarea rows="4" cols="10" type="message" id="email-login" class="form-control validate"></textarea>
+                            <input type="message" id="email-login" class="form-control validate" required />
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
