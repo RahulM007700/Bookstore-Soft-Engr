@@ -146,7 +146,7 @@ session_start();
                 . mysqli_connect_error());
         } else {
             $str = $_POST["search"];
-            $Available_Books = "SELECT * FROM available_books WHERE Book_Name LIKE '$str'";
+            $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'   ";
             $Books = $conn->query($Available_Books);
             while ($newElement = $Books->fetch_assoc()) {
                 $new[] = $newElement;
@@ -155,7 +155,7 @@ session_start();
         }
         $conn->close();
     } else if (!empty($_POST["homeSearch"])) {
-        //echo $_SESSION['Email'];
+        echo $_POST['Filter'];
         $host = "localhost";
         $dbusername = "root";
         $dbpassword = "";
@@ -168,7 +168,7 @@ session_start();
                 . mysqli_connect_error());
         } else {
             $str = $_POST["homeSearch"];
-            $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
+            $Available_Books = "SELECT * FROM available_books WHERE Book_Name='$str'";
             $Books = $conn->query($Available_Books);
             while ($newElement = $Books->fetch_assoc()) {
                 $new[] = $newElement;
