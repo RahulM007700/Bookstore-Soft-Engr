@@ -352,7 +352,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu" id="filter">
                   <li style="text-align:left; padding-left:5px;"><input name="Filter" value="Author" type="checkbox"> Author</li>
-                  <li style="text-align:left; padding-left:5px;"><input name="Filter" value="Title" type="checkbox"> Title</li>
+                  <li style="text-align:left; padding-left:5px;"><input name="Filter" value="Book_Name" type="checkbox"> Title</li>
                   <li style="text-align:left; padding-left:5px;"><input name="Filter" value="Category" type="checkbox"> Category</li>
                   <li style="text-align:left; padding-left:5px;"><input name="Filter" value="ISBN" type="checkbox"> ISBN</li>
                 </ul>

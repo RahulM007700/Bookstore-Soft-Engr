@@ -119,15 +119,15 @@ session_start();
                                 <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:32px; margin-right:5px; background-color:#E0DEDE;"><i class="fas fa-filter" style="color:black;"></i>
                                     <span class="caret"></span></button>
                                 <ul class="dropdown-menu" id="filter">
-                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> Author</li>
-                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> Title</li>
-                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> Category</li>
-                                    <li style="text-align:left; padding-left:5px;"><input type="checkbox"> ISBN</li>
+                                    <li style="text-align:left; padding-left:5px;"><input name="Filter" value ="Author" type="checkbox"> Author</li>
+                                    <li style="text-align:left; padding-left:5px;"><input name="Filter" value ="Book_Name" type="checkbox"> Title</li>
+                                    <li style="text-align:left; padding-left:5px;"><input name="Filter" value ="Category" type="checkbox"> Category</li>
+                                    <li style="text-align:left; padding-left:5px;"><input name="Filter" value ="ISBN" type="checkbox"> ISBN</li>
                                 </ul>
                             </div>
                             <input type="text" class="form-control" placeholder="Search..." name="search">
                             <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit">
+                                <button class="btn btn-default" type="submit" id="submit">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
@@ -155,8 +155,8 @@ session_start();
             <table style="background-color: #faf0e6; border-radius:5px;padding-bottom:50px;">
 
                 <?php
-                if (isset($_POST["submit"])) {
-
+                if (isset($_POST["search"])) {
+                    
                     $host = "localhost";
                     $dbusername = "root";
                     $dbpassword = "";
@@ -168,8 +168,10 @@ session_start();
                         die('Connect Error(' . mysqli_connect_error() . ')'
                             . mysqli_connect_error());
                     } else {
+                        $Filter = $_POST['Filter'];
                         $str = $_POST["search"];
-                        $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
+                        $Available_Books = "SELECT * FROM available_books WHERE ".$Filter." = '$str'";
+                        //echo $Available_Books;
                         $Books = $conn->query($Available_Books);
                         while ($newElement = $Books->fetch_assoc()) {
                             $new[] = $newElement;
@@ -190,8 +192,9 @@ session_start();
                         die('Connect Error(' . mysqli_connect_error() . ')'
                             . mysqli_connect_error());
                     } else {
+                        $Filter = $_POST['Filter'];
                         $str = $_POST["homeSearch"];
-                        $Available_Books = "SELECT * FROM available_books WHERE Book_Name = '$str'";
+                        $Available_Books = "SELECT * FROM available_books WHERE ".$Filter." = '$str'";
                         $Books = $conn->query($Available_Books);
                         while ($newElement = $Books->fetch_assoc()) {
                             $new[] = $newElement;
