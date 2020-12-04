@@ -264,16 +264,27 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 </style>
 <body>
-  <!--nav bar-->
   <div class="container-fluid">
     <nav class="navbar navbar-expand navbar-light">
-        <a class="navbar-brand" href="#"><img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo4.jpg" height="50"></a>
+        <a class="navbar-brand" href="#"><img src="BooksRUs_Logo.png" height="80"></a>
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item px-4"><a href="#" class="nav-link py-4">Textbooks</a></li>
-            <li class="nav-item px-4"><a href="#" class="nav-link py-4">Adults</a></li>
-            <li class="nav-item px-4"><a href="#" class="nav-link py-4">Teens</a></li>
-            <li class="nav-item px-4"><a href="#" class="nav-link py-4">Kids</a></li>
+            <!--<li class="nav-item px-4"><a href="#" class="nav-link py-4">Textbooks</a></li>
+            <li class="nav-item px-4"><a href="#" class="nav-link py-4">Adults</a></li>-->
+            <div class="btn-group dropdown">
+               <li class="nav-item px-4 mt-0"><a href="#" class="nav-link py-4"><a style="color:rgba(0,0,0,.5);top:-24px;" href="#" class="dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target="#cat">Categories</a>            
+                  <div class="dropdown-menu dropdown-primary" id="cat">
+                    <a class="dropdown-item" href="#" id="biography"><input type="hidden">Biography</a>
+                    <a class="dropdown-item" href="#" id="sciencefiction"><input type="hidden">Science-Fiction</a>
+                    <a class="dropdown-item" href="#" id="nonfiction"><input type="hidden">Non-Fiction</a>
+                    <a class="dropdown-item" href="#" id="poetry"><input type="hidden">Poetry</a>
+                    <a class="dropdown-item" href="#" id="drama"><input type="hidden">Drama</a>
+                  </div>
+                 </a>
+               </li>
+            </div>
+                  
+            <li class="nav-item px-4"><a href="#" class="nav-link py-4">About Us</a></li>
               <div class="dropdown">
               <li class="nav-item px-4"><a href="#" class="nav-link py-4">
 
@@ -287,17 +298,17 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                     //session_start();
                     if (isset($_SESSION['Email'])){
                       echo '
-                              <a href="./LogUserOut.php" id="logout" style="color: black">Logout<br /></a>
+                              <a class="dropdown-item" href="./LogUserOut.php" id="logout" style="color: black">Logout</a>
                             
                             
-                              <a
+                              <a class="dropdown-item"
                                 href="../EditProfile/edit_profile.php"
                                 style="color: black"
                                 >Edit Profile</a
                               >
                             
                             
-                              <a
+                              <a class="dropdown-item"
                                 href="../OrderHistory/order-history.html"
                                 style="color: black"
                                 >Order History</a
