@@ -262,6 +262,10 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
   background:#faf0e6; 
   padding:0 10px;
 }
+.required:after {
+    content:" *";
+    color: red;
+}
 </style>
 <body>
   <div class="container-fluid">
@@ -601,23 +605,23 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
         <form action="RegisterNewUser.php" method="POST" id="regform">
           <div class="modal-body mx-3">
             <div class="md-form mb-5">
-              <label data-error="wrong" data-success="right" for="defaultForm-email">First Name</label>
+              <label class="required" data-error="wrong" data-success="right" for="defaultForm-email">First Name</label>
               <input name='fname' type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter first name" required/>
             </div>
             <div class="md-form mb-5">
-              <label data-error="wrong" data-success="right" for="lastName">Last Name</label>
+              <label class="required" data-error="wrong" data-success="right" for="lastName">Last Name</label>
               <input name='lname' type="text" id="lastName" class="form-control validate" placeholder="Enter last name" required/>
             </div>
             <div class="md-form mb-5">
-              <label data-error="wrong" data-success="right" for="email">Email Address</label>
+              <label class="required" data-error="wrong" data-success="right" for="email">Email Address</label>
               <input name='email' type="email" id="email" class="form-control validate" placeholder="Enter email address" required/>
             </div>
             <div class="md-form mb-5">
-              <label data-error="wrong" data-success="right" for="psw">Password</label>
+              <label class="required" data-error="wrong" data-success="right" for="psw">Password</label>
               <input name='psw' type="password" id="psw" class="form-control validate" placeholder="Enter password" required/>
             </div>
             <div class="md-form mb-5">
-              <label data-error="wrong" data-success="right" for="phone">Phone Number</label>
+              <label class="required" data-error="wrong" data-success="right" for="phone">Phone Number</label>
               <input name='phone' type="tel" class="form-control validate" type="tel" placeholder="Enter Phone Number as 123-456-7890" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/>
             </div>
             

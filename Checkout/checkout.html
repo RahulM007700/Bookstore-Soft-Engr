@@ -160,9 +160,18 @@
               <b style="font-size: 40px">Billing Address</b>
             </p>
             <p class="display-info">Current Address: 1234 Example St.</p>
-            <button class="button" id="billingButton">
-              Change Billing Address
-            </button>
+            <div class="edit-btn">
+              <button
+                class="btn btn-info btn-lg"
+                id="billingButton"
+                type="button"
+                class="btn btn-info btn-lg"
+                data-toggle="modal"
+                data-target="#billingModal"
+              >
+                Change Billing Address
+              </button>
+            </div>
           </div>
         </div>
         <div class="col-lg-12 p-5 bg-white rounded shadow mb-5">
@@ -171,9 +180,18 @@
               <b style="font-size: 40px">Payment Information</b>
             </p>
             <p class="display-info">Current Card: **** **** **** 0000</p>
-            <button class="button" id="paymentButton">
-              Change Payment Information
-            </button>
+            <div class="edit-btn">
+              <button
+                class="btn btn-info btn-lg"
+                id="paymentButton"
+                type="button"
+                class="btn btn-info btn-lg"
+                data-toggle="modal"
+                data-target="#paymentModal"
+              >
+                Change Payment Information
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -188,7 +206,6 @@
                 <t>Your Cart(1)</t> <a href="#" style="float: right">Edit</a>
               </p>
 
-               
               <table class="table">
                 <thead style="text-align: left"></thead>
                 <tbody>
@@ -235,11 +252,18 @@
       </div>
     </div>
 
-    <div id="billingModal" class="billingModal">
-      <div class="addBookModal-content">
+    <div
+      id="billingModal"
+      class="modal fade"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
         <span class="close-button-billing">&times;</span>
 
-        <form action="../Admin_Phps/PromoUpdate.php" method="POST">
+        <form action="../EditProfile/EditUserProfile.php" method="POST">
           <div class="container">
             <h1 style="text-align: center"><b>Edit Billing Address</b></h1>
 
@@ -288,11 +312,18 @@
       </div>
     </div>
 
-    <div id="paymentModal" class="paymentModal">
-      <div class="addBookModal-content">
+    <div
+      id="paymentModal"
+      class="modal fade"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
         <span class="close-button-payment">&times;</span>
 
-        <form action="../Admin_Phps/PromoUpdate.php" method="POST">
+        <form action="../EditProfile/EditUserProfile.php" method="POST">
           <div class="container">
             <h1 style="text-align: center"><b>Edit Payment Information</b></h1>
 
@@ -408,7 +439,7 @@
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">
       document.getElementById("checkoutButton").onclick = function () {
-        location.href = "../";
+        location.href = "../OrderConfirmation/orderConfirmation.html";
       };
     </script>
   </body>
