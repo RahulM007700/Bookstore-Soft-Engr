@@ -371,7 +371,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	                    	</div>-->
 	                    	<div class="row">
 	                    		<div class="col-md-6">
-	                    			<p style="text-align:left;color:black;"><a class="scroll-link" href="#" style="color:black; text-decoration: none;">Home</a></p>
+	                    			<p style="text-align:left;color:black;"><a class="scroll-link" href="../Homepage/homepage.php" style="color:black; text-decoration: none;">Home</a></p>
 	                    			<p style="text-align:left;color:black;"><a href="#" style="color:black; text-decoration: none;">About Us</a></p>
 	                    		</div>
 	                    		<div class="col-md-6">

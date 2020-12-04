@@ -10,7 +10,7 @@ session_start();
   <title>Manage Promotions</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" />
-  <link rel="stylesheet" href="../manageBooks.css" />
+  <link rel="stylesheet" href="../ManageBooks/manageBooks.css" />
   <?php $recEmail = $_SESSION['Emails'] ?>
   <script type="text/javascript">
     session = '<?php echo $recEmail; ?>'
@@ -206,7 +206,7 @@ session_start();
                 </td>
 
                 <td>
-                  <input type="button" id="sendpromobtn" class="sendpromobtn" onclick="sendPromotionEmail();">Send Promotion</input>
+                  <button type="button" class="btn btn-light" id="sendpromobtn" onclick="sendPromotionEmail();">Send Promotion</button>
                 </td>
 
               </form>

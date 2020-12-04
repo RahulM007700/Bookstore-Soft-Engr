@@ -1,13 +1,45 @@
-<?php session_start(); ?>
+<?php session_start(); 
+$_SESSION['Total'] = 0; 
+                      if (isset($_POST['quantity'])) {
+                        $value = $_POST['quantity'];
+                        $host = "localhost";
+                        $dbusername = "root";
+                        $dbpassword = "";
+                        $dbname = "online_bookstore";
+
+                        //Make Connection
+                        $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+                        if (mysqli_connect_error()) {
+                          die('Connect Error(' . mysqli_connect_error() . ')'
+                              . mysqli_connect_error());
+                        } else {
+                          //echo $value;
+                          $ISBN = $_POST['isbn'];
+                          //echo $ISBN;
+                          $Available_Books = "UPDATE shopping_cart SET Quantity='$value' WHERE Item_ID='$ISBN'";
+                          if($conn->query($Available_Books)) {
+                            header("Location: http://localhost/Bookstore-Soft-Engr/Shopping%20Cart/shoppingCartRetrieval.php");
+                          } else {
+                            echo("Error description: " . $conn -> error);
+                          }
+                        }
+                        $conn->close();
+                      }
+                    ?>
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>New Shopping Cart</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css"></link>
+    <title>New Shopping Cart</title>
+    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="newShoppingCart.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://kit.fontawesome.com/a746b8874d.js" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      
     </head>
     <body>
         <!--nav bar-->
@@ -42,10 +74,7 @@
                 aria-haspopup="true" aria-expanded="false" data-target="#navItem"><i class="fas fa-user fa-2x" style="color:grey;"></i></a>              
                 <!--Menu-->
                 <div class="dropdown-menu dropdown-primary" id="navItem">
-                <?php
-                    //session_start();
-                    if (isset($_SESSION['Email'])){
-                      echo '
+                 
                               <a class="dropdown-item" href="./LogUserOut.php" id="logout" style="color: black">Logout</a>
                             
                             
@@ -61,12 +90,8 @@
                                 style="color: black"
                                 >Order History</a
                               >
-                            ';
-                    }
-                    else {
-                      echo '<a class="dropdown-item" href="#" id="login" data-toggle="modal" data-target="#loginModal">Login/Sign Up</a>';
-                    }
-                  ?>
+                   
+                  
                 </div>
                 </a></li>
               </div>
@@ -115,34 +140,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php $_SESSION['Total'] = 0;?>
-                    <?php  
-                      if (isset($_POST['quantity'])) {
-                        $value = $_POST['quantity'];
-                        $host = "localhost";
-                        $dbusername = "root";
-                        $dbpassword = "";
-                        $dbname = "online_bookstore";
-
-                        //Make Connection
-                        $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
-                        if (mysqli_connect_error()) {
-                          die('Connect Error(' . mysqli_connect_error() . ')'
-                              . mysqli_connect_error());
-                        } else {
-                          //echo $value;
-                          $ISBN = $_POST['isbn'];
-                          //echo $ISBN;
-                          $Available_Books = "UPDATE shopping_cart SET Quantity='$value' WHERE Item_ID='$ISBN'";
-                          if($conn->query($Available_Books)) {
-                            header("Location: http://localhost/Bookstore-Soft-Engr/Shopping%20Cart/shoppingCartRetrieval.php");
-                          } else {
-                            echo("Error description: " . $conn -> error);
-                          }
-                        }
-                        $conn->close();
-                      }
-                    ?>
+                    
                     <?php for ($i = 0; $i < sizeof($_SESSION['Cart_Items']); $i++) :?>
                     <?php $_SESSION['Total'] += $_SESSION['Cart_Items'][$i]['Price']*$_SESSION['Cart_Items'][$i]['Quantity'];?>
                         <tr>

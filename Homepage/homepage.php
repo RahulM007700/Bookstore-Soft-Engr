@@ -266,7 +266,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
 <body>
   <div class="container-fluid">
     <nav class="navbar navbar-expand navbar-light">
-        <a class="navbar-brand" href="#"><img src="BooksRUs_Logo.png" height="80"></a>
+        <a class="navbar-brand" href="#"><img src="../BooksRUs_Logo.png" height="80"></a>
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
             <!--<li class="nav-item px-4"><a href="#" class="nav-link py-4">Textbooks</a></li>
@@ -610,7 +610,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
             </div>
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="email">Email Address</label>
-              <input name='email' type="email" id="email" class="form-control validate" placeholder="Enter email address required/>
+              <input name='email' type="email" id="email" class="form-control validate" placeholder="Enter email address" required/>
             </div>
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="psw">Password</label>
@@ -715,10 +715,12 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
               <input name='cvv' type="text" id="cvv" class="form-control validate" pattern="[0-9]{3}" placeholder="Enter CVV" required/>
             </div>
             
-            <div class="md-form mb-4">
+            <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="expdate">Exp Date</label>
               <input name='expdate' type="month" id="expdate" class="form-control validate" placeholder="Enter exp date" required/>
             </div>
+            <div class="md-form mb-4">              <label class="switch" for="subscription">Would you like to subscribe to future promotions?</label>              <input type="checkbox" id="subscription">              <span class="slider round"></span>            </div>
+
           </div>
           <div class="modal-footer d-flex justify-content-center">
             <button class="btn btn-default" type="submit">Register</button>

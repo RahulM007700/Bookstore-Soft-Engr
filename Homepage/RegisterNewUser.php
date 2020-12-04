@@ -50,7 +50,7 @@ if (!empty($EmailAddress)){
                                                     StreetAddress, City, State, ZipCode, CardType, CardNumber, ExpirationDate, 
                                                     CVV)
                         values ('$FirstName', '$LastName', '$passhash', '$EmailAddress', '$PhoneNumber', '$StreetAddress', '$City',
-                                '$State', '$ZipCode', '$CardType', '$CardHash', '$ExpirationDate', '$CVV')";
+                                '$State', '$ZipCode', '$CardType', '$cardhash', '$ExpirationDate', '$CVV')";
                 if (mysqli_query($conn, $sql2)){
                     $sql3 = "Select * from customer_account cA where (cA.EmailAddress = '$EmailAddress');";
                     if ($openAccount = mysqli_query($conn, $sql3)){ 

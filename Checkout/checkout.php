@@ -13,7 +13,7 @@
     />
     <link rel="stylesheet" href="../Admin Homepage/ManageBooks/manageBooks.css" />
     <link rel="stylesheet" href="checkout_style.css" />
-    <?php $recEmail = $_SESSION['Emails']?>
+    <?php $recEmail = $_SESSION['Email']?>
     <script type="text/javascript">
       session = "<?php echo $recEmail;?>";
     </script>
