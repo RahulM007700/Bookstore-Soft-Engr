@@ -262,7 +262,6 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                             //echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['Books'][$i]['Cover'] ).'" alt="top1" class="top1" height="500"/>';                         
                             if ($_SESSION['Books'][$i]['ISBN'] == $_SESSION['TempISBN']) {
                                 echo '<div class= "col-5 justify-content-center">';
-                                echo "Here";
                                 $_SESSION['Cover'] = $_SESSION['Books'][$i]['Cover'];
                                 echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['Books'][$i]['Cover'] ).'" alt="top1" class="top1" height="500"/>';
                                 echo '</div>';
@@ -293,7 +292,9 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                                 echo '</div>';
                                 echo '<div class="row">';
                                 echo '<p><b>Description</b></p>';
-                                echo '<p style="text-align:left;">hello hello In front of me is a kiosk, a couch and a chair. There are some people sitting upstairs in the lobby. A lot of people are moving out right now because Thanksgiving is tomorrow and classes are online post-Thanksgiving. I am trying to figure out why the text is centered.</p>';
+                                echo '<p style="text-align:left;">';
+                                echo $_SESSION['Books'][$i]['Description'];
+                                echo '</p>';
                                 echo '</div>';
                                 echo '<div class="row" style="float:left;padding-left:0px;">';
                                 echo '<div class="col-12 justify-content-center">';

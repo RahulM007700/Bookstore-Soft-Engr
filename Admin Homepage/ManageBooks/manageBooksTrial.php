@@ -12,8 +12,9 @@ session_start();
       var variable = i;
       document.getElementById("delete").elements[1].value=variable;
     } 
-    function dothat(i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11) {
+    function dothat(i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12) {
       console.log("Hello");
+      console.log(i12);
       var i1 = i1;
       var i2 = i2;
       var i3 = i3;
@@ -25,6 +26,7 @@ session_start();
       var i9 = i9;
       var i10 = i10;
       var i11 = i11;
+      var i12 = i12;
       document.getElementById("edit").elements[0].value = i1;
       document.getElementById("edit").elements[1].value = i2;
       document.getElementById("edit").elements[2].value = i3;
@@ -36,7 +38,7 @@ session_start();
       document.getElementById("edit").elements[8].value = i9;
       document.getElementById("edit").elements[9].value = i10;
       document.getElementById("edit").elements[10].value = i11;
-
+      document.getElementById("edit").elements[11].value = i12;
     }
     </script>
     <meta charset="utf-8">
@@ -67,7 +69,6 @@ session_start();
         }
     </style>
 </head>
-
 <body>
     
     <div class="container-fluid">
@@ -151,13 +152,12 @@ session_start();
                                 <!--<a href="#" class="button" title="Add" data-toggle="tooltip"><i
                                     class="material-icons">&#xe148;</i></a>-->
                                 <input id="number" type="hidden" name="i2" value='<?php echo $i;?>'></input>
+                                <?php $_SESSION['Publisher'] = $_SESSION['Books'][$i]['Publisher'];?>
 
-                                <!-- <input type="button" name="editbtn" title="Edit" data-toggle="modal" data-target="#editModal" onclick="dothat('<?php echo $_SESSION['Books'][$i]['Book_Name'];?>','<?php echo $_SESSION['Books'][$i]['ISBN'];?>','<?php echo $_SESSION['Books'][$i]['Category'];?>','<?php echo $_SESSION['Books'][$i]['Author'];?>','<?php echo $_SESSION['Books'][$i]['Edition'];?>','<?php echo $_SESSION['Books'][$i]['Publisher'];?>','<?php echo $_SESSION['Books'][$i]['Date_Published'];?>','<?php echo $_SESSION['Books'][$i]['Quantity'];?>','<?php echo $_SESSION['Books'][$i]['Selling_Price'];?>','<?php echo $_SESSION['Books'][$i]['Asking_Price'];?>','<?php echo $_SESSION['Books'][$i]['Min_Threshold'];?>')"><i class="material-icons">&#xE8B8;</i></input>
-                                <input type="button" name="deletebtn" title="Delete" data-toggle="modal" data-target="#deleteModal" onclick="dothis(<?php echo $i?>)"><i class="material-icons">&#xE5C9;</i></input>
-                            -->
-                         <button type="button" name="editbtn" title="Edit" data-toggle="modal" data-target="#editModal" onclick="dothat('<?php echo $_SESSION['Books'][$i]['Book_Name'];?>','<?php echo $_SESSION['Books'][$i]['ISBN'];?>','<?php echo $_SESSION['Books'][$i]['Category'];?>','<?php echo $_SESSION['Books'][$i]['Author'];?>','<?php echo $_SESSION['Books'][$i]['Edition'];?>','<?php echo $_SESSION['Books'][$i]['Publisher'];?>','<?php echo $_SESSION['Books'][$i]['Date_Published'];?>','<?php echo $_SESSION['Books'][$i]['Quantity'];?>','<?php echo $_SESSION['Books'][$i]['Selling_Price'];?>','<?php echo $_SESSION['Books'][$i]['Asking_Price'];?>','<?php echo $_SESSION['Books'][$i]['Min_Threshold'];?>')"><img src="../edit.png" class="arrow" width="30" height="30" style="float:left;" /></input>
+                         <button type="button" name="editbtn" title="Edit" data-toggle="modal" data-target="#editModal" onclick="dothat('<?php echo $_SESSION['Books'][$i]['Book_Name'];?>','<?php echo $_SESSION['Books'][$i]['ISBN'];?>','<?php echo $_SESSION['Books'][$i]['Category'];?>','<?php echo $_SESSION['Books'][$i]['Author'];?>','<?php echo $_SESSION['Books'][$i]['Edition'];?>',1,'<?php echo $_SESSION['Books'][$i]['Date_Published'];?>','<?php echo $_SESSION['Books'][$i]['Quantity'];?>','<?php echo $_SESSION['Books'][$i]['Selling_Price'];?>','<?php echo $_SESSION['Books'][$i]['Asking_Price'];?>','<?php echo $_SESSION['Books'][$i]['Min_Threshold'];?>',1)"><img src="../edit.png" class="arrow" width="30" height="30" style="float:left;"/></button>
+
                                 <button type="button" name="deletebtn" title="Delete" data-toggle="modal" class="button-delete" onclick="dothis(<?php echo $i; ?>)"
-                                    data-target="#deleteModal" ><img src="../trash.png" class="arrow" width="30" height="30" style="float:left;" /></input>
+                                    data-target="#deleteModal" ><img src="../trash.png" class="arrow" width="30" height="30" style="float:left;" /></button>
                     
 </td>
 
@@ -202,7 +202,7 @@ session_start();
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="../Admin_Phps/BooksUpdate.php" method="POST" enctype="multipart/form-data">
+        <form id="add" action="../Admin_Phps/BooksUpdate.php" method="POST" enctype="multipart/form-data">
           <div class="modal-body mx-3">
             <div class="md-form mb-5">
               <label for="bookname"><b>Book Name</b></label>
@@ -261,13 +261,17 @@ session_start();
                     <input type="text" placeholder="Enter minimum threshold" name="Min_Threshold" id="minthresh" required/>
 
             </div>
-              
+            <div class="md-form mb-2">
+               <label for="description"><b>Description</b></label><br>
+               <textarea name="Description" id="Description" style="background-color : #f1f1f1;border-color: transparent; margin-left: 3px;" rows="10" cols="57" name="Description" form="add" required></textarea>
+            </div> 
              <div class="md-form mb-5">
               <label for="coverphoto"><b>Cover Photo</b></label>
               <input type="file" name="image" required />
             </div>
 
           </div>
+          
           <div class="modal-footer d-flex justify-content-center">
             <input class="btn btn-default" type="submit" id="submitbtn" name="actions" value="Add"></input>
             <br>
@@ -291,7 +295,6 @@ session_start();
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <>
         <form id="edit" action="../Admin_Phps/BooksUpdate.php" method="POST">
           <div class="modal-body mx-3">
             <div class="md-form mb-2">
@@ -301,67 +304,71 @@ session_start();
             
             <div class="md-form mb-2">
              <label for="isbn"><b>ISBN No.</b></label>
-              <input type="text" name="ISBN" id="isbn" value="i3" required />
+              <input type="text" name="ISBN" id="isbn" value="" required />
             </div>
             
             <div class="md-form mb-2">
               <label for="category"><b>Category</b></label>
                     <input type="text" name="Category" id="category"
-                        value="i4" required />
+                        value="" required />
             </div>
             
             <div class="md-form mb-2">
              <label for="authorname"><b>Author's Name</b></label>
                     <input type="text" name="Author" id="authorname"
-                        value="i5" required />
+                        value="" required />
             </div>
             
             <div class="md-form mb-2">
              <label for="edition"><b>Edition</b></label>
                     <input type="text" name="Edition" id="edition"
-                        value="i6" required />
+                        value="" required />
             </div>
             
             <div class="md-form mb-2">
               <label for="publisher"><b>Publisher</b></label>
                     <input type="text" name="Publisher" id="publisher"
-                        value="i7" required />
+                        value="" required />
 
             </div>
             
             <div class="md-form mb-2">
               <label for="pubyear"><b>Publication Year</b></label>
                     <input type="text" name="Date_Published" id="pubyear"
-                        value="i8" required />
+                        value="" required />
 
             </div>
             
             <div class="md-form mb-2">
               <label for="quantity"><b>Quantity</b></label>
                     <input type="text" name="Quantity" id="quantity"
-                        value="i9" required />
+                        value="" required />
 
             </div>
             
             <div class="md-form mb-2">
               <label for="sellprice"><b>Selling Price</b></label>
                     <input type="text" name="Selling_Price" id="sellprice"
-                        value="i10" required />
+                        value="" required />
             </div>
             
             <div class="md-form mb-2">
                <label for="askprice"><b>Asking Price</b></label>
                     <input type="text" name="Asking_Price" id="askprice"
-                        value="i11" required />
+                        value="" required />
             </div>
             
             <div class="md-form mb-2">
                <label for="minthresh"><b>Minimum Threshold</b></label>
                     <input type="text" name="Min_Threshold" id="minthresh"
-                        value="i12" required />
+                        value="" required />
 
             </div>
-
+            <div class="md-form mb-2">
+               <label for="description"><b>Description</b></label>
+                    <input type="text" name="Description" id="description"
+                        value="" required />
+            </div>
           </div>
           <div class="modal-footer d-flex justify-content-center">
             <input class="btn btn-default" type="submit" id="submitbtn2" name="actions" value="EDIT"></input>

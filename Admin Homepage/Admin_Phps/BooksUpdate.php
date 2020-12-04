@@ -11,11 +11,12 @@ $Quantity = filter_input(INPUT_POST,'Quantity');
 $Selling_Price = filter_input(INPUT_POST,'Selling_Price');
 $Asking_Price = filter_input(INPUT_POST,'Asking_Price');
 $Min_Threshold = filter_input(INPUT_POST,'Min_Threshold');
+$Description = filter_input(INPUT_POST, 'Description');
 //$image = filter_input(INPUT_POST, $_FILES['image']['tmp_name']); 
 $Admin_ID = "12345";
 $Method = filter_input(INPUT_POST,'actions');
-
-
+echo filter_input(INPUT_POST,'ISBN'); 
+    
 if (!empty($Admin_ID)) {
 
     $host = "localhost";
@@ -33,26 +34,29 @@ if (!empty($Admin_ID)) {
             . mysqli_connect_error());
     } else {
         if($Method == "Add") {
-            $SQL1 = "INSERT INTO available_books (Book_Name, ISBN, Category, Author, Edition, Publisher, Date_Published, Quantity, Selling_Price, Asking_Price, Min_Threshold, Cover)
-                VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
+            $SQL1 = "INSERT INTO available_books (Book_Name, ISBN, Category, Author, Edition, Publisher, Date_Published, Quantity, Selling_Price, Asking_Price, Min_Threshold, Cover, Description)
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
             $image = $_FILES['image']['tmp_name'];
             $img = file_get_contents($image);
             $conn = mysqli_connect('localhost','root','','online_bookstore') or die('Unable To connect');
-            $sql = "UPDATE available_books SET (Cover=?) WHERE ISBN='$ISBN'";
             $stmt = mysqli_prepare($conn, $SQL1);
-
-            mysqli_stmt_bind_param($stmt, "sssssssiddis",$Book_Name, $ISBN, $Category, $Author, $Edition,$Publisher, $Date_Published, $Quantity, $Selling_Price, $Asking_Price, $Min_Threshold, $img);
+            $ISBN = filter_input(INPUT_POST,'ISBN');
+            mysqli_stmt_bind_param($stmt, "sisssssiddiss",$Book_Name, $ISBN, $Category, $Author, $Edition,$Publisher, $Date_Published, $Quantity, $Selling_Price, $Asking_Price, $Min_Threshold, $img, $Description);
+            echo "ISB".$ISBN;
+            $SQL2 = "INSERT INTO available_books (Book_Name, ISBN, Category, Author, Edition, Publisher, Date_Published, Quantity, Selling_Price, Asking_Price, Min_Threshold, Cover, Description) VALUES ($Book_Name, $ISBN, $Category, $Author, $Edition, $Publisher, $Date_Published, $Quantity, $Selling_Price, $Asking_Price, $Min_Threshold, $img, $Description);";
+            //$conn->query($SQL2);
+            //echo $SQL2;
             mysqli_stmt_execute($stmt);
             //print_r($img);
             $check = mysqli_stmt_affected_rows($stmt);
             echo $check;
             if($check==1){
                 $msg = 'Image Successfullly UPloaded';
+                header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/Admin_Phps/BookRetrieval.php");
             } else{
                 echo("Error description: " . $conn -> error);
             }            
             //echo "Book added succesfully";
-            header("Location: http://localhost/Bookstore-Soft-Engr/Admin%20Homepage/Admin_Phps/BookRetrieval.php");
         } else if($Method == "EDIT") {
             //echo $ISBN;
             $SQL2 = "UPDATE available_books 
@@ -70,7 +74,7 @@ if (!empty($Admin_ID)) {
             //echo "i is".$i;
             $Darealisbn = $_SESSION['Books'][$i]['ISBN'];
             //echo($Darealisbn);
-            $SQL3 = "INSERT INTO archive (Book_Name, ISBN, Category, Author, Edition, Publisher, Date_Published, Quantity, Selling_Price, Asking_Price, Min_Threshold, Cover)
+            $SQL3 = "INSERT INTO archive (Book_Name, ISBN, Category, Author, Edition, Publisher, Date_Published, Quantity, Selling_Price, Asking_Price, Min_Threshold, Cover, Description)
                 SELECT * FROM available_books WHERE ISBN = '$Darealisbn'";
             $SQL4 = "DELETE FROM available_books WHERE ISBN = '$Darealisbn';";
             if ($conn->query($SQL3)){

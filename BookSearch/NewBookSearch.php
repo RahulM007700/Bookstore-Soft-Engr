@@ -66,21 +66,18 @@ session_start();
                         <div class="dropdown">
                             <li class="nav-item px-4">
                                 <a href="#" class="nav-link py-4">
-
                                     Categories
                                     <!--Menu-->
-
                                 </a>
                             </li>
                             <div class="dropdown-content">
-
-                            <a href="#" id="biography"><input type="hidden">Biography</a>
-                            <a href="#" id="sciencefiction"><input type="hidden">Science-Fiction</a>
-                            <a href="#" id="sciencefiction"><input type="hidden">Non-Fiction</a>
-                            <a href="#" id="sciencefiction"><input type="hidden">Poetry</a>
-                            <a href="#" id="sciencefiction"><input type="hidden">Drama</a>
-
-
+                            <form method="POST">
+                                <a href="NewBookSearch.php" id="biography"><button style="border: 1px solid transparent;background-color: transparent;" name="Category" value="Biography" type="submit">Biography</button></a>
+                                <a href="#" id="sciencefiction"><button style="border: 1px solid transparent;background-color: transparent;" name="Category" value="Science-Fiction" type="submit">Science Fiction</button></a>
+                                <a href="#" id="sciencefiction"><button style="border: 1px solid transparent;background-color: transparent;" name="Category" value="Non-Fiction" type="submit">Non Fiction</button></a>
+                                <a href="#" id="sciencefiction"><button style="border: 1px solid transparent;background-color: transparent;" name="Category" value="Poetry" type="submit">Poetry</button></a>
+                                <a href="#" id="sciencefiction"><button style="border: 1px solid transparent;background-color: transparent;" name="Category" value="Drama" type="submit">Drama</button></a>
+                            </form>
                             </div>
                         </div>
                     </form>
@@ -220,6 +217,29 @@ session_start();
                         $Filter = $_POST['homeFilter'];
                         $str = $_POST["homeSearch"];
                         $Available_Books = "SELECT * FROM available_books WHERE ".$Filter." = '$str'";
+                        $Books = $conn->query($Available_Books);
+                        while ($newElement = $Books->fetch_assoc()) {
+                            $new[] = $newElement;
+                        }
+                        $_SESSION['BooksTemp'] = $new;
+                    }
+                    $conn->close();
+                } else if (!empty($_POST["Category"])) {
+                    //echo $_SESSION['Email'];
+                    $host = "localhost";
+                    $dbusername = "root";
+                    $dbpassword = "";
+                    $dbname = "online_bookstore";
+
+                    //Make Connection
+                    $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+                    if (mysqli_connect_error()) {
+                        die('Connect Error(' . mysqli_connect_error() . ')'
+                            . mysqli_connect_error());
+                    } else {
+                        $str = $_POST["Category"];
+                        echo $str;
+                        $Available_Books = "SELECT * FROM available_books WHERE Category = '$str'";
                         $Books = $conn->query($Available_Books);
                         while ($newElement = $Books->fetch_assoc()) {
                             $new[] = $newElement;
