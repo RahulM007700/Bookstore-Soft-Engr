@@ -398,14 +398,46 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
             <div class="container">
                 <div class="row">
                        <div class="col footer-social">
-                        <a href="#"><i class="fab fa-facebook-f px-2 blackiconcolor"></i></a> 
-                        <a href="#"><i class="fab fa-twitter px-2"></i></a> 
-                        <a href="#"><i class="fab fa-google-plus-g px-2"></i></a> 
-                        <a href="#"><i class="fab fa-instagram px-2"></i></a> 
-                        <a href="#"><i class="fab fa-pinterest px-2"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f px-2 blackiconcolor" style="color:black;"></i></a> 
+                        <a href="#"><i class="fab fa-twitter px-2" style="color:black;"></i></a> 
+                        <a href="#"><i class="fab fa-google-plus-g px-2" style="color:black;"></i></a> 
+                        <a href="#"><i class="fab fa-instagram px-2" style="color:black;"></i></a> 
+                        <a href="#"><i class="fab fa-pinterest px-2" style="color:black;"></i></a>
                     </div>
                    </div>
             </div>
         </div>
     </footer>
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Contact Us</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body mx-3">
+                        <p style="text-align:center">Send us an email if you have any questions or concerns here</p>
+                        <div class="md-form mb-5">
+                            <i class="fas fa-envelope prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="email-login">Your email</label>
+                            <input type="email" id="email-login" class="form-control validate" required />
+                        </div>
+
+                        <div class="md-form mb-4">
+                            <i class="fas fa-lock prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="defaultForm-pass">Your Message</label>
+                            <textarea rows="4" cols="10" type="message" id="email-login" class="form-control validate"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button class="btn btn-default" type="submit">Submit</button>
+                        <br>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </html>
