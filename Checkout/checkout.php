@@ -356,6 +356,33 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
         <a class="navbar-brand" href="../Homepage/homepage.php"><img src="../BooksRUs_Logo.png" height="80"></a>
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
+            <div class="dropdown">
+              <li class="nav-item px-4">
+                <a href="#" class="nav-link py-4">
+                  <!--Trigger-->
+
+                  <a
+                    class="btn-floating btn-lg black dropdown-toggle"
+                    type="button"
+                    id="dropdownMenu3"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    data-target="#navItem"
+                    ><i class="fas fa-user fa-2x" style="color: grey"></i
+                  ></a>
+                  <!--Menu-->
+                  <div class="dropdown-menu dropdown-primary" id="navItem">
+                    <a
+                      class="dropdown-item"
+                      href="../Homepage/LogUserOut.php"
+                      id="logout"
+                      data-toggle="modal"
+                      data-target="#loginModal"
+                      >Log Out</a
+                    >
+                    <a class="dropdown-item" href="../EditProfile/edit_profile.php">Edit Profile</a>
+                    <a class="dropdown-item" href="../OrderHistory/orderHistoryRetrieval.php">Order History</a>
             <!--<li class="nav-item px-4"><a href="#" class="nav-link py-4">Textbooks</a></li>
             <li class="nav-item px-4"><a href="#" class="nav-link py-4">Adults</a></li>-->
             <div class="btn-group dropdown">
@@ -370,6 +397,15 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                  </a>
                </li>
             </div>
+            <li class="nav-item px-4">
+              <a href="../Shopping Cart/shoppingCartRetrieval.php" class="nav-link py-4"
+                ><i class="fas fa-shopping-cart"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
                   
             <li class="nav-item px-4"><a href="#" class="nav-link py-4">About Us</a></li>
             <li class="nav-item px-4"><a href="#" class="nav-link py-4" data-target="#contactModal" data-toggle="modal">Contact</a></li>
@@ -815,7 +851,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">
       document.getElementById("checkoutButton").onclick = function () {
-        location.href = "../OrderConfirmation/orderConfirmation.html";
+        location.href = "../OrderConfirmation/orderConfirmation.php";
       };
     </script>
   </body>
