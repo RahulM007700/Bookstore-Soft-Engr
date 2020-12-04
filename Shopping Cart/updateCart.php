@@ -75,6 +75,18 @@
                 header("Location: http://localhost/Bookstore-Soft-Engr/Shopping%20Cart/shoppingCartRetrieval.php");
             }
         }
+        else if ($Method == "REORDER") {
+            echo "Here";
+            $SQL2 = "INSERT INTO shopping_cart (Item_ID, Name, Quantity, Price, Cover, Email) SELECT ISBN, Name, Quantity, Price, Cover, Email FROM Order_History";
+            if($conn->query($SQL2)) {
+                echo "Add Successful";
+                header("Location: http://localhost/Bookstore-Soft-Engr/Shopping%20Cart/shoppingCartRetrieval.php");
+            }
+            else {
+                echo("Error description: " . $conn -> error);
+                echo $Item_ID;
+            }
+        }
     }
 
 ?>

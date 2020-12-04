@@ -31,25 +31,48 @@
         $conn->close();
       }
     ?>
+<!DOCTYPE html>
 <html>
   <head>
- 
     <meta charset="utf-8" />
     <title>Checkout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
     <link
       rel="stylesheet"
       href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css"
     />
-    <link rel="stylesheet" href="../Admin Homepage/ManageBooks/manageBooks.css" />
-    <link rel="stylesheet" href="checkout_style.css" />
+    <link rel="stylesheet" href="editProfile_style.css" />
     <?php $email = $_SESSION['Email']?>
     <script type="text/javascript">
       session = "<?php echo $recEmail;?>";
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/a746b8874d.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script> 
           <script type="text/javascript">
       function sendConfirmationEmail(email) {
@@ -67,13 +90,29 @@
           document.getElementById("orderConfirmation").submit();
       }
     </script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script> 
-    
     <script
-      src="https://kit.fontawesome.com/a746b8874d.js"
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
       crossorigin="anonymous"
     ></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+      integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        $("#footer").load("../Footer/footer.html");
+      });
+    </script>
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <link rel="stylesheet" href="checkout_style.css" />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <style>
     body {
@@ -95,85 +134,160 @@
   </style>
 
   <body>
+    <!--nav bar-->
     <div class="container-fluid">
       <nav class="navbar navbar-expand navbar-light">
-        <a class="navbar-brand" href="adminHomepage.html"
-          ><img
-            src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo4.jpg"
-            height="50"
+        <a class="navbar-brand" href="../Homepage/homepage.php"
+          ><img src="../BooksRUs_Logo.png" height="80px"
         /></a>
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item px-4">
-              <a href="../../Homepage/LogUserOut.php" class="nav-link py-4"
-                >Logout</a
-              >
+              <a href="#" class="nav-link py-4">Textbooks</a>
+            </li>
+            <li class="nav-item px-4">
+              <a href="#" class="nav-link py-4">Adults</a>
+            </li>
+            <li class="nav-item px-4">
+              <a href="#" class="nav-link py-4">Teens</a>
+            </li>
+            <li class="nav-item px-4">
+              <a href="#" class="nav-link py-4">Kids</a>
+            </li>
+            <div class="dropdown">
+              <li class="nav-item px-4">
+                <a href="#" class="nav-link py-4">
+                  <!--Trigger-->
+
+                  <a
+                    class="btn-floating btn-lg black dropdown-toggle"
+                    type="button"
+                    id="dropdownMenu3"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    data-target="#navItem"
+                    ><i class="fas fa-user fa-2x" style="color: grey"></i
+                  ></a>
+                  <!--Menu-->
+                  <div class="dropdown-menu dropdown-primary" id="navItem">
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      id="login"
+                      data-toggle="modal"
+                      data-target="#loginModal"
+                      >Login/Sign Up</a
+                    >
+                    <a class="dropdown-item" href="#">Edit Profile</a>
+                    <a class="dropdown-item" href="#">Order History</a>
+                  </div>
+                </a>
+              </li>
+            </div>
+            <li class="nav-item px-4">
+              <a href="#" class="nav-link py-4"
+                ><i class="fas fa-shopping-cart"></i
+              ></a>
             </li>
           </ul>
         </div>
       </nav>
     </div>
 
+    <!--nav bar end-->
+
     <div
       class="container-fluid"
       style="background-color: #e9ecef; padding-bottom: 20px; padding-top: 20px"
     >
       <div class="container-fluid">
-        <h1 class="jumbotron-heading text-center">Checkout</h1>
+        <h1 class="jumbotron-heading text-center" style="font-size: 50px">
+          Checkout
+        </h1>
       </div>
     </div>
 
     <div class="flex-grid">
-      <div class="col">
-        <div class="leftcorners">
-          <p id="billingAddress">
-            <b style="font-size: 40px">Billing Address</b>
-          </p>
-          <button class="button" id="billingButton">Change Billing Address</button>
+      <div class="col" style="padding-top: 2%">
+        <div class="col-lg-12 p-5 bg-white rounded shadow mb-5"  style="height: 50%;">
+          <div class="leftcorners">
+            <p id="billingAddress">
+              <b style="font-size: 40px">Billing Address</b>
+            </p>
+            <p class="display-info">Current Address: <?php echo $_SESSION['SAddress'];?></p>
+            <div class="edit-btn">
+              <button
+                class="btn btn-info btn-lg"
+                id="billingButton"
+                type="button"
+                data-toggle="modal"
+                data-target="#billingModal"
+              >
+                Change Billing Address
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="leftcorners">
-          <p id="paymentInformation">
-            <b style="font-size: 40px">Payment Information</b>
-          </p>
-          <button class="button" id="paymentButton">Change Payment Information</button>
+        <div class="col-lg-12 p-5 bg-white rounded shadow mb-5" style="height: 50%;">
+          <div class="leftcorners">
+            <p id="paymentInformation">
+              <b style="font-size: 40px">Payment Information</b>
+            </p>
+            <p class="display-info">Current Card: Card 1</p>
+            <div class="edit-btn">
+              <button
+                class="btn btn-info btn-lg"
+                id="paymentButton"
+                type="button"
+                data-toggle="modal"
+                data-target="#paymentModal"
+              >
+                Change Payment Information
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col">      
-        <div class="rcorners">
-          <p id="orderSummary"><b style="font-size: 40px">Order Summary</b></p>
-          <p id="cart">
-            <t>Your Cart(1)</t> <a href="#" style="float: right">Edit</a>
-          </p>
-          <?php for ($i = 0; $i < sizeof($_SESSION['Cart_Items']); $i++) :?>
-          <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['Cart_Items'][$i]['Cover'] ).'" alt="" class="book"
-            style="positon
-      absolute; left:100px;"
-          />'?>
-            <t style="float: right">
-                <?php echo "Quantity: ";?>
-                <?= $_SESSION['Cart_Items'][$i]['Quantity']; ?>
-            </t>
-          <div> 
-            <t style="float: right">
-                <?php echo "$";?>
-                <?= $_SESSION['Cart_Items'][$i]['Price']; ?>
-            </t>
-          </div>          
-          <hr style="width: 100%; text-align: left; margin-left: 0" />
-          <?php endfor; ?>
-          <form method="POST">
+      <div class="col" style="padding-top: 2%">
+        <div class="col-lg-12 p-5 bg-white rounded shadow mb-5">
+          <div class="rcorners">
+            <div class="book-view">
+              <p id="orderSummary">
+                <b style="font-size: 40px">Order Summary</b>
+              </p>
+              <p id="cart">
+                <t>Your Cart(1)</t> <a href="#" style="float: right">Edit</a>
+              </p>
+              <?php for ($i = 0; $i < sizeof($_SESSION['Cart_Items']); $i++) :?>
+
+              <table class="table">
+                <thead style="text-align: left"></thead>
+                <tbody>
+                  <tr>
+                    <td>
+                    <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['Cart_Items'][$i]['Cover'] ).'" alt="" class="book"style="positon absolute; left:100px;"/>'?>
+                    </td>
+                    <td><t style="float: right">Qty:<?= $_SESSION['Cart_Items'][$i]['Quantity']; ?></t></td>
+                    <td><t style="float: right">$<?= $_SESSION['Cart_Items'][$i]['Price']; ?></t></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <?php endfor; ?>  
+            <hr style="width: 100%; text-align: left; margin-left: 0" />
+            <div class="promotion">
+              <form method="POST">
             <input name="promoCode" class="promoCode" placeholder="Enter promotion code" />
             <input type="submit" name="promotions" value="Check Promotion"></input>
           </form>
-          <p class="subtotal">
-            <i>Subtotal</i> <t style="float: right">$<?php echo number_format($_SESSION['Total'], 2, '.', '');?></t>
-          </p>
-          <p class="tax"><i>Tax</i> <t style="float: right">$<?php echo number_format($_SESSION['Total']*.07, 2, '.', '');?></t></p>
-          <p class="delivery">
-            <i>Delivery</i> <t style="float: right">Free</t>
-          </p>
-          <p class="discount">Discount<t style="float: right"><t style="float: right">$<?php echo number_format($_SESSION['Discount'], 2, '.', '');?></t></p>
-          <p class="bold_text">
+            </div>
+            <p class="subtotal">
+              <i>Subtotal</i> <t style="float: right">$<?php echo number_format($_SESSION['Total'], 2, '.', '');?></t>
+            </p>
+            <p class="tax"><i>Tax</i> <t style="float: right">$<?php echo number_format($_SESSION['Total']*.07, 2, '.', '');?></t></p>
+            <p class="discount">Discount<t style="float: right"><t style="float: right">$<?php echo number_format($_SESSION['Discount'], 2, '.', '');?></t></p>
+            <p class="bold_text">
             <b><i>Order Total</i></b><t style="float: right"><t style="float: right">$<?php            
             if(isset($_POST['promotions'])) {
               if($_SESSION['Valid']) {
@@ -182,207 +296,306 @@
                 echo number_format($_SESSION['Total'], 2, '.', '');
                 //$_SESSION['Total']+=$_SESSION['Discount'];
                 //$_SESSION['Total']/=1.07;
+              } else {
+                echo number_format($_SESSION['Total']*1.07, 2, '.', '');
               }
-              echo "thing is".$_SESSION['Total']*1.07;
               //$_SESSION['Total']*=1.07; 
             } else {
-              echo "thing is".$_SESSION['Total']*1.07;
+              echo number_format($_SESSION['Total']*1.07, 2, '.', '');
             }
             ?></b></t>
           </p>
           <form method="POST" action="orderCheckOut.php" id="orderConfirmation">
-          <button type="button" onclick="sendConfirmationEmail('<?php echo $email;?>')">Checkout</button>
+          <button class="btn btn-info btn-lg" type="button" onclick="sendConfirmationEmail('<?php echo $email;?>')">Checkout</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="billingModal"
+      class="modal fade"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Billing Address</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form>
+            <div class="modal-body mx-3">
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="street"
+                  >Street Address</label
+                >
+                <input
+                  type="text"
+                  id="street"
+                  class="form-control validate"
+                  required
+                />
+              </div>
+
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="city"
+                  >City</label
+                >
+                <input
+                  type="text"
+                  id="city"
+                  class="form-control validate"
+                  required
+                />
+              </div>
+
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="zip"
+                  >Zip Code</label
+                >
+                <input
+                  type="text"
+                  id="zip"
+                  class="form-control validate"
+                  pattern="[0-9]{5}"
+                  required
+                />
+              </div>
+
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="street"
+                  >State</label
+                >
+                <select name="state" id="state" style="width: 100%">
+                  <option value="" selected="selected"></option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="DC">District Of Columbia</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
+                  <option value="MO">Missouri</option>
+                  <option value="MT">Montana</option>
+                  <option value="NE">Nebraska</option>
+                  <option value="NV">Nevada</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="NJ">New Jersey</option>
+                  <option value="NM">New Mexico</option>
+                  <option value="NY">New York</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="ND">North Dakota</option>
+                  <option value="OH">Ohio</option>
+                  <option value="OK">Oklahoma</option>
+                  <option value="OR">Oregon</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="RI">Rhode Island</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="SD">South Dakota</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="TX">Texas</option>
+                  <option value="UT">Utah</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                </select>
+              </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+              <button class="btn btn-default" type="submit">Submit</button>
+              <br />
+            </div>
           </form>
         </div>
       </div>
     </div>
-    
-    <div id="billingModal" class="billingModal">
-      <div class="addBookModal-content">
-        <span class="close-button-billing">&times;</span>
 
-        <form action="../Admin_Phps/PromoUpdate.php" method="POST">
-          <div class="container">
-            <h1 style="text-align: center"><b>Edit Billing Address</b></h1>
-
-            <h1 id="billingHeader" class="editProfileHeader">
-              Billing Address
-            </h1>
-            <h2>Street Address</h2>
-            <input
-              id="streetAddress"
-              type="text"
-              class="input"
-              value="1234 Some Street"
-              required
-            />
-            <h2>City</h2>
-            <input
-              id="city"
-              type="text"
-              class="input"
-              value="Atlanta"
-              required
-            />
-            <h2>State</h2>
-            <input
-              id="state"
-              type="text"
-              class="input"
-              value="GA"
-              required
-            />
-            <h2>Zip Code</h2>
-            <input
-              id="zipCode"
-              type="text"
-              class="input"
-              value="30606"
-              required
-            />
-
+    <div
+      id="paymentModal"
+      class="modal fade"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">
+              Payment Information
+            </h4>
             <button
-              value="Add"
-              name="actions"
-              type="submit"
-              class="submitbtn1"
-              id="submitbtn1"
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
             >
-              Submit
+              <span aria-hidden="true">&times;</span>
             </button>
-            <br /><br /><br /><br />
           </div>
-        </form>
+          <form>
+            <div class="modal-body mx-3">
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="cardtype"
+                  >Card Type</label
+                >
+                <select name="cardtype" id="cardtype" style="width: 100%">
+                  <option value="" selected="selected"></option>
+                  <option value="visa">Visa</option>
+                  <option value="discover">Discover</option>
+                  <option value="americanexpress">American Express</option>
+                  <option value="mastercard">Mastercard</option>
+                </select>
+              </div>
+
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="cardnum"
+                  >Card Number</label
+                >
+                <input
+                  type="text"
+                  id="cardnum"
+                  class="form-control validate"
+                  pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}"
+                  inputmode="numeric"
+                  required
+                />
+              </div>
+
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="cvv"
+                  >CVC</label
+                >
+                <input
+                  type="text"
+                  id="cvv"
+                  class="form-control validate"
+                  pattern="[0-9]{3}"
+                  required
+                />
+              </div>
+
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="expdate"
+                  >Exp Date</label
+                >
+                <input
+                  type="month"
+                  id="expdate"
+                  class="form-control validate"
+                  required
+                />
+              </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+              <button class="btn btn-default" type="submit">Submit</button>
+              <br />
+            </div>
+          </form>
+        </div>
       </div>
     </div>
 
-    <div id="paymentModal" class="paymentModal">
-      <div class="addBookModal-content">
-        <span class="close-button-payment">&times;</span>
-
-        <form action="../Admin_Phps/PromoUpdate.php" method="POST">
-          <div class="container">
-            <h1 style="text-align: center"><b>Edit Payment Information</b></h1>
-
-            <h2>Card Type</h2>
-            <select name="cardType" id="cardType" style="width: 100%">
-              <option value="" selected="selected"></option>
-              <option value="visa">Visa</option>
-              <option value="discover">Discover</option>
-              <option value="americanexpress">American Express</option>
-              <option value="mastercard">Mastercard</option>
-            </select>
-            <h2>Card Number</h2>
-            <input
-              id="cardNumber"
-              type="text"
-              class="input"
-              value="0000 **** **** 0000"
-              required
-            />
-            <h2>CVC</h2>
-            <input
-              id="cvc"
-              type="text"
-              class="input"
-              value="123"
-              maxlength="3"
-              required
-            />
-            <h2>Expiration Date</h2>
-            <input
-              id="expirationDate"
-              type="text"
-              class="input"
-              value="12/25"
-              maxlength="5"
-              required
-            />
-
-            <button
-              value="Add"
-              name="actions"
-              type="submit"
-              class="submitbtn2"
-              id="submitbtn2"
-            >
-              Submit
-            </button>
-            <br /><br /><br /><br />
-          </div>
-        </form>
-      </div>
-    </div>
+    <div id="footer"></div>
 
     <script>
-      var addModal = document.getElementById("billingModal");
-      var addbtn = document.getElementById("billingButton");
-      var span = document.getElementsByClassName("close-button-billing")[0];
-      var submitbtn = document.getElementById("submitbtn1");
+      var billingModal = document.getElementById("billingModal");
+      var billingBtn = document.getElementById("billingButton");
+      var billingSpan = document.getElementsByClassName(
+        "close-button-billing"
+      )[0];
+      var submitbtn1 = document.getElementById("submitbtn1");
 
-      addbtn.onclick = function () {
-        addModal.style.display = "block";
+      billingBtn.onclick = function () {
+        billingModal.style.display = "block";
       };
 
-      span.onclick = function () {
-        addModal.style.display = "none";
+      billingSpan.onclick = function () {
+        billingModal.style.display = "none";
       };
 
       window.onclick = function (event) {
-        if (event.target == addModal) {
-          addModal.style.display = "none";
+        if (event.target == billingModal) {
+          billingModal.style.display = "none";
         }
       };
     </script>
     <script>
-      var addModal = document.getElementById("paymentModal");
-      var addbtn = document.getElementById("paymentButton");
-      var span = document.getElementsByClassName("close-button-payment")[0];
-      var submitbtn = document.getElementById("submitbtn2");
+      var paymentModal = document.getElementById("paymentModal");
+      var paymentBtn = document.getElementById("paymentButton");
+      var paymentSpan = document.getElementsByClassName(
+        "close-button-payment"
+      )[0];
+      var submitbtn2 = document.getElementById("submitbtn2");
 
-      addbtn.onclick = function () {
-        addModal.style.display = "block";
+      paymentBtn.onclick = function () {
+        paymentModal.style.display = "block";
       };
 
-      span.onclick = function () {
-        addModal.style.display = "none";
+      paymentSpan.onclick = function () {
+        paymentModal.style.display = "none";
       };
 
       window.onclick = function (event) {
-        if (event.target == addModal) {
-          addModal.style.display = "none";
+        if (event.target == paymentModal) {
+          paymentModal.style.display = "none";
         }
       };
+    </script>
+    <script>
+      var promotionInput = document.getElementByID('promoInput';)
+        var promotionButton = document.getElementByID("applyPromo");
+        var promotionID = "";
+        promotionButton.onClick = function () {
+
+        };
+        getPrice = function () {
+          var promotionPercentage = "<?php Print($Discount); ?>";
+          var bookPrice = "<?php Print($Selling_Price); ?>";
+          var discountID = "<?php Print($Promotion_ID); ?>";
+        };
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-    <script>
-      $("#mydatatable").DataTable();
-
-      var table = document.getElementById("mydatatable");
-
-      table.find("tr").each(function () {
-        var $tds = $(this).find("td");
-        //var number = $tds.eq(0).text();
-        //var name = $tds.eq(1).text();
-        //var accountID = $tds.eq(2).text();
-        var role = $tds.eq(3).text();
-        var status = $tds.eq(4).text();
-        var action = $tds.eq(5).text();
-        // do something with it
-        if (role.value == "User") {
-          action.html(
-            "<select><option>Suspend</option><option>Unsuspend</option></select>"
-          );
-        } else if (role.value == "Employee") {
-          action.html("<button>Promote</button>");
-        } else if (role.value == "Admin") {
-          action.html("<button>Demote</button>");
-        }
-      });
+    <script type="text/javascript">
+      document.getElementById("checkoutButton").onclick = function () {
+        location.href = "../OrderConfirmation/orderConfirmation.html";
+      };
     </script>
   </body>
 </html>

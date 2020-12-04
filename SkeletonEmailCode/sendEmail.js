@@ -15,6 +15,8 @@ function sendEmail() {
     });
 }
 
+
+
 function sendConfirmationEmail(email) {
     console.log("Confirm");
     console.log(email);

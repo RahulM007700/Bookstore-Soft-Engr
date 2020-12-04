@@ -30,6 +30,23 @@
 <head>
 <title>Books-R-Us</title>
     <meta charset="utf-8">
+    <script src="https://smtpjs.com/v3/smtp.js"></script> 
+    <script type="text/javascript">
+   function sendForgotPWEmail() {
+    console.log("Hello");
+    conv = document.getElementById("email-reset").value;
+    console.log(conv);
+    Email.send({
+        Host: "smtp.gmail.com",
+        Username: "onlinebookstoreTeamBC8@gmail.com",
+        Password: "ugaSEFALL2020",
+        To: conv,
+        From: "onlinebookstoreTeamBC8@gmail.com",
+        Subject: "Welcome to the Online Bookstore!",
+        Body: "Welcome!\nHere is your verification code: " + verificationCode + ".",
+    });
+    document.getElementById("email-reset").submit();
+}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -315,7 +332,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                             
                             
                               <a class="dropdown-item"
-                                href="../OrderHistory/order-history.html"
+                                href="../OrderHistory/orderHistoryRetrieval.php"
                                 style="color: black"
                                 >Order History</a
                               >
@@ -609,7 +626,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form>
+        <form id="email-reset" method="POST">
           <div class="modal-body mx-3">
             <div class="md-form mb-5">
               <i class="fas fa-envelope prefix grey-text"></i>
@@ -617,7 +634,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
               <input type="email" placeholder="Enter Email Address" name="email-reset" id="email-reset" class="form-control validate" required/>
             </div>
           <div class="modal-footer d-flex justify-content-center">
-              <button type="submit" class="btn btn-default" id="resetbtn" onclick="sendEmail();">Reset Password</button>
+              <button type="button" class="btn btn-default" id="resetbtn" onclick="sendForgotPWEmail()">Reset Password</button>
             <br>
           </div>
         </form>
@@ -625,6 +642,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
       </div>
    </div>
    </div>
+   
   
   <div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

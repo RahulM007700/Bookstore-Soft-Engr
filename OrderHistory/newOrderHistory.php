@@ -324,13 +324,16 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
             <div class="col-lg-12 p-5 bg-white rounded shadow mb-5">
                 <div class="table-responsive">
                     <table class="table">
+                        <table class="table">
+                        
                         <thead style="text-align:left;">
-                            <td>Order Placed<span class="text-muted font-weight-normal font-italic d-block"></span></td>
-                            <td>Quantity<span class="text-muted font-weight-normal font-italic d-block"></span></td>
-                            <td>Price<span class="text-muted font-weight-normal font-italic d-block"></span></td>
-                            <td>Date<span class="text-muted font-weight-normal font-italic d-block"></span></td>
-                        </thead>
+                          <td>Order Placed<span class="text-muted font-weight-normal font-italic d-block"></span></td>
+                          <td>Quantity<span class="text-muted font-weight-normal font-italic d-block"></span></td>
+                          <td>Price<span class="text-muted font-weight-normal font-italic d-block"></span></td>
+                          <td>Date<span class="text-muted font-weight-normal font-italic d-block"></span></td>
+                          </thead>'
                         <?php for ($i = 0; $i < sizeof($_SESSION['Order_History']); $i++) :?>
+                          <div>
                         <tbody>
                             <tr>
                                 <td><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['Order_History'][$i]['Cover'] ).'" alt="" height="70" width="70">'?></td>
@@ -339,9 +342,12 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                                 <td><?= $_SESSION['Order_History'][$i]['Date_Purchased']; ?></td>
                             </tr>
                         </tbody>
+                        </div>
                         <?php endfor; ?>
                     </table>
-                    <button type = "button" class="btn btn-light" style="float:right;">Reorder</button>
+                    <form method="POST" action="../Shopping Cart/updateCart.php">
+                    <input type = "submit" name="actions" value="REORDER" class="btn btn-light" style="float:right;"></input>
+                    </form>
                 </div>
             </div>
         </div>
