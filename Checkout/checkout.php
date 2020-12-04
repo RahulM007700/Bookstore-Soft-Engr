@@ -179,14 +179,14 @@
                       data-target="#loginModal"
                       >Login/Sign Up</a
                     >
-                    <a class="dropdown-item" href="#">Edit Profile</a>
-                    <a class="dropdown-item" href="#">Order History</a>
+                    <a class="dropdown-item" href="../EditProfile/edit_profile.php">Edit Profile</a>
+                    <a class="dropdown-item" href="../OrderHistory/orderHistoryRetrieval.php">Order History</a>
                   </div>
                 </a>
               </li>
             </div>
             <li class="nav-item px-4">
-              <a href="#" class="nav-link py-4"
+              <a href="../Shopping Cart/shoppingCartRetrieval.php" class="nav-link py-4"
                 ><i class="fas fa-shopping-cart"></i
               ></a>
             </li>
@@ -594,7 +594,7 @@
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">
       document.getElementById("checkoutButton").onclick = function () {
-        location.href = "../OrderConfirmation/orderConfirmation.html";
+        location.href = "../OrderConfirmation/orderConfirmation.php";
       };
     </script>
   </body>

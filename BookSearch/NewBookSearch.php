@@ -80,7 +80,7 @@ session_start();
                             </div>
                         </div>
                     </form>
-                    <li class="nav-item px-4"><a href="AboutUs.html" class="nav-link py-4">About Us</a></li>
+                    <li class="nav-item px-4"><a href="../About Us/aboutUs.php" class="nav-link py-4">About Us</a></li>
                     <li class="nav-item px-4"><a class="nav-link py-4" id="contactTab" data-toggle="modal" data-target="#contactModal">Contact</a></li>
                     <div class="dropdown">
                         <li class="nav-item px-4"><a href="#" class="nav-link py-4">
@@ -94,7 +94,7 @@ session_start();
                                     //session_start();
                                     if (isset($_SESSION['Email'])) {
                                         echo '
-                              <a href="./LogUserOut.php" id="logout" style="color: black">Logout<br /></a>
+                              <a href="../Homepage/LogUserOut.php" id="logout" style="color: black">Logout<br /></a>
                             
                             
                               <a
