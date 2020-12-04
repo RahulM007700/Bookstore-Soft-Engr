@@ -23,7 +23,7 @@
 }
 
 .leftcorners {
-  height: 50%;
+  height: 31%;
 }
 
 .rightcorners {
@@ -36,7 +36,7 @@ body {
 }
 
 .button {
-  height: 10%;
+  height: 15%;
   width: 35%;
   position: relative;
   top: 15%;
@@ -100,7 +100,7 @@ body {
 
 .book {
   width: 20%;
-  height: 37%;
+  height: 30%;
 }
 
 .display-info {
