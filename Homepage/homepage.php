@@ -264,16 +264,29 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 </style>
 <body>
-  <!--nav bar-->
   <div class="container-fluid">
     <nav class="navbar navbar-expand navbar-light">
-        <a class="navbar-brand" href="#"><img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo4.jpg" height="50"></a>
+        <a class="navbar-brand" href="#"><img src="BooksRUs_Logo.png" height="80"></a>
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item px-4"><a href="#" class="nav-link py-4">Textbooks</a></li>
-            <li class="nav-item px-4"><a href="#" class="nav-link py-4">Adults</a></li>
-            <li class="nav-item px-4"><a href="#" class="nav-link py-4">Teens</a></li>
-            <li class="nav-item px-4"><a href="#" class="nav-link py-4">Kids</a></li>
+            <!--<li class="nav-item px-4"><a href="#" class="nav-link py-4">Textbooks</a></li>
+            <li class="nav-item px-4"><a href="#" class="nav-link py-4">Adults</a></li>-->
+            <div class="btn-group dropdown">
+               <li class="nav-item px-4 mt-0"><a href="#" class="nav-link py-4"><a style="color:rgba(0,0,0,.5);top:-24px;" href="#" class="dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target="#cat">Categories</a>            
+                  <div class="dropdown-menu dropdown-primary" id="cat">
+                    <a class="dropdown-item" href="#" id="biography"><input type="hidden">Biography</a>
+                    <a class="dropdown-item" href="#" id="sciencefiction"><input type="hidden">Science-Fiction</a>
+                    <a class="dropdown-item" href="#" id="nonfiction"><input type="hidden">Non-Fiction</a>
+                    <a class="dropdown-item" href="#" id="poetry"><input type="hidden">Poetry</a>
+                    <a class="dropdown-item" href="#" id="drama"><input type="hidden">Drama</a>
+                  </div>
+                 </a>
+               </li>
+            </div>
+                  
+            <li class="nav-item px-4"><a href="#" class="nav-link py-4">About Us</a></li>
+            <li class="nav-item px-4"><a href="#" class="nav-link py-4">Contact</a></li>
+
               <div class="dropdown">
               <li class="nav-item px-4"><a href="#" class="nav-link py-4">
 
@@ -287,17 +300,17 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                     //session_start();
                     if (isset($_SESSION['Email'])){
                       echo '
-                              <a href="./LogUserOut.php" id="logout" style="color: black">Logout<br /></a>
+                              <a class="dropdown-item" href="./LogUserOut.php" id="logout" style="color: black">Logout</a>
                             
                             
-                              <a
+                              <a class="dropdown-item"
                                 href="../EditProfile/edit_profile.php"
                                 style="color: black"
                                 >Edit Profile</a
                               >
                             
                             
-                              <a
+                              <a class="dropdown-item"
                                 href="../OrderHistory/order-history.html"
                                 style="color: black"
                                 >Order History</a
@@ -330,8 +343,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
     </div>
   </div>
   <!--banner image end-->
-  
-  <!--Search box-->
+
  <!--Search box-->
 
  <div class="container-fluid" style="/*background-color:#FFFFF0#ffdead*/;padding-bottom:50px;margin-top:0px;">
@@ -590,19 +602,19 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
           <div class="modal-body mx-3">
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="defaultForm-email">First Name</label>
-              <input name='fname' type="text" id="defaultForm-email" class="form-control validate" required/>
+              <input name='fname' type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter first name" required/>
             </div>
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="lastName">Last Name</label>
-              <input name='lname' type="text" id="lastName" class="form-control validate" required/>
+              <input name='lname' type="text" id="lastName" class="form-control validate" placeholder="Enter last name" required/>
             </div>
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="email">Email Address</label>
-              <input name='email' type="email" id="email" class="form-control validate" required/>
+              <input name='email' type="email" id="email" class="form-control validate" placeholder="Enter email address required/>
             </div>
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="psw">Password</label>
-              <input name='psw' type="password" id="psw" class="form-control validate" required/>
+              <input name='psw' type="password" id="psw" class="form-control validate" placeholder="Enter password" required/>
             </div>
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="phone">Phone Number</label>
@@ -611,17 +623,17 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
             
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="street">Street Address</label>
-              <input name='street' type="text" id="street" class="form-control validate" required/>
+              <input name='street' type="text" id="street" class="form-control validate" placeholder="Enter street address" required/>
             </div>
             
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="city">City</label>
-              <input name='city' type="text" id="city" class="form-control validate" required/>
+              <input name='city' type="text" id="city" class="form-control validate" placeholder="Enter city" required/>
             </div>
             
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="zip">Zip Code</label>
-              <input name='zip'type="text" id="zip" class="form-control validate" pattern="[0-9]{5}" required/>
+              <input name='zip'type="text" id="zip" class="form-control validate" pattern="[0-9]{5}" placeholder="Enter zip code" required/>
             </div>
             
             <div class="md-form mb-5">
@@ -695,17 +707,17 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
             
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="cardnum">Card Number</label>
-              <input name='cardnum' type="text" id="cardnum" class="form-control validate" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" inputmode="numeric" required/>
+              <input name='cardnum' type="text" id="cardnum" class="form-control validate" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="Enter card number" inputmode="numeric" required/>
             </div>
             
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="cvv">CVV</label>
-              <input name='cvv' type="text" id="cvv" class="form-control validate" pattern="[0-9]{3}" required/>
+              <input name='cvv' type="text" id="cvv" class="form-control validate" pattern="[0-9]{3}" placeholder="Enter CVV" required/>
             </div>
             
             <div class="md-form mb-4">
               <label data-error="wrong" data-success="right" for="expdate">Exp Date</label>
-              <input name='expdate' type="month" id="expdate" class="form-control validate" required/>
+              <input name='expdate' type="month" id="expdate" class="form-control validate" placeholder="Enter exp date" required/>
             </div>
           </div>
           <div class="modal-footer d-flex justify-content-center">
@@ -723,5 +735,54 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
      });
  });
 </script>
+	<footer style="background-color:#F8F8F8; text-align:center;">
+        	<div class="footer-top" style="text-align:left;">
+		        <div class="container">
+		        	<div class="row">
+		        		<div class="col-md-3 mt-5 footer-about wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;text-align:center;">
+		        			<p>
+		        				We are a young online bookstore company always looking for new and creative ways for you to enhance your book collection.
+		        			</p>
+		        			<p>© Books-R-Us Inc.</p>
+	                    </div>
+		        		<div class="col-md-4 mt-5 offset-md-1 footer-contact wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;text-align:center;">
+		                	<p><i class="fas fa-map-marker-alt"></i> University of Georgia, Athens, GA 30602</p>
+		                	<p><i class="fas fa-phone"></i> Phone: (123) 456 7890</p>
+		                	<p><i class="fas fa-envelope"></i> Email: <a href="onlinebookstoreTC8@gmail.com" style="color:black; text-decoration: none;">onlinebookstoreTC8@gmail.com</a></p>
+	                    </div>
+	                    <div class="col-md-4 mt-5 footer-links wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;left:80px;">
+	                    	<!--<div class="row">
+	                    		<div class="col">
+	                    			<h3>Links</h3>
+	                    		</div>
+	                    	</div>-->
+	                    	<div class="row">
+	                    		<div class="col-md-6">
+	                    			<p style="text-align:left;color:black;"><a class="scroll-link" href="#" style="color:black; text-decoration: none;">Home</a></p>
+	                    			<p style="text-align:left;color:black;"><a href="#" style="color:black; text-decoration: none;">About Us</a></p>
+	                    		</div>
+	                    		<div class="col-md-6">
+                                    <p style="text-align:left;color:black;"><a href="#" style="color:black; text-decoration: none;">Login</a></p>
+	                    			<p style="text-align:left;color:black;"><a href="#" style="color:black; text-decoration: none;">Registration</a></p>
+	                    		</div>
+	                    	</div>
+	                    </div>
+		            </div>
+		        </div>
+	        </div>
+	        <div class="footer-bottom">
+	        	<div class="container">
+	        		<div class="row">
+	           			<div class="col footer-social">
+	                    	<a href="#"><i class="fab fa-facebook-f px-2 blackiconcolor" style="color:black;"></i></a> 
+							<a href="#"><i class="fab fa-twitter px-2" style="color:black;"></i></a> 
+							<a href="#"><i class="fab fa-google-plus-g px-2" style="color:black;"></i></a> 
+							<a href="#"><i class="fab fa-instagram px-2" style="color:black;"></i></a> 
+							<a href="#"><i class="fab fa-pinterest px-2" style="color:black;"></i></a>
+	                    </div>
+	           		</div>
+	        	</div>
+	        </div>
+        </footer>
 </body>
 </html>
