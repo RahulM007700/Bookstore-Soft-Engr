@@ -83,8 +83,7 @@ if (isset($_GET['results'])) {
         <nav class="navbar navbar-expand navbar-light">
             <a class="navbar-brand" href="../Homepage/homepage.html">
                 <div class="logo-image">
-                    <a href="../Homepage/homepage.php" class="nav-link py-4"><img src="../book.png" height="70px"
-                            width="60px" style="margin-right: 20px" /> <img src="../BooksRUs_Logo.png" height=80></a>
+                    <a href="../Homepage/homepage.php" class="nav-link py-4"><img src="../BooksRUs_Logo.png" height="80>"</a>
                 </div>
             </a>
             <div class="collapse navbar-collapse">
@@ -184,7 +183,8 @@ if (isset($_GET['results'])) {
 
         <hr>
         <p>
-            Having trouble? <a href="">Contact us</a>
+            Having trouble? <a href="#' data-toggle="modal"
+            data-target="#contactModal">Contact us</a>
         </p>
         <p class="lead">
             <a class="btn btn-primary btn-sm" href="https://bootstrapcreative.com/" role="button" ">Continue to homepage</a>
@@ -230,16 +230,18 @@ if (isset($_GET['results'])) {
                         </div>-->
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <p style="text-align:left;color:black;"><a class="scroll-link" href="#"
+                                        <p style="text-align:left;color:black;"><a class="scroll-link" href="../Homepage/homepage.php"
                                                 style="color:black; text-decoration: none;">Home</a></p>
-                                        <p style="text-align:left;color:black;"><a href="#"
+                                        <p style="text-align:left;color:black;"><a href="../Homepage/AboutUs.php"
                                                 style="color:black; text-decoration: none;">About Us</a></p>
                                     </div>
                                     <div class="col-md-6">
-                                        <p style="text-align:left;color:black;"><a href="#"
-                                                style="color:black; text-decoration: none;">Login</a></p>
-                                        <p style="text-align:left;color:black;"><a href="#"
-                                                style="color:black; text-decoration: none;">Registration</a></p>
+                                        <p style="text-align:left;color:black;"><a href="../Homepage/homepage.php"
+                                                style="color:black; text-decoration: none;" id="contactTab" data-toggle="modal"
+                                                data-target="#contactModal>Login</a></p>
+                                        <p style="text-align:left;color:black;"><a href="../Homepage/homepage.php"
+                                                style="color:black; text-decoration: none;" id="contactTab" data-toggle="modal"
+                                data-target="#contactModal">Registration</a></p>
                                     </div>
                                 </div>
                             </div>

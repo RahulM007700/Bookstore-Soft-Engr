@@ -55,9 +55,9 @@ session_start();
     <!--nav bar-->
     <div class="container-fluid">
         <nav class="navbar navbar-expand navbar-light">
-            <a class="navbar-brand" href="../Homepage/homepage.html">
+            <a class="navbar-brand" href="../Homepage/homepage.php">
                 <div class="logo-image">
-                    <img src="../book.png" width="20px" height="20px" style="margin-right: 20px" /> <img src="BooksRUs_Logo.png" height=100%>
+                    <img src="../BooksRUs_Logo.png" height="80">
                 </div>
             </a>
             <div class="collapse navbar-collapse">
@@ -317,40 +317,7 @@ session_start();
         </form>
     </div>
 
-   <!-- <div class="footer">
-
-        <hr>
-
-        <img src="https://s.abcnews.com/images/Technology/GTY_woman_reading_book_jt_140112_16x9_992.jpg" alt="alternatetext" width=80% height=70%>
-
-        <hr>
-
-        <div class="footer-content">
-            <div class="footer-section">
-
-                <h1 style="text-align:center; font-size:18px">Easy Links</h1>
-
-                <li><a href="../Homepage/homepage.php" style="font-size: 15px">Login</a></li>
-                <li><a href="../Homepage/homepage.php" style="font-size: 15px">Registration</a></li>
-                <li><a href="../Homepage/" style="font-size: 15px">About Us</a></li>
-                <li><a href="../Homepage/" style="font-size: 15px">Contact Us</a></li>
-            </div>
-            <div class="footer-section">
-                <div class="logo-image" style="float: right">
-                    <img src="../book.png" width="30px" height="30px" style="margin-right: 10px" /><img src="BooksRUs_Logo.png" height=20% width=30%>
-                </div>
-
-                <div class="sponsor" style="float:right;  margin-top: auto; ">
-                    <h3><img src="handshake.png" width="30px" height="30px" style="margin-right: 10px" /><b>Sponsored by Room to Read<b></b>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            &copy; BooksRUs.com | Established 2020
-        </div>
-    </div>-->
+   
 
     <footer style="background-color:#F8F8F8;">
         <div class="footer-top" style="text-align:left;">
@@ -373,16 +340,25 @@ session_start();
                                 <h3>Links</h3>
                             </div>
                         </div>-->
+                        
+
+
                         <div class="row">
-                            <div class="col-md-6">
-                                <p style="text-align:left;color:black;"><a class="scroll-link" href="#" style="color:black; text-decoration: none;">Home</a></p>
-                                <p style="text-align:left;color:black;"><a href="#" style="color:black; text-decoration: none;">About Us</a></p>
-                            </div>
-                            <div class="col-md-6">
-                                <p style="text-align:left;color:black;"><a href="#" style="color:black; text-decoration: none;">Login</a></p>
-                                <p style="text-align:left;color:black;"><a href="#" style="color:black; text-decoration: none;">Registration</a></p>
-                            </div>
-                        </div>
+                                    <div class="col-md-6">
+                                        <p style="text-align:left;color:black;"><a class="scroll-link" href="../Homepage/homepage.php"
+                                                style="color:black; text-decoration: none;">Home</a></p>
+                                        <p style="text-align:left;color:black;"><a href="../Homepage/AboutUs.php"
+                                                style="color:black; text-decoration: none;">About Us</a></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p style="text-align:left;color:black;"><a href="../Homepage/homepage.php"
+                                                style="color:black; text-decoration: none;" id="contactTab" data-toggle="modal"
+                                                data-target="#contactModal>Login</a></p>
+                                        <p style="text-align:left;color:black;"><a href="../Homepage/homepage.php"
+                                                style="color:black; text-decoration: none;" id="contactTab" data-toggle="modal"
+                                data-target="#contactModal">Registration</a></p>
+                                    </div>
+                                </div>
                     </div>
                 </div>
             </div>
