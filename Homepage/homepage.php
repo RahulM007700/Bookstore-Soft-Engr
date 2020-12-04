@@ -289,7 +289,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
             </div>
                   
             <li class="nav-item px-4"><a href="#" class="nav-link py-4">About Us</a></li>
-            <li class="nav-item px-4"><a href="#" class="nav-link py-4" data-target="#contactModal">Contact</a></li>
+            <li class="nav-item px-4"><a href="#" class="nav-link py-4" data-target="#contactModal" data-toggle="modal">Contact</a></li>
 
               <div class="dropdown">
               <li class="nav-item px-4"><a href="#" class="nav-link py-4">
@@ -647,7 +647,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
             </div>
             <div class="md-form mb-5">
               <label class="required" data-error="wrong" data-success="right" for="email">Email Address</label>
-              <input name='email' type="email" id="email" class="form-control validate" placeholder="Enter email address required/>
+              <input name='email' type="email" id="email" class="form-control validate" placeholder="Enter email address required"/>
             </div>
             <div class="md-form mb-5">
               <label class="required" data-error="wrong" data-success="right" for="psw">Password</label>
@@ -802,6 +802,8 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                                                 style="color:black; text-decoration: none;">Home</a></p>
                                         <p style="text-align:left;color:black;"><a href="../Homepage/AboutUs.php"
                                                 style="color:black; text-decoration: none;">About Us</a></p>
+                                        <p style="text-align:left;color:black;"><a href="../Homepage/homepage.php"
+                                                style="color:black; text-decoration: none;" data-toggle="modal" data-target="#contactModal">Contact</a></p>
                                     </div>
                                     <div class="col-md-6">
                                         <p style="text-align:left;color:black;"><a href="../Homepage/homepage.php"
