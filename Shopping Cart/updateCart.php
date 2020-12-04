@@ -59,7 +59,7 @@
                     $SQL3 = "DELETE FROM shopping_cart WHERE ITEM_ID='$Item_ID'";
                     if (mysqli_query($conn, $SQL3)){
                         echo "Quantity was Zero";
-                        header("Location: http://localhost/Bookstore-Soft-Engr/Homepage/homepage.php");
+                        header("Location: http://localhost/Bookstore-Soft-Engr/Shopping%20Cart/shoppingCartRetrieval.php");
                     }
                 }
                 else {
@@ -67,11 +67,12 @@
                 }
             }
         }
-        else if ($Method == "DELETE"){
+        else if ($Method == "DELETE") {
+            $Item_ID = filter_input(INPUT_POST,'Item_ID');
             $SQL = "DELETE FROM shopping_cart WHERE ITEM_ID='$Item_ID'";
             if (mysqli_query($conn, $SQL)){
                 echo "DELETE";
-                header("Location: http://localhost/Bookstore-Soft-Engr/Homepage/homepage.php?results=Login-Successful");
+                header("Location: http://localhost/Bookstore-Soft-Engr/Shopping%20Cart/shoppingCartRetrieval.php");
             }
         }
     }

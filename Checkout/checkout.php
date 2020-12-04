@@ -1,6 +1,39 @@
-<?php session_start(); ?>
+<?php session_start();?>
+<?php
+      if(isset($_POST['promotions'])) {
+        $host = "localhost";
+        $dbusername = "root";
+        $dbpassword = "";
+        $dbname = "online_bookstore";
+
+        //Make Connection
+        $conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname);
+
+        if (mysqli_connect_error()){
+            die('Connect Error('. mysqli_connect_error() .')'
+                . mysqli_connect_error());
+        }
+        else {
+          $promoCode = $_POST['promoCode'];
+          $SQL = "SELECT Discount FROM promotions WHERE Promotion_ID='$promoCode'";
+          $works = $conn->query($SQL);
+          $discount = mysqli_fetch_array($works);
+          //print_r($discount);
+          if(isset($discount[0])) {
+            $_SESSION['Valid'] = True;
+            $_SESSION['Discount'] = $discount[0];
+            //echo "done";
+          } else {  
+            $_SESSION['Valid'] = False;
+            //echo "error";
+          }
+        }
+        $conn->close();
+      }
+    ?>
 <html>
   <head>
+ 
     <meta charset="utf-8" />
     <title>Checkout</title>
     <link
@@ -13,15 +46,29 @@
     />
     <link rel="stylesheet" href="../Admin Homepage/ManageBooks/manageBooks.css" />
     <link rel="stylesheet" href="checkout_style.css" />
-    <?php $recEmail = $_SESSION['Email']?>
+    <?php $email = $_SESSION['Email']?>
     <script type="text/javascript">
       session = "<?php echo $recEmail;?>";
     </script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script
-      type="text/javascript"
-      src="../../SkeletonEmailCode/sendEmail.js"
-    ></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script> 
+          <script type="text/javascript">
+      function sendConfirmationEmail(email) {
+        console.log("Confirm");
+        console.log(email);
+        Email.send({
+              Host: "smtp.gmail.com",
+              Username: "onlinebookstoreTeamBC8@gmail.com",
+              Password: "ugaSEFALL2020",
+              To: email,
+              From: "onlinebookstoreTeamBC8@gmail.com",
+              Subject: "Thank you for your purchase!",
+              Body: "Thank you for your purchase. Please shop again!",
+          });
+          document.getElementById("orderConfirmation").submit();
+      }
+    </script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script> 
+    
     <script
       src="https://kit.fontawesome.com/a746b8874d.js"
       crossorigin="anonymous"
@@ -114,24 +161,42 @@
           </div>          
           <hr style="width: 100%; text-align: left; margin-left: 0" />
           <?php endfor; ?>
-          <input class="promoCode" placeholder="Enter promotion code" />
+          <form method="POST">
+            <input name="promoCode" class="promoCode" placeholder="Enter promotion code" />
+            <input type="submit" name="promotions" value="Check Promotion"></input>
+          </form>
           <p class="subtotal">
-            <i>Subtotal</i> <t style="float: right">$<?php echo $_SESSION['Total'];?></t>
+            <i>Subtotal</i> <t style="float: right">$<?php echo number_format($_SESSION['Total'], 2, '.', '');?></t>
           </p>
-          <p class="tax"><i>Tax</i> <t style="float: right">$<?php echo $_SESSION['Total']*.07;?></t></p>
+          <p class="tax"><i>Tax</i> <t style="float: right">$<?php echo number_format($_SESSION['Total']*.07, 2, '.', '');?></t></p>
           <p class="delivery">
             <i>Delivery</i> <t style="float: right">Free</t>
           </p>
+          <p class="discount">Discount<t style="float: right"><t style="float: right">$<?php echo number_format($_SESSION['Discount'], 2, '.', '');?></t></p>
           <p class="bold_text">
-            <b>Order Total</b> <t style="float: right"><b>$<?php $_SESSION['Total']*=1.07; echo $_SESSION['Total'];?></b></t>
+            <b><i>Order Total</i></b><t style="float: right"><t style="float: right">$<?php            
+            if(isset($_POST['promotions'])) {
+              if($_SESSION['Valid']) {
+                $_SESSION['Total']*=1.07;
+                $_SESSION['Total']-=$_SESSION['Discount'];
+                echo number_format($_SESSION['Total'], 2, '.', '');
+                //$_SESSION['Total']+=$_SESSION['Discount'];
+                //$_SESSION['Total']/=1.07;
+              }
+              echo "thing is".$_SESSION['Total']*1.07;
+              //$_SESSION['Total']*=1.07; 
+            } else {
+              echo "thing is".$_SESSION['Total']*1.07;
+            }
+            ?></b></t>
           </p>
-          <form method="POST" action="orderCheckOut.php">
-          <button type="submit">Checkout</button>
+          <form method="POST" action="orderCheckOut.php" id="orderConfirmation">
+          <button type="button" onclick="sendConfirmationEmail('<?php echo $email;?>')">Checkout</button>
           </form>
         </div>
       </div>
     </div>
-
+    
     <div id="billingModal" class="billingModal">
       <div class="addBookModal-content">
         <span class="close-button-billing">&times;</span>

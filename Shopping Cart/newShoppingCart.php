@@ -1,5 +1,7 @@
 <?php session_start(); 
-$_SESSION['Total'] = 0; 
+$_SESSION['Discount']=0.00;
+$_SESSION['Valid']=False;
+  $_SESSION['Total'] = 0; 
                       if (isset($_POST['quantity'])) {
                         $value = $_POST['quantity'];
                         $host = "localhost";
@@ -45,7 +47,7 @@ $_SESSION['Total'] = 0;
         <!--nav bar-->
   <div class="container-fluid">
     <nav class="navbar navbar-expand navbar-light">
-        <a class="navbar-brand" href="#"><img src="BooksRUs_Logo.png" height="80"></a>
+        <a class="navbar-brand" href="#"><img src="../BooksRUs_Logo.png" height="80"></a>
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
             <!--<li class="nav-item px-4"><a href="#" class="nav-link py-4">Textbooks</a></li>
@@ -178,7 +180,12 @@ $_SESSION['Total'] = 0;
                                     //}
                                 </script>
                             </td>
-                            <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                            <td class="align-middle">
+                            <form method="POST" action="updateCart.php">
+                              <input type="hidden" name="Item_ID" value='<?php echo $_SESSION['Cart_Items'][$i]['Item_ID']?>'>
+                              <button name="actions" value="DELETE" class="text-dark"><i class="fa fa-trash"></i></a> 
+                            </form>
+                            </td>
                         </tr>
                     <?php endfor; ?>
                 </table>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['Total']*=1.07;
 $Email = $_SESSION['Email'];
 
 $host = "localhost";
@@ -71,7 +72,7 @@ else {
             echo "mom";
             if($conn->query($SQL3)) {
                 echo " is awesome";
-                header("Location: http://localhost/Bookstore-Soft-Engr/OrderHistory/orderHistoryRetrieval.php");
+                header("Location: http://localhost/Bookstore-Soft-Engr/OrderConfirmation/orderConfirmation.php");
             } else {
                 echo("Error description: " . $conn -> error);
             }
