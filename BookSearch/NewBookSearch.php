@@ -367,11 +367,11 @@ session_start();
             <div class="container">
                 <div class="row">
                        <div class="col footer-social">
-                        <a href="#"><i class="fab fa-facebook-f px-2 blackiconcolor"></i></a> 
-                        <a href="#"><i class="fab fa-twitter px-2"></i></a> 
-                        <a href="#"><i class="fab fa-google-plus-g px-2"></i></a> 
-                        <a href="#"><i class="fab fa-instagram px-2"></i></a> 
-                        <a href="#"><i class="fab fa-pinterest px-2"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f px-2 blackiconcolor" style="color:black;"></i></a> 
+                        <a href="#"><i class="fab fa-twitter px-2" style="color:black;" ></i></a> 
+                        <a href="#"><i class="fab fa-google-plus-g px-2" style="color:black;"></i></a> 
+                        <a href="#"><i class="fab fa-instagram px-2" style="color:black;"></i></a> 
+                        <a href="#"><i class="fab fa-pinterest px-2" style="color:black;"></i></a>
                     </div>
                    </div>
             </div>
