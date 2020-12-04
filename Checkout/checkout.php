@@ -113,6 +113,11 @@
     <link rel="stylesheet" href="checkout_style.css" />
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $("#navbar").load("../NavBar/navbar.html");
+      });
+    </script>
   </head>
   <style>
     body {
@@ -350,108 +355,8 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
   </style>
 
   <body>
+    <div id="navbar"></div>
     <!--nav bar-->
-    <div class="container-fluid">
-    <nav class="navbar navbar-expand navbar-light">
-        <a class="navbar-brand" href="../Homepage/homepage.php"><img src="../BooksRUs_Logo.png" height="80"></a>
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav ml-auto">
-            <div class="dropdown">
-              <li class="nav-item px-4">
-                <a href="#" class="nav-link py-4">
-                  <!--Trigger-->
-
-                  <a
-                    class="btn-floating btn-lg black dropdown-toggle"
-                    type="button"
-                    id="dropdownMenu3"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    data-target="#navItem"
-                    ><i class="fas fa-user fa-2x" style="color: grey"></i
-                  ></a>
-                  <!--Menu-->
-                  <div class="dropdown-menu dropdown-primary" id="navItem">
-                    <a
-                      class="dropdown-item"
-                      href="../Homepage/LogUserOut.php"
-                      id="logout"
-                      data-toggle="modal"
-                      data-target="#loginModal"
-                      >Log Out</a
-                    >
-                    <a class="dropdown-item" href="../EditProfile/edit_profile.php">Edit Profile</a>
-                    <a class="dropdown-item" href="../OrderHistory/orderHistoryRetrieval.php">Order History</a>
-            <!--<li class="nav-item px-4"><a href="#" class="nav-link py-4">Textbooks</a></li>
-            <li class="nav-item px-4"><a href="#" class="nav-link py-4">Adults</a></li>-->
-            <div class="btn-group dropdown">
-               <li class="nav-item px-4 mt-0"><a href="#" class="nav-link py-4"><a style="color:rgba(0,0,0,.5);top:-24px;" href="#" class="dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target="#cat">Categories</a>            
-                  <div class="dropdown-menu dropdown-primary" id="cat">
-                    <a class="dropdown-item" href="#" id="biography"><input type="hidden">Biography</a>
-                    <a class="dropdown-item" href="#" id="sciencefiction"><input type="hidden">Science-Fiction</a>
-                    <a class="dropdown-item" href="#" id="nonfiction"><input type="hidden">Non-Fiction</a>
-                    <a class="dropdown-item" href="#" id="poetry"><input type="hidden">Poetry</a>
-                    <a class="dropdown-item" href="#" id="drama"><input type="hidden">Drama</a>
-                  </div>
-                 </a>
-               </li>
-            </div>
-            <li class="nav-item px-4">
-              <a href="../Shopping Cart/shoppingCartRetrieval.php" class="nav-link py-4"
-                ><i class="fas fa-shopping-cart"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-                  
-            <li class="nav-item px-4"><a href="#" class="nav-link py-4">About Us</a></li>
-            <li class="nav-item px-4"><a href="#" class="nav-link py-4" data-target="#contactModal" data-toggle="modal">Contact</a></li>
-
-              <div class="dropdown">
-              <li class="nav-item px-4"><a href="#" class="nav-link py-4">
-
-                <!--Trigger-->
-               
-                <a class="btn-floating btn-lg black dropdown-toggle"type="button" id="dropdownMenu3" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false" data-target="#navItem"><i class="fas fa-user fa-2x" style="color:grey;"></i></a>              
-                <!--Menu-->
-                <div class="dropdown-menu dropdown-primary" id="navItem">
-                <?php
-                    //session_start();
-                    if (isset($_SESSION['Email'])){
-                      echo '
-                              <a class="dropdown-item" href="./LogUserOut.php" id="logout" style="color: black">Logout</a>
-                            
-                            
-                              <a class="dropdown-item"
-                                href="../EditProfile/edit_profile.php"
-                                style="color: black"
-                                >Edit Profile</a
-                              >
-                            
-                            
-                              <a class="dropdown-item"
-                                href="../OrderHistory/order-history.html"
-                                style="color: black"
-                                >Order History</a
-                              >
-                            ';
-                    }
-                    else {
-                      echo '<a class="dropdown-item" href="#" id="login" data-toggle="modal" data-target="#loginModal">Login/Sign Up</a>';
-                    }
-                  ?>
-                </div>
-                </a></li>
-              </div>
-            <li class="nav-item px-4"><a href="../Shopping Cart/shoppingCartRetrieval.php" class="nav-link py-4"><i class="fas fa-shopping-cart"></i></a></li>
-          </ul>     
-        </div>
-    </nav>
-  </div>
     <!--nav bar end-->
 
     <div
