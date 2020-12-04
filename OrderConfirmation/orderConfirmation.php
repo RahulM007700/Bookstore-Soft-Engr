@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 
 <html>
@@ -392,9 +393,8 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                   </tbody>
                 </table>
                 <hr />
-                <p style="text-align: left">Subtotal: $</p>
-                <p style="text-align: left">Discounts: -$</p>
-                <p style="text-align: left">Total: $</p>
+                <p style="text-align: left">Discounts: $0.20</p>
+                <p style="text-align: left">Total: $<?php echo $_SESSION['Total']?></p>
                 <button
                   type="button"
                   id="homeButton"

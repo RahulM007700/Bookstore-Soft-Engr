@@ -43,6 +43,7 @@ if (isset($_GET['results'])) {
     });
     document.getElementById("email-reset").submit();
 }</script>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -532,7 +533,7 @@ if (isset($_GET['results'])) {
             <button class="btn btn-default" type="submit">Login</button>
             <br>
           </div>
-          <p>If you are not a registered user, sign up <a href="#" data-toggle="modal" data-target="#registrationModal" data-dismiss="modal">here.</a></p>
+          <p>If you are not a registered user, sign up <a href="homepage.php" data-toggle="modal" data-target="#registrationModal" data-dismiss="modal">here.</a></p>
           <br>
           <p>Forgot your password? Click <a href="#" data-toggle="modal" data-target="#resetPWModal" data-dismiss="modal">here.</a></p>
         </form>
@@ -590,7 +591,7 @@ if (isset($_GET['results'])) {
               <input type="email" placeholder="Enter Email Address" name="email-reset" id="email-reset" class="form-control validate" required />
             </div>
             <div class="modal-footer d-flex justify-content-center">
-              <button type="submit" class="btn btn-default" id="resetbtn" onclick="sendForgotPWEmail();">Reset Password</button>
+              <button type="submit" data-target=“#pwVerifyModal” data-toggle=“modal" class="btn btn-default" id="resetbtn" onclick="sendForgotPWEmail()">Reset Password</button>
               <br>
             </div>
         </form>
@@ -598,8 +599,8 @@ if (isset($_GET['results'])) {
     </div>
   </div>
   </div>
-
-  <div class="modal fade" id="pwVerifiyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!--
+  <div class="modal fade" id="pwVerifyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header text-center">
@@ -623,6 +624,7 @@ if (isset($_GET['results'])) {
       </div>
    </div>
    </div>
+                -->    
    
   
   <div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -755,7 +757,7 @@ if (isset($_GET['results'])) {
               <label data-error="wrong" data-success="right" for="expdate">Exp Date</label>
               <input name='expdate' type="month" id="expdate" class="form-control validate" placeholder="Enter exp date" required />
             </div>
-            <div class="md-form mb-4"> <label class="switch" for="subscription">Would you like to subscribe to future promotions?</label> <input type="checkbox" id="subscription"> <span class="slider round"></span> </div>
+            <div class="md-form mb-4"> <label class="switch" for="subscription">Would you like to subscribe to future promotions?</label> <input type="checkbox" id="subscription"> </div>
 
           </div>
           <div class="modal-footer d-flex justify-content-center">
