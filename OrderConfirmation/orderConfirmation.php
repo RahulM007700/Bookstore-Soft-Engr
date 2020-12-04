@@ -1,8 +1,3 @@
-<?php session_start();
-unset($_SESSION["Discount"]);
-unset($_SESSION["Valid"]);
-
-?>
 <!DOCTYPE html>
 
 <html>
@@ -293,7 +288,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
     <!--nav bar-->
     <div class="container-fluid">
     <nav class="navbar navbar-expand navbar-light">
-        <a class="navbar-brand" href="../Homepage/homepage.html"><img src="../BooksRUs_Logo.png"></a>
+        <a class="navbar-brand" href="../Homepage/homepage.php"><img src="../BooksRUs_Logo.png"></a>
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
             <!--<li class="nav-item px-4"><a href="#" class="nav-link py-4">Textbooks</a></li>
@@ -392,7 +387,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                         <img src="/apple.png" alt="" height="70" width="70" />
                       </td>
                       <td>quantity</td>
-                      <td>price</td> 
+                      <td>price</td>
                     </tr>
                   </tbody>
                 </table>

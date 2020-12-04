@@ -3,6 +3,7 @@ function registerForm() {
 }
 
 function sendEmail() {
+    console.log("Hello");
     Email.send({
         Host: "smtp.gmail.com",
         Username: "onlinebookstoreTeamBC8@gmail.com",

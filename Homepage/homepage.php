@@ -289,7 +289,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
             </div>
                   
             <li class="nav-item px-4"><a href="#" class="nav-link py-4">About Us</a></li>
-            <li class="nav-item px-4"><a href="#" class="nav-link py-4">Contact</a></li>
+            <li class="nav-item px-4"><a href="#" class="nav-link py-4" data-target="#contactModal" data-toggle="modal">Contact</a></li>
 
               <div class="dropdown">
               <li class="nav-item px-4"><a href="#" class="nav-link py-4">
@@ -566,6 +566,39 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
       </div>
     </div>
   </div>
+
+	<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Contact Us</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body mx-3">
+                        <p style="text-align:center">Send us an email if you have any questions or concerns here</p>
+                        <div class="md-form mb-5">
+                            <i class="fas fa-envelope prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="email-login">Your email</label>
+                            <input type="email" id="email-login" class="form-control validate" required />
+                        </div>
+
+                        <div class="md-form mb-4">
+                            <i class="fas fa-lock prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="defaultForm-pass">Your Message</label>
+                            <textarea rows="4" cols="10" type="message" id="email-login" class="form-control validate"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button class="btn btn-default" type="submit">Submit</button>
+                        <br>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
   
   <div class="modal fade" id="resetPWModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -741,54 +774,66 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
      });
  });
 </script>
-	<footer style="background-color:#F8F8F8; text-align:center;">
-        	<div class="footer-top" style="text-align:left;">
-		        <div class="container">
-		        	<div class="row">
-		        		<div class="col-md-3 mt-5 footer-about wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;text-align:center;">
-		        			<p>
-		        				We are a young online bookstore company always looking for new and creative ways for you to enhance your book collection.
-		        			</p>
-		        			<p>© Books-R-Us Inc.</p>
-	                    </div>
-		        		<div class="col-md-4 mt-5 offset-md-1 footer-contact wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;text-align:center;">
-		                	<p><i class="fas fa-map-marker-alt"></i> University of Georgia, Athens, GA 30602</p>
-		                	<p><i class="fas fa-phone"></i> Phone: (123) 456 7890</p>
-		                	<p><i class="fas fa-envelope"></i> Email: <a href="onlinebookstoreTC8@gmail.com" style="color:black; text-decoration: none;">onlinebookstoreTC8@gmail.com</a></p>
-	                    </div>
-	                    <div class="col-md-4 mt-5 footer-links wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;left:80px;">
-	                    	<!--<div class="row">
-	                    		<div class="col">
-	                    			<h3>Links</h3>
-	                    		</div>
-	                    	</div>-->
-	                    	<div class="row">
-	                    		<div class="col-md-6">
-	                    			<p style="text-align:left;color:black;"><a class="scroll-link" href="#" style="color:black; text-decoration: none;">Home</a></p>
-	                    			<p style="text-align:left;color:black;"><a href="#" style="color:black; text-decoration: none;">About Us</a></p>
-	                    		</div>
-	                    		<div class="col-md-6">
-                                    <p style="text-align:left;color:black;"><a href="#" style="color:black; text-decoration: none;">Login</a></p>
-	                    			<p style="text-align:left;color:black;"><a href="#" style="color:black; text-decoration: none;">Registration</a></p>
-	                    		</div>
-	                    	</div>
-	                    </div>
-		            </div>
-		        </div>
-	        </div>
-	        <div class="footer-bottom">
-	        	<div class="container">
-	        		<div class="row">
-	           			<div class="col footer-social">
-	                    	<a href="#"><i class="fab fa-facebook-f px-2 blackiconcolor" style="color:black;"></i></a> 
-							<a href="#"><i class="fab fa-twitter px-2" style="color:black;"></i></a> 
-							<a href="#"><i class="fab fa-google-plus-g px-2" style="color:black;"></i></a> 
-							<a href="#"><i class="fab fa-instagram px-2" style="color:black;"></i></a> 
-							<a href="#"><i class="fab fa-pinterest px-2" style="color:black;"></i></a>
-	                    </div>
-	           		</div>
-	        	</div>
-	        </div>
-        </footer>
+	<footer style="background-color:#F8F8F8;">
+        <div class="footer-top" style="text-align:left;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 mt-5 footer-about" style="visibility: visible;">
+                        <p>
+                            We are a young online bookstore company always looking for new and creative ways for you to enhance your book collection.
+                        </p>
+                        <p>© Books-R-Us Inc.</p>
+                    </div>
+                    <div class="col-md-4 mt-5 offset-md-1 footer-contact" style="visibility: visible;">
+                        <p><i class="fas fa-map-marker-alt"></i> University of Georgia, Athens, GA 30602</p>
+                        <p><i class="fas fa-phone"></i> Phone: (123) 456 7890</p>
+                        <p><i class="fas fa-envelope"></i> Email: <a href="onlinebookstoreTC8@gmail.com" style="color:black; text-decoration: none;">onlinebookstoreTC8@gmail.com</a></p>
+                    </div>
+                    <div class="col-md-4 mt-5 footer-links" style="visibility: visible; left:80px;">
+                        <!--<div class="row">
+                            <div class="col">
+                                <h3>Links</h3>
+                            </div>
+                        </div>-->
+                        
+
+
+                        <div class="row">
+                                    <div class="col-md-6">
+                                        <p style="text-align:left;color:black;"><a class="scroll-link" href="../Homepage/homepage.php"
+                                                style="color:black; text-decoration: none;">Home</a></p>
+                                        <p style="text-align:left;color:black;"><a href="../Homepage/AboutUs.php"
+                                                style="color:black; text-decoration: none;">About Us</a></p>
+                                        <p style="text-align:left;color:black;"><a href="../Homepage/homepage.php"
+                                                style="color:black; text-decoration: none;" data-toggle="modal" data-target="#contactModal">Contact</a></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p style="text-align:left;color:black;"><a href="../Homepage/homepage.php"
+                                                style="color:black; text-decoration: none;" id="contactTab" data-toggle="modal"
+                                                data-target="#loginModal">Login</a></p>
+                                        <p style="text-align:left;color:black;"><a href="../Homepage/homepage.php"
+                                                style="color:black; text-decoration: none;" id="contactTab" data-toggle="modal"
+                                data-target="#registrationModal">Registration</a></p>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                       <div class="col footer-social">
+                        <a href="#"><i class="fab fa-facebook-f px-2 blackiconcolor"></i></a> 
+                        <a href="#"><i class="fab fa-twitter px-2"></i></a> 
+                        <a href="#"><i class="fab fa-google-plus-g px-2"></i></a> 
+                        <a href="#"><i class="fab fa-instagram px-2"></i></a> 
+                        <a href="#"><i class="fab fa-pinterest px-2"></i></a>
+                    </div>
+                   </div>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>

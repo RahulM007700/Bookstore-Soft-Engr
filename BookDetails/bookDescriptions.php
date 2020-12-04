@@ -224,35 +224,71 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
     <body>
         <!--nav bar-->
         <div class="container-fluid">
-          <nav class="navbar navbar-expand navbar-light">
-              <a class="navbar-brand" href="#"><img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo4.jpg" height="50"></a>
-              <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item px-4"><a href="#" class="nav-link py-4">Textbooks</a></li>
-                  <li class="nav-item px-4"><a href="#" class="nav-link py-4">Adults</a></li>
-                  <li class="nav-item px-4"><a href="#" class="nav-link py-4">Teens</a></li>
-                  <li class="nav-item px-4"><a href="#" class="nav-link py-4">Kids</a></li>
-                    <div class="dropdown">
-                    <li class="nav-item px-4"><a href="#" class="nav-link py-4">
-      
-                      <!--Trigger-->
-                     
-                      <a class="btn-floating btn-lg black dropdown-toggle"type="button" id="dropdownMenu3" data-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="false" data-target="#navItem"><i class="fas fa-user fa-2x" style="color:grey;"></i></a>              
-                      <!--Menu-->
-                      <div class="dropdown-menu dropdown-primary" id="navItem">
-                        <a class="dropdown-item" href="#" id="login" data-toggle="modal" data-target="#loginModal">Login/Sign Up</a>
-                        <a class="dropdown-item" href="#">Edit Profile</a>
-                        <a class="dropdown-item" href="#">Order History</a>
-                      </div>
-                      </a></li>
-                    </div>
-                  <li class="nav-item px-4"><a href="#" class="nav-link py-4"><i class="fas fa-shopping-cart"></i></a></li>
-                </ul>     
+    <nav class="navbar navbar-expand navbar-light">
+        <a class="navbar-brand" href="#"><img src="BooksRUs_Logo.png" height="80"></a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <!--<li class="nav-item px-4"><a href="#" class="nav-link py-4">Textbooks</a></li>
+            <li class="nav-item px-4"><a href="#" class="nav-link py-4">Adults</a></li>-->
+            <div class="btn-group dropdown">
+               <li class="nav-item px-4 mt-0"><a href="#" class="nav-link py-4"><a style="color:rgba(0,0,0,.5);top:-24px;" href="#" class="dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-target="#cat">Categories</a>            
+                  <div class="dropdown-menu dropdown-primary" id="cat">
+                    <a class="dropdown-item" href="#" id="biography"><input type="hidden">Biography</a>
+                    <a class="dropdown-item" href="#" id="sciencefiction"><input type="hidden">Science-Fiction</a>
+                    <a class="dropdown-item" href="#" id="nonfiction"><input type="hidden">Non-Fiction</a>
+                    <a class="dropdown-item" href="#" id="poetry"><input type="hidden">Poetry</a>
+                    <a class="dropdown-item" href="#" id="drama"><input type="hidden">Drama</a>
+                  </div>
+                 </a>
+               </li>
+            </div>
+                  
+            <li class="nav-item px-4"><a href="#" class="nav-link py-4">About Us</a></li>
+            <li class="nav-item px-4"><a href="#" class="nav-link py-4">Contact</a></li>
+
+              <div class="dropdown">
+              <li class="nav-item px-4"><a href="#" class="nav-link py-4">
+
+                <!--Trigger-->
+               
+                <a class="btn-floating btn-lg black dropdown-toggle"type="button" id="dropdownMenu3" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" data-target="#navItem"><i class="fas fa-user fa-2x" style="color:grey;"></i></a>              
+                <!--Menu-->
+                <div class="dropdown-menu dropdown-primary" id="navItem">
+                <?php
+                    //session_start();
+                    if (isset($_SESSION['Email'])){
+                      echo '
+                              <a class="dropdown-item" href="./LogUserOut.php" id="logout" style="color: black">Logout</a>
+                            
+                            
+                              <a class="dropdown-item"
+                                href="../EditProfile/edit_profile.php"
+                                style="color: black"
+                                >Edit Profile</a
+                              >
+                            
+                            
+                              <a class="dropdown-item"
+                                href="../OrderHistory/order-history.html"
+                                style="color: black"
+                                >Order History</a
+                              >
+                            ';
+                    }
+                    else {
+                      echo '<a class="dropdown-item" href="#" id="login" data-toggle="modal" data-target="#loginModal">Login/Sign Up</a>';
+                    }
+                  ?>
+                </div>
+                </a></li>
               </div>
-          </nav>
+            <li class="nav-item px-4"><a href="../Shopping Cart/shoppingCartRetrieval.php" class="nav-link py-4"><i class="fas fa-shopping-cart"></i></a></li>
+          </ul>     
         </div>
-        <!--nav bar end-->
+    </nav>
+  </div>
+  <!--nav bar end-->
         
         <div class="container" style="margin-top:50px;">
             <div class="row justify-content-around">
@@ -265,7 +301,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                                 $_SESSION['Cover'] = $_SESSION['Books'][$i]['Cover'];
                                 echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['Books'][$i]['Cover'] ).'" alt="top1" class="top1" height="500"/>';
                                 echo '</div>';
-                                echo '<div class="col-7" style="padding-left:30px;padding-top:10px;background-color:#faf0e6;">';
+                                echo '<div class="col-7" style="padding-left:30px;padding-top:10px;border: 5px solid #faf0e6;">';
                                 echo '<div class="row">';
                                 echo '<h1 id="title">';
                                 echo $_SESSION['Books'][$i]['Book_Name'];
@@ -277,9 +313,12 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                                 echo '</p>';
                                 echo '</div>';
                                 echo '<div class="row">';
-                                echo '<p id="rating">Rating</p>';
+                                echo '<p class="stars">&#9733&#9733&#9733&#9733&#9733 4.7 out of 5 (123)</p>';
                                 echo '</div>';
                                 echo '<hr>';
+                                echo '<div class="row">';
+                                echo '<strong>Digital Book</strong>';
+                                echo '</div>';
                                 echo '<div class="row">';
                                 echo '<h6 id="ISBN">ISBN:';
                                 echo $_SESSION['Books'][$i]['ISBN'];
@@ -296,7 +335,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                                 echo $_SESSION['Books'][$i]['Description'];
                                 echo '</p>';
                                 echo '</div>';
-                                echo '<div class="row" style="float:left;padding-left:0px;">';
+                                echo '<div class="row mb-4" style="width:100%;">';
                                 echo '<div class="col-12 justify-content-center">';
                                 echo '<form method="POST" action="../Shopping%20Cart/updateCart.php">';
                                 echo '<input type="hidden" name="Name" value="';
@@ -312,8 +351,8 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                                 echo $_SESSION['Books'][$i]['Asking_Price'];
                                 echo '">';
                                 echo '<label for="quantity">Quantity:</label>';
-                                echo '<input type="number" id="quantity" name="quantity" step="1" style="width:25%;">';
-                                echo '<input type="submit" name="actions" value="Add to Cart" style="width:30%;"></input><!--does this need to be input instead?-->';
+                                echo '<input type="number" id="quantity" name="quantity" step="1" min="1" max="10" style="width:15%;">';
+                                echo '<input type="submit" name="actions" class="btn btn-light border" value="Add to Cart" style="width:40%;"></input><!--does this need to be input instead?-->';
                                 echo '</form>';
                                 echo '</div>';
                                 echo '</div>';
@@ -322,8 +361,66 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                     ?>    
                 </div>
             </div>
-            
         </div>
+        <footer style="background-color:#F8F8F8;">
+        <div class="footer-top" style="text-align:left;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 mt-5 footer-about" style="visibility: visible;">
+                        <p>
+                            We are a young online bookstore company always looking for new and creative ways for you to enhance your book collection.
+                        </p>
+                        <p>© Books-R-Us Inc.</p>
+                    </div>
+                    <div class="col-md-4 mt-5 offset-md-1 footer-contact" style="visibility: visible;">
+                        <p><i class="fas fa-map-marker-alt"></i> University of Georgia, Athens, GA 30602</p>
+                        <p><i class="fas fa-phone"></i> Phone: (123) 456 7890</p>
+                        <p><i class="fas fa-envelope"></i> Email: <a href="onlinebookstoreTC8@gmail.com" style="color:black; text-decoration: none;">onlinebookstoreTC8@gmail.com</a></p>
+                    </div>
+                    <div class="col-md-4 mt-5 footer-links" style="visibility: visible; left:80px;">
+                        <!--<div class="row">
+                            <div class="col">
+                                <h3>Links</h3>
+                            </div>
+                        </div>-->
+                        
+
+
+                        <div class="row">
+                                    <div class="col-md-6">
+                                        <p style="text-align:left;color:black;"><a class="scroll-link" href="../Homepage/homepage.php"
+                                                style="color:black; text-decoration: none;">Home</a></p>
+                                        <p style="text-align:left;color:black;"><a href="../Homepage/AboutUs.php"
+                                                style="color:black; text-decoration: none;">About Us</a></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p style="text-align:left;color:black;"><a href="../Homepage/homepage.php"
+                                                style="color:black; text-decoration: none;" id="contactTab" data-toggle="modal"
+                                                data-target="#contactModal>Login</a></p>
+                                        <p style="text-align:left;color:black;"><a href="../Homepage/homepage.php"
+                                                style="color:black; text-decoration: none;" id="contactTab" data-toggle="modal"
+                                data-target="#contactModal">Registration</a></p>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                       <div class="col footer-social">
+                        <a href="#"><i class="fab fa-facebook-f px-2 blackiconcolor"></i></a> 
+                        <a href="#"><i class="fab fa-twitter px-2"></i></a> 
+                        <a href="#"><i class="fab fa-google-plus-g px-2"></i></a> 
+                        <a href="#"><i class="fab fa-instagram px-2"></i></a> 
+                        <a href="#"><i class="fab fa-pinterest px-2"></i></a>
+                    </div>
+                   </div>
+            </div>
+        </div>
+    </footer>
+
         
     </body>
 </html>
