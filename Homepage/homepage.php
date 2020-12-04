@@ -614,7 +614,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
             </div>
             <div class="md-form mb-5">
               <label class="required" data-error="wrong" data-success="right" for="email">Email Address</label>
-              <input name='email' type="email" id="email" class="form-control validate" placeholder="Enter email address" required/>
+              <input name="email" type="email" id="email" class="form-control validate" placeholder="Enter email address" required/>
             </div>
             <div class="md-form mb-5">
               <label class="required" data-error="wrong" data-success="right" for="psw">Password</label>
