@@ -602,19 +602,19 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
           <div class="modal-body mx-3">
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="defaultForm-email">First Name</label>
-              <input name='fname' type="text" id="defaultForm-email" class="form-control validate" required/>
+              <input name='fname' type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter first name" required/>
             </div>
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="lastName">Last Name</label>
-              <input name='lname' type="text" id="lastName" class="form-control validate" required/>
+              <input name='lname' type="text" id="lastName" class="form-control validate" placeholder="Enter last name" required/>
             </div>
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="email">Email Address</label>
-              <input name='email' type="email" id="email" class="form-control validate" required/>
+              <input name='email' type="email" id="email" class="form-control validate" placeholder="Enter email address required/>
             </div>
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="psw">Password</label>
-              <input name='psw' type="password" id="psw" class="form-control validate" required/>
+              <input name='psw' type="password" id="psw" class="form-control validate" placeholder="Enter password" required/>
             </div>
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="phone">Phone Number</label>
@@ -623,17 +623,17 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
             
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="street">Street Address</label>
-              <input name='street' type="text" id="street" class="form-control validate" required/>
+              <input name='street' type="text" id="street" class="form-control validate" placeholder="Enter street address" required/>
             </div>
             
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="city">City</label>
-              <input name='city' type="text" id="city" class="form-control validate" required/>
+              <input name='city' type="text" id="city" class="form-control validate" placeholder="Enter city" required/>
             </div>
             
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="zip">Zip Code</label>
-              <input name='zip'type="text" id="zip" class="form-control validate" pattern="[0-9]{5}" required/>
+              <input name='zip'type="text" id="zip" class="form-control validate" pattern="[0-9]{5}" placeholder="Enter zip code" required/>
             </div>
             
             <div class="md-form mb-5">
@@ -707,17 +707,17 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
             
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="cardnum">Card Number</label>
-              <input name='cardnum' type="text" id="cardnum" class="form-control validate" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" inputmode="numeric" required/>
+              <input name='cardnum' type="text" id="cardnum" class="form-control validate" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="Enter card number" inputmode="numeric" required/>
             </div>
             
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="cvv">CVV</label>
-              <input name='cvv' type="text" id="cvv" class="form-control validate" pattern="[0-9]{3}" required/>
+              <input name='cvv' type="text" id="cvv" class="form-control validate" pattern="[0-9]{3}" placeholder="Enter CVV" required/>
             </div>
             
             <div class="md-form mb-4">
               <label data-error="wrong" data-success="right" for="expdate">Exp Date</label>
-              <input name='expdate' type="month" id="expdate" class="form-control validate" required/>
+              <input name='expdate' type="month" id="expdate" class="form-control validate" placeholder="Enter exp date" required/>
             </div>
           </div>
           <div class="modal-footer d-flex justify-content-center">
