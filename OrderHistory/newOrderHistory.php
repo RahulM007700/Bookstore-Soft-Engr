@@ -408,7 +408,42 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
             </div>
         </div>
     </footer>
-<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form method="post" action="LoginUser.php">
+          <div class="modal-body mx-3">
+            <div class="md-form mb-5">
+              <i class="fas fa-envelope prefix grey-text"></i>
+              <label data-error="wrong" data-success="right" for="email-login">Your email</label>
+              <input type="email" id="email-login" name="email-login" class="form-control validate" required/>
+            </div>
+    
+            <div class="md-form mb-4">
+              <i class="fas fa-lock prefix grey-text"></i>
+              <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
+              <input type="password" id="defaultForm-pass" name="psw" class="form-control validate" required/>
+            </div>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-default" type="submit">Login</button>
+            <br>
+          </div>
+          <p>If you are not a registered user, sign up <a href="#" data-toggle="modal" data-target="#registrationModal" data-dismiss="modal">here.</a></p>
+          <br>
+          <p>Forgot your password? Click <a href="#" data-toggle="modal" data-target="#resetPWModal" data-dismiss="modal">here.</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+	<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center">
@@ -440,4 +475,170 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
             </div>
         </div>
     </div>
+  
+  <div class="modal fade" id="resetPWModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Reset Password</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form>
+          <div class="modal-body mx-3">
+            <div class="md-form mb-5">
+              <i class="fas fa-envelope prefix grey-text"></i>
+              <label data-error="wrong" data-success="right" for="email-login">Please enter the email address associated with your account.</label>
+              <input type="email" placeholder="Enter Email Address" name="email-reset" id="email-reset" class="form-control validate" required/>
+            </div>
+          <div class="modal-footer d-flex justify-content-center">
+              <button type="submit" class="btn btn-default" id="resetbtn" onclick="sendEmail();">Reset Password</button>
+            <br>
+          </div>
+        </form>
+        </div>
+      </div>
+   </div>
+   </div>
+  
+  <div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Register</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="RegisterNewUser.php" method="POST" id="regform">
+          <div class="modal-body mx-3">
+            <div class="md-form mb-5">
+              <label class="required" data-error="wrong" data-success="right" for="defaultForm-email">First Name</label>
+              <input name='fname' type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter first name" required/>
+            </div>
+            <div class="md-form mb-5">
+              <label class="required" data-error="wrong" data-success="right" for="lastName">Last Name</label>
+              <input name='lname' type="text" id="lastName" class="form-control validate" placeholder="Enter last name" required/>
+            </div>
+            <div class="md-form mb-5">
+              <label class="required" data-error="wrong" data-success="right" for="email">Email Address</label>
+              <input name='email' type="email" id="email" class="form-control validate" placeholder="Enter email address required"/>
+            </div>
+            <div class="md-form mb-5">
+              <label class="required" data-error="wrong" data-success="right" for="psw">Password</label>
+              <input name='psw' type="password" id="psw" class="form-control validate" placeholder="Enter password" required/>
+            </div>
+            <div class="md-form mb-5">
+              <label class="required" data-error="wrong" data-success="right" for="phone">Phone Number</label>
+              <input name='phone' type="tel" class="form-control validate" type="tel" placeholder="Enter Phone Number as 123-456-7890" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/>
+            </div>
+            
+            <div class="md-form mb-5">
+              <label data-error="wrong" data-success="right" for="street">Street Address</label>
+              <input name='street' type="text" id="street" class="form-control validate" placeholder="Enter street address" required/>
+            </div>
+            
+            <div class="md-form mb-5">
+              <label data-error="wrong" data-success="right" for="city">City</label>
+              <input name='city' type="text" id="city" class="form-control validate" placeholder="Enter city" required/>
+            </div>
+            
+            <div class="md-form mb-5">
+              <label data-error="wrong" data-success="right" for="zip">Zip Code</label>
+              <input name='zip'type="text" id="zip" class="form-control validate" pattern="[0-9]{5}" placeholder="Enter zip code" required/>
+            </div>
+            
+            <div class="md-form mb-5">
+              <label data-error="wrong" data-success="right" for="street">State</label>
+              <select name="state" id="state" style="width: 100%">
+                <option value="" selected="selected"></option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District Of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+              </select>
+            </div>
+    
+            <div class="md-form mb-5">
+              <label data-error="wrong" data-success="right" for="cardtype">Card Type</label>
+              <select name="cardtype" id="cardtype" style="width: 100%">
+                <option value="" selected="selected"></option>
+                <option value="visa">Visa</option>
+                <option value="discover">Discover</option>
+                <option value="americanexpress">American Express</option>
+                <option value="mastercard">Mastercard</option>
+              </select>
+            </div>
+            
+            <div class="md-form mb-5">
+              <label data-error="wrong" data-success="right" for="cardnum">Card Number</label>
+              <input name='cardnum' type="text" id="cardnum" class="form-control validate" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="Enter card number" inputmode="numeric" required/>
+            </div>
+            
+            <div class="md-form mb-5">
+              <label data-error="wrong" data-success="right" for="cvv">CVV</label>
+              <input name='cvv' type="text" id="cvv" class="form-control validate" pattern="[0-9]{3}" placeholder="Enter CVV" required/>
+            </div>
+            
+            <div class="md-form mb-4">
+              <label data-error="wrong" data-success="right" for="expdate">Exp Date</label>
+              <input name='expdate' type="month" id="expdate" class="form-control validate" placeholder="Enter exp date" required/>
+            </div>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-default" type="submit">Register</button>
+            <br>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </html>
