@@ -289,7 +289,7 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
             </div>
                   
             <li class="nav-item px-4"><a href="#" class="nav-link py-4">About Us</a></li>
-            <li class="nav-item px-4"><a href="#" class="nav-link py-4">Contact</a></li>
+            <li class="nav-item px-4"><a href="#" class="nav-link py-4" data-target="#contactModal">Contact</a></li>
 
               <div class="dropdown">
               <li class="nav-item px-4"><a href="#" class="nav-link py-4">
@@ -566,6 +566,39 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
       </div>
     </div>
   </div>
+
+	<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Contact Us</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body mx-3">
+                        <p style="text-align:center">Send us an email if you have any questions or concerns here</p>
+                        <div class="md-form mb-5">
+                            <i class="fas fa-envelope prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="email-login">Your email</label>
+                            <input type="email" id="email-login" class="form-control validate" required />
+                        </div>
+
+                        <div class="md-form mb-4">
+                            <i class="fas fa-lock prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="defaultForm-pass">Your Message</label>
+                            <textarea rows="4" cols="10" type="message" id="email-login" class="form-control validate"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button class="btn btn-default" type="submit">Submit</button>
+                        <br>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
   
   <div class="modal fade" id="resetPWModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -773,10 +806,10 @@ font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
                                     <div class="col-md-6">
                                         <p style="text-align:left;color:black;"><a href="../Homepage/homepage.php"
                                                 style="color:black; text-decoration: none;" id="contactTab" data-toggle="modal"
-                                                data-target="#contactModal>Login</a></p>
+                                                data-target="#loginModal">Login</a></p>
                                         <p style="text-align:left;color:black;"><a href="../Homepage/homepage.php"
                                                 style="color:black; text-decoration: none;" id="contactTab" data-toggle="modal"
-                                data-target="#contactModal">Registration</a></p>
+                                data-target="#registrationModal">Registration</a></p>
                                     </div>
                                 </div>
                     </div>
