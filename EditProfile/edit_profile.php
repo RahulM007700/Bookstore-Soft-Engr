@@ -301,20 +301,20 @@
                   <div class="dropdown-menu dropdown-primary" id="navItem">
                     <a
                       class="dropdown-item"
-                      href="#"
-                      id="login"
+                      href="../Homepage/LogUserOut.php"
+                      id="logout"
                       data-toggle="modal"
                       data-target="#loginModal"
-                      >Login/Sign Up</a
+                      >Log Out</a
                     >
                     <a class="dropdown-item" href="#">Edit Profile</a>
-                    <a class="dropdown-item" href="#">Order History</a>
+                    <a class="dropdown-item" href="../OrderHistory/newOrderHistory.php">Order History</a>
                   </div>
                 </a>
               </li>
             </div>
             <li class="nav-item px-4">
-              <a href="#" class="nav-link py-4"
+              <a href="../Shopping Cart/shoppingCartRetrieval.php" class="nav-link py-4"
                 ><i class="fas fa-shopping-cart"></i
               ></a>
             </li>
@@ -357,7 +357,7 @@
             id="editProfileNavA"
             oncick="tabs(3)"
             class="tab"
-            href="../Homepage/homepage.html"
+            href="../Homepage/homepage.php"
           >
             <image src="../home_icon.svg" width="50" height="50"></image>
           </a>

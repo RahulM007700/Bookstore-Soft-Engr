@@ -50,6 +50,11 @@
         $("#footer").load("../Footer/footer.html");
       });
     </script>
+    <script>
+      $(function () {
+        $("#navbar").load("../NavBar/navbar.html");
+      });
+    </script>
     <link
       href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
       rel="stylesheet"
@@ -79,68 +84,7 @@
   </style>
 
   <body>
-    <!--nav bar-->
-    <div class="container-fluid">
-      <nav class="navbar navbar-expand navbar-light">
-        <a class="navbar-brand" href="../Homepage/homepage.php"
-          ><img src="../BooksRUs_Logo.png" height="80px"
-        /></a>
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item px-4">
-              <a href="#" class="nav-link py-4">Textbooks</a>
-            </li>
-            <li class="nav-item px-4">
-              <a href="#" class="nav-link py-4">Adults</a>
-            </li>
-            <li class="nav-item px-4">
-              <a href="#" class="nav-link py-4">Teens</a>
-            </li>
-            <li class="nav-item px-4">
-              <a href="#" class="nav-link py-4">Kids</a>
-            </li>
-            <div class="dropdown">
-              <li class="nav-item px-4">
-                <a href="#" class="nav-link py-4">
-                  <!--Trigger-->
-
-                  <a
-                    class="btn-floating btn-lg black dropdown-toggle"
-                    type="button"
-                    id="dropdownMenu3"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    data-target="#navItem"
-                    ><i class="fas fa-user fa-2x" style="color: grey"></i
-                  ></a>
-                  <!--Menu-->
-                  <div class="dropdown-menu dropdown-primary" id="navItem">
-                    <a
-                      class="dropdown-item"
-                      href="#"
-                      id="login"
-                      data-toggle="modal"
-                      data-target="#loginModal"
-                      >Login/Sign Up</a
-                    >
-                    <a class="dropdown-item" href="#">Edit Profile</a>
-                    <a class="dropdown-item" href="#">Order History</a>
-                  </div>
-                </a>
-              </li>
-            </div>
-            <li class="nav-item px-4">
-              <a href="#" class="nav-link py-4"
-                ><i class="fas fa-shopping-cart"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-
-    <!--nav bar end-->
+    <div id="navbar"></div>
 
     <div
       class="container-fluid"
@@ -243,7 +187,12 @@
             <p class="bold_text">
               <b>Order Total</b> <t style="float: right"><b>$18.00</b></t>
             </p>
-            <button id="checkoutButton" type="button" style="text-align: right" class="btn btn-info btn-lg">
+            <button
+              id="checkoutButton"
+              type="button"
+              style="text-align: right"
+              class="btn btn-info btn-lg"
+            >
               Checkout
             </button>
           </div>
