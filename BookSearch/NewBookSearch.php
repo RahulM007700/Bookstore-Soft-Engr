@@ -57,7 +57,7 @@ session_start();
         <nav class="navbar navbar-expand navbar-light">
             <a class="navbar-brand" href="../Homepage/homepage.html">
                 <div class="logo-image">
-                    <img src="../book.png" width="0px" height=100% style="margin-right: 20px" /> <img src="BooksRUs_Logo.png" height=100%>
+                    <img src="../book.png" width="20px" height="20px" style="margin-right: 20px" /> <img src="BooksRUs_Logo.png" height=100%>
                 </div>
             </a>
             <div class="collapse navbar-collapse">
@@ -67,10 +67,6 @@ session_start();
                             <li class="nav-item px-4">
                                 <a href="#" class="nav-link py-4">
                                     Categories
-<<<<<<< HEAD
-                                    <!--Menu-->
-=======
->>>>>>> 626d1889bf6eeaea20fcafe1440a5be6a3613a54
                                 </a>
                             </li>
                             <div class="dropdown-content">
